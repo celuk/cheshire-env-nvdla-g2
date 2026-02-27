@@ -1,0 +1,844 @@
+
+/home/shc/projects/cheshire-env-nvdla/cheshire/sw/tests/axirt_budget_isolate.spm.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000010000000 <__base_spm>:
+// Minimal CRT0
+.global _start
+.align 4
+_start:
+    // Globally disable Machine and Supervisor interrupts
+    csrrc x0, mstatus, 10
+    10000000:	30057073          	csrci	mstatus,10
+
+    // Park SMP harts
+    csrr t0, mhartid
+    10000004:	f14022f3          	csrr	t0,mhartid
+    beqz t0, 2f
+    10000008:	00028563          	beqz	t0,10000012 <__base_spm+0x12>
+1:
+    wfi
+    1000000c:	10500073          	wfi
+    j 1b
+    10000010:	bff5                	j	1000000c <__base_spm+0xc>
+2:
+    // Init stack and global pointer iff linked as nonzero
+    mv t1, sp
+    10000012:	830a                	mv	t1,sp
+    la t0, __stack_pointer$
+    10000014:	00000293          	li	t0,0
+    beqz t0, 1f
+    10000018:	00028363          	beqz	t0,1000001e <__base_spm+0x1e>
+    mv sp, t0
+    1000001c:	8116                	mv	sp,t0
+1:  .option push
+    .option norelax
+    la t0, __global_pointer$
+    1000001e:	00000297          	auipc	t0,0x0
+    10000022:	56228293          	addi	t0,t0,1378 # 10000580 <__bss_end>
+    beqz t0, 1f
+    10000026:	00028363          	beqz	t0,1000002c <__base_spm+0x2c>
+    mv gp, t0
+    1000002a:	8196                	mv	gp,t0
+1:  .option pop
+
+    // Store existing stack, global, return pointers on new stack
+    addi sp, sp, -24
+    1000002c:	1121                	addi	sp,sp,-24
+    sd t1, 0(sp)
+    1000002e:	e01a                	sd	t1,0(sp)
+    sd gp, 8(sp)
+    10000030:	e40e                	sd	gp,8(sp)
+    sd ra, 16(sp)
+    10000032:	e806                	sd	ra,16(sp)
+
+    // Set trap vector
+    la t0, _trap_handler_wrap
+    10000034:	00000297          	auipc	t0,0x0
+    10000038:	10c28293          	addi	t0,t0,268 # 10000140 <_trap_handler_wrap>
+    csrrw x0, mtvec, t0
+    1000003c:	30529073          	csrw	mtvec,t0
+
+    // Zero the .bss section
+    la t0, __bss_start      // t0 = bss start address
+    10000040:	00018293          	mv	t0,gp
+    la t1, __bss_end        // t1 = bss end address
+    10000044:	00018313          	mv	t1,gp
+    sub t2, t1, t0          // t2 = #bytes to zero
+    10000048:	405303b3          	sub	t2,t1,t0
+    li a0, 0
+    1000004c:	4501                	li	a0,0
+
+000000001000004e <_zero_bss_loop>:
+
+_zero_bss_loop:
+    addi t4, t2, -32
+    1000004e:	fe038e93          	addi	t4,t2,-32
+    blez t2, _fp_init           // t2 <= 0? => No bss to zero
+    10000052:	02705863          	blez	t2,10000082 <_fp_init>
+    blt t4, x0, _zero_bss_rem   // t4 <  0? => Less than 4 words left
+    10000056:	020ec063          	bltz	t4,10000076 <_zero_bss_rem>
+    sd a0, 0(t0)
+    1000005a:	00a2b023          	sd	a0,0(t0)
+    sd a0, 8(t0)
+    1000005e:	00a2b423          	sd	a0,8(t0)
+    sd a0, 16(t0)
+    10000062:	00a2b823          	sd	a0,16(t0)
+    sd a0, 24(t0)
+    10000066:	00a2bc23          	sd	a0,24(t0)
+    addi t2, t2, -32
+    1000006a:	1381                	addi	t2,t2,-32
+    addi t0, t0, 32
+    1000006c:	02028293          	addi	t0,t0,32
+    bgt t2, x0, _zero_bss_loop  // Still more to go
+    10000070:	fc704fe3          	bgtz	t2,1000004e <_zero_bss_loop>
+    j _fp_init
+    10000074:	a039                	j	10000082 <_fp_init>
+
+0000000010000076 <_zero_bss_rem>:
+
+_zero_bss_rem:
+    sb a0, 0(t0)
+    10000076:	00a28023          	sb	a0,0(t0)
+    addi t2, t2, -1
+    1000007a:	13fd                	addi	t2,t2,-1
+    addi t0, t0, 1
+    1000007c:	0285                	addi	t0,t0,1
+    bgt t2, x0, _zero_bss_rem
+    1000007e:	fe704ce3          	bgtz	t2,10000076 <_zero_bss_rem>
+
+0000000010000082 <_fp_init>:
+
+_fp_init:
+    // Set FS state to "Initial", enabling FP instructions
+    li t1, 1
+    10000082:	4305                	li	t1,1
+    slli t1, t1, 13
+    10000084:	0336                	slli	t1,t1,0xd
+    csrs mstatus, t1
+    10000086:	30032073          	csrs	mstatus,t1
+
+    // Clear all 32 double FP registers
+    fcvt.d.l f0, x0
+    1000008a:	d2207053          	fcvt.d.l	ft0,zero
+    fmv.d f1, f0
+    1000008e:	220000d3          	fmv.d	ft1,ft0
+    fmv.d f2, f0
+    10000092:	22000153          	fmv.d	ft2,ft0
+    fmv.d f3, f0
+    10000096:	220001d3          	fmv.d	ft3,ft0
+    fmv.d f4, f0
+    1000009a:	22000253          	fmv.d	ft4,ft0
+    fmv.d f5, f0
+    1000009e:	220002d3          	fmv.d	ft5,ft0
+    fmv.d f6, f0
+    100000a2:	22000353          	fmv.d	ft6,ft0
+    fmv.d f7, f0
+    100000a6:	220003d3          	fmv.d	ft7,ft0
+    fmv.d f8, f0
+    100000aa:	22000453          	fmv.d	fs0,ft0
+    fmv.d f9, f0
+    100000ae:	220004d3          	fmv.d	fs1,ft0
+    fmv.d f10, f0
+    100000b2:	22000553          	fmv.d	fa0,ft0
+    fmv.d f11, f0
+    100000b6:	220005d3          	fmv.d	fa1,ft0
+    fmv.d f12, f0
+    100000ba:	22000653          	fmv.d	fa2,ft0
+    fmv.d f13, f0
+    100000be:	220006d3          	fmv.d	fa3,ft0
+    fmv.d f14, f0
+    100000c2:	22000753          	fmv.d	fa4,ft0
+    fmv.d f15, f0
+    100000c6:	220007d3          	fmv.d	fa5,ft0
+    fmv.d f16, f0
+    100000ca:	22000853          	fmv.d	fa6,ft0
+    fmv.d f17, f0
+    100000ce:	220008d3          	fmv.d	fa7,ft0
+    fmv.d f18, f0
+    100000d2:	22000953          	fmv.d	fs2,ft0
+    fmv.d f19, f0
+    100000d6:	220009d3          	fmv.d	fs3,ft0
+    fmv.d f20, f0
+    100000da:	22000a53          	fmv.d	fs4,ft0
+    fmv.d f21, f0
+    100000de:	22000ad3          	fmv.d	fs5,ft0
+    fmv.d f22, f0
+    100000e2:	22000b53          	fmv.d	fs6,ft0
+    fmv.d f23, f0
+    100000e6:	22000bd3          	fmv.d	fs7,ft0
+    fmv.d f24, f0
+    100000ea:	22000c53          	fmv.d	fs8,ft0
+    fmv.d f25, f0
+    100000ee:	22000cd3          	fmv.d	fs9,ft0
+    fmv.d f26, f0
+    100000f2:	22000d53          	fmv.d	fs10,ft0
+    fmv.d f27, f0
+    100000f6:	22000dd3          	fmv.d	fs11,ft0
+    fmv.d f28, f0
+    100000fa:	22000e53          	fmv.d	ft8,ft0
+    fmv.d f29, f0
+    100000fe:	22000ed3          	fmv.d	ft9,ft0
+    fmv.d f30, f0
+    10000102:	22000f53          	fmv.d	ft10,ft0
+    fmv.d f31, f0
+    10000106:	22000fd3          	fmv.d	ft11,ft0
+
+    // Set FS state to "Clean"
+    csrrc x0, mstatus, t1
+    1000010a:	30033073          	csrc	mstatus,t1
+
+    // Full fence, then jump to main
+    fence
+    1000010e:	0ff0000f          	fence
+    call main
+    10000112:	0dc000ef          	jal	100001ee <main>
+    10000116:	00000013          	nop
+    1000011a:	00000013          	nop
+    1000011e:	0001                	nop
+
+0000000010000120 <_exit>:
+// If main returns, we end up here
+.global _exit
+.align 4
+_exit:
+    // Restore the original context registers (sp last)
+    ld ra, 16(sp)
+    10000120:	60c2                	ld	ra,16(sp)
+    ld gp, 8(sp)
+    10000122:	61a2                	ld	gp,8(sp)
+    ld sp, 0(sp)
+    10000124:	6102                	ld	sp,0(sp)
+    // Save the return value to scratch register 2 and wait forever.
+    slli t0, a0, 1
+    10000126:	00151293          	slli	t0,a0,0x1
+    ori  t0, t0, 1
+    1000012a:	0012e293          	ori	t0,t0,1
+    la t1, __base_regs
+    1000012e:	f3000317          	auipc	t1,0xf3000
+    10000132:	ed230313          	addi	t1,t1,-302 # 3000000 <__base_regs>
+    sw t0, 8(t1)     // regs.SCRATCH[2]
+    10000136:	00532423          	sw	t0,8(t1)
+    // Hand over to whatever called us, passing return
+    ret
+    1000013a:	8082                	ret
+    1000013c:	00000013          	nop
+
+0000000010000140 <_trap_handler_wrap>:
+
+// This wraps the C trap handler to save the (integer-only) caller-save
+// registers and perform a proper machine-mode exception return.
+.align 4
+_trap_handler_wrap:
+    addi sp, sp, -128
+    10000140:	7119                	addi	sp,sp,-128
+    sd ra, 120(sp)
+    10000142:	fc86                	sd	ra,120(sp)
+    sd t0, 112(sp)
+    10000144:	f896                	sd	t0,112(sp)
+    sd t1, 104(sp)
+    10000146:	f49a                	sd	t1,104(sp)
+    sd t2, 96(sp)
+    10000148:	f09e                	sd	t2,96(sp)
+    sd a0, 88(sp)
+    1000014a:	ecaa                	sd	a0,88(sp)
+    sd a1, 80(sp)
+    1000014c:	e8ae                	sd	a1,80(sp)
+    sd a2, 72(sp)
+    1000014e:	e4b2                	sd	a2,72(sp)
+    sd a3, 64(sp)
+    10000150:	e0b6                	sd	a3,64(sp)
+    sd a4, 56(sp)
+    10000152:	fc3a                	sd	a4,56(sp)
+    sd a5, 48(sp)
+    10000154:	f83e                	sd	a5,48(sp)
+    sd a6, 40(sp)
+    10000156:	f442                	sd	a6,40(sp)
+    sd a7, 32(sp)
+    10000158:	f046                	sd	a7,32(sp)
+    sd t3, 24(sp)
+    1000015a:	ec72                	sd	t3,24(sp)
+    sd t4, 16(sp)
+    1000015c:	e876                	sd	t4,16(sp)
+    sd t5, 8(sp)
+    1000015e:	e47a                	sd	t5,8(sp)
+    sd t6, 0(sp)
+    10000160:	e07e                	sd	t6,0(sp)
+
+    jal trap_vector
+    10000162:	02e000ef          	jal	10000190 <trap_vector>
+
+    ld ra, 120(sp)
+    10000166:	70e6                	ld	ra,120(sp)
+    ld t0, 112(sp)
+    10000168:	72c6                	ld	t0,112(sp)
+    ld t1, 104(sp)
+    1000016a:	7326                	ld	t1,104(sp)
+    ld t2, 96(sp)
+    1000016c:	7386                	ld	t2,96(sp)
+    ld a0, 88(sp)
+    1000016e:	6566                	ld	a0,88(sp)
+    ld a1, 80(sp)
+    10000170:	65c6                	ld	a1,80(sp)
+    ld a2, 72(sp)
+    10000172:	6626                	ld	a2,72(sp)
+    ld a3, 64(sp)
+    10000174:	6686                	ld	a3,64(sp)
+    ld a4, 56(sp)
+    10000176:	7762                	ld	a4,56(sp)
+    ld a5, 48(sp)
+    10000178:	77c2                	ld	a5,48(sp)
+    ld a6, 40(sp)
+    1000017a:	7822                	ld	a6,40(sp)
+    ld a7, 32(sp)
+    1000017c:	7882                	ld	a7,32(sp)
+    ld t3, 24(sp)
+    1000017e:	6e62                	ld	t3,24(sp)
+    ld t4, 16(sp)
+    10000180:	6ec2                	ld	t4,16(sp)
+    ld t5, 8(sp)
+    10000182:	6f22                	ld	t5,8(sp)
+    ld t6, 0(sp)
+    10000184:	6f82                	ld	t6,0(sp)
+    addi sp, sp, 128
+    10000186:	6109                	addi	sp,sp,128
+    mret
+    10000188:	30200073          	mret
+    1000018c:	00000013          	nop
+
+0000000010000190 <trap_vector>:
+
+.global trap_vector
+.weak trap_vector
+.align 4
+trap_vector:
+    wfi
+    10000190:	10500073          	wfi
+    j trap_vector
+    10000194:	ffdff06f          	j	10000190 <trap_vector>
+    10000198:	0001                	nop
+
+000000001000019a <__axirt_set_region>:
+    *reg32(&__base_axirt, AXI_RT_LEN_LIMIT_0_REG_OFFSET + group_id * 4) = all_limit;
+}
+
+void __axirt_set_region(uint64_t start_addr, uint64_t end_addr, uint8_t region_id, uint8_t mgr_id) {
+
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_HIGH_0_REG_OFFSET +
+    1000019a:	00369713          	slli	a4,a3,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    1000019e:	060a                	slli	a2,a2,0x2
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100001a0:	0b470713          	addi	a4,a4,180
+    100001a4:	00c7083b          	addw	a6,a4,a2
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100001a8:	00369713          	slli	a4,a3,0x3
+    100001ac:	08470713          	addi	a4,a4,132
+static inline volatile uint8_t *reg8(void *base, int offs) {
+    return (volatile uint8_t *)((uint8_t *)base + offs);
+}
+
+static inline volatile uint32_t *reg32(void *base, int offs) {
+    return (volatile uint32_t *)((uint8_t *)base + offs);
+    100001b0:	f20c0797          	auipc	a5,0xf20c0
+    100001b4:	e5078793          	addi	a5,a5,-432 # 20c0000 <__base_axirt>
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    100001b8:	4205d893          	srai	a7,a1,0x20
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100001bc:	00c705bb          	addw	a1,a4,a2
+                              region_id * 4) = end_addr & 0xffffffff;
+
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_LOW_0_REG_OFFSET +
+    100001c0:	00369713          	slli	a4,a3,0x3
+    100001c4:	983e                	add	a6,a6,a5
+    100001c6:	02470713          	addi	a4,a4,36
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) =
+        start_addr & 0xffffffff;
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100001ca:	068e                	slli	a3,a3,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    100001cc:	01182023          	sw	a7,0(a6)
+    100001d0:	95be                	add	a1,a1,a5
+                              region_id * 4) = end_addr & 0xffffffff;
+    100001d2:	587d                	li	a6,-1
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_LOW_0_REG_OFFSET +
+    100001d4:	9f31                	addw	a4,a4,a2
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100001d6:	05468693          	addi	a3,a3,84
+                              region_id * 4) = end_addr & 0xffffffff;
+    100001da:	0105a023          	sw	a6,0(a1)
+    100001de:	973e                	add	a4,a4,a5
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100001e0:	9eb1                	addw	a3,a3,a2
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = start_addr >> 32;
+    100001e2:	9501                	srai	a0,a0,0x20
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) =
+    100001e4:	00072023          	sw	zero,0(a4)
+    100001e8:	96be                	add	a3,a3,a5
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = start_addr >> 32;
+    100001ea:	c288                	sw	a0,0(a3)
+}
+    100001ec:	8082                	ret
+
+00000000100001ee <main>:
+#define BIT(n) (1UL << (n))
+#define BIT_MASK(n) (BIT(n) - 1)
+
+// Check if a hardware feature is present from software
+static inline uint32_t chs_hw_feature_present(uint32_t bit) {
+    uint32_t features_bitmap = *reg32(&__base_regs, CHESHIRE_HW_FEATURES_REG_OFFSET);
+    100001ee:	f3000797          	auipc	a5,0xf3000
+    100001f2:	e1278793          	addi	a5,a5,-494 # 3000000 <__base_regs>
+    100001f6:	4bbc                	lw	a5,80(a5)
+    return (features_bitmap & BIT(bit)) != 0;
+    100001f8:	00a7d79b          	srliw	a5,a5,0xa
+#define DMA_ALLOCATED_PERIOD 0x10000000
+#define FRAGMENTATION_SIZE_BEATS 0 // Max fragmentation applied to bursts
+
+int main(void) {
+    // Immediately return an error if AXI_REALM or DMA are not present
+    CHECK_ASSERT(-1, chs_hw_feature_present(CHESHIRE_HW_FEATURES_AXIRT_BIT));
+    100001fc:	8b85                	andi	a5,a5,1
+    100001fe:	36078863          	beqz	a5,1000056e <main+0x380>
+    uint32_t features_bitmap = *reg32(&__base_regs, CHESHIRE_HW_FEATURES_REG_OFFSET);
+    10000202:	f3000797          	auipc	a5,0xf3000
+    10000206:	dfe78793          	addi	a5,a5,-514 # 3000000 <__base_regs>
+    1000020a:	4bbc                	lw	a5,80(a5)
+    return (features_bitmap & BIT(bit)) != 0;
+    1000020c:	0067d79b          	srliw	a5,a5,0x6
+    CHECK_ASSERT(-2, chs_hw_feature_present(CHESHIRE_HW_FEATURES_DMA_BIT));
+    10000210:	8b85                	andi	a5,a5,1
+    10000212:	34078c63          	beqz	a5,1000056a <main+0x37c>
+
+    // This test requires at least two subordinate regions
+    CHECK_ASSERT(-3, AXI_RT_PARAM_NUM_SUB >= 2);
+
+    // Get internal hart count
+    int num_int_harts = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET);
+    10000216:	f3000797          	auipc	a5,0xf3000
+int main(void) {
+    1000021a:	db010113          	addi	sp,sp,-592
+    int num_int_harts = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET);
+    1000021e:	dea78793          	addi	a5,a5,-534 # 3000000 <__base_regs>
+int main(void) {
+    10000222:	22913c23          	sd	s1,568(sp)
+    *reg8(&__base_axirtgrd, 0) = flags;
+    10000226:	469d                	li	a3,7
+    int num_int_harts = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET);
+    10000228:	47e4                	lw	s1,76(a5)
+    *reg32(&__base_axirt, AXI_RT_LEN_LIMIT_0_REG_OFFSET + group_id * 4) = all_limit;
+    1000022a:	f20c0717          	auipc	a4,0xf20c0
+    *reg8(&__base_axirtgrd, 0) = flags;
+    1000022e:	f20c2797          	auipc	a5,0xf20c2
+    10000232:	dcd78723          	sb	a3,-562(a5) # 20c1ffc <__base_axirtgrd>
+int main(void) {
+    10000236:	24113423          	sd	ra,584(sp)
+    1000023a:	24813023          	sd	s0,576(sp)
+    1000023e:	23213823          	sd	s2,560(sp)
+    10000242:	23313423          	sd	s3,552(sp)
+    *reg32(&__base_axirt, AXI_RT_LEN_LIMIT_0_REG_OFFSET + group_id * 4) = all_limit;
+    10000246:	dd670713          	addi	a4,a4,-554 # 20c0000 <__base_axirt>
+    1000024a:	f20c0797          	auipc	a5,0xf20c0
+    1000024e:	00072a23          	sw	zero,20(a4)
+    10000252:	db678793          	addi	a5,a5,-586 # 20c0000 <__base_axirt>
+    int num_int_harts = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET);
+    10000256:	2481                	sext.w	s1,s1
+    10000258:	0007ac23          	sw	zero,24(a5)
+    asm volatile("fence" ::: "memory");
+    1000025c:	0ff0000f          	fence
+    __axirt_set_len_limit_group(FRAGMENTATION_SIZE_BEATS, 0);
+    __axirt_set_len_limit_group(FRAGMENTATION_SIZE_BEATS, 1);
+    fence();
+
+    // Configure RT unit for all the CVA6 cores (adapt ID if needed).
+    for (int id = CVA6_BASE_MGR_ID; id < num_int_harts; id++) {
+    10000260:	f20c0417          	auipc	s0,0xf20c0
+    10000264:	da040413          	addi	s0,s0,-608 # 20c0000 <__base_axirt>
+    10000268:	0e905663          	blez	s1,10000354 <main+0x166>
+    1000026c:	f20c0417          	auipc	s0,0xf20c0
+    10000270:	d9440413          	addi	s0,s0,-620 # 20c0000 <__base_axirt>
+    10000274:	4681                	li	a3,0
+                              region_id * 4) = end_addr & 0xffffffff;
+    10000276:	557d                	li	a0,-1
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = start_addr >> 32;
+    10000278:	4805                	li	a6,1
+                              region_id * 4) = period;
+}
+
+void __axirt_set_budget(uint32_t budget, uint8_t region_id, uint8_t mgr_id) {
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+                              region_id * 4) = budget;
+    1000027a:	10000737          	lui	a4,0x10000
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    1000027e:	0ff6f793          	zext.b	a5,a3
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_HIGH_0_REG_OFFSET +
+    10000282:	00379613          	slli	a2,a5,0x3
+    10000286:	0b460613          	addi	a2,a2,180
+    return (volatile uint32_t *)((uint8_t *)base + offs);
+    1000028a:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000028c:	00379593          	slli	a1,a5,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    10000290:	00062023          	sw	zero,0(a2)
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000294:	08458593          	addi	a1,a1,132
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_LOW_0_REG_OFFSET +
+    10000298:	00379613          	slli	a2,a5,0x3
+    1000029c:	95a2                	add	a1,a1,s0
+    1000029e:	02460613          	addi	a2,a2,36
+                              region_id * 4) = end_addr & 0xffffffff;
+    100002a2:	c188                	sw	a0,0(a1)
+    100002a4:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100002a6:	00379593          	slli	a1,a5,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) =
+    100002aa:	00062023          	sw	zero,0(a2)
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100002ae:	05458593          	addi	a1,a1,84
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100002b2:	00379613          	slli	a2,a5,0x3
+    100002b6:	95a2                	add	a1,a1,s0
+    100002b8:	0b860613          	addi	a2,a2,184
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = start_addr >> 32;
+    100002bc:	0005a023          	sw	zero,0(a1)
+    100002c0:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100002c2:	00379593          	slli	a1,a5,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = end_addr >> 32;
+    100002c6:	c208                	sw	a0,0(a2)
+    *reg32(&__base_axirt, AXI_RT_END_ADDR_SUB_LOW_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100002c8:	08858593          	addi	a1,a1,136
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_LOW_0_REG_OFFSET +
+    100002cc:	00379613          	slli	a2,a5,0x3
+    100002d0:	95a2                	add	a1,a1,s0
+    100002d2:	02860613          	addi	a2,a2,40
+                              region_id * 4) = end_addr & 0xffffffff;
+    100002d6:	c188                	sw	a0,0(a1)
+    100002d8:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100002da:	00379593          	slli	a1,a5,0x3
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) =
+    100002de:	00062023          	sw	zero,0(a2)
+    *reg32(&__base_axirt, AXI_RT_START_ADDR_SUB_HIGH_0_REG_OFFSET +
+    100002e2:	05858593          	addi	a1,a1,88
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100002e6:	00379613          	slli	a2,a5,0x3
+    100002ea:	95a2                	add	a1,a1,s0
+    100002ec:	0e460613          	addi	a2,a2,228
+                              AXI_RT_PARAM_NUM_SUB * mgr_id * 4 + region_id * 4) = start_addr >> 32;
+    100002f0:	0105a023          	sw	a6,0(a1)
+    100002f4:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100002f6:	00379593          	slli	a1,a5,0x3
+                              region_id * 4) = budget;
+    100002fa:	c218                	sw	a4,0(a2)
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100002fc:	11458593          	addi	a1,a1,276
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000300:	00379613          	slli	a2,a5,0x3
+    10000304:	95a2                	add	a1,a1,s0
+    10000306:	0e860613          	addi	a2,a2,232
+                              region_id * 4) = budget;
+    1000030a:	c198                	sw	a4,0(a1)
+    1000030c:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000030e:	00379593          	slli	a1,a5,0x3
+                              region_id * 4) = budget;
+    10000312:	c218                	sw	a4,0(a2)
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000314:	11858593          	addi	a1,a1,280
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000318:	00379613          	slli	a2,a5,0x3
+    1000031c:	95a2                	add	a1,a1,s0
+    1000031e:	14460613          	addi	a2,a2,324
+                              region_id * 4) = budget;
+    10000322:	c198                	sw	a4,0(a1)
+    10000324:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000326:	00379593          	slli	a1,a5,0x3
+                              region_id * 4) = period;
+    1000032a:	c218                	sw	a4,0(a2)
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000032c:	17458593          	addi	a1,a1,372
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000330:	00379613          	slli	a2,a5,0x3
+    10000334:	95a2                	add	a1,a1,s0
+    10000336:	14860613          	addi	a2,a2,328
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000033a:	078e                	slli	a5,a5,0x3
+                              region_id * 4) = period;
+    1000033c:	c198                	sw	a4,0(a1)
+    1000033e:	9622                	add	a2,a2,s0
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000340:	17878793          	addi	a5,a5,376
+                              region_id * 4) = period;
+    10000344:	c218                	sw	a4,0(a2)
+    10000346:	97a2                	add	a5,a5,s0
+                              region_id * 4) = period;
+    10000348:	c398                	sw	a4,0(a5)
+    asm volatile("fence" ::: "memory");
+    1000034a:	0ff0000f          	fence
+    1000034e:	2685                	addiw	a3,a3,1
+    10000350:	f2d497e3          	bne	s1,a3,1000027e <main+0x90>
+        __axirt_set_period(CVA6_ALLOCATED_PERIOD, 1, id);
+        fence();
+    }
+
+    // Configure RT unit for the DMA
+    int chs_dma_id = CVA6_BASE_MGR_ID + num_int_harts + 1;
+    10000354:	0014891b          	addiw	s2,s1,1
+    __axirt_set_region(0, 0xffffffff, 0, chs_dma_id);
+    10000358:	59fd                	li	s3,-1
+    1000035a:	0ff97693          	zext.b	a3,s2
+    1000035e:	0209d593          	srli	a1,s3,0x20
+    10000362:	4601                	li	a2,0
+    10000364:	4501                	li	a0,0
+    10000366:	e436                	sd	a3,8(sp)
+    10000368:	e33ff0ef          	jal	1000019a <__axirt_set_region>
+    __axirt_set_region(0x100000000, 0xffffffffffffffff, 1, chs_dma_id);
+    1000036c:	66a2                	ld	a3,8(sp)
+    1000036e:	4605                	li	a2,1
+    10000370:	85ce                	mv	a1,s3
+    10000372:	02061513          	slli	a0,a2,0x20
+    10000376:	e432                	sd	a2,8(sp)
+    10000378:	e23ff0ef          	jal	1000019a <__axirt_set_region>
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000037c:	0ff97593          	zext.b	a1,s2
+    10000380:	00359693          	slli	a3,a1,0x3
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000384:	00359713          	slli	a4,a1,0x3
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000388:	0e468693          	addi	a3,a3,228
+                              region_id * 4) = budget;
+    1000038c:	40000793          	li	a5,1024
+    return (volatile uint32_t *)((uint8_t *)base + offs);
+    10000390:	96a2                	add	a3,a3,s0
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    10000392:	11470713          	addi	a4,a4,276 # 10000114 <_fp_init+0x92>
+                              region_id * 4) = budget;
+    10000396:	c29c                	sw	a5,0(a3)
+    10000398:	9722                	add	a4,a4,s0
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000039a:	00359693          	slli	a3,a1,0x3
+                              region_id * 4) = budget;
+    1000039e:	c31c                	sw	a5,0(a4)
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003a0:	0e868693          	addi	a3,a3,232
+    *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003a4:	00359713          	slli	a4,a1,0x3
+    100003a8:	96a2                	add	a3,a3,s0
+    100003aa:	11870713          	addi	a4,a4,280
+                              region_id * 4) = budget;
+    100003ae:	c29c                	sw	a5,0(a3)
+    100003b0:	9722                	add	a4,a4,s0
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003b2:	00359693          	slli	a3,a1,0x3
+                              region_id * 4) = budget;
+    100003b6:	c31c                	sw	a5,0(a4)
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003b8:	14468693          	addi	a3,a3,324
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003bc:	00359713          	slli	a4,a1,0x3
+                              region_id * 4) = period;
+    100003c0:	100007b7          	lui	a5,0x10000
+    100003c4:	96a2                	add	a3,a3,s0
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003c6:	17470713          	addi	a4,a4,372
+                              region_id * 4) = period;
+    100003ca:	c29c                	sw	a5,0(a3)
+    100003cc:	9722                	add	a4,a4,s0
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003ce:	00359693          	slli	a3,a1,0x3
+                              region_id * 4) = period;
+    100003d2:	c31c                	sw	a5,0(a4)
+    *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003d4:	14868693          	addi	a3,a3,328
+    *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    100003d8:	00359713          	slli	a4,a1,0x3
+    100003dc:	96a2                	add	a3,a3,s0
+    100003de:	17870713          	addi	a4,a4,376
+                              region_id * 4) = period;
+    100003e2:	c29c                	sw	a5,0(a3)
+    100003e4:	9722                	add	a4,a4,s0
+                              region_id * 4) = period;
+    100003e6:	c31c                	sw	a5,0(a4)
+    asm volatile("fence" ::: "memory");
+    100003e8:	0ff0000f          	fence
+    __axirt_set_period(DMA_ALLOCATED_PERIOD, 0, chs_dma_id);
+    __axirt_set_period(DMA_ALLOCATED_PERIOD, 1, chs_dma_id);
+    fence();
+
+    // Enable RT unit for all the cores
+    __axirt_enable(BIT_MASK(num_int_harts));
+    100003ec:	6622                	ld	a2,8(sp)
+}
+
+// config functions
+void __axirt_enable(uint32_t enable) {
+    *reg32(&__base_axirt, AXI_RT_RT_ENABLE_REG_OFFSET) = enable;
+    100003ee:	f20c0717          	auipc	a4,0xf20c0
+    100003f2:	c1270713          	addi	a4,a4,-1006 # 20c0000 <__base_axirt>
+    100003f6:	009614b3          	sll	s1,a2,s1
+    100003fa:	34fd                	addiw	s1,s1,-1
+    *reg32(&__base_axirt, AXI_RT_IMTU_ENABLE_REG_OFFSET) = enable;
+    100003fc:	f20c0797          	auipc	a5,0xf20c0
+    *reg32(&__base_axirt, AXI_RT_RT_ENABLE_REG_OFFSET) = enable;
+    10000400:	c744                	sw	s1,12(a4)
+    *reg32(&__base_axirt, AXI_RT_IMTU_ENABLE_REG_OFFSET) = enable;
+    10000402:	c0478793          	addi	a5,a5,-1020 # 20c0000 <__base_axirt>
+    10000406:	cfc4                	sw	s1,28(a5)
+
+    // Enable RT unit for the DMA
+    __axirt_enable(BIT(chs_dma_id));
+    10000408:	01261633          	sll	a2,a2,s2
+    *reg32(&__base_axirt, AXI_RT_RT_ENABLE_REG_OFFSET) = enable;
+    1000040c:	f20c0797          	auipc	a5,0xf20c0
+    10000410:	2601                	sext.w	a2,a2
+    10000412:	bf478793          	addi	a5,a5,-1036 # 20c0000 <__base_axirt>
+    10000416:	c7d0                	sw	a2,12(a5)
+    *reg32(&__base_axirt, AXI_RT_IMTU_ENABLE_REG_OFFSET) = enable;
+    10000418:	f20c0797          	auipc	a5,0xf20c0
+    1000041c:	be878793          	addi	a5,a5,-1048 # 20c0000 <__base_axirt>
+    10000420:	cfd0                	sw	a2,28(a5)
+    10000422:	0ff0000f          	fence
+    10000426:	fcaff7b7          	lui	a5,0xfcaff
+    fence();
+
+    // Initialize src region and golden values
+    for (int i = 0; i < DMA_NUM_BEATS; i++) dma_src[i] = 0xcafedeadbaadf00dULL + i;
+    1000042a:	fcaff6b7          	lui	a3,0xfcaff
+    1000042e:	deb78793          	addi	a5,a5,-533 # fffffffffcafedeb <__base_dram+0xffffffff7cafedeb>
+    10000432:	deb68693          	addi	a3,a3,-533 # fffffffffcafedeb <__base_dram+0xffffffff7cafedeb>
+    10000436:	07b2                	slli	a5,a5,0xc
+    10000438:	06b2                	slli	a3,a3,0xc
+    1000043a:	d4048637          	lui	a2,0xd4048
+    1000043e:	dbb78793          	addi	a5,a5,-581
+    10000442:	dbb68693          	addi	a3,a3,-581
+    10000446:	54960613          	addi	a2,a2,1353 # ffffffffd4048549 <__base_dram+0xffffffff54048549>
+    1000044a:	2e908737          	lui	a4,0x2e908
+    1000044e:	07b2                	slli	a5,a5,0xc
+    10000450:	06b2                	slli	a3,a3,0xc
+    10000452:	f9870713          	addi	a4,a4,-104 # 2e907f98 <__bss_end+0x1e907a18>
+    10000456:	1606                	slli	a2,a2,0x21
+    10000458:	adf78793          	addi	a5,a5,-1313
+    1000045c:	adf68693          	addi	a3,a3,-1313
+    10000460:	963a                	add	a2,a2,a4
+    10000462:	07b2                	slli	a5,a5,0xc
+    10000464:	1218                	addi	a4,sp,288
+    10000466:	06b2                	slli	a3,a3,0xc
+    10000468:	963a                	add	a2,a2,a4
+    1000046a:	07b5                	addi	a5,a5,13
+    1000046c:	02d68693          	addi	a3,a3,45
+    10000470:	00379713          	slli	a4,a5,0x3
+    10000474:	9732                	add	a4,a4,a2
+    10000476:	e31c                	sd	a5,0(a4)
+    10000478:	0785                	addi	a5,a5,1
+    1000047a:	fed79be3          	bne	a5,a3,10000470 <main+0x282>
+    1000047e:	0ff0000f          	fence
+
+    // Wait for writes, then launch blocking DMA transfer
+    fence();
+    sys_dma_2d_blk_memcpy((uintptr_t)(void *)dma_dst, (uintptr_t)(void *)dma_src,
+    10000482:	04000637          	lui	a2,0x4000
+    10000486:	1218                	addi	a4,sp,288
+\
+    inline uint64_t NAME##_dma_get_status(void) { \
+        return *(NAME##_dma_status_ptr()); \
+    }
+
+X(sys, &__base_dma)
+    10000488:	f1000797          	auipc	a5,0xf1000
+    1000048c:	00c706b3          	add	a3,a4,a2
+    10000490:	b7878793          	addi	a5,a5,-1160 # 1000000 <__base_dma>
+    10000494:	f1000717          	auipc	a4,0xf1000
+    10000498:	1008                	addi	a0,sp,32
+    1000049a:	eff4                	sd	a3,216(a5)
+    1000049c:	b6c70713          	addi	a4,a4,-1172 # 1000000 <__base_dma>
+    100004a0:	962a                	add	a2,a2,a0
+    100004a2:	f1000797          	auipc	a5,0xf1000
+    100004a6:	eb70                	sd	a2,208(a4)
+    100004a8:	b5e78793          	addi	a5,a5,-1186 # 1000000 <__base_dma>
+    100004ac:	10000713          	li	a4,256
+    100004b0:	f3f8                	sd	a4,224(a5)
+    100004b2:	40300693          	li	a3,1027
+    100004b6:	f1000717          	auipc	a4,0xf1000
+    100004ba:	f1000797          	auipc	a5,0xf1000
+    100004be:	b4d73523          	sd	a3,-1206(a4) # 1000000 <__base_dma>
+    100004c2:	b4678793          	addi	a5,a5,-1210 # 1000000 <__base_dma>
+    100004c6:	0e07b823          	sd	zero,240(a5)
+    100004ca:	f1000797          	auipc	a5,0xf1000
+    100004ce:	b3678793          	addi	a5,a5,-1226 # 1000000 <__base_dma>
+    100004d2:	f1000717          	auipc	a4,0xf1000
+    100004d6:	0e07b423          	sd	zero,232(a5)
+    100004da:	b2e70713          	addi	a4,a4,-1234 # 1000000 <__base_dma>
+    100004de:	46a1                	li	a3,8
+    100004e0:	f1000797          	auipc	a5,0xf1000
+    100004e4:	ff74                	sd	a3,248(a4)
+    100004e6:	b2078793          	addi	a5,a5,-1248 # 1000000 <__base_dma>
+    100004ea:	43f4                	lw	a3,68(a5)
+    100004ec:	47b8                	lw	a4,72(a5)
+    100004ee:	f1000797          	auipc	a5,0xf1000
+    100004f2:	1682                	slli	a3,a3,0x20
+    100004f4:	9281                	srli	a3,a3,0x20
+    100004f6:	1702                	slli	a4,a4,0x20
+    100004f8:	8f55                	or	a4,a4,a3
+    100004fa:	b1278793          	addi	a5,a5,-1262 # 1000000 <__base_dma>
+    100004fe:	ec3a                	sd	a4,24(sp)
+    10000500:	a031                	j	1000050c <main+0x31e>
+    10000502:	0001                	nop
+    10000504:	f1000797          	auipc	a5,0xf1000
+    10000508:	afc78793          	addi	a5,a5,-1284 # 1000000 <__base_dma>
+    1000050c:	0847a703          	lw	a4,132(a5)
+    10000510:	0887a783          	lw	a5,136(a5)
+    10000514:	66e2                	ld	a3,24(sp)
+    10000516:	1702                	slli	a4,a4,0x20
+    10000518:	9301                	srli	a4,a4,0x20
+    1000051a:	1782                	slli	a5,a5,0x20
+    1000051c:	8fd9                	or	a5,a5,a4
+    1000051e:	fed792e3          	bne	a5,a3,10000502 <main+0x314>
+}
+
+// check isolation
+uint8_t __axirt_poll_isolate(uint8_t mgr_id) {
+    // TODO: Add some timeout to not wait forever
+    while (*reg32(&__base_axirt, AXI_RT_ISOLATED_REG_OFFSET) >> mgr_id != 1)
+    10000522:	4705                	li	a4,1
+    10000524:	f20c0797          	auipc	a5,0xf20c0
+    10000528:	adc78793          	addi	a5,a5,-1316 # 20c0000 <__base_axirt>
+    1000052c:	2687a783          	lw	a5,616(a5)
+    10000530:	00b7d7bb          	srlw	a5,a5,a1
+    10000534:	fee798e3          	bne	a5,a4,10000524 <main+0x336>
+	;
+    return *reg32(&__base_axirt, AXI_RT_ISOLATED_REG_OFFSET) >> mgr_id;
+    10000538:	f20c0797          	auipc	a5,0xf20c0
+    1000053c:	ac878793          	addi	a5,a5,-1336 # 20c0000 <__base_axirt>
+    10000540:	2687a503          	lw	a0,616(a5)
+    // exceeded. Should return 1 if dma is isolated.
+    int isolate_status = __axirt_poll_isolate(chs_dma_id);
+
+    // Return 0 if manager was correctly isolated
+    return !isolate_status;
+}
+    10000544:	24813083          	ld	ra,584(sp)
+    10000548:	24013403          	ld	s0,576(sp)
+    1000054c:	00b5553b          	srlw	a0,a0,a1
+    return !isolate_status;
+    10000550:	0ff57513          	zext.b	a0,a0
+}
+    10000554:	23813483          	ld	s1,568(sp)
+    10000558:	23013903          	ld	s2,560(sp)
+    1000055c:	22813983          	ld	s3,552(sp)
+    return !isolate_status;
+    10000560:	00153513          	seqz	a0,a0
+}
+    10000564:	25010113          	addi	sp,sp,592
+    10000568:	8082                	ret
+    CHECK_ASSERT(-2, chs_hw_feature_present(CHESHIRE_HW_FEATURES_DMA_BIT));
+    1000056a:	5579                	li	a0,-2
+}
+    1000056c:	8082                	ret
+    CHECK_ASSERT(-1, chs_hw_feature_present(CHESHIRE_HW_FEATURES_AXIRT_BIT));
+    1000056e:	557d                	li	a0,-1
+    10000570:	8082                	ret
