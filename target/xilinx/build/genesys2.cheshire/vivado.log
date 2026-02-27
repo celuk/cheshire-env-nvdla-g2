@@ -2,16 +2,18 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Feb 27 08:27:21 2026
-# Process ID: 20928
-# Current directory: C:/cheshire/target/xilinx/build/genesys2.cheshire
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17344 C:\cheshire\target\xilinx\build\genesys2.cheshire\cheshire.xpr
-# Log file: C:/cheshire/target/xilinx/build/genesys2.cheshire/vivado.log
-# Journal file: C:/cheshire/target/xilinx/build/genesys2.cheshire\vivado.jou
+# Start of session at: Fri Feb 27 16:15:45 2026
+# Process ID: 2096
+# Current directory: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11184 C:\Users\2640084\Desktop\ubuntu\shared\projects\cheshire-env-nvdla-g2\target\xilinx\build\genesys2.cheshire\cheshire.xpr
+# Log file: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/vivado.log
+# Journal file: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire\vivado.jou
 # Running On: ECIT01684, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 12, Host memory: 34033 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/cheshire/target/xilinx/build/genesys2.cheshire/cheshire.xpr
+open_project C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire'
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
@@ -21,15 +23,15 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 avail
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/cheshire/target/xilinx/build/genesys2.cheshire/cheshire.gen/sources_1'.
+INFO: [Project 1-313] Project file moved from '/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire' since last save.
+WARNING: [filemgmt 56-2] Board Part Repository Path: Could not find the directory 'C:/Users/2640084/Desktop/ubuntu/temp/vivado-boards-master/new/board_files/genesys2/H', nor could it be found using path 'C:/home/shc/temp/vivado-boards-master/new/board_files/genesys2/H'.
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-WARNING: [Board 49-151] The current board 'digilentinc.com::genesys2:1.1' is from a local repo. The vivado install has a corresponding board with version greater than or equal to the local repo board. Please use boards from vivado install to avoid any upgrade/migrate issues
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1836.234 ; gain = 424.918
-update_compile_order -fileset sources_1
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:12 . Memory (MB): peak = 1841.266 ; gain = 431.055
 open_hw_manager
 connect_hw_server -allow_non_jtag
 INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
@@ -64,18 +66,25 @@ INFO: [Labtools 27-2221] Launch Output:
 
 open_hw_target
 INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/200300BEA48EB
-set_property PROGRAM.FILE {C:/cheshire/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit} [get_hw_devices xc7k325t_0]
+set_property PROBES.FILE {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.ltx} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.ltx} [get_hw_devices xc7k325t_0]
 current_hw_device [get_hw_devices xc7k325t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k325t_0] 0]
-INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
-set_property PROGRAM.FILE {C:/cheshire/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit} [get_hw_devices xc7k325t_0]
-program_hw_devices [get_hw_devices xc7k325t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-program_hw_devices: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4188.344 ; gain = 0.000
 refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
 INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/200300BEA48EB
-exit
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 27 08:42:20 2026...
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+WARNING: [Labtools 27-3413] Dropping logic core with cellname:'i_ila' at location 'uuid_DAEC836B8D8A5314AE5F29AE6D3164AB' from probes file, since it cannot be found on the programmed device.
+WARNING: [Labtools 27-3413] Dropping logic core with cellname:'i_vio' at location 'uuid_E8B4D73FCEC453CD840E6FA695F289F9' from probes file, since it cannot be found on the programmed device.
+update_compile_order -fileset sources_1
+set_property PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k325t_0]
+set_property PROGRAM.FILE {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit} [get_hw_devices xc7k325t_0]
+program_hw_devices [get_hw_devices xc7k325t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4215.684 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7k325t_0] 0]
+INFO: [Labtools 27-1434] Device xc7k325t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
