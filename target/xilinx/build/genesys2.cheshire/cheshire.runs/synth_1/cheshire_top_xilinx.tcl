@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-4047997-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-326680-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -425,6 +425,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/serial_link-f294893581e52e0f/src/regs/serial_link_single_channel_reg_top.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/shift_reg.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/shift_reg_gated.sv
+  /home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/simpleuart.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_cmd_pkg.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_byte_merge.sv
@@ -465,6 +466,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_sram_xilinx.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/tlb.sv
+  /home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/uart_programmer.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/unread.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_axi_adapter.sv
   /home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_cache_subsystem.sv

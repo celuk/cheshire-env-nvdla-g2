@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772147251">
+<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772188603">
   <File Type="VDS-TIMINGSUMMARY" Name="cheshire_top_xilinx_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="cheshire_top_xilinx.dcp"/>
   <File Type="RDS-UTIL-PB" Name="cheshire_top_xilinx_utilization_synth.pb"/>
@@ -4365,6 +4365,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../../../cheshire-env-nvdla/rtl/src/simpleuart.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_cmd_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -4639,6 +4646,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/tlb.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../../cheshire-env-nvdla/rtl/src/uart_programmer.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -5578,7 +5592,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/tc_sram_fpga_wrapper.sv">
+    <File Path="$PPRDIR/../../../../../cheshire-env-nvdla/rtl/src/tc_sram.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -5819,22 +5833,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/unbent-cf54ac50d68a2fae/src/obi_err_unit_wrap.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../../cheshire-env-nvdla/rtl/src/simpleuart.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../../cheshire-env-nvdla/rtl/src/uart_programmer.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

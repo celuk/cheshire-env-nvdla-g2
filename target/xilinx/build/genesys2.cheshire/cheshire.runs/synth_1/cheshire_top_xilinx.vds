@@ -2,13 +2,13 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Feb 27 02:07:33 2026
-# Process ID: 4049330
+# Start of session at: Fri Feb 27 13:36:44 2026
+# Process ID: 327445
 # Current directory: /home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1
 # Command line: vivado -log cheshire_top_xilinx.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cheshire_top_xilinx.tcl
 # Log file: /home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/cheshire_top_xilinx.vds
 # Journal file: /home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/vivado.jou
-# Running On: karpuz, OS: Linux, CPU Frequency: 800.170 MHz, CPU Physical cores: 12, Host memory: 67154 MB
+# Running On: karpuz, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 12, Host memory: 67154 MB
 #-----------------------------------------------------------
 source cheshire_top_xilinx.tcl -notrace
 Command: synth_design -top cheshire_top_xilinx -part xc7k325tffg900-2
@@ -19,7 +19,7 @@ INFO: [Common 17-86] Your Synthesis license expires in 23 day(s)
 INFO: [Device 21-403] Loading part xc7k325tffg900-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4049434
+INFO: [Synth 8-7075] Helper process launched with PID 327508
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 WARNING: [Synth 8-11067] parameter 'BurstWidth' declared inside package 'axi_pkg' shall be treated as localparam [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_pkg.sv:25]
 WARNING: [Synth 8-11067] parameter 'RespWidth' declared inside package 'axi_pkg' shall be treated as localparam [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_pkg.sv:27]
@@ -131,6 +131,9 @@ WARNING: [Synth 8-11065] parameter 'NR_BYPASS_PORTS' becomes localparam in 'miss
 WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'TARGET_SYNTHESIS' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:4]
 WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'SYNTHESIS' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:17]
 WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'TARGET_GENESYS2' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:27]
+WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'TARGET_SYNTHESIS' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:4]
+WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'SYNTHESIS' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:17]
+WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'TARGET_GENESYS2' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/header.vh:27]
 INFO: [Synth 8-11241] undeclared symbol 'nvdla_core2cvsram_aw_awvalid', assumed default net type 'wire' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_nvdla.v:326]
 INFO: [Synth 8-11241] undeclared symbol 'nvdla_core2cvsram_w_wvalid', assumed default net type 'wire' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_nvdla.v:327]
 INFO: [Synth 8-11241] undeclared symbol 'nvdla_core2cvsram_w_wlast', assumed default net type 'wire' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_nvdla.v:328]
@@ -140,16 +143,21 @@ INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [
 INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFQD1.v:22]
 INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFSNQD1.v:24]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2597.680 ; gain = 465.801 ; free physical = 9403 ; free virtual = 19507
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1940.140; parent = 1764.056; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3602.609; parent = 2621.496; children = 981.113
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2598.125 ; gain = 468.801 ; free physical = 10145 ; free virtual = 29940
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2008.407; parent = 1808.378; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3603.059; parent = 2621.941; children = 981.117
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'cheshire_top_xilinx' [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:16]
 INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
 	Parameter IBUF_LOW_PWR bound to: FALSE - type: string 
 INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (0#1) [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
-INFO: [Synth 8-6157] synthesizing module 'clkwiz' [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-4049330-karpuz/realtime/clkwiz_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-4049330-karpuz/realtime/clkwiz_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clkwiz' [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-327445-karpuz/realtime/clkwiz_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-327445-karpuz/realtime/clkwiz_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'uart_programmer' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/uart_programmer.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'simpleuart' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/simpleuart.sv:20]
+	Parameter DEFAULT_DIV bound to: 434 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'simpleuart' (0#1) [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/simpleuart.sv:20]
+INFO: [Synth 8-6155] done synthesizing module 'uart_programmer' (0#1) [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/uart_programmer.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'rstgen' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen.sv:13]
 INFO: [Synth 8-6157] synthesizing module 'rstgen_bypass' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen_bypass.sv:15]
 INFO: [Synth 8-6157] synthesizing module 'tc_clk_mux2' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv:60]
@@ -281,8 +289,9 @@ INFO: [Synth 8-226] default block is never used [/home/shc/projects/chs-nv/chesh
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_id_remap.sv:332]
 INFO: [Synth 8-6155] done synthesizing module 'axi_id_remap' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_id_remap.sv:32]
 INFO: [Synth 8-6155] done synthesizing module 'axi_iw_converter' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_iw_converter.sv:44]
-INFO: [Synth 8-6157] synthesizing module 'mig7s' [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-4049330-karpuz/realtime/mig7s_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mig7s' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-4049330-karpuz/realtime/mig7s_stub.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/dram_wrapper_xilinx.sv:244]
+INFO: [Synth 8-6157] synthesizing module 'mig7s' [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-327445-karpuz/realtime/mig7s_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mig7s' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-327445-karpuz/realtime/mig7s_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'dram_wrapper_xilinx' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/dram_wrapper_xilinx.sv:14]
 INFO: [Synth 8-6157] synthesizing module 'cheshire_soc' [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/cheshire_soc.sv:11]
 	Parameter Cfg[Cva6RASDepth] bound to: 16'b0000000000000010 
@@ -799,13 +808,11 @@ INFO: [Synth 8-6157] synthesizing module 'axi_demux' [/home/shc/projects/chs-nv/
 	Parameter SpillAr bound to: 1'b0 
 	Parameter SpillR bound to: 1'b0 
 INFO: [Synth 8-6157] synthesizing module 'spill_register__parameterized9' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv:17]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter Bypass bound to: 1'b1 
-INFO: [Synth 8-6157] synthesizing module 'spill_register_flushable__parameterized9' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv:18]
 	Parameter Bypass bound to: 1'b1 
 INFO: [Synth 8-6155] done synthesizing module 'spill_register_flushable__parameterized9' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv:18]
 INFO: [Synth 8-6155] done synthesizing module 'spill_register__parameterized9' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv:17]
-INFO: [Synth 8-6157] synthesizing module 'spill_register__parameterized10' [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv:17]
-INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 	Parameter Bypass bound to: 1'b1 
 	Parameter Bypass bound to: 1'b1 
 INFO: [Synth 8-6155] done synthesizing module 'spill_register_flushable__parameterized10' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv:18]
@@ -814,11 +821,9 @@ INFO: [Synth 8-6155] done synthesizing module 'spill_register__parameterized10' 
 	Parameter Bypass bound to: 1'b1 
 INFO: [Synth 8-6155] done synthesizing module 'spill_register_flushable__parameterized11' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv:18]
 INFO: [Synth 8-6155] done synthesizing module 'spill_register__parameterized11' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv:17]
-	Parameter Bypass bound to: 1'b1 
-	Parameter Bypass bound to: 1'b1 
-INFO: [Synth 8-6155] done synthesizing module 'spill_register_flushable__parameterized12' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv:18]
-INFO: [Synth 8-6155] done synthesizing module 'spill_register__parameterized12' (0#1) [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv:17]
 INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter Bypass bound to: 1'b1 
+	Parameter Bypass bound to: 1'b1 
 	Parameter Bypass bound to: 1'b1 
 	Parameter Bypass bound to: 1'b1 
 	Parameter Bypass bound to: 1'b1 
@@ -2075,16 +2080,16 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 	Parameter CVA6Cfg[NonIdemPotenceEn] bound to: 1'b1 
 	Parameter CVA6Cfg[AxiBurstWriteEn] bound to: 1'b0 
 	Parameter RdTxId bound to: 4'b0000 
-	Parameter DATA_WIDTH bound to: 45 - type: integer 
-	Parameter NUM_WORDS bound to: 256 - type: integer 
-	Parameter NumWords bound to: 256 - type: integer 
-	Parameter DataWidth bound to: 45 - type: integer 
+	Parameter DATA_WIDTH bound to: 51 - type: integer 
+	Parameter NUM_WORDS bound to: 4 - type: integer 
+	Parameter NumWords bound to: 4 - type: integer 
+	Parameter DataWidth bound to: 51 - type: integer 
 	Parameter ByteWidth bound to: 8 - type: integer 
 	Parameter NumPorts bound to: 1 - type: integer 
 	Parameter Latency bound to: 1 - type: integer 
 	Parameter SimInit bound to: none - type: string 
 	Parameter PrintSimCfg bound to: 1'b0 
-	Parameter MEMORY_SIZE bound to: 12288 - type: integer 
+	Parameter MEMORY_SIZE bound to: 224 - type: integer 
 	Parameter MEMORY_PRIMITIVE bound to: auto - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter MEMORY_INIT_FILE bound to: none - type: string 
@@ -2094,10 +2099,10 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
 	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
 	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
-	Parameter WRITE_DATA_WIDTH_A bound to: 48 - type: integer 
-	Parameter READ_DATA_WIDTH_A bound to: 48 - type: integer 
+	Parameter WRITE_DATA_WIDTH_A bound to: 56 - type: integer 
+	Parameter READ_DATA_WIDTH_A bound to: 56 - type: integer 
 	Parameter BYTE_WRITE_WIDTH_A bound to: 8 - type: integer 
-	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 2 - type: integer 
 	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
 	Parameter READ_LATENCY_A bound to: 1 - type: integer 
 	Parameter WRITE_MODE_A bound to: no_change - type: string 
@@ -2106,15 +2111,15 @@ INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMO
 	Parameter DATA_WIDTH bound to: 128 - type: integer 
 	Parameter USER_WIDTH bound to: 128 - type: integer 
 	Parameter USER_EN bound to: 0 - type: integer 
-	Parameter NUM_WORDS bound to: 256 - type: integer 
-	Parameter NumWords bound to: 256 - type: integer 
+	Parameter NUM_WORDS bound to: 4 - type: integer 
+	Parameter NumWords bound to: 4 - type: integer 
 	Parameter DataWidth bound to: 128 - type: integer 
 	Parameter ByteWidth bound to: 8 - type: integer 
 	Parameter NumPorts bound to: 1 - type: integer 
 	Parameter Latency bound to: 1 - type: integer 
 	Parameter SimInit bound to: none - type: string 
 	Parameter PrintSimCfg bound to: 1'b0 
-	Parameter MEMORY_SIZE bound to: 32768 - type: integer 
+	Parameter MEMORY_SIZE bound to: 512 - type: integer 
 	Parameter MEMORY_PRIMITIVE bound to: auto - type: string 
 	Parameter ECC_MODE bound to: no_ecc - type: string 
 	Parameter MEMORY_INIT_FILE bound to: none - type: string 
@@ -2127,7 +2132,7 @@ INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMO
 	Parameter WRITE_DATA_WIDTH_A bound to: 128 - type: integer 
 	Parameter READ_DATA_WIDTH_A bound to: 128 - type: integer 
 	Parameter BYTE_WRITE_WIDTH_A bound to: 8 - type: integer 
-	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 2 - type: integer 
 	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
 	Parameter READ_LATENCY_A bound to: 1 - type: integer 
 	Parameter WRITE_MODE_A bound to: no_change - type: string 
@@ -2135,7 +2140,7 @@ INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instruct
 INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's.   [/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:495]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/cva6_icache.sv:215]
 	Parameter LfsrWidth bound to: 32'b00000000000000000000000000001000 
-	Parameter OutWidth bound to: 32'b00000000000000000000000000000010 
+	Parameter OutWidth bound to: 32'b00000000000000000000000000000001 
 	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000010 
 	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000000100000 
 	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
@@ -2685,8 +2690,6 @@ INFO: [Synth 8-226] default block is never used [/home/shc/projects/chs-nv/chesh
 	Parameter CVA6Cfg[AxiBurstWriteEn] bound to: 1'b0 
 	Parameter AmoTxId bound to: 4'b0001 
 	Parameter NumPorts bound to: 32'b00000000000000000000000000000100 
-	Parameter LfsrWidth bound to: 32'b00000000000000000000000000001000 
-	Parameter OutWidth bound to: 32'b00000000000000000000000000000011 
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_missunit.sv:97]
 	Parameter Seed bound to: 32'b00000000000000000000000000000011 
 	Parameter MaxExp bound to: 32'b00000000000000000000000000010000 
@@ -3069,36 +3072,10 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 	Parameter CVA6Cfg[NonIdemPotenceEn] bound to: 1'b1 
 	Parameter CVA6Cfg[AxiBurstWriteEn] bound to: 1'b0 
 	Parameter NumPorts bound to: 32'b00000000000000000000000000000100 
-	Parameter DATA_WIDTH bound to: 512 - type: integer 
-	Parameter USER_WIDTH bound to: 16 - type: integer 
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter USER_WIDTH bound to: 4 - type: integer 
 	Parameter USER_EN bound to: 0 - type: integer 
-	Parameter NUM_WORDS bound to: 256 - type: integer 
-	Parameter NumWords bound to: 256 - type: integer 
-	Parameter DataWidth bound to: 512 - type: integer 
-	Parameter ByteWidth bound to: 8 - type: integer 
-	Parameter NumPorts bound to: 1 - type: integer 
-	Parameter Latency bound to: 1 - type: integer 
-	Parameter SimInit bound to: none - type: string 
-	Parameter PrintSimCfg bound to: 1'b0 
-	Parameter MEMORY_SIZE bound to: 131072 - type: integer 
-	Parameter MEMORY_PRIMITIVE bound to: auto - type: string 
-	Parameter ECC_MODE bound to: no_ecc - type: string 
-	Parameter MEMORY_INIT_FILE bound to: none - type: string 
-	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
-	Parameter USE_MEM_INIT bound to: 1 - type: integer 
-	Parameter WAKEUP_TIME bound to: disable_sleep - type: string 
-	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
-	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
-	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
-	Parameter WRITE_DATA_WIDTH_A bound to: 512 - type: integer 
-	Parameter READ_DATA_WIDTH_A bound to: 512 - type: integer 
-	Parameter BYTE_WRITE_WIDTH_A bound to: 8 - type: integer 
-	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
-	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
-	Parameter READ_LATENCY_A bound to: 1 - type: integer 
-	Parameter WRITE_MODE_A bound to: no_change - type: string 
-INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value.   [/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:493]
-INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's.   [/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:495]
+	Parameter NUM_WORDS bound to: 4 - type: integer 
 	Parameter NumIn bound to: 32'b00000000000000000000000000000100 
 	Parameter DataWidth bound to: 32'b00000000000000000000000000000001 
 	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000010 
@@ -11960,12 +11937,12 @@ WARNING: [Synth 8-3848] Net gen_cva6_cores[0].regwriter_req[ar][region] in modul
 WARNING: [Synth 8-3848] Net gen_cva6_cores[0].regwriter_req[ar][user] in module/entity cheshire_soc does not have driver. [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/cheshire_soc.sv:605]
 WARNING: [Synth 8-3848] Net axi_out_rsp[3][b][user] in module/entity cheshire_soc does not have driver. [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/cheshire_soc.sv:226]
 WARNING: [Synth 8-3848] Net axi_out_rsp[3][r][user] in module/entity cheshire_soc does not have driver. [/home/shc/projects/chs-nv/cheshire-env-nvdla/rtl/src/cheshire_soc.sv:226]
-WARNING: [Synth 8-3848] Net i2c_sda_soc_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:226]
-WARNING: [Synth 8-3848] Net i2c_scl_soc_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:228]
-WARNING: [Synth 8-3848] Net spi_sd_sd_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:267]
-WARNING: [Synth 8-3848] Net spi_sd_spih_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:267]
-WARNING: [Synth 8-3848] Net usb_dm_i in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:411]
-WARNING: [Synth 8-3848] Net usb_dp_i in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:414]
+WARNING: [Synth 8-3848] Net i2c_sda_soc_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:249]
+WARNING: [Synth 8-3848] Net i2c_scl_soc_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:251]
+WARNING: [Synth 8-3848] Net spi_sd_sd_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:290]
+WARNING: [Synth 8-3848] Net spi_sd_spih_in in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:290]
+WARNING: [Synth 8-3848] Net usb_dm_i in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:434]
+WARNING: [Synth 8-3848] Net usb_dp_i in module/entity cheshire_top_xilinx does not have driver. [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/src/cheshire_top_xilinx.sv:437]
 WARNING: [Synth 8-7129] Port q[31] in module prim_subreg_arb is either unconnected or has no load
 WARNING: [Synth 8-7129] Port q[30] in module prim_subreg_arb is either unconnected or has no load
 WARNING: [Synth 8-7129] Port q[29] in module prim_subreg_arb is either unconnected or has no load
@@ -12068,24 +12045,24 @@ WARNING: [Synth 8-7129] Port mst_resp_i[r][last] in module axi_lite_to_axi is ei
 WARNING: [Synth 8-7129] Port mst_resp_i[r][user][1] in module axi_lite_to_axi is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 4509.758 ; gain = 2377.879 ; free physical = 8175 ; free virtual = 18324
-Synthesis current peak Physical Memory [PSS] (MB): peak = 3474.981; parent = 3298.897; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5490.875; parent = 4509.762; children = 981.113
+Finished RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 4471.695 ; gain = 2342.371 ; free physical = 8606 ; free virtual = 28444
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3504.788; parent = 3304.759; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5452.816; parent = 4471.699; children = 981.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 4512.727 ; gain = 2380.848 ; free physical = 8148 ; free virtual = 18297
-Synthesis current peak Physical Memory [PSS] (MB): peak = 3474.981; parent = 3298.897; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5493.844; parent = 4512.730; children = 981.113
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 4474.664 ; gain = 2345.340 ; free physical = 8643 ; free virtual = 28482
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3504.788; parent = 3304.759; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5455.785; parent = 4474.668; children = 981.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 4512.727 ; gain = 2380.848 ; free physical = 8166 ; free virtual = 18315
-Synthesis current peak Physical Memory [PSS] (MB): peak = 3474.981; parent = 3298.897; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5493.844; parent = 4512.730; children = 981.113
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 4474.664 ; gain = 2345.340 ; free physical = 8672 ; free virtual = 28510
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3504.788; parent = 3304.759; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5455.785; parent = 4474.668; children = 981.117
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 4704.562 ; gain = 0.000 ; free physical = 7507 ; free virtual = 17656
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 4588.898 ; gain = 0.000 ; free physical = 7947 ; free virtual = 27786
 INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -12207,26 +12184,26 @@ Parsing XDC File [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/buil
 Finished Parsing XDC File [/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 5710.453 ; gain = 0.000 ; free physical = 6577 ; free virtual = 16727
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 5498.805 ; gain = 0.000 ; free physical = 7288 ; free virtual = 27128
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   BUFGMUX => BUFGCTRL (inverted pins: CE0): 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.7 ; elapsed = 00:00:00.69 . Memory (MB): peak = 5710.453 ; gain = 0.000 ; free physical = 6562 ; free virtual = 16776
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.7 ; elapsed = 00:00:00.71 . Memory (MB): peak = 5498.805 ; gain = 0.000 ; free physical = 7297 ; free virtual = 27136
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:28 ; elapsed = 00:01:17 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 8199 ; free virtual = 18351
-Synthesis current peak Physical Memory [PSS] (MB): peak = 4805.573; parent = 4629.495; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 6659.555; parent = 5678.441; children = 981.113
+Finished Constraint Validation : Time (s): cpu = 00:01:22 ; elapsed = 00:01:14 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 8811 ; free virtual = 28651
+Synthesis current peak Physical Memory [PSS] (MB): peak = 4794.430; parent = 4594.422; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 6476.926; parent = 5495.809; children = 981.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:28 ; elapsed = 00:01:17 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 8199 ; free virtual = 18351
-Synthesis current peak Physical Memory [PSS] (MB): peak = 4805.573; parent = 4629.495; children = 176.084
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 6671.477; parent = 5682.359; children = 989.117
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:22 ; elapsed = 00:01:14 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 8822 ; free virtual = 28662
+Synthesis current peak Physical Memory [PSS] (MB): peak = 4794.430; parent = 4594.422; children = 200.029
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 6476.926; parent = 5495.809; children = 989.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -12489,11 +12466,13 @@ Applied set_property KEEP_HIERARCHY = SOFT for i_dram_wrapper/\gen_cdc.i_axi_cdc
 Applied set_property KEEP_HIERARCHY = SOFT for i_dram_wrapper/i_dram. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_clkwiz. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:28 ; elapsed = 00:01:17 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 8198 ; free virtual = 18350
-Synthesis current peak Physical Memory [PSS] (MB): peak = 4805.573; parent = 4629.495; children = 200.628
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 6865.887; parent = 5682.359; children = 1183.527
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:22 ; elapsed = 00:01:14 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 8828 ; free virtual = 28668
+Synthesis current peak Physical Memory [PSS] (MB): peak = 4794.430; parent = 4594.422; children = 225.000
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 6654.242; parent = 5495.809; children = 1183.531
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_prog_reg' in module 'uart_programmer'
 INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'axi_id_remap'
+INFO: [Synth 8-802] inferred FSM for state register 'u_st_reg' in module 'dram_wrapper_xilinx'
 INFO: [Synth 8-802] inferred FSM for state register 'aw_state_q_reg' in module 'axi_riscv_amos'
 INFO: [Synth 8-802] inferred FSM for state register 'w_state_q_reg' in module 'axi_riscv_amos'
 INFO: [Synth 8-802] inferred FSM for state register 'b_state_q_reg' in module 'axi_riscv_amos'
@@ -12561,12 +12540,35 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'dmi
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
+            SequenceWait |                              000 |                             0000
+         SequenceReceive |                              001 |                             0001
+           SequenceCheck |                              010 |                             0011
+SequenceDramWriteLengthCalc |                              011 |                             1010
+SequenceDramWriteAddrCalc |                              100 |                             1011
+SequenceDramWriteProgram |                              101 |                             1110
+ SequenceDramWriteFinish |                              110 |                             1100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_prog_reg' using encoding 'sequential' in module 'uart_programmer'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
                    Ready |                               00 |                               00
                   HoldAx |                               01 |                               11
                   HoldAR |                               10 |                               01
                   HoldAW |                               11 |                               10
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'axi_id_remap'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  U_IDLE |                           000010 |                              000
+                    U_AR |                           100000 |                              001
+                     U_R |                           010000 |                              010
+                    U_AW |                           001000 |                              011
+                     U_W |                           000100 |                              100
+                     U_B |                           000001 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'u_st_reg' using encoding 'one-hot' in module 'dram_wrapper_xilinx'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -13128,9 +13130,9 @@ INFO: [Synth 8-3354] encoded FSM with state register 'initiator_state_q_reg' usi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'dmi_jtag'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:21 ; elapsed = 00:02:18 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 2202 ; free virtual = 12423
-Synthesis current peak Physical Memory [PSS] (MB): peak = 9262.499; parent = 4629.495; children = 6324.089
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 16611.215; parent = 5682.359; children = 10932.773
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:14 ; elapsed = 00:02:13 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 2901 ; free virtual = 22791
+Synthesis current peak Physical Memory [PSS] (MB): peak = 9488.284; parent = 4594.422; children = 6365.404
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 16399.355; parent = 5495.809; children = 10932.562
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'NV_NVDLA_sync3d:/UJ_dft_xclamp_ctrl_hold_sync_i' (NV_BLKBOX_SRC0) to 'NV_NVDLA_sync3d:/UJ_dft_xclamp_scan_hold_sync_i'
 INFO: [Synth 8-223] decloning instance 'NV_NVDLA_sync3d_s:/UJ_dft_xclamp_ctrl_hold_sync_i' (NV_BLKBOX_SRC0) to 'NV_NVDLA_sync3d_s:/UJ_dft_xclamp_scan_hold_sync_i'
@@ -13258,7 +13260,7 @@ Detailed RTL Component Info :
 	   3 Input   33 Bit       Adders := 8     
 	   2 Input   33 Bit       Adders := 7     
 	   9 Input   33 Bit       Adders := 5     
-	   2 Input   32 Bit       Adders := 81    
+	   2 Input   32 Bit       Adders := 86    
 	   3 Input   32 Bit       Adders := 7     
 	   2 Input   31 Bit       Adders := 1     
 	   2 Input   30 Bit       Adders := 3     
@@ -13306,7 +13308,7 @@ Detailed RTL Component Info :
 	   3 Input    9 Bit       Adders := 23    
 	   5 Input    9 Bit       Adders := 1     
 	   4 Input    9 Bit       Adders := 5     
-	   2 Input    8 Bit       Adders := 111   
+	   2 Input    8 Bit       Adders := 109   
 	   3 Input    8 Bit       Adders := 13    
 	   4 Input    8 Bit       Adders := 13    
 	   3 Input    7 Bit       Adders := 6     
@@ -13318,7 +13320,7 @@ Detailed RTL Component Info :
 	   2 Input    5 Bit       Adders := 106   
 	   3 Input    5 Bit       Adders := 42    
 	   4 Input    5 Bit       Adders := 3     
-	   2 Input    4 Bit       Adders := 253   
+	   2 Input    4 Bit       Adders := 256   
 	   3 Input    4 Bit       Adders := 624   
 	   4 Input    4 Bit       Adders := 4     
 	   7 Input    4 Bit       Adders := 1     
@@ -13329,7 +13331,7 @@ Detailed RTL Component Info :
 	   5 Input    3 Bit       Adders := 4     
 	   6 Input    3 Bit       Adders := 1     
 	   8 Input    3 Bit       Adders := 1     
-	   2 Input    2 Bit       Adders := 356   
+	   2 Input    2 Bit       Adders := 359   
 	   4 Input    2 Bit       Adders := 1     
 	   3 Input    2 Bit       Adders := 2     
 	   5 Input    2 Bit       Adders := 2     
@@ -13353,7 +13355,6 @@ Detailed RTL Component Info :
 	                3 Bit    Wide XORs := 20    
 	                2 Bit    Wide XORs := 20    
 +---Registers : 
-	              512 Bit    Registers := 2     
 	              303 Bit    Registers := 1     
 	              272 Bit    Registers := 3     
 	              258 Bit    Registers := 2     
@@ -13368,25 +13369,26 @@ Detailed RTL Component Info :
 	               80 Bit    Registers := 2     
 	               76 Bit    Registers := 1     
 	               73 Bit    Registers := 2     
+	               72 Bit    Registers := 1     
 	               68 Bit    Registers := 2     
 	               66 Bit    Registers := 18    
 	               65 Bit    Registers := 70    
-	               64 Bit    Registers := 859   
+	               64 Bit    Registers := 860   
 	               63 Bit    Registers := 12    
 	               61 Bit    Registers := 7     
 	               58 Bit    Registers := 1     
 	               57 Bit    Registers := 2     
-	               56 Bit    Registers := 18    
+	               56 Bit    Registers := 22    
 	               54 Bit    Registers := 1     
 	               53 Bit    Registers := 10    
 	               52 Bit    Registers := 2     
-	               50 Bit    Registers := 27    
+	               50 Bit    Registers := 31    
 	               49 Bit    Registers := 2     
-	               48 Bit    Registers := 14    
+	               48 Bit    Registers := 2     
 	               47 Bit    Registers := 46    
 	               46 Bit    Registers := 3     
 	               45 Bit    Registers := 8     
-	               44 Bit    Registers := 78    
+	               44 Bit    Registers := 74    
 	               43 Bit    Registers := 17    
 	               42 Bit    Registers := 2     
 	               41 Bit    Registers := 23    
@@ -13397,7 +13399,7 @@ Detailed RTL Component Info :
 	               35 Bit    Registers := 8     
 	               34 Bit    Registers := 95    
 	               33 Bit    Registers := 98    
-	               32 Bit    Registers := 569   
+	               32 Bit    Registers := 579   
 	               31 Bit    Registers := 17    
 	               30 Bit    Registers := 5     
 	               29 Bit    Registers := 60    
@@ -13417,18 +13419,18 @@ Detailed RTL Component Info :
 	               15 Bit    Registers := 132   
 	               14 Bit    Registers := 124   
 	               13 Bit    Registers := 100   
-	               12 Bit    Registers := 28    
+	               12 Bit    Registers := 27    
 	               11 Bit    Registers := 264   
-	               10 Bit    Registers := 115   
+	               10 Bit    Registers := 116   
 	                9 Bit    Registers := 259   
-	                8 Bit    Registers := 1436  
+	                8 Bit    Registers := 1421  
 	                7 Bit    Registers := 159   
-	                6 Bit    Registers := 636   
+	                6 Bit    Registers := 637   
 	                5 Bit    Registers := 305   
-	                4 Bit    Registers := 2644  
-	                3 Bit    Registers := 1237  
-	                2 Bit    Registers := 2037  
-	                1 Bit    Registers := 15341 
+	                4 Bit    Registers := 2646  
+	                3 Bit    Registers := 1233  
+	                2 Bit    Registers := 2054  
+	                1 Bit    Registers := 15352 
 +---Multipliers : 
 	              65x65  Multipliers := 1     
 	              53x53  Multipliers := 1     
@@ -13436,10 +13438,7 @@ Detailed RTL Component Info :
 	              16x33  Multipliers := 3     
 +---RAMs : 
 	             128K Bit	(2048 X 64 bit)          RAMs := 8     
-	             128K Bit	(256 X 512 bit)          RAMs := 2     
-	              32K Bit	(256 X 128 bit)          RAMs := 4     
 	              16K Bit	(256 X 64 bit)          RAMs := 64    
-	              12K Bit	(256 X 48 bit)          RAMs := 12    
 	              10K Bit	(160 X 65 bit)          RAMs := 2     
 	               6K Bit	(256 X 24 bit)          RAMs := 8     
 	               5K Bit	(80 X 66 bit)          RAMs := 1     
@@ -13459,8 +13458,9 @@ Detailed RTL Component Info :
 	              768 Bit	(128 X 6 bit)          RAMs := 2     
 	              720 Bit	(80 X 9 bit)          RAMs := 1     
 	              528 Bit	(8 X 66 bit)          RAMs := 1     
+	              512 Bit	(4 X 128 bit)          RAMs := 4     
+	              224 Bit	(4 X 56 bit)          RAMs := 4     
 +---Muxes : 
-	   2 Input  512 Bit        Muxes := 94    
 	   2 Input  272 Bit        Muxes := 4     
 	   2 Input  258 Bit        Muxes := 1     
 	   2 Input  256 Bit        Muxes := 8     
@@ -13478,14 +13478,16 @@ Detailed RTL Component Info :
 	   2 Input   80 Bit        Muxes := 1     
 	   2 Input   76 Bit        Muxes := 2     
 	   2 Input   73 Bit        Muxes := 1     
+	   2 Input   72 Bit        Muxes := 2     
+	   7 Input   72 Bit        Muxes := 1     
 	   2 Input   68 Bit        Muxes := 1     
 	   2 Input   66 Bit        Muxes := 18    
 	   8 Input   65 Bit        Muxes := 9     
 	   2 Input   65 Bit        Muxes := 45    
 	   4 Input   65 Bit        Muxes := 4     
-	   2 Input   64 Bit        Muxes := 1793  
+	   2 Input   64 Bit        Muxes := 1779  
 	   3 Input   64 Bit        Muxes := 14    
-	   4 Input   64 Bit        Muxes := 64    
+	   4 Input   64 Bit        Muxes := 63    
 	  12 Input   64 Bit        Muxes := 1     
 	   6 Input   64 Bit        Muxes := 11    
 	  11 Input   64 Bit        Muxes := 2     
@@ -13504,8 +13506,8 @@ Detailed RTL Component Info :
 	   4 Input   57 Bit        Muxes := 2     
 	  17 Input   57 Bit        Muxes := 1     
 	   8 Input   57 Bit        Muxes := 1     
+	   2 Input   56 Bit        Muxes := 66    
 	   4 Input   56 Bit        Muxes := 14    
-	   2 Input   56 Bit        Muxes := 38    
 	   7 Input   56 Bit        Muxes := 2     
 	   2 Input   55 Bit        Muxes := 2     
 	   4 Input   54 Bit        Muxes := 1     
@@ -13517,15 +13519,13 @@ Detailed RTL Component Info :
 	   4 Input   52 Bit        Muxes := 4     
 	   3 Input   52 Bit        Muxes := 1     
 	   2 Input   51 Bit        Muxes := 3     
-	   2 Input   50 Bit        Muxes := 3     
-	   4 Input   50 Bit        Muxes := 1     
+	   2 Input   50 Bit        Muxes := 13    
+	   4 Input   50 Bit        Muxes := 2     
 	   2 Input   49 Bit        Muxes := 7     
-	   2 Input   48 Bit        Muxes := 72    
 	   2 Input   47 Bit        Muxes := 23    
 	   2 Input   45 Bit        Muxes := 3     
 	   4 Input   45 Bit        Muxes := 1     
-	   2 Input   44 Bit        Muxes := 272   
-	   4 Input   44 Bit        Muxes := 1     
+	   2 Input   44 Bit        Muxes := 260   
 	   7 Input   44 Bit        Muxes := 1     
 	   2 Input   43 Bit        Muxes := 8     
 	   2 Input   42 Bit        Muxes := 1     
@@ -13538,10 +13538,10 @@ Detailed RTL Component Info :
 	   3 Input   34 Bit        Muxes := 10    
 	   2 Input   33 Bit        Muxes := 41    
 	   3 Input   33 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 627   
-	   4 Input   32 Bit        Muxes := 14    
+	   2 Input   32 Bit        Muxes := 643   
+	   4 Input   32 Bit        Muxes := 13    
 	   6 Input   32 Bit        Muxes := 2     
-	   7 Input   32 Bit        Muxes := 2     
+	   7 Input   32 Bit        Muxes := 7     
 	   3 Input   32 Bit        Muxes := 17    
 	   8 Input   32 Bit        Muxes := 2     
 	   5 Input   32 Bit        Muxes := 4     
@@ -13589,13 +13589,13 @@ Detailed RTL Component Info :
 	   4 Input   14 Bit        Muxes := 9     
 	   5 Input   14 Bit        Muxes := 1     
 	   2 Input   13 Bit        Muxes := 85    
-	   2 Input   12 Bit        Muxes := 16    
 	   6 Input   12 Bit        Muxes := 2     
-	   4 Input   12 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 13    
+	   4 Input   12 Bit        Muxes := 1     
 	   2 Input   11 Bit        Muxes := 130   
 	   5 Input   11 Bit        Muxes := 6     
 	   4 Input   11 Bit        Muxes := 12    
-	   2 Input   10 Bit        Muxes := 312   
+	   2 Input   10 Bit        Muxes := 314   
 	   3 Input   10 Bit        Muxes := 2     
 	   4 Input   10 Bit        Muxes := 2     
 	   7 Input   10 Bit        Muxes := 1     
@@ -13604,9 +13604,9 @@ Detailed RTL Component Info :
 	   2 Input    9 Bit        Muxes := 242   
 	   5 Input    9 Bit        Muxes := 90    
 	   3 Input    9 Bit        Muxes := 1     
-	   2 Input    8 Bit        Muxes := 1245  
+	   2 Input    8 Bit        Muxes := 1195  
 	   3 Input    8 Bit        Muxes := 37    
-	   4 Input    8 Bit        Muxes := 69    
+	   4 Input    8 Bit        Muxes := 67    
 	   7 Input    8 Bit        Muxes := 2     
 	   8 Input    8 Bit        Muxes := 9     
 	  12 Input    8 Bit        Muxes := 1     
@@ -13627,9 +13627,9 @@ Detailed RTL Component Info :
 	  17 Input    7 Bit        Muxes := 1     
 	  14 Input    7 Bit        Muxes := 1     
 	   3 Input    7 Bit        Muxes := 2     
-	   2 Input    6 Bit        Muxes := 1376  
+	   2 Input    6 Bit        Muxes := 1380  
 	   3 Input    6 Bit        Muxes := 14    
-	   4 Input    6 Bit        Muxes := 12    
+	   4 Input    6 Bit        Muxes := 13    
 	  17 Input    6 Bit        Muxes := 1     
 	   8 Input    6 Bit        Muxes := 14    
 	   9 Input    6 Bit        Muxes := 11    
@@ -13650,29 +13650,30 @@ Detailed RTL Component Info :
 	   6 Input    5 Bit        Muxes := 5     
 	  22 Input    5 Bit        Muxes := 1     
 	   9 Input    4 Bit        Muxes := 36    
-	   2 Input    4 Bit        Muxes := 5426  
-	   4 Input    4 Bit        Muxes := 69    
+	   2 Input    4 Bit        Muxes := 5435  
+	   4 Input    4 Bit        Muxes := 70    
 	   8 Input    4 Bit        Muxes := 4     
 	   6 Input    4 Bit        Muxes := 5     
 	  12 Input    4 Bit        Muxes := 2     
 	   3 Input    4 Bit        Muxes := 19    
-	   7 Input    4 Bit        Muxes := 4     
-	   5 Input    3 Bit        Muxes := 60    
-	   2 Input    3 Bit        Muxes := 2304  
+	   7 Input    4 Bit        Muxes := 5     
+	   5 Input    3 Bit        Muxes := 58    
+	   2 Input    3 Bit        Muxes := 2305  
 	   4 Input    3 Bit        Muxes := 39    
 	   7 Input    3 Bit        Muxes := 14    
-	   8 Input    3 Bit        Muxes := 7     
 	  19 Input    3 Bit        Muxes := 2     
+	   8 Input    3 Bit        Muxes := 7     
 	  17 Input    3 Bit        Muxes := 1     
 	   3 Input    3 Bit        Muxes := 22    
 	   6 Input    3 Bit        Muxes := 15    
 	  34 Input    3 Bit        Muxes := 1     
 	  84 Input    3 Bit        Muxes := 1     
 	  20 Input    3 Bit        Muxes := 3     
-	   3 Input    2 Bit        Muxes := 219   
-	   2 Input    2 Bit        Muxes := 3026  
-	   7 Input    2 Bit        Muxes := 36    
-	   4 Input    2 Bit        Muxes := 93    
+	  11 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 215   
+	   2 Input    2 Bit        Muxes := 3064  
+	   7 Input    2 Bit        Muxes := 37    
+	   4 Input    2 Bit        Muxes := 95    
 	   6 Input    2 Bit        Muxes := 713   
 	   8 Input    2 Bit        Muxes := 5     
 	  12 Input    2 Bit        Muxes := 2     
@@ -13681,11 +13682,11 @@ Detailed RTL Component Info :
 	  34 Input    2 Bit        Muxes := 2     
 	  10 Input    2 Bit        Muxes := 1     
 	   9 Input    2 Bit        Muxes := 4     
-	   2 Input    1 Bit        Muxes := 31291 
+	   2 Input    1 Bit        Muxes := 31318 
 	   3 Input    1 Bit        Muxes := 465   
-	   4 Input    1 Bit        Muxes := 255   
-	   6 Input    1 Bit        Muxes := 1485  
-	   7 Input    1 Bit        Muxes := 131   
+	   4 Input    1 Bit        Muxes := 259   
+	   6 Input    1 Bit        Muxes := 1489  
+	   7 Input    1 Bit        Muxes := 142   
 	   9 Input    1 Bit        Muxes := 21    
 	   8 Input    1 Bit        Muxes := 115   
 	  12 Input    1 Bit        Muxes := 5     
@@ -14204,6 +14205,7 @@ INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instan
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3917] design axi_err_unit_wrap__parameterized0__GB0 has port out_req_o[0][addr][5] driven by constant 0
+WARNING: [Synth 8-3917] design axi_err_unit_wrap__parameterized0__GB1 has port reg_rsp_internal[0][ready] driven by constant 1
 INFO: [Synth 8-4471] merging register 'r_nv_ram_rws_256x7/mbist_en_flop/Q_reg' into 'r_nv_ram_rws_256x7/debug_mode_synchronizer/NV_GENERIC_CELL/d0_reg' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v:18]
 INFO: [Synth 8-4471] merging register 'r_nv_ram_rwst_256x8/mbist_en_flop/Q_reg' into 'r_nv_ram_rwst_256x8/debug_mode_synchronizer/NV_GENERIC_CELL/d0_reg' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v:18]
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM r_nv_ram_rws_256x7/ram_Inst_256X7/ITOP/mem_reg to conserve power
@@ -14256,7 +14258,6 @@ INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM r
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg to conserve power
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-4471] merging register 'u_lat_fifo/ram/r_nv_ram_rwsp_61x65/mbist_en_flop/Q_reg' into 'u_lat_fifo/ram/r_nv_ram_rwsp_61x65/debug_mode_synchronizer/NV_GENERIC_CELL/d0_reg' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v:18]
 INFO: [Synth 8-4471] merging register 'ram/r_nv_ram_rwsp_8x65/mbist_en_flop/Q_reg' into 'ram/r_nv_ram_rwsp_8x65/debug_mode_synchronizer/NV_GENERIC_CELL/d0_reg' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v:18]
 INFO: [Synth 8-4471] merging register 'ram/r_nv_ram_rwsp_128x6/mbist_en_flop/Q_reg' into 'ram/r_nv_ram_rwsp_128x6/debug_mode_synchronizer/NV_GENERIC_CELL/d0_reg' [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v:18]
@@ -14432,6 +14433,7 @@ DSP Report: Generating DSP h_bias_0_stride_w0, operation Mode is: A*B.
 DSP Report: operator h_bias_0_stride_w0 is absorbed into DSP h_bias_0_stride_w0.
 DSP Report: Generating DSP h_bias_0_w0, operation Mode is: A*B.
 DSP Report: operator h_bias_0_w0 is absorbed into DSP h_bias_0_w0.
+WARNING: [Synth 8-3917] design NV_NVDLA_partition_c__GC0 has port csb2csc_req_prdy driven by constant 1
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM u_brdma/u_cq/ram/r_nv_ram_rwsp_160x16/ram_Inst_160X16/ITOP/mem_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM u_nrdma/u_cq/ram/r_nv_ram_rwsp_160x16/ram_Inst_160X16/ITOP/mem_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM u_mrdma/u_cq/ram/r_nv_ram_rwsp_80x14/ram_Inst_80X14/ITOP/mem_reg to conserve power
@@ -14557,17 +14559,16 @@ WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_re
 WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_req][wdata][53] driven by constant 0
 WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_req][wdata][52] driven by constant 0
 WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_req][wdata][51] driven by constant 0
-WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_req][wdata][50] driven by constant 0
-WARNING: [Synth 8-3917] design cheshire_soc__GCB0 has port cvxif_resp_o[x_mem_req][wdata][49] driven by constant 0
 INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "tl_characters" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:58 ; elapsed = 00:05:56 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 1379 ; free virtual = 11536
-Synthesis current peak Physical Memory [PSS] (MB): peak = 10162.993; parent = 4629.495; children = 7502.092
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 18487.207; parent = 5682.359; children = 12808.766
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:45 ; elapsed = 00:05:46 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 1983 ; free virtual = 22306
+Synthesis current peak Physical Memory [PSS] (MB): peak = 10225.701; parent = 4594.422; children = 7440.469
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18364.613; parent = 5495.809; children = 12897.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -14606,24 +14607,14 @@ Block RAM: Preliminary Mapping Report (see note below)
 |i_llc_ways/\gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
 |i_llc_ways/\gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
 |i_llc_ways/\gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_wt_dcache_mem/\gen_data_banks[0].i_data_sram /\i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst  | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 512(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 16     | 
-|i_wt_dcache_mem/\gen_data_banks[1].i_data_sram /\i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst  | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 512(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 16     | 
-|i_wt_dcache_mem/\gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[2].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[3].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[4].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[5].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[6].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[7].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst    | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst    | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
 |u_cq/ram                                                                                                        | r_nv_ram_rws_256x7/ram_Inst_256X7/ITOP/mem_reg                                    | 256 x 7(READ_FIRST)    | W |   | 256 x 7(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 |u_cq/adr_ram                                                                                                    | r_nv_ram_rwst_256x8/ram_Inst_256X8/ITOP/mem_reg                                   | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 |u_write/u_cq                                                                                                    | ram/r_nv_ram_rws_256x3/ram_Inst_256X4/ITOP/mem_reg                                | 256 x 4(READ_FIRST)    | W |   | 256 x 4(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
@@ -14811,17 +14802,17 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:06:08 ; elapsed = 00:06:06 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 1272 ; free virtual = 11719
-Synthesis current peak Physical Memory [PSS] (MB): peak = 10162.993; parent = 4629.495; children = 7502.092
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 18487.207; parent = 5682.359; children = 12808.766
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:55 ; elapsed = 00:05:56 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 1507 ; free virtual = 22182
+Synthesis current peak Physical Memory [PSS] (MB): peak = 10225.701; parent = 4594.422; children = 7440.469
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18364.613; parent = 5495.809; children = 12897.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:08:43 ; elapsed = 00:08:47 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 1238 ; free virtual = 11561
-Synthesis current peak Physical Memory [PSS] (MB): peak = 10474.705; parent = 4629.495; children = 7502.092
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 18487.207; parent = 5682.359; children = 12808.766
+Finished Timing Optimization : Time (s): cpu = 00:08:29 ; elapsed = 00:08:35 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 1255 ; free virtual = 21891
+Synthesis current peak Physical Memory [PSS] (MB): peak = 10479.312; parent = 4594.422; children = 7440.469
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18364.613; parent = 5495.809; children = 12897.820
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -14847,24 +14838,14 @@ Block RAM: Final Mapping Report
 |i_llc_ways/\gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
 |i_llc_ways/\gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
 |i_llc_ways/\gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst         | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 2 K x 64(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_wt_dcache_mem/\gen_data_banks[0].i_data_sram /\i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst  | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 512(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 16     | 
-|i_wt_dcache_mem/\gen_data_banks[1].i_data_sram /\i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst  | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 512(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 16     | 
-|i_wt_dcache_mem/\gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[2].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[3].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[4].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[5].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[6].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_wt_dcache_mem/\gen_tag_srams[7].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
-|i_cva6_icache/\gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 48(NO_CHANGE)    | W | R |                        |   |   | Port A           | 1      | 1      | 
-|i_cva6_icache/\gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 256 x 128(NO_CHANGE)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst    | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst    | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst      | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
+|\i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst               | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 56(NO_CHANGE)      | W | R |                        |   |   | Port A           | 0      | 2      | 
+|\i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst              | gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg                                  | 4 x 128(NO_CHANGE)     | W | R |                        |   |   | Port A           | 0      | 4      | 
 |u_cq/ram                                                                                                        | r_nv_ram_rws_256x7/ram_Inst_256X7/ITOP/mem_reg                                    | 256 x 7(READ_FIRST)    | W |   | 256 x 7(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 |u_cq/adr_ram                                                                                                    | r_nv_ram_rwst_256x8/ram_Inst_256X8/ITOP/mem_reg                                   | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 |u_write/u_cq                                                                                                    | ram/r_nv_ram_rws_256x3/ram_Inst_256X4/ITOP/mem_reg                                | 256 x 4(READ_FIRST)    | W |   | 256 x 4(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
@@ -14982,78 +14963,18 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[2].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[2].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[3].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[3].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[4].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[4].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[5].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[5].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[6].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[6].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[7].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_5/i_wt_dcache_mem/gen_tag_srams[7].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance gen_cache_wt.i_cache_subsystemi_6/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_rdma/u_eg/u_lat_fifo/ram/r_nv_ram_rwsp_61x65/ram_Inst_61X66/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[1].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
@@ -15082,20 +15003,63 @@ INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire
 INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[4].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[4].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[4].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Common 17-14] Message 'Synth 8-7052' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[4].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[5].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[6].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_axi_llc_top_rawi_2/i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_llc_ways/gen_data_ways[7].i_data_way/i_data_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcachei_4/i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv:159]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv:159]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv:159]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv:159]
+INFO: [Synth 8-7052] The timing for the instance u_readi_23/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_mcif/u_read/u_cq/ram/r_nv_ram_rws_256x7/ram_Inst_256X7/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_readi_23/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_mcif/u_read/u_cq/adr_ram/r_nv_ram_rwst_256x8/ram_Inst_256X8/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_mcifi_24/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_mcif/u_write/u_cq/ram/r_nv_ram_rws_256x3/ram_Inst_256X4/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_mcifi_24/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_mcif/u_write/u_cq/adr_ram/r_nv_ram_rwst_256x8/ram_Inst_256X8/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_MUL_unit.v:40]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_cvtin.v:192]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_cvtout.v:220]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_cvtout.v:220]
 INFO: [Synth 8-5842] Cannot pack DSP OPMODE registers because of constant '1' value. Packing the registers will cause simulation mismatch at initial cycle [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/HLS_cdp_ocvt.v:103]
+INFO: [Synth 8-7052] The timing for the instance u_dpi_26/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_syncfifo/u_data_sync_fifo/ram/r_nv_ram_rwsthp_80x9/ram_Inst_80X9/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_dpi_26/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_syncfifo/u_info_sync_fifo/ram/r_nv_ram_rwsthp_80x15/ram_Inst_80X15/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_dpi_26/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_syncfifo/u_sumpd_sync_fifo/ram/r_nv_ram_rwsthp_60x21/ram_Inst_60X22/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdpi_27/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_cdp/u_rdma/u_eg/u_lat_fifo/ram/r_nv_ram_rwsp_61x65/ram_Inst_61X66/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal2d.v:5132]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal2d.v:5097]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal2d.v:5139]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal2d.v:5188]
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank0_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank1_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank2_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank3_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank4_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank5_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank6_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_pdp/u_core/u_cal2d/bank7_uram_0/r_nv_ram_rws_128x18/ram_Inst_128X18/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_30/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_wt/u_8atmm_fifo/ram/r_nv_ram_rwsp_8x65/ram_Inst_8X66/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_30/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_wt/u_fifo/ram/r_nv_ram_rwsp_128x6/ram_Inst_128X6/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_30/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_img/u_sg/u_NV_NVDLA_CDMA_IMG_fifo/ram/r_nv_ram_rwsp_128x11/ram_Inst_128X11/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:1041]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:1032]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:961]
@@ -15104,6 +15068,23 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:1050]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:997]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v:895]
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_dc/u_fifo/ram/r_nv_ram_rwsp_128x6/ram_Inst_128X6/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_00/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_01/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_02/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_03/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_04/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_05/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_06/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_07/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_08/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_09/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_10/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_11/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_12/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_13/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_NV_NVDLA_cdmai_32/i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_c/u_NV_NVDLA_cdma/u_shared_buffer/u_shared_buffer_14/r_nv_ram_rws_16x64/ram_Inst_16X64/ITOP/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Common 17-14] Message 'Synth 8-7052' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_dl.v:1536]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_dl.v:2790]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_dl.v:2804]
@@ -15119,9 +15100,9 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_core.v:363]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/shc/projects/chs-nv/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_core.v:363]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:09:18 ; elapsed = 00:09:22 . Memory (MB): peak = 5710.453 ; gain = 3578.574 ; free physical = 1266 ; free virtual = 10550
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11270.351; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 18833.305; parent = 5686.449; children = 13146.859
+Finished Technology Mapping : Time (s): cpu = 00:09:04 ; elapsed = 00:09:11 . Memory (MB): peak = 5498.805 ; gain = 3369.480 ; free physical = 1213 ; free virtual = 20707
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11328.243; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18653.422; parent = 5495.809; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -15230,49 +15211,49 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5410] Found another clock driver \i_cheshire_soc/i_dbg_dmi_jtag/i_dmi_jtag_tap/i_dft_tck_mux/i_BUFGMUX :O [/home/shc/projects/chs-nv/cheshire_nv_built/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv:67]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:09:41 ; elapsed = 00:09:47 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1288 ; free virtual = 10749
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11270.351; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished IO Insertion : Time (s): cpu = 00:09:27 ; elapsed = 00:09:35 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1373 ; free virtual = 20968
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11328.243; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:09:42 ; elapsed = 00:09:48 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1296 ; free virtual = 10757
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11270.351; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Renaming Generated Instances : Time (s): cpu = 00:09:28 ; elapsed = 00:09:36 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1391 ; free virtual = 20986
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11328.243; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:10:14 ; elapsed = 00:10:20 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1342 ; free virtual = 10617
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11327.886; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:09:59 ; elapsed = 00:10:07 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1296 ; free virtual = 20892
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11398.974; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:10:16 ; elapsed = 00:10:21 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1336 ; free virtual = 10611
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11328.042; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Renaming Generated Ports : Time (s): cpu = 00:10:00 ; elapsed = 00:10:09 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1337 ; free virtual = 20933
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11398.974; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:10:20 ; elapsed = 00:10:27 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1355 ; free virtual = 10631
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11337.394; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Handling Custom Attributes : Time (s): cpu = 00:10:05 ; elapsed = 00:10:14 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1351 ; free virtual = 20948
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11398.974; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:10:21 ; elapsed = 00:10:27 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1355 ; free virtual = 10630
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11337.850; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Renaming Generated Nets : Time (s): cpu = 00:10:06 ; elapsed = 00:10:14 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1355 ; free virtual = 20951
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11398.974; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -15378,52 +15359,52 @@ Report Cell Usage:
 |2     |mig7s    |      1|
 |3     |BUFG     |      7|
 |4     |BUFGMUX  |      4|
-|5     |CARRY4   |   6422|
+|5     |CARRY4   |   6463|
 |6     |DSP48E1  |     60|
-|13    |LUT1     |   1679|
-|14    |LUT2     |  17833|
-|15    |LUT3     |  31572|
-|16    |LUT4     |  30609|
-|17    |LUT5     |  33283|
-|18    |LUT6     |  80870|
-|19    |MUXF7    |  10399|
-|20    |MUXF8    |   2692|
-|21    |RAMB18E1 |     33|
-|24    |RAMB36E1 |    194|
-|27    |SRL16E   |      8|
-|28    |FDCE     | 101047|
-|29    |FDPE     |   1260|
-|30    |FDRE     |  52822|
-|31    |FDSE     |     25|
-|32    |IBUF     |      6|
-|33    |IBUFDS   |      1|
-|34    |OBUF     |      2|
+|13    |LUT1     |   1683|
+|14    |LUT2     |  16715|
+|15    |LUT3     |  30539|
+|16    |LUT4     |  30669|
+|17    |LUT5     |  33475|
+|18    |LUT6     |  80606|
+|19    |MUXF7    |  10242|
+|20    |MUXF8    |   2694|
+|21    |RAMB18E1 |     21|
+|23    |RAMB36E1 |    158|
+|26    |SRL16E   |      8|
+|27    |FDCE     | 101261|
+|28    |FDPE     |   1261|
+|29    |FDRE     |  52663|
+|30    |FDSE     |    316|
+|31    |IBUF     |      6|
+|32    |IBUFDS   |      1|
+|33    |OBUF     |      2|
 +------+---------+-------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:10:22 ; elapsed = 00:10:28 . Memory (MB): peak = 5854.566 ; gain = 3722.688 ; free physical = 1361 ; free virtual = 10637
-Synthesis current peak Physical Memory [PSS] (MB): peak = 11337.895; parent = 4629.495; children = 8117.150
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 19001.430; parent = 5854.570; children = 13146.859
+Finished Writing Synthesis Report : Time (s): cpu = 00:10:06 ; elapsed = 00:10:15 . Memory (MB): peak = 5575.527 ; gain = 3446.203 ; free physical = 1355 ; free virtual = 20951
+Synthesis current peak Physical Memory [PSS] (MB): peak = 11398.974; parent = 4594.422; children = 8181.668
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 18754.156; parent = 5575.531; children = 13178.625
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 666 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:09:38 ; elapsed = 00:09:58 . Memory (MB): peak = 5858.477 ; gain = 2528.871 ; free physical = 9227 ; free virtual = 18503
-Synthesis Optimization Complete : Time (s): cpu = 00:10:23 ; elapsed = 00:10:29 . Memory (MB): peak = 5858.477 ; gain = 3726.598 ; free physical = 9282 ; free virtual = 18504
+Synthesis finished with 0 errors, 0 critical warnings and 668 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:09:28 ; elapsed = 00:09:47 . Memory (MB): peak = 5579.438 ; gain = 2425.973 ; free physical = 9141 ; free virtual = 28825
+Synthesis Optimization Complete : Time (s): cpu = 00:10:08 ; elapsed = 00:10:16 . Memory (MB): peak = 5579.438 ; gain = 3450.113 ; free physical = 9217 ; free virtual = 28824
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5858.477 ; gain = 0.000 ; free physical = 8968 ; free virtual = 18189
-INFO: [Netlist 29-17] Analyzing 19805 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 5579.438 ; gain = 0.000 ; free physical = 9026 ; free virtual = 28569
+INFO: [Netlist 29-17] Analyzing 19643 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5894.586 ; gain = 0.000 ; free physical = 8889 ; free virtual = 18111
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5615.547 ; gain = 0.000 ; free physical = 8952 ; free virtual = 28495
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   BUFGMUX => BUFGCTRL (inverted pins: CE0): 4 instances
 
-Synth Design complete, checksum: 21ab9929
+Synth Design complete, checksum: e5e6d954
 INFO: [Common 17-83] Releasing license: Synthesis
-1374 Infos, 908 Warnings, 0 Critical Warnings and 0 Errors encountered.
+1377 Infos, 911 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:10:56 ; elapsed = 00:11:01 . Memory (MB): peak = 5894.586 ; gain = 4130.570 ; free physical = 9590 ; free virtual = 18812
+synth_design: Time (s): cpu = 00:10:40 ; elapsed = 00:10:48 . Memory (MB): peak = 5615.547 ; gain = 3852.180 ; free physical = 9537 ; free virtual = 29080
 INFO: [Common 17-1381] The checkpoint '/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/cheshire_top_xilinx.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 5966.621 ; gain = 72.035 ; free physical = 9315 ; free virtual = 18848
+write_checkpoint: Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 5687.582 ; gain = 72.035 ; free physical = 9315 ; free virtual = 29073
 INFO: [runtcl-4] Executing : report_utilization -file cheshire_top_xilinx_utilization_synth.rpt -pb cheshire_top_xilinx_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 27 02:19:08 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 27 13:48:06 2026...

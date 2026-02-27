@@ -449,7 +449,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/sram_pulp.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOT/../rtl/src/tc_sram.sv \
+    $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/tc_sram_fpga_wrapper.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \

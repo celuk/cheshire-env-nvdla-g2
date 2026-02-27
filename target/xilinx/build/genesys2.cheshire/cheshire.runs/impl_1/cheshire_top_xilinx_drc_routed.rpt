@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Feb 27 02:42:53 2026
+| Date         : Fri Feb 27 14:07:56 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_drc -file cheshire_top_xilinx_drc_routed.rpt -pb cheshire_top_xilinx_drc_routed.pb -rpx cheshire_top_xilinx_drc_routed.rpx
 | Design       : cheshire_top_xilinx
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 649
+             Violations found: 648
 +-------------+----------+-------------------------------------------------------------+------------+
 | Rule        | Severity | Description                                                 | Violations |
 +-------------+----------+-------------------------------------------------------------+------------+
 | CFGBVS-1    | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
-| CHECK-3     | Warning  | Report rule limit reached                                   | 4          |
+| CHECK-3     | Warning  | Report rule limit reached                                   | 3          |
 | DPIP-1      | Warning  | Input pipelining                                            | 106        |
 | DPOP-1      | Warning  | PREG Output pipelining                                      | 28         |
 | DPOP-2      | Warning  | MREG Output pipelining                                      | 50         |
@@ -72,11 +72,6 @@ REQP-1839 rule limit reached: 20 violations have been found.
 Related violations: <none>
 
 CHECK-3#3 Warning
-Report rule limit reached  
-REQP-1840 rule limit reached: 20 violations have been found.
-Related violations: <none>
-
-CHECK-3#4 Warning
 Report rule limit reached  
 REQP-1840 rule limit reached: 20 violations have been found.
 Related violations: <none>
@@ -2510,7 +2505,7 @@ Resolution: Poor placement of an IO pin and a BUFG has resulted in the router us
 
 	sys_resetn_IBUF_inst (IBUF.O) is locked to R19
 	i_rstgen/i_rstgen_bypass/i_tc_clk_mux2_rst_n/i_BUFGMUX (BUFGCTRL.I0) is provisionally placed by clockplacer on BUFGCTRL_X0Y11
-	i_rstgen/i_rstgen_bypass/i_tc_clk_mux2_rst_no/i_BUFGMUX (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y3
+	i_rstgen/i_rstgen_bypass/i_tc_clk_mux2_rst_no/i_BUFGMUX (BUFGCTRL.I1) is provisionally placed by clockplacer on BUFGCTRL_X0Y9
 
 Related violations: <none>
 
@@ -3405,7 +3400,7 @@ Related violations: <none>
 
 REQP-1839#1 Warning
 RAMB36 async control check  
-The RAMB36E1 i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg has an input control pin i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg/ADDRARDADDR[12] (net: i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[7]) which is driven by a register (i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_evict_unit/i_aw_master/chan_valid_q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB36E1 i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg has an input control pin i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/gen_wr_a.gen_byte_narrow.for_mem_cols[1].mem_reg/ADDRARDADDR[12] (net: i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/addra[7]) which is driven by a register (i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_rw_spill/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[a_x_addr][13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1839#2 Warning
