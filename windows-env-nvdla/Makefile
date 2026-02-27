@@ -1,0 +1,169 @@
+SUBMAKE := $(MAKE) --no-print-directory -C
+
+# All args except for the first one (which is the target name)
+ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+
+.PHONY: all
+all: 
+	@echo "What are you expecting? (￣ー￣)";
+	@echo "Read the makefile.";
+
+XILINX_VIVADO ?= /tools/Xilinx/Vivado/2022.2
+VIVADO_DIR    := ./vivado
+COMPILED_LIBS := compiled-libs
+
+.PHONY: compx
+compx:
+	@pushd $(VIVADO_DIR); \
+	mkdir -p $(COMPILED_LIBS); \
+	vlib $(COMPILED_LIBS); \
+	vmap $(COMPILED_LIBS) $(shell pwd)/$(VIVADO_DIR)/$(COMPILED_LIBS); \
+	vcom -2008 -work $(COMPILED_LIBS) $(XILINX_VIVADO)/data/vhdl/src/unisims/unisim_VCOMP.vhd $(XILINX_VIVADO)/data/vhdl/src/unisims/unisim_VPKG.vhd; \
+	vlog -work $(COMPILED_LIBS) $(XILINX_VIVADO)/data/verilog/src/unisims/*.v; \
+	export XILINX_VIVADO=$(XILINX_VIVADO); \
+	vlog -work $(COMPILED_LIBS) -f $(XILINX_VIVADO)/data/secureip/secureip_cell.list.f; \
+	vlog -work $(COMPILED_LIBS) $(XILINX_VIVADO)/data/verilog/src/glbl.v; \
+	popd;
+	
+.PHONY: rmcompx
+rmcompx:
+	@pushd $(VIVADO_DIR); \
+	rm -rf $(COMPILED_LIBS) \
+	rm -f modelsim.ini; \
+	popd;
+
+#.PHONY: sim
+#sim:
+#	+@$(SUBMAKE) verification/sim/ $(ARGS)
+
+.PHONY: coremark
+coremark:
+	+@$(SUBMAKE) tests/coremark clean
+	+@$(SUBMAKE) tests/coremark
+
+.PHONY: compile
+compile:
+	+@$(SUBMAKE) tests clean CFILE=$(ARGS)
+	+@$(SUBMAKE) tests CFILE=$(ARGS)
+
+.PHONY: compiletemp
+compiletemp:
+	@mkdir -p temp;
+	@cp -f tests/Makefile temp/Makefile;
+	@cp -rf tests/common temp/common;
+	+@$(SUBMAKE) temp clean CFILE=$(ARGS)
+	+@$(SUBMAKE) temp CFILE=$(ARGS)
+
+.PHONY: rmtemp
+rmtemp:
+	@rm -rf temp;
+
+.PHONY: clean_test
+clean_test:
+	+@$(SUBMAKE) tests clean CFILE=$(ARGS)
+
+.PHONY: clean_all_tests
+clean_all_tests:
+	+@$(SUBMAKE) tests/coremark clean
+	+@$(SUBMAKE) tests clean CFILE=demo
+	+@$(SUBMAKE) tests clean CFILE=pikachu
+
+.PHONY: sim
+sim:
+	+@$(SUBMAKE) verification/sim clean
+	+@$(SUBMAKE) verification/sim air CFILE=$(ARGS)
+
+.PHONY: simp
+simp:
+	+@$(SUBMAKE) verification/sim clean
+	+@$(SUBMAKE) verification/sim air_program CFILE=$(ARGS)
+
+.PHONY: simcoremark
+simcoremark:
+	+@$(SUBMAKE) verification/sim clean
+	+@$(SUBMAKE) verification/sim air CFILE=coremark
+
+.PHONY: send
+send:
+	@if [ "$(MAKECMDGOALS)" = "send" ]; then \
+		python3 ./tools/uart_send_data.py; \
+	else \
+		python3 ./tools/uart_send_data.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS)) --file $(word 3, $(MAKECMDGOALS)); \
+	fi
+
+.PHONY: sendc
+sendc:
+	python3 ./tools/uart_send_by_chunks.py
+
+.PHONY: reset
+reset:
+	python3 ./tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS));
+
+.PHONY: pico
+pico:
+	picocom -b 921600 /dev/ttyUSB$(ARGS) --imap lfcrlf --send-cmd "sz -t 1000"
+
+%:
+	@:
+
+.PHONY: show
+show:
+	simvision verification/sim/sim_build/cocotb_waves.shm/cocotb_waves.trn
+#	simvision -input verification/sim/waveform/xcelium_wave_setup.tcl verification/sim/sim_build/cocotb_waves.shm/cocotb_waves.trn
+#	vsim verification/sim/sim_build/vsim.wlf -do verification/sim/waveform/wave.do
+#-do verification/sim/waveform/wave.do
+
+.PHONY: gen_dramw
+gen_dramw: rmtemp
+	python3 ./tools/generate_simple_dram_writes.py -f $(ARGS)
+
+.PHONY: program
+program:
+	$(XILINX_VIVADO)/bin/vivado -mode batch -nolog -nojournal -source vivado/program_zc706.tcl -tclargs $(ARGS)
+
+.PHONY: program_linux
+program_linux:
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla/vivado/cheshire_zc706/cheshire_zc706.runs/impl_1/cheshire_soc_wrap.bit"
+	python3 tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x10000000 -b 921600
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla/vivado/cheshire_zc706/cheshire_zc706.runs/impl_1/cheshire_soc_wrap.bit"
+	python3 tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 921600
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla/vivado/cheshire_zc706/cheshire_zc706.runs/impl_1/cheshire_soc_wrap.bit"
+	python3 tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -b 921600
+
+.PHONY: program_basys3
+program_basys3:
+	$(XILINX_VIVADO)/bin/vivado -mode batch -nolog -nojournal -source vivado/program_basys3.tcl -tclargs $(ARGS)
+
+.PHONY: buart
+buart:
+	$(MAKE) program_basys3 ARGS="/home/shc/projects/cva-soc/vivado/buart/buart.runs/impl_1/prog_uart.bit"
+
+.PHONY: jtag
+jtag:
+	/mnt/c/Users/2640084/Downloads/riscv-openocd-built/riscv-openocd/src/openocd -f verification/jtag/debug_soc.cfg
+
+PHONY: gdb
+gdb:
+	gdb-multiarch -ex "target remote :3333"
+
+.PHONY: gdb_cmd
+gdb_cmd:
+	python3 tools/gdb_command_runner.py --command=$(ARGS) --timeout="1000" --gdb-exec="/home/shc/projects/cheshire-linux-nvdla/riscv-toolchain-custom/_install/bin/riscv64-unknown-linux-gnu-gdb" --elf-file="/home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/vmlinux" --args='-ex "target remote :3333"'
+
+.PHONY: gdb_continue
+gdb_continue:
+	python3 tools/gdb_command_runner.py --command="continue" --timeout=$(ARGS) --gdb-exec="/home/shc/projects/cheshire-linux-nvdla/riscv-toolchain-custom/_install/bin/riscv64-unknown-linux-gnu-gdb" --elf-file="/home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/vmlinux" --args='-ex "target remote :3333"'
+
+PHONY: jtag_trace
+jtag_trace:
+	python3 ./tools/jtag_trace.py ./verification/jtag/jtag_trace.txt $(ARGS)
+
+.PHONY: clean
+clean:
+	-rm -rf ./build
+	-rm -rf ./sim_build
+	-+@$(SUBMAKE) synth/quartus/ clean
+	-+@$(SUBMAKE) synth/vivado/ clean
+	-+@$(SUBMAKE) verification/sim/ clean
+	-+@$(SUBMAKE) verification/prove/ clean
+	-+@$(SUBMAKE) software/tests/riscv-tests/ clean
