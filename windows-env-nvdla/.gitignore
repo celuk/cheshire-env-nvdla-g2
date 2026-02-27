@@ -9,7 +9,7 @@
 #**.hex
 #**.bin
 #**.dump
-**.txt
+#**.txt
 **.key
 
 **.o
