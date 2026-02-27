@@ -75,6 +75,7 @@ target/sim/vcs/vc_hdrs.h
 **.coe
 #**.vmem
 **.log
+**.jou
 **.history
 
 .vscode
