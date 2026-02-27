@@ -1,7 +1,7 @@
 # This script was generated automatically by bender.
 #set ROOT "C:/cheshire"
-set ROOT "C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla/cheshire"
-set ROOTBENDER "C:/cheshire"
+set ROOT "/home/shc/projects/chs-nv/cheshire-env-nvdla/cheshire"
+set ROOTBENDER "/home/shc/projects/chs-nv/cheshire_nv_built"
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/pad_functional_xilinx.sv \
     $ROOTBENDER/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv \
@@ -449,7 +449,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/sram_pulp.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOT/../rtl/src/tc_sram.sv \
+    $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/tc_sram_fpga_wrapper.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \

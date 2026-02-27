@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:c:/cheshire/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc rfile:../../../mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc id:1 order:EARLY} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc rfile:../../../mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc id:1 order:EARLY} [current_design]
 set_property src_info {type:XDC file:1 line:39 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN AD3 [get_ports {ddr3_dq[0]}]
 set_property src_info {type:XDC file:1 line:45 export:INPUT save:INPUT read:READ} [current_design]

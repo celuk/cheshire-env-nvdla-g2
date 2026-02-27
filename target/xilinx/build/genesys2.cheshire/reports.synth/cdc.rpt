@@ -1,13 +1,13 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-----------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Feb 27 01:07:18 2026
-| Host         : ECIT01684 running 64-bit major release  (build 9200)
-| Command      : report_cdc -file C:/cheshire/target/xilinx/build/genesys2.cheshire/reports.synth/cdc.rpt
+------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Fri Feb 27 02:20:05 2026
+| Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_cdc -file /home/shc/projects/chs-nv/cheshire_nv_built/target/xilinx/build/genesys2.cheshire/reports.synth/cdc.rpt
 | Design       : cheshire_top_xilinx
 | Device       : 7k325t-ffg900
 | Speed File   : -2  PRODUCTION 1.12 2017-02-17
-----------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
 
 CDC Report
 

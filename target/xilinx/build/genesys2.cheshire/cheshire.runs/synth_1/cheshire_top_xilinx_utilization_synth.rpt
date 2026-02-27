@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Feb 27 01:05:59 2026
-| Host         : ECIT01684 running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Fri Feb 27 02:19:08 2026
+| Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file cheshire_top_xilinx_utilization_synth.rpt -pb cheshire_top_xilinx_utilization_synth.pb
 | Design       : cheshire_top_xilinx
 | Device       : xc7k325tffg900-2
@@ -31,16 +31,16 @@ Table of Contents
 +----------------------------+--------+-------+------------+-----------+-------+
 |          Site Type         |  Used  | Fixed | Prohibited | Available | Util% |
 +----------------------------+--------+-------+------------+-----------+-------+
-| Slice LUTs*                | 159093 |     0 |          0 |    203800 | 78.06 |
-|   LUT as Logic             | 159085 |     0 |          0 |    203800 | 78.06 |
+| Slice LUTs*                | 168027 |     0 |          0 |    203800 | 82.45 |
+|   LUT as Logic             | 168019 |     0 |          0 |    203800 | 82.44 |
 |   LUT as Memory            |      8 |     0 |          0 |     64000 |  0.01 |
 |     LUT as Distributed RAM |      0 |     0 |            |           |       |
 |     LUT as Shift Register  |      8 |     0 |            |           |       |
-| Slice Registers            | 152443 |     0 |          0 |    407600 | 37.40 |
-|   Register as Flip Flop    | 152443 |     0 |          0 |    407600 | 37.40 |
+| Slice Registers            | 155154 |     0 |          0 |    407600 | 38.07 |
+|   Register as Flip Flop    | 155154 |     0 |          0 |    407600 | 38.07 |
 |   Register as Latch        |      0 |     0 |          0 |    407600 |  0.00 |
-| F7 Muxes                   |   8469 |     0 |          0 |    101900 |  8.31 |
-| F8 Muxes                   |   2496 |     0 |          0 |     50950 |  4.90 |
+| F7 Muxes                   |  10399 |     0 |          0 |    101900 | 10.21 |
+| F8 Muxes                   |   2692 |     0 |          0 |     50950 |  5.28 |
 +----------------------------+--------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 Warning! LUT value is adjusted to account for LUT combining.
@@ -49,20 +49,20 @@ Warning! LUT value is adjusted to account for LUT combining.
 1.1 Summary of Registers by Type
 --------------------------------
 
-+-------+--------------+-------------+--------------+
-| Total | Clock Enable | Synchronous | Asynchronous |
-+-------+--------------+-------------+--------------+
-| 0     |            _ |           - |            - |
-| 0     |            _ |           - |          Set |
-| 0     |            _ |           - |        Reset |
-| 0     |            _ |         Set |            - |
-| 0     |            _ |       Reset |            - |
-| 0     |          Yes |           - |            - |
-| 1259  |          Yes |           - |          Set |
-| 98341 |          Yes |           - |        Reset |
-| 25    |          Yes |         Set |            - |
-| 52818 |          Yes |       Reset |            - |
-+-------+--------------+-------------+--------------+
++--------+--------------+-------------+--------------+
+|  Total | Clock Enable | Synchronous | Asynchronous |
++--------+--------------+-------------+--------------+
+| 0      |            _ |           - |            - |
+| 0      |            _ |           - |          Set |
+| 0      |            _ |           - |        Reset |
+| 0      |            _ |         Set |            - |
+| 0      |            _ |       Reset |            - |
+| 0      |          Yes |           - |            - |
+| 1260   |          Yes |           - |          Set |
+| 101047 |          Yes |           - |        Reset |
+| 25     |          Yes |         Set |            - |
+| 52822  |          Yes |       Reset |            - |
++--------+--------------+-------------+--------------+
 
 
 2. Memory
@@ -71,11 +71,11 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-------------------+-------+-------+------------+-----------+-------+
 |     Site Type     |  Used | Fixed | Prohibited | Available | Util% |
 +-------------------+-------+-------+------------+-----------+-------+
-| Block RAM Tile    | 168.5 |     0 |          0 |       445 | 37.87 |
-|   RAMB36/FIFO*    |   158 |     0 |          0 |       445 | 35.51 |
-|     RAMB36E1 only |   158 |       |            |           |       |
-|   RAMB18          |    21 |     0 |          0 |       890 |  2.36 |
-|     RAMB18E1 only |    21 |       |            |           |       |
+| Block RAM Tile    | 210.5 |     0 |          0 |       445 | 47.30 |
+|   RAMB36/FIFO*    |   194 |     0 |          0 |       445 | 43.60 |
+|     RAMB36E1 only |   194 |       |            |           |       |
+|   RAMB18          |    33 |     0 |          0 |       890 |  3.71 |
+|     RAMB18E1 only |    33 |       |            |           |       |
 +-------------------+-------+-------+------------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -155,32 +155,32 @@ Warning! LUT value is adjusted to account for LUT combining.
 7. Primitives
 -------------
 
-+----------+-------+---------------------+
-| Ref Name |  Used | Functional Category |
-+----------+-------+---------------------+
-| FDCE     | 98341 |        Flop & Latch |
-| LUT6     | 76524 |                 LUT |
-| FDRE     | 52818 |        Flop & Latch |
-| LUT5     | 31397 |                 LUT |
-| LUT4     | 30565 |                 LUT |
-| LUT3     | 29591 |                 LUT |
-| LUT2     | 16176 |                 LUT |
-| MUXF7    |  8469 |               MuxFx |
-| CARRY4   |  6348 |          CarryLogic |
-| MUXF8    |  2496 |               MuxFx |
-| LUT1     |  1731 |                 LUT |
-| FDPE     |  1259 |        Flop & Latch |
-| RAMB36E1 |   158 |        Block Memory |
-| DSP48E1  |    60 |    Block Arithmetic |
-| FDSE     |    25 |        Flop & Latch |
-| RAMB18E1 |    21 |        Block Memory |
-| SRL16E   |     8 |  Distributed Memory |
-| BUFG     |     7 |               Clock |
-| IBUF     |     6 |                  IO |
-| BUFGCTRL |     4 |               Clock |
-| OBUF     |     2 |                  IO |
-| IBUFDS   |     1 |                  IO |
-+----------+-------+---------------------+
++----------+--------+---------------------+
+| Ref Name |  Used  | Functional Category |
++----------+--------+---------------------+
+| FDCE     | 101047 |        Flop & Latch |
+| LUT6     |  80870 |                 LUT |
+| FDRE     |  52822 |        Flop & Latch |
+| LUT5     |  33283 |                 LUT |
+| LUT3     |  31572 |                 LUT |
+| LUT4     |  30609 |                 LUT |
+| LUT2     |  17833 |                 LUT |
+| MUXF7    |  10399 |               MuxFx |
+| CARRY4   |   6422 |          CarryLogic |
+| MUXF8    |   2692 |               MuxFx |
+| LUT1     |   1679 |                 LUT |
+| FDPE     |   1260 |        Flop & Latch |
+| RAMB36E1 |    194 |        Block Memory |
+| DSP48E1  |     60 |    Block Arithmetic |
+| RAMB18E1 |     33 |        Block Memory |
+| FDSE     |     25 |        Flop & Latch |
+| SRL16E   |      8 |  Distributed Memory |
+| BUFG     |      7 |               Clock |
+| IBUF     |      6 |                  IO |
+| BUFGCTRL |      4 |               Clock |
+| OBUF     |      2 |                  IO |
+| IBUFDS   |      1 |                  IO |
++----------+--------+---------------------+
 
 
 8. Black Boxes

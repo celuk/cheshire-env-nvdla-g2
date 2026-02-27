@@ -16,7 +16,7 @@ set fpart(vcu128) "xcvu37p-fsvh2892-2L-e"
 set hwdev(vcu128) "xcvu37p_0"
 set cfgmp(vcu128) "mt25qu02g-spi-x1_x2_x4"
 
-set_param board.repoPaths [list C:/Users/2640084/Desktop/ubuntu/shared/projects/vivado-boards-master/new/board_files/genesys2/H]
+set_param board.repoPaths [list /home/shc/temp/vivado-boards-master/new/board_files/genesys2/H]
 
 # Initialize an implementation project
 proc init_impl {xilinx_root argc argv} {

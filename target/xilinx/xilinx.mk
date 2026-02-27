@@ -72,9 +72,9 @@ $$(CHS_XILINX_DIR)/out/%.$(1).bit: \
 	@rm -f $$(CHS_XILINX_DIR)/build/$$*.$(1)*.log $$(CHS_XILINX_DIR)/build/$$*.$(1)*.jou
 	cd $$| && { \
 		IMPL_TCL=$$<; \
+		XCI_LIST="$(foreach ip,$(CHS_XILINX_IPS_$(1)),$(CHS_XILINX_DIR)/build/$(1).$(ip)/$(ip).srcs/sources_1/ip/$(ip)/$(ip).xci)"; \
 		if [ -n "$$$$WSL_DISTRO_NAME" ]; then \
 			IMPL_TCL=$$$$(wslpath -m $$$$IMPL_TCL); \
-			XCI_LIST="$(CHS_XILINX_IPS_$(1):%=$(CHS_XILINX_DIR)/build/$(1).%/out.xci)";\
 			XCI_LIST_PROCESSED=""; \
 			for f in $$$$XCI_LIST; do \
 				XCI_LIST_PROCESSED="$$$$XCI_LIST_PROCESSED $$$$(wslpath -m $$$$f)"; \

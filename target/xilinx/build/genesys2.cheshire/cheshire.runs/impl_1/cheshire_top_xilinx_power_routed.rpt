@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Fri Feb 27 01:33:26 2026
-| Host             : ECIT01684 running 64-bit major release  (build 9200)
+| Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date             : Fri Feb 27 02:43:56 2026
+| Host             : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file cheshire_top_xilinx_power_routed.rpt -pb cheshire_top_xilinx_power_summary_routed.pb -rpx cheshire_top_xilinx_power_routed.rpx
 | Design           : cheshire_top_xilinx
 | Device           : xc7k325tffg900-2
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.255        |
+| Total On-Chip Power (W)  | 2.287        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 2.070        |
-| Device Static (W)        | 0.185        |
+| Dynamic (W)              | 2.099        |
+| Device Static (W)        | 0.188        |
 | Effective TJA (C/W)      | 1.8          |
-| Max Ambient (C)          | 81.0         |
-| Junction Temperature (C) | 29.0         |
+| Max Ambient (C)          | 80.9         |
+| Junction Temperature (C) | 29.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,26 +52,26 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.234 |       39 |       --- |             --- |
-| Slice Logic              |     0.102 |   379945 |       --- |             --- |
-|   LUT as Logic           |     0.095 |   163638 |    203800 |           80.29 |
-|   CARRY4                 |     0.005 |     6579 |     50950 |           12.91 |
-|   Register               |     0.002 |   160683 |    407600 |           39.42 |
+| Clocks                   |     0.232 |       39 |       --- |             --- |
+| Slice Logic              |     0.098 |   394806 |       --- |             --- |
+|   LUT as Logic           |     0.091 |   171864 |    203800 |           84.33 |
+|   CARRY4                 |     0.005 |     6653 |     50950 |           13.06 |
+|   Register               |     0.002 |   163394 |    407600 |           40.09 |
 |   LUT as Distributed RAM |    <0.001 |      852 |     64000 |            1.33 |
-|   F7/F8 Muxes            |    <0.001 |    10964 |    203800 |            5.38 |
+|   F7/F8 Muxes            |    <0.001 |    13079 |    203800 |            6.42 |
 |   LUT as Shift Register  |    <0.001 |      350 |     64000 |            0.55 |
-|   Others                 |     0.000 |     3805 |       --- |             --- |
+|   Others                 |     0.000 |     3839 |       --- |             --- |
 |   BUFG                   |     0.000 |        2 |        32 |            6.25 |
-| Signals                  |     0.138 |   297729 |       --- |             --- |
-| Block RAM                |     0.069 |    169.5 |       445 |           38.09 |
+| Signals                  |     0.133 |   307820 |       --- |             --- |
+| Block RAM                |     0.109 |    211.5 |       445 |           47.53 |
 | MMCM                     |     0.332 |        3 |        10 |           30.00 |
 | PLL                      |     0.133 |        1 |        10 |           10.00 |
-| DSPs                     |     0.003 |       60 |       840 |            7.14 |
+| DSPs                     |     0.004 |       60 |       840 |            7.14 |
 | I/O                      |     0.599 |       81 |       500 |           16.20 |
 | PHASER                   |     0.456 |       28 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
-| Static Power             |     0.185 |          |           |                 |
-| Total                    |     2.255 |          |           |                 |
+| Static Power             |     0.188 |          |           |                 |
+| Total                    |     2.287 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -81,7 +81,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.769 |       0.684 |      0.085 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.796 |       0.710 |      0.086 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.483 |       0.455 |      0.029 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -90,7 +90,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       2.000 |     0.109 |       0.109 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.013 |       0.006 |      0.008 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.019 |       0.009 |      0.009 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -148,17 +148,17 @@ Table of Contents
 | iserdes_clkdiv_1                                                                                                                                          | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/iserdes_clkdiv            |             2.5 |
 | iserdes_clkdiv_2                                                                                                                                          | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clkdiv            |             2.5 |
 | iserdes_clkdiv_3                                                                                                                                          | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/iserdes_clkdiv            |             2.5 |
-| mem_refclk                                                                                                                                                | i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/mem_refclk                                                                                                                                        |             1.3 |
+| mem_refclk                                                                                                                                                | i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/mem_refclk                                                                                                                                        |             1.2 |
 | mmcm_clkfbout                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_iodelay_ctrl/mmcm_clkfbout                                                                                                                                            |             5.0 |
 | mmcm_ps_clk_bufg_in                                                                                                                                       | i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/mmcm_ps_clk_bufg_in                                                                                                                               |            10.0 |
-| oserdes_clk                                                                                                                                               | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clk               |             1.3 |
-| oserdes_clk_1                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clk               |             1.3 |
-| oserdes_clk_2                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clk               |             1.3 |
-| oserdes_clk_3                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clk               |             1.3 |
-| oserdes_clk_4                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clk               |             1.3 |
-| oserdes_clk_5                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clk               |             1.3 |
-| oserdes_clk_6                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clk               |             1.3 |
-| oserdes_clk_7                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clk               |             1.3 |
+| oserdes_clk                                                                                                                                               | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clk               |             1.2 |
+| oserdes_clk_1                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clk               |             1.2 |
+| oserdes_clk_2                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clk               |             1.2 |
+| oserdes_clk_3                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clk               |             1.2 |
+| oserdes_clk_4                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clk               |             1.2 |
+| oserdes_clk_5                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clk               |             1.2 |
+| oserdes_clk_6                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clk               |             1.2 |
+| oserdes_clk_7                                                                                                                                             | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_1.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clk               |             1.2 |
 | oserdes_clkdiv                                                                                                                                            | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clkdiv            |             2.5 |
 | oserdes_clkdiv_1                                                                                                                                          | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clkdiv            |             2.5 |
 | oserdes_clkdiv_2                                                                                                                                          | i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clkdiv            |             2.5 |
@@ -187,19 +187,18 @@ Table of Contents
 +-------------------------------------------------------+-----------+
 | Name                                                  | Power (W) |
 +-------------------------------------------------------+-----------+
-| cheshire_top_xilinx                                   |     2.070 |
-|   i_cheshire_soc                                      |     0.322 |
+| cheshire_top_xilinx                                   |     2.099 |
+|   i_cheshire_soc                                      |     0.354 |
 |     gen_cva6_cores[0].gen_cva6_bus_err.i_cva6_bus_err |     0.002 |
 |       i_read_err_unit                                 |     0.001 |
 |       i_write_err_unit                                |     0.001 |
 |     gen_cva6_cores[0].i_axi_id_serialize              |     0.002 |
-|     gen_cva6_cores[0].i_core_cva6                     |     0.081 |
-|       csr_regfile_i                                   |     0.002 |
-|       ex_stage_i                                      |     0.023 |
-|       gen_cache_wt.i_cache_subsystem                  |     0.025 |
-|       i_frontend                                      |     0.008 |
-|       id_stage_i                                      |     0.003 |
-|       issue_stage_i                                   |     0.018 |
+|     gen_cva6_cores[0].i_core_cva6                     |     0.110 |
+|       csr_regfile_i                                   |     0.003 |
+|       ex_stage_i                                      |     0.019 |
+|       gen_cache_wt.i_cache_subsystem                  |     0.063 |
+|       i_frontend                                      |     0.009 |
+|       issue_stage_i                                   |     0.016 |
 |     gen_llc.i_llc                                     |     0.043 |
 |       i_axi_llc_top_raw                               |     0.043 |
 |     gen_llc_atomics.i_llc_atomics                     |     0.013 |
@@ -210,11 +209,10 @@ Table of Contents
 |     gen_nvdla.i_nvdla_id_serialize                    |     0.002 |
 |       i_axi_demux                                     |     0.001 |
 |     gen_nvdla.i_nvdla_wrapper                         |     0.136 |
-|       nvdla_core                                      |     0.135 |
-|     i_axi_to_reg_v2                                   |     0.006 |
+|       nvdla_core                                      |     0.136 |
+|     i_axi_to_reg_v2                                   |     0.007 |
 |       gen_tcdm_to_reg[1].i_mem_req_spill              |     0.005 |
 |     i_axi_xbar                                        |     0.011 |
-|       gen_mst_port_mux[0].i_axi_mux                   |     0.001 |
 |       gen_mst_port_mux[1].i_axi_mux                   |     0.001 |
 |       gen_mst_port_mux[2].i_axi_mux                   |     0.001 |
 |       i_xbar_unmuxed                                  |     0.007 |
@@ -227,14 +225,14 @@ Table of Contents
 |       i_axi_riscv_atomics_wrap                        |     0.004 |
 |   i_clkwiz                                            |     0.119 |
 |     inst                                              |     0.119 |
-|   i_dram_wrapper                                      |     1.622 |
+|   i_dram_wrapper                                      |     1.620 |
 |     gen_cdc.i_axi_cdc_mig                             |     0.049 |
 |       i_axi_cdc_dst                                   |     0.033 |
 |       i_axi_cdc_src                                   |     0.016 |
 |     i_axi_iw_converter                                |     0.002 |
 |       gen_downsize.gen_remap.i_axi_id_remap           |     0.002 |
-|     i_dram                                            |     1.571 |
-|       u_mig7s_mig                                     |     1.570 |
+|     i_dram                                            |     1.569 |
+|       u_mig7s_mig                                     |     1.568 |
 +-------------------------------------------------------+-----------+
 
 
