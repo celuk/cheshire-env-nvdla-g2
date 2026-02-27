@@ -1,7 +1,7 @@
 # This script was generated automatically by bender.
 #set ROOT "C:/cheshire"
-set ROOT "/home/shc/projects/chs-nv/cheshire-env-nvdla/cheshire"
-set ROOTBENDER "/home/shc/projects/chs-nv/cheshire_nv_built"
+set ROOT "./linux-env-nvdla/cheshire"
+set ROOTBENDER "."
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/pad_functional_xilinx.sv \
     $ROOTBENDER/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv \

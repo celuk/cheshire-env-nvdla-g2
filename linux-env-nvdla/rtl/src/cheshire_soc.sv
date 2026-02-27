@@ -1910,29 +1910,8 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     assign nvdla_rlast   = nvdla_raw_rsp.r.last;
     assign nvdla_rvalid  = nvdla_raw_rsp.r_valid;
 
-    // Serialize NVDLA IDs (8bit) to match Cheshire AXI master ID width (2bit)
-    axi_id_serialize #(
-      .AxiSlvPortIdWidth      ( NvdlaIdWidth ),
-      .AxiSlvPortMaxTxns      ( Cfg.CoreMaxTxns ),
-      .AxiMstPortIdWidth      ( Cfg.AxiMstIdWidth ),
-      .AxiMstPortMaxUniqIds   ( 2 ** Cfg.AxiMstIdWidth ),
-      .AxiMstPortMaxTxnsPerId ( Cfg.CoreMaxTxnsPerId ),
-      .AxiAddrWidth           ( Cfg.AddrWidth ),
-      .AxiDataWidth           ( Cfg.AxiDataWidth ),
-      .AxiUserWidth           ( Cfg.AxiUserWidth ),
-      .AtopSupport            ( 0 ),
-      .slv_req_t              ( nvdla_axi_req_t ),
-      .slv_resp_t             ( nvdla_axi_rsp_t ),
-      .mst_req_t              ( axi_mst_req_t ),
-      .mst_resp_t             ( axi_mst_rsp_t )
-    ) i_nvdla_id_serialize (
-      .clk_i,
-      .rst_ni,
-      .slv_req_i  ( nvdla_raw_req ),
-      .slv_resp_o ( nvdla_raw_rsp ),
-      .mst_req_o  ( axi_nvdla_mst_req ),
-      .mst_resp_i ( axi_in_rsp[AxiIn.nvdla] )
-    );
+    assign axi_nvdla_mst_req = axi_mst_req_t'(nvdla_raw_req);
+    assign nvdla_raw_rsp     = nvdla_axi_rsp_t'(axi_in_rsp[AxiIn.nvdla]);
 
     always_comb begin
       axi_in_req[AxiIn.nvdla]         = axi_nvdla_mst_req;

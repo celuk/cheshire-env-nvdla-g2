@@ -597,7 +597,7 @@ package cheshire_pkg;
     AddrWidth         : 32,
     AxiDataWidth      : 64,
     AxiUserWidth      : 2,  // AMO(2)
-    AxiMstIdWidth     : 4,
+    AxiMstIdWidth     : 8,
     AxiMaxMstTrans    : `ifdef GENESYS2 24 `else 1 `endif,
     AxiMaxSlvTrans    : `ifdef GENESYS2 24 `else 1 `endif,
     AxiUserAmoMsb     : 1, // Convention: lower AMO bits for cores, MSB for serial link
