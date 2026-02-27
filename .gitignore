@@ -89,3 +89,5 @@ typescript*
 **/*.shm/**
 
 temp/*
+
+.bender/git/db/*
