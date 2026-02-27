@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param general.maxThreads 8
-set_param synth.incrementalSynthesisCache C:/cheshire/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-26404-ECIT01684/incrSyn
+set_param synth.incrementalSynthesisCache C:/cheshire/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-31704-ECIT01684/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -473,7 +473,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/cheshire/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_ctrl.sv
   C:/cheshire/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_mem.sv
   C:/cheshire/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_missunit.sv
-  C:/cheshire/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_wbuffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla/rtl/src/wt_dcache_wbuffer.sv
   C:/cheshire/target/xilinx/src/cheshire_top_xilinx.sv
 }
 read_verilog -library xil_defaultlib {

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb 26 19:56:24 2026
+| Date         : Fri Feb 27 01:07:12 2026
 | Host         : ECIT01684 running 64-bit major release  (build 9200)
 | Command      : report_timing -file C:/cheshire/target/xilinx/build/genesys2.cheshire/reports.synth/timing_worst_100.rpt -max_paths 100 -nworst 100 -delay_type max -sort_by slack
 | Design       : cheshire_top_xilinx
