@@ -1,0 +1,3996 @@
+
+/mnt/c/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla/cheshire/hw/bootrom/cheshire_bootrom.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000002000000 <_start>:
+ 2000000:	4081                	li	ra,0
+ 2000002:	4201                	li	tp,0
+ 2000004:	4281                	li	t0,0
+ 2000006:	4301                	li	t1,0
+ 2000008:	4381                	li	t2,0
+ 200000a:	4401                	li	s0,0
+ 200000c:	4481                	li	s1,0
+ 200000e:	4501                	li	a0,0
+ 2000010:	4581                	li	a1,0
+ 2000012:	4601                	li	a2,0
+ 2000014:	4681                	li	a3,0
+ 2000016:	4701                	li	a4,0
+ 2000018:	4781                	li	a5,0
+ 200001a:	4801                	li	a6,0
+ 200001c:	4881                	li	a7,0
+ 200001e:	4901                	li	s2,0
+ 2000020:	4981                	li	s3,0
+ 2000022:	4a01                	li	s4,0
+ 2000024:	4a81                	li	s5,0
+ 2000026:	4b01                	li	s6,0
+ 2000028:	4b81                	li	s7,0
+ 200002a:	4c01                	li	s8,0
+ 200002c:	4c81                	li	s9,0
+ 200002e:	4d01                	li	s10,0
+ 2000030:	4d81                	li	s11,0
+ 2000032:	4e01                	li	t3,0
+ 2000034:	4e81                	li	t4,0
+ 2000036:	4f01                	li	t5,0
+ 2000038:	4f81                	li	t6,0
+ 200003a:	4321                	li	t1,8
+ 200003c:	30431073          	csrw	mie,t1
+ 2000040:	4281                	li	t0,0
+ 2000042:	f1402373          	csrr	t1,mhartid
+ 2000046:	0e629263          	bne	t0,t1,200012a <boot_next_stage+0x3a>
+ 200004a:	0e010117          	auipc	sp,0xe010
+ 200004e:	fae10113          	addi	sp,sp,-82 # 1000fff8 <__stack_pointer$>
+ 2000052:	00002197          	auipc	gp,0x2
+ 2000056:	d9218193          	addi	gp,gp,-622 # 2001de4 <__global_pointer$>
+ 200005a:	01000297          	auipc	t0,0x1000
+ 200005e:	fa628293          	addi	t0,t0,-90 # 3000000 <__base_regs>
+ 2000062:	0502a283          	lw	t0,80(t0)
+ 2000066:	0022f293          	andi	t0,t0,2
+ 200006a:	02028e63          	beqz	t0,20000a6 <_prom_check_run>
+ 200006e:	01001297          	auipc	t0,0x1001
+ 2000072:	f9228293          	addi	t0,t0,-110 # 3001000 <__base_llc>
+
+0000000002000076 <_wait_llc_bist>:
+ 2000076:	0482a303          	lw	t1,72(t0)
+ 200007a:	fe030ee3          	beqz	t1,2000076 <_wait_llc_bist>
+ 200007e:	537d                	li	t1,-1
+ 2000080:	0062a023          	sw	t1,0(t0)
+ 2000084:	0062a223          	sw	t1,4(t0)
+ 2000088:	4305                	li	t1,1
+ 200008a:	0062a823          	sw	t1,16(t0)
+ 200008e:	01000297          	auipc	t0,0x1000
+ 2000092:	f7228293          	addi	t0,t0,-142 # 3000000 <__base_regs>
+ 2000096:	0e000117          	auipc	sp,0xe000
+ 200009a:	f6a10113          	addi	sp,sp,-150 # 10000000 <__base_spm>
+ 200009e:	0542a283          	lw	t0,84(t0)
+ 20000a2:	9116                	add	sp,sp,t0
+ 20000a4:	1161                	addi	sp,sp,-8
+
+00000000020000a6 <_prom_check_run>:
+ 20000a6:	01000297          	auipc	t0,0x1000
+ 20000aa:	f5a28293          	addi	t0,t0,-166 # 3000000 <__base_regs>
+ 20000ae:	0482a283          	lw	t0,72(t0)
+ 20000b2:	00028363          	beqz	t0,20000b8 <_boot>
+ 20000b6:	9282                	jalr	t0
+
+00000000020000b8 <_boot>:
+ 20000b8:	4281                	li	t0,0
+ 20000ba:	4301                	li	t1,0
+ 20000bc:	0ff0000f          	fence
+ 20000c0:	0000100f          	fence.i
+ 20000c4:	0e7010ef          	jal	20019aa <main>
+ 20000c8:	00000013          	nop
+ 20000cc:	00000013          	nop
+
+00000000020000d0 <_exit>:
+ 20000d0:	0506                	slli	a0,a0,0x1
+ 20000d2:	00156513          	ori	a0,a0,1
+ 20000d6:	01000297          	auipc	t0,0x1000
+ 20000da:	f2a28293          	addi	t0,t0,-214 # 3000000 <__base_regs>
+ 20000de:	00a2a423          	sw	a0,8(t0)
+ 20000e2:	9002                	ebreak
+ 20000e4:	10500073          	wfi
+ 20000e8:	bff5                	j	20000e4 <_exit+0x14>
+ 20000ea:	00000013          	nop
+ 20000ee:	0001                	nop
+
+00000000020000f0 <boot_next_stage>:
+ 20000f0:	01000297          	auipc	t0,0x1000
+ 20000f4:	f1028293          	addi	t0,t0,-240 # 3000000 <__base_regs>
+ 20000f8:	00a2a823          	sw	a0,16(t0)
+ 20000fc:	9101                	srli	a0,a0,0x20
+ 20000fe:	00a2aa23          	sw	a0,20(t0)
+ 2000102:	0ff0000f          	fence
+ 2000106:	00040297          	auipc	t0,0x40
+ 200010a:	efa28293          	addi	t0,t0,-262 # 2040000 <__base_clint>
+ 200010e:	01000397          	auipc	t2,0x1000
+ 2000112:	ef238393          	addi	t2,t2,-270 # 3000000 <__base_regs>
+ 2000116:	04c3a383          	lw	t2,76(t2)
+ 200011a:	038a                	slli	t2,t2,0x2
+ 200011c:	9396                	add	t2,t2,t0
+ 200011e:	4305                	li	t1,1
+ 2000120:	0062a023          	sw	t1,0(t0)
+ 2000124:	0291                	addi	t0,t0,4
+ 2000126:	fe72cce3          	blt	t0,t2,200011e <boot_next_stage+0x2e>
+ 200012a:	10500073          	wfi
+ 200012e:	34402373          	csrr	t1,mip
+ 2000132:	00837313          	andi	t1,t1,8
+ 2000136:	fe030ae3          	beqz	t1,200012a <boot_next_stage+0x3a>
+ 200013a:	00040297          	auipc	t0,0x40
+ 200013e:	ec628293          	addi	t0,t0,-314 # 2040000 <__base_clint>
+ 2000142:	f1402373          	csrr	t1,mhartid
+ 2000146:	030a                	slli	t1,t1,0x2
+ 2000148:	9316                	add	t1,t1,t0
+ 200014a:	00032023          	sw	zero,0(t1)
+ 200014e:	01000397          	auipc	t2,0x1000
+ 2000152:	eb238393          	addi	t2,t2,-334 # 3000000 <__base_regs>
+ 2000156:	04c3a383          	lw	t2,76(t2)
+ 200015a:	038a                	slli	t2,t2,0x2
+ 200015c:	9396                	add	t2,t2,t0
+ 200015e:	0002a303          	lw	t1,0(t0)
+ 2000162:	fe031ee3          	bnez	t1,200015e <boot_next_stage+0x6e>
+ 2000166:	0291                	addi	t0,t0,4
+ 2000168:	fe72cbe3          	blt	t0,t2,200015e <boot_next_stage+0x6e>
+ 200016c:	01000297          	auipc	t0,0x1000
+ 2000170:	e9428293          	addi	t0,t0,-364 # 3000000 <__base_regs>
+ 2000174:	0142e303          	lwu	t1,20(t0)
+ 2000178:	1302                	slli	t1,t1,0x20
+ 200017a:	0102e283          	lwu	t0,16(t0)
+ 200017e:	0062e2b3          	or	t0,t0,t1
+ 2000182:	f1402573          	csrr	a0,mhartid
+ 2000186:	000280e7          	jalr	t0
+ 200018a:	8082                	ret
+ 200018c:	00000013          	nop
+
+0000000002000190 <__bswapsi2>:
+ 2000190:	0185171b          	slliw	a4,a0,0x18
+ 2000194:	0185579b          	srliw	a5,a0,0x18
+ 2000198:	66c1                	lui	a3,0x10
+ 200019a:	8fd9                	or	a5,a5,a4
+ 200019c:	f0068693          	addi	a3,a3,-256 # ff00 <uart.c.064117c7+0x4309>
+ 20001a0:	0085571b          	srliw	a4,a0,0x8
+ 20001a4:	8f75                	and	a4,a4,a3
+ 20001a6:	8fd9                	or	a5,a5,a4
+ 20001a8:	0085151b          	slliw	a0,a0,0x8
+ 20001ac:	00ff0737          	lui	a4,0xff0
+ 20001b0:	8d79                	and	a0,a0,a4
+ 20001b2:	8d5d                	or	a0,a0,a5
+ 20001b4:	8082                	ret
+
+00000000020001b6 <clint_spin_until>:
+#include "regs/clint.h"
+#include "util.h"
+#include "params.h"
+
+uint64_t clint_get_mtime() {
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 20001b6:	6631                	lui	a2,0xc
+ 20001b8:	00040717          	auipc	a4,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 20001bc:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 20001c0:	e4870713          	addi	a4,a4,-440 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 20001c4:	e4478793          	addi	a5,a5,-444 # 2040000 <__base_clint>
+ 20001c8:	97b2                	add	a5,a5,a2
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 20001ca:	9732                	add	a4,a4,a2
+ 20001cc:	ffc72703          	lw	a4,-4(a4)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 20001d0:	ff87a683          	lw	a3,-8(a5)
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 20001d4:	02071793          	slli	a5,a4,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 20001d8:	02069713          	slli	a4,a3,0x20
+ 20001dc:	9301                	srli	a4,a4,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 20001de:	8fd9                	or	a5,a5,a4
+}
+
+void clint_spin_until(uint64_t tgt_mtime) {
+    while (clint_get_mtime() < tgt_mtime)
+ 20001e0:	fca7ece3          	bltu	a5,a0,20001b8 <clint_spin_until+0x2>
+        ;
+}
+ 20001e4:	8082                	ret
+
+00000000020001e6 <clint_get_core_freq.constprop.0>:
+    clint_spin_until(clint_get_mtime() + ticks);
+}
+
+uint64_t clint_get_core_freq(uint64_t ref_freq, uint64_t ref_time_inv) {
+    uint64_t end_mcycle, start_mcycle;
+    uint64_t num_ticks = ref_freq / ref_time_inv;
+ 20001e6:	1a36e7b7          	lui	a5,0x1a36e
+ 20001ea:	2eb78793          	addi	a5,a5,747 # 1a36e2eb <__stack_pointer$+0xa35e2f3>
+ 20001ee:	38866737          	lui	a4,0x38866
+ 20001f2:	1786                	slli	a5,a5,0x21
+ 20001f4:	94b70713          	addi	a4,a4,-1717 # 3886594b <__stack_pointer$+0x28855953>
+ 20001f8:	00e78833          	add	a6,a5,a4
+ 20001fc:	03053833          	mulhu	a6,a0,a6
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000200:	00040717          	auipc	a4,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000204:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000208:	6631                	lui	a2,0xc
+ 200020a:	e0070713          	addi	a4,a4,-512 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200020e:	dfc78793          	addi	a5,a5,-516 # 2040000 <__base_clint>
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000212:	9732                	add	a4,a4,a2
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000214:	97b2                	add	a5,a5,a2
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000216:	ffc72883          	lw	a7,-4(a4)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200021a:	ff87a783          	lw	a5,-8(a5)
+    uint64_t num_ticks = ref_freq / ref_time_inv;
+ 200021e:	00985813          	srli	a6,a6,0x9
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000222:	1882                	slli	a7,a7,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000224:	1782                	slli	a5,a5,0x20
+ 2000226:	9381                	srli	a5,a5,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000228:	00f8e8b3          	or	a7,a7,a5
+}
+
+// Get cycle count since reset
+static inline uint64_t get_mcycle() {
+    uint64_t mcycle;
+    asm volatile("csrr %0, mcycle" : "=r"(mcycle)::"memory");
+ 200022c:	b00025f3          	csrr	a1,mcycle
+ 2000230:	00040717          	auipc	a4,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000234:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000238:	dd070713          	addi	a4,a4,-560 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200023c:	dcc78793          	addi	a5,a5,-564 # 2040000 <__base_clint>
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000240:	9732                	add	a4,a4,a2
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000242:	97b2                	add	a5,a5,a2
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000244:	ffc72683          	lw	a3,-4(a4)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000248:	ff87a783          	lw	a5,-8(a5)
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200024c:	1682                	slli	a3,a3,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200024e:	1782                	slli	a5,a5,0x20
+ 2000250:	9381                	srli	a5,a5,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000252:	8edd                	or	a3,a3,a5
+    uint64_t end_mtime = clint_get_mtime(), start_mtime;
+    // Capture start times until we observe an RTC tick rollover
+    do {
+        start_mcycle = get_mcycle();
+        start_mtime = clint_get_mtime();
+    } while (start_mtime == end_mtime);
+ 2000254:	fcd88ce3          	beq	a7,a3,200022c <clint_get_core_freq.constprop.0+0x46>
+    // Capture end times until we observe rollover to the past-the-end RTC tick
+    do {
+        end_mcycle = get_mcycle();
+        end_mtime = clint_get_mtime();
+    } while (end_mtime < start_mtime + num_ticks);
+ 2000258:	9836                	add	a6,a6,a3
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200025a:	68b1                	lui	a7,0xc
+ 200025c:	b0002373          	csrr	t1,mcycle
+ 2000260:	00040717          	auipc	a4,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000264:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000268:	da070713          	addi	a4,a4,-608 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200026c:	d9c78793          	addi	a5,a5,-612 # 2040000 <__base_clint>
+ 2000270:	97c6                	add	a5,a5,a7
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000272:	9746                	add	a4,a4,a7
+ 2000274:	ffc72703          	lw	a4,-4(a4)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000278:	ff87a603          	lw	a2,-8(a5)
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200027c:	02071793          	slli	a5,a4,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000280:	02061713          	slli	a4,a2,0x20
+ 2000284:	9301                	srli	a4,a4,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000286:	8fd9                	or	a5,a5,a4
+    } while (end_mtime < start_mtime + num_ticks);
+ 2000288:	fd07eae3          	bltu	a5,a6,200025c <clint_get_core_freq.constprop.0+0x76>
+    // Compute current frequency in Hz
+    return ((end_mcycle - start_mcycle) * ref_freq) / (end_mtime - start_mtime);
+ 200028c:	40b30333          	sub	t1,t1,a1
+ 2000290:	02a30533          	mul	a0,t1,a0
+ 2000294:	8f95                	sub	a5,a5,a3
+}
+ 2000296:	02f55533          	divu	a0,a0,a5
+ 200029a:	8082                	ret
+
+000000000200029c <i2c_24fc1025_init>:
+#include "dif/clint.h"
+
+int i2c_24fc1025_init(dif_i2c_t *i2c, uint64_t core_freq) {
+    // Check for legal arguments
+    CHECK_ASSERT(0x11, i2c != 0);
+    CHECK_ASSERT(0x12, core_freq != 0);
+ 200029c:	16058663          	beqz	a1,2000408 <i2c_24fc1025_init+0x16c>
+    CHECK_CALL(dif_i2c_reset_fmt_fifo(i2c))
+    CHECK_CALL(dif_i2c_reset_rx_fifo(i2c))
+    CHECK_CALL(dif_i2c_reset_tx_fifo(i2c))
+    // Set up timing: worst case 24FC1025 @1.8V
+    dif_i2c_timing_config_t timing_config = {
+        .clock_period_nanos = (uint64_t)(1e9) / core_freq, // From system-side clock
+ 20002a0:	3b9ad7b7          	lui	a5,0x3b9ad
+ 20002a4:	a0078793          	addi	a5,a5,-1536 # 3b9aca00 <__stack_pointer$+0x2b99ca08>
+    dif_i2c_timing_config_t timing_config = {
+ 20002a8:	02b7d5b3          	divu	a1,a5,a1
+ * @param offset the offset to read at, in bytes.
+ * @return the read value.
+ */
+OT_WARN_UNUSED_RESULT
+inline uint32_t mmio_region_read32(mmio_region_t base, ptrdiff_t offset) {
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20002ac:	01003817          	auipc	a6,0x1003
+ 20002b0:	d5480813          	addi	a6,a6,-684 # 3003000 <__base_i2c>
+ 20002b4:	01082303          	lw	t1,16(a6)
+dif_result_t dif_i2c_init(mmio_region_t base_addr, dif_i2c_t *i2c) {
+  if (i2c == NULL) {
+    return kDifBadArg;
+  }
+
+  i2c->base_addr = base_addr;
+ 20002b8:	01003e17          	auipc	t3,0x1003
+ 20002bc:	d48e0e13          	addi	t3,t3,-696 # 3003000 <__base_i2c>
+ * @param offset the offset to write at, in bytes.
+ * @param value the value to write.
+ */
+inline void mmio_region_write32(mmio_region_t base, ptrdiff_t offset,
+                                uint32_t value) {
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20002c0:	01003817          	auipc	a6,0x1003
+ 20002c4:	01c53023          	sd	t3,0(a0)
+ */
+OT_WARN_UNUSED_RESULT
+inline uint32_t bitfield_field32_write(uint32_t bitfield,
+                                       bitfield_field32_t field,
+                                       uint32_t value) {
+  bitfield &= ~(field.mask << field.index);
+ 20002c8:	ffe37313          	andi	t1,t1,-2
+ 20002cc:	d4080813          	addi	a6,a6,-704 # 3003000 <__base_i2c>
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20002d0:	01003517          	auipc	a0,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20002d4:	00682823          	sw	t1,16(a6)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20002d8:	d3050513          	addi	a0,a0,-720 # 3003000 <__base_i2c>
+ 20002dc:	02052303          	lw	t1,32(a0)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20002e0:	01003817          	auipc	a6,0x1003
+ 20002e4:	d2080813          	addi	a6,a6,-736 # 3003000 <__base_i2c>
+  bitfield |= (value & field.mask) << field.index;
+ 20002e8:	08036313          	ori	t1,t1,128
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20002ec:	01003517          	auipc	a0,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20002f0:	02682023          	sw	t1,32(a6)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20002f4:	d1450513          	addi	a0,a0,-748 # 3003000 <__base_i2c>
+ 20002f8:	02052303          	lw	t1,32(a0)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20002fc:	01003817          	auipc	a6,0x1003
+ 2000300:	d0480813          	addi	a6,a6,-764 # 3003000 <__base_i2c>
+ 2000304:	00236313          	ori	t1,t1,2
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000308:	01003517          	auipc	a0,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200030c:	02682023          	sw	t1,32(a6)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000310:	cf850513          	addi	a0,a0,-776 # 3003000 <__base_i2c>
+ 2000314:	02052303          	lw	t1,32(a0)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000318:	01003817          	auipc	a6,0x1003
+ 200031c:	ce880813          	addi	a6,a6,-792 # 3003000 <__base_i2c>
+ 2000320:	00136313          	ori	t1,t1,1
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000324:	01003517          	auipc	a0,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000328:	02682023          	sw	t1,32(a6)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 200032c:	cdc50513          	addi	a0,a0,-804 # 3003000 <__base_i2c>
+ 2000330:	02052803          	lw	a6,32(a0)
+ * 16 bits of the result are then returned.
+ *
+ * As usual, a divisor of 0 is still Undefined Behavior.
+ */
+static uint16_t round_up_divide(uint32_t a, uint32_t b) {
+  return ((a - 1) / b) + 1;
+ 2000334:	6785                	lui	a5,0x1
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000336:	01003517          	auipc	a0,0x1003
+ 200033a:	51300893          	li	a7,1299
+ 200033e:	cca50513          	addi	a0,a0,-822 # 3003000 <__base_i2c>
+ 2000342:	10086813          	ori	a6,a6,256
+ 2000346:	9c37879b          	addiw	a5,a5,-1597 # 9c3 <gpt.c.d01acdb6-0x5ec7>
+ 200034a:	06300613          	li	a2,99
+ 200034e:	03052023          	sw	a6,32(a0)
+ 2000352:	12b00713          	li	a4,299
+ 2000356:	25700693          	li	a3,599
+ 200035a:	02b8d83b          	divuw	a6,a7,a1
+ 200035e:	68c1                	lui	a7,0x10
+ 2000360:	02b7d7bb          	divuw	a5,a5,a1
+ 2000364:	01081513          	slli	a0,a6,0x10
+ 2000368:	9546                	add	a0,a0,a7
+ 200036a:	02b6563b          	divuw	a2,a2,a1
+  }
+  uint16_t scl_period_cycles =
+      round_up_divide(scl_period_nanos, timing_config.clock_period_nanos);
+
+  // Lengthen the SCL high period to accommodate the desired SCL period.
+  uint16_t lengthened_high_cycles = scl_period_cycles -
+ 200036e:	410787bb          	subw	a5,a5,a6
+  return ((a - 1) / b) + 1;
+ 2000372:	02b7573b          	divuw	a4,a4,a1
+ 2000376:	0605                	addi	a2,a2,1 # c001 <uart.c.064117c7+0x40a>
+                                    config->scl_time_low_cycles -
+ 2000378:	9f91                	subw	a5,a5,a2
+  return ((a - 1) / b) + 1;
+ 200037a:	02b6d6bb          	divuw	a3,a3,a1
+ 200037e:	0705                	addi	a4,a4,1
+  uint16_t lengthened_high_cycles = scl_period_cycles -
+ 2000380:	9f99                	subw	a5,a5,a4
+                                    config->rise_cycles - config->fall_cycles;
+  if (lengthened_high_cycles > config->scl_time_high_cycles) {
+ 2000382:	03079813          	slli	a6,a5,0x30
+ 2000386:	03085813          	srli	a6,a6,0x30
+ 200038a:	00168593          	addi	a1,a3,1
+  return ((a - 1) / b) + 1;
+ 200038e:	86ae                	mv	a3,a1
+  if (lengthened_high_cycles > config->scl_time_high_cycles) {
+ 2000390:	06b86a63          	bltu	a6,a1,2000404 <i2c_24fc1025_init+0x168>
+ 2000394:	65c1                	lui	a1,0x10
+  timing1 = bitfield_field32_write(timing1, I2C_TIMING1_T_F_FIELD,
+                                   config.fall_cycles);
+  mmio_region_write32(i2c->base_addr, I2C_TIMING1_REG_OFFSET, timing1);
+
+  uint32_t timing2 = 0;
+  timing2 = bitfield_field32_write(timing2, I2C_TIMING2_TSU_STA_FIELD,
+ 2000396:	2681                	sext.w	a3,a3
+ 2000398:	2585                	addiw	a1,a1,1 # 10001 <uart.c.064117c7+0x440a>
+ 200039a:	02b685bb          	mulw	a1,a3,a1
+ 200039e:	17c2                	slli	a5,a5,0x30
+ 20003a0:	93c1                	srli	a5,a5,0x30
+ 20003a2:	01003897          	auipc	a7,0x1003
+ 20003a6:	8fc9                	or	a5,a5,a0
+ 20003a8:	c5e88893          	addi	a7,a7,-930 # 3003000 <__base_i2c>
+ 20003ac:	0107171b          	slliw	a4,a4,0x10
+ 20003b0:	01003817          	auipc	a6,0x1003
+ 20003b4:	02f8a823          	sw	a5,48(a7)
+ 20003b8:	8f51                	or	a4,a4,a2
+ 20003ba:	c5080813          	addi	a6,a6,-944 # 3003000 <__base_i2c>
+ 20003be:	02e82a23          	sw	a4,52(a6)
+ 20003c2:	01003717          	auipc	a4,0x1003
+ 20003c6:	c3e70713          	addi	a4,a4,-962 # 3003000 <__base_i2c>
+ 20003ca:	6841                	lui	a6,0x10
+ 20003cc:	01003797          	auipc	a5,0x1003
+ 20003d0:	df0c                	sw	a1,56(a4)
+ 20003d2:	01066633          	or	a2,a2,a6
+ 20003d6:	c3478793          	addi	a5,a5,-972 # 3003000 <__base_i2c>
+ 20003da:	01003717          	auipc	a4,0x1003
+ 20003de:	dfd0                	sw	a2,60(a5)
+ 20003e0:	8d55                	or	a0,a0,a3
+ 20003e2:	c2670713          	addi	a4,a4,-986 # 3003000 <__base_i2c>
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20003e6:	01003797          	auipc	a5,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20003ea:	c328                	sw	a0,64(a4)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20003ec:	c1a78793          	addi	a5,a5,-998 # 3003000 <__base_i2c>
+ 20003f0:	4b98                	lw	a4,16(a5)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20003f2:	01003797          	auipc	a5,0x1003
+ 20003f6:	c0e78793          	addi	a5,a5,-1010 # 3003000 <__base_i2c>
+ 20003fa:	00176713          	ori	a4,a4,1
+ 20003fe:	cb98                	sw	a4,16(a5)
+ 2000400:	4501                	li	a0,0
+ 2000402:	8082                	ret
+  if (lengthened_high_cycles > config->scl_time_high_cycles) {
+ 2000404:	87ae                	mv	a5,a1
+ 2000406:	b779                	j	2000394 <i2c_24fc1025_init+0xf8>
+    CHECK_ASSERT(0x12, core_freq != 0);
+ 2000408:	4549                	li	a0,18
+    CHECK_CALL(dif_i2c_configure(i2c, config))
+    // Enable host functionality (no traps or interrupts)
+    CHECK_CALL(dif_i2c_host_set_enabled(i2c, kDifToggleEnabled))
+    // Nothing went wrong
+    return 0;
+}
+ 200040a:	8082                	ret
+
+000000000200040c <uart_debug_init.constprop.0.isra.0>:
+} uart_debug_opcode_t;
+
+int uart_debug_init(void *uart_base, uint64_t core_freq) {
+    // Check arguments
+    CHECK_ASSERT(0x11, uart_base != 0);
+    CHECK_ASSERT(0x12, core_freq != 0);
+ 200040c:	c925                	beqz	a0,200047c <uart_debug_init.constprop.0.isra.0+0x70>
+#include "dif/uart.h"
+#include "util.h"
+#include "params.h"
+
+void uart_init(void *uart_base, uint64_t freq, uint64_t baud) {
+    uint64_t divisor = freq / (baud << 4);
+ 200040e:	001c27b7          	lui	a5,0x1c2
+ 2000412:	02f55533          	divu	a0,a0,a5
+    uint8_t dlo = (uint8_t)(divisor);
+    uint8_t dhi = (uint8_t)(divisor >> 8);
+    *reg8(uart_base, UART_INTR_ENABLE_REG_OFFSET) = 0x00;   // Disable all interrupts
+ 2000416:	01002797          	auipc	a5,0x1002
+ 200041a:	bea78793          	addi	a5,a5,-1046 # 3002000 <__base_uart>
+ 200041e:	00078223          	sb	zero,4(a5)
+    *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x80;  // Enable DLAB (set baud rate divisor)
+ 2000422:	01002797          	auipc	a5,0x1002
+ 2000426:	bde78793          	addi	a5,a5,-1058 # 3002000 <__base_uart>
+ 200042a:	f8000713          	li	a4,-128
+ 200042e:	00e78623          	sb	a4,12(a5)
+    *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
+ 2000432:	01002597          	auipc	a1,0x1002
+    *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
+ 2000436:	01002617          	auipc	a2,0x1002
+ 200043a:	bca60613          	addi	a2,a2,-1078 # 3002000 <__base_uart>
+    *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
+ 200043e:	01002697          	auipc	a3,0x1002
+ 2000442:	bc268693          	addi	a3,a3,-1086 # 3002000 <__base_uart>
+ 2000446:	430d                	li	t1,3
+    *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
+ 2000448:	01002717          	auipc	a4,0x1002
+ 200044c:	bb870713          	addi	a4,a4,-1096 # 3002000 <__base_uart>
+ 2000450:	fc700893          	li	a7,-57
+    *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
+ 2000454:	01002797          	auipc	a5,0x1002
+ 2000458:	bac78793          	addi	a5,a5,-1108 # 3002000 <__base_uart>
+ 200045c:	02000813          	li	a6,32
+    *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
+ 2000460:	bca58723          	sb	a0,-1074(a1) # 3002000 <__base_uart>
+    uint8_t dhi = (uint8_t)(divisor >> 8);
+ 2000464:	00855e13          	srli	t3,a0,0x8
+    *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
+ 2000468:	01c60223          	sb	t3,4(a2)
+    *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
+ 200046c:	00668623          	sb	t1,12(a3)
+    *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
+ 2000470:	01170423          	sb	a7,8(a4)
+    *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
+ 2000474:	01078823          	sb	a6,16(a5)
+    asm volatile("fence" ::: "memory");
+ 2000478:	0ff0000f          	fence
+    // The UART debug mode uses the sane default 115.2kBaud
+    uart_init(uart_base, core_freq, __BOOT_BAUDRATE);
+    fence();
+    // Nothing went wrong
+    return 0;
+}
+ 200047c:	8082                	ret
+
+000000000200047e <uart_debug_check.constprop.0>:
+}
+
+int uart_read_ready(void *uart_base) {
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_DATA_READY_BIT);
+ 200047e:	01002797          	auipc	a5,0x1002
+ 2000482:	b8278793          	addi	a5,a5,-1150 # 3002000 <__base_uart>
+ 2000486:	0147c783          	lbu	a5,20(a5)
+
+int uart_debug_check(void *uart_base) {
+    return (uart_read_ready(uart_base) && *reg8(uart_base, UART_RBR_REG_OFFSET) == kUartDebugAck);
+ 200048a:	8b85                	andi	a5,a5,1
+ 200048c:	cb89                	beqz	a5,200049e <uart_debug_check.constprop.0+0x20>
+ 200048e:	01002797          	auipc	a5,0x1002
+ 2000492:	b727c503          	lbu	a0,-1166(a5) # 3002000 <__base_uart>
+ 2000496:	1569                	addi	a0,a0,-6
+ 2000498:	00153513          	seqz	a0,a0
+ 200049c:	8082                	ret
+ 200049e:	4501                	li	a0,0
+}
+ 20004a0:	8082                	ret
+
+00000000020004a2 <dif_i2c_write_byte>:
+  return kDifOk;
+}
+
+dif_result_t dif_i2c_write_byte(const dif_i2c_t *i2c, uint8_t byte,
+                                dif_i2c_fmt_t code, bool suppress_nak_irq) {
+  if (i2c == NULL) {
+ 20004a2:	c531                	beqz	a0,20004ee <dif_i2c_write_byte+0x4c>
+    return kDifBadArg;
+  }
+
+  // Validate that `suppress_nak_irq` has not been mixed with an Rx code.
+  if (suppress_nak_irq) {
+ 20004a4:	ce99                	beqz	a3,20004c2 <dif_i2c_write_byte+0x20>
+    switch (code) {
+ 20004a6:	ffd6079b          	addiw	a5,a2,-3
+ 20004aa:	4709                	li	a4,2
+ 20004ac:	04f77163          	bgeu	a4,a5,20004ee <dif_i2c_write_byte+0x4c>
+    }
+  }
+
+  // Convert the format code into flags.
+  dif_i2c_fmt_flags_t flags = {.suppress_nak_irq = suppress_nak_irq};
+  switch (code) {
+ 20004b0:	04e60663          	beq	a2,a4,20004fc <dif_i2c_write_byte+0x5a>
+ 20004b4:	4785                	li	a5,1
+ 20004b6:	02f61e63          	bne	a2,a5,20004f2 <dif_i2c_write_byte+0x50>
+  dif_i2c_fmt_flags_t flags = {.suppress_nak_irq = suppress_nak_irq};
+ 20004ba:	4781                	li	a5,0
+  fmt_byte = bitfield_field32_write(fmt_byte, I2C_FDATA_FBYTE_FIELD, byte);
+ 20004bc:	4701                	li	a4,0
+ 20004be:	4601                	li	a2,0
+ 20004c0:	a819                	j	20004d6 <dif_i2c_write_byte+0x34>
+  switch (code) {
+ 20004c2:	4789                	li	a5,2
+ 20004c4:	02f60c63          	beq	a2,a5,20004fc <dif_i2c_write_byte+0x5a>
+ 20004c8:	478d                	li	a5,3
+ 20004ca:	fef615e3          	bne	a2,a5,20004b4 <dif_i2c_write_byte+0x12>
+ */
+OT_WARN_UNUSED_RESULT
+inline uint32_t bitfield_bit32_write(uint32_t bitfield,
+                                     bitfield_bit32_index_t bit_index,
+                                     bool value) {
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 20004ce:	4781                	li	a5,0
+ 20004d0:	4701                	li	a4,0
+ 20004d2:	40000613          	li	a2,1024
+  bitfield |= (value & field.mask) << field.index;
+ 20004d6:	00c6969b          	slliw	a3,a3,0xc
+ 20004da:	0097979b          	slliw	a5,a5,0x9
+ 20004de:	8fd5                	or	a5,a5,a3
+ 20004e0:	8fd9                	or	a5,a5,a4
+ 20004e2:	6118                	ld	a4,0(a0)
+ 20004e4:	8fd1                	or	a5,a5,a2
+ 20004e6:	8ddd                	or	a1,a1,a5
+ 20004e8:	cf4c                	sw	a1,28(a4)
+      break;
+    default:
+      return kDifBadArg;
+  }
+
+  return dif_i2c_write_byte_raw(i2c, byte, flags);
+ 20004ea:	4501                	li	a0,0
+ 20004ec:	8082                	ret
+    return kDifBadArg;
+ 20004ee:	450d                	li	a0,3
+}
+ 20004f0:	8082                	ret
+  fmt_byte = bitfield_field32_write(fmt_byte, I2C_FDATA_FBYTE_FIELD, byte);
+ 20004f2:	4781                	li	a5,0
+ 20004f4:	10000713          	li	a4,256
+ 20004f8:	4601                	li	a2,0
+ 20004fa:	bff1                	j	20004d6 <dif_i2c_write_byte+0x34>
+  switch (code) {
+ 20004fc:	4785                	li	a5,1
+ 20004fe:	bf7d                	j	20004bc <dif_i2c_write_byte+0x1a>
+
+0000000002000500 <__i2c_24fc1025_access_chunk>:
+
+static inline int __i2c_24fc1025_access_chunk(dif_i2c_t *i2c, void *buf, uint64_t addr,
+                                              uint64_t len, int write) {
+ 2000500:	832e                	mv	t1,a1
+ 2000502:	8eb2                	mv	t4,a2
+ 2000504:	8e36                	mv	t3,a3
+ 2000506:	8f2a                	mv	t5,a0
+  if (i2c == NULL) {
+ 2000508:	e119                	bnez	a0,200050e <__i2c_24fc1025_access_chunk+0xe>
+    // Wait for all FIFOs to be vacated
+    uint8_t lfmt, lrx, ltx, lacq;
+    do CHECK_CALL(dif_i2c_get_fifo_levels(i2c, &lfmt, &lrx, &ltx, &lacq))
+ 200050a:	450d                	li	a0,3
+        // Transfer chunk to memory destination
+        for (uint64_t b = 0; b < len; b++) CHECK_CALL(dif_i2c_read_byte(i2c, (uint8_t *)buf + b))
+    }
+    // Nothing went wrong
+    return 0;
+}
+ 200050c:	8082                	ret
+                                              uint64_t len, int write) {
+ 200050e:	711d                	addi	sp,sp,-96
+ 2000510:	ec86                	sd	ra,88(sp)
+ 2000512:	e8a2                	sd	s0,80(sp)
+ 2000514:	e4a6                	sd	s1,72(sp)
+ 2000516:	000f3803          	ld	a6,0(t5)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 200051a:	02482783          	lw	a5,36(a6) # 10024 <uart.c.064117c7+0x442d>
+    while (lfmt || lrx || ltx || lacq);
+ 200051e:	07f7f513          	andi	a0,a5,127
+ 2000522:	fd65                	bnez	a0,200051a <__i2c_24fc1025_access_chunk+0x1a>
+  return (bitfield >> field.index) & field.mask;
+ 2000524:	0107d51b          	srliw	a0,a5,0x10
+ 2000528:	0087d89b          	srliw	a7,a5,0x8
+ 200052c:	01156533          	or	a0,a0,a7
+ 2000530:	0187d79b          	srliw	a5,a5,0x18
+ 2000534:	8fc9                	or	a5,a5,a0
+ 2000536:	07f7f793          	andi	a5,a5,127
+ 200053a:	f3e5                	bnez	a5,200051a <__i2c_24fc1025_access_chunk+0x1a>
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200053c:	00040697          	auipc	a3,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000540:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000544:	65b1                	lui	a1,0xc
+ 2000546:	ac468693          	addi	a3,a3,-1340 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200054a:	ac078793          	addi	a5,a5,-1344 # 2040000 <__base_clint>
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200054e:	96ae                	add	a3,a3,a1
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000550:	97ae                	add	a5,a5,a1
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000552:	ffc6a883          	lw	a7,-4(a3)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000556:	ff87a783          	lw	a5,-8(a5)
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200055a:	1882                	slli	a7,a7,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200055c:	1782                	slli	a5,a5,0x20
+ 200055e:	9381                	srli	a5,a5,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000560:	00f8e8b3          	or	a7,a7,a5
+    clint_spin_until(clint_get_mtime() + ticks);
+ 2000564:	0885                	addi	a7,a7,1
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000566:	00040517          	auipc	a0,0x40
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200056a:	00040797          	auipc	a5,0x40
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200056e:	a9a50513          	addi	a0,a0,-1382 # 2040000 <__base_clint>
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000572:	a9678793          	addi	a5,a5,-1386 # 2040000 <__base_clint>
+ 2000576:	97ae                	add	a5,a5,a1
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000578:	952e                	add	a0,a0,a1
+ 200057a:	ffc52683          	lw	a3,-4(a0)
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 200057e:	ff87a603          	lw	a2,-8(a5)
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 2000582:	02069793          	slli	a5,a3,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+ 2000586:	02061693          	slli	a3,a2,0x20
+ 200058a:	9281                	srli	a3,a3,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+ 200058c:	8fd5                	or	a5,a5,a3
+    while (clint_get_mtime() < tgt_mtime)
+ 200058e:	fd17ece3          	bltu	a5,a7,2000566 <__i2c_24fc1025_access_chunk+0x66>
+ 2000592:	01082783          	lw	a5,16(a6)
+    CHECK_CALL(dif_i2c_write_byte(i2c, ctrl_waddr, kDifI2cFmtStart, true))
+ 2000596:	4685                	li	a3,1
+ 2000598:	4601                	li	a2,0
+  bitfield &= ~(field.mask << field.index);
+ 200059a:	9bf9                	andi	a5,a5,-2
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200059c:	00f82823          	sw	a5,16(a6)
+ 20005a0:	0a000593          	li	a1,160
+ 20005a4:	857a                	mv	a0,t5
+ 20005a6:	ec3a                	sd	a4,24(sp)
+ 20005a8:	f872                	sd	t3,48(sp)
+ 20005aa:	e876                	sd	t4,16(sp)
+ 20005ac:	f41a                	sd	t1,40(sp)
+ 20005ae:	f042                	sd	a6,32(sp)
+ 20005b0:	e47a                	sd	t5,8(sp)
+ 20005b2:	ef1ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 20005b6:	e549                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+    CHECK_CALL(dif_i2c_write_byte(i2c, (addr >> 8) & 0xFF, kDifI2cFmtTx, true))
+ 20005b8:	6ec2                	ld	t4,16(sp)
+ 20005ba:	6522                	ld	a0,8(sp)
+ 20005bc:	4685                	li	a3,1
+ 20005be:	008ed593          	srli	a1,t4,0x8
+ 20005c2:	0ff5f593          	zext.b	a1,a1
+ 20005c6:	8636                	mv	a2,a3
+ 20005c8:	edbff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 20005cc:	e935                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+    CHECK_CALL(dif_i2c_write_byte(i2c, addr & 0xFF, write ? kDifI2cFmtTx : kDifI2cFmtTxStop, true))
+ 20005ce:	6762                	ld	a4,24(sp)
+ 20005d0:	01014583          	lbu	a1,16(sp)
+ 20005d4:	6522                	ld	a0,8(sp)
+ 20005d6:	4609                	li	a2,2
+ 20005d8:	9e19                	subw	a2,a2,a4
+ 20005da:	4685                	li	a3,1
+ 20005dc:	ec7ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 20005e0:	e125                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+    if (write) {
+ 20005e2:	6762                	ld	a4,24(sp)
+ 20005e4:	6f22                	ld	t5,8(sp)
+ 20005e6:	7802                	ld	a6,32(sp)
+ 20005e8:	7322                	ld	t1,40(sp)
+ 20005ea:	7e42                	ld	t3,48(sp)
+ 20005ec:	c325                	beqz	a4,200064c <__i2c_24fc1025_access_chunk+0x14c>
+        for (uint64_t b = 0; b < MIN(len - 1, half_fill); b++)
+ 20005ee:	fffe0793          	addi	a5,t3,-1
+ 20005f2:	6ec2                	ld	t4,16(sp)
+ 20005f4:	84be                	mv	s1,a5
+ 20005f6:	10078463          	beqz	a5,20006fe <__i2c_24fc1025_access_chunk+0x1fe>
+ 20005fa:	02000793          	li	a5,32
+ 20005fe:	8426                	mv	s0,s1
+ 2000600:	0097f363          	bgeu	a5,s1,2000606 <__i2c_24fc1025_access_chunk+0x106>
+ 2000604:	843e                	mv	s0,a5
+ 2000606:	4781                	li	a5,0
+ 2000608:	a809                	j	200061a <__i2c_24fc1025_access_chunk+0x11a>
+ 200060a:	6f22                	ld	t5,8(sp)
+ 200060c:	6342                	ld	t1,16(sp)
+ 200060e:	7e82                	ld	t4,32(sp)
+ 2000610:	7e22                	ld	t3,40(sp)
+ 2000612:	7842                	ld	a6,48(sp)
+ 2000614:	7762                	ld	a4,56(sp)
+ 2000616:	0887fe63          	bgeu	a5,s0,20006b2 <__i2c_24fc1025_access_chunk+0x1b2>
+            CHECK_CALL(dif_i2c_write_byte(i2c, ((uint8_t *)buf)[b], kDifI2cFmtTx, true))
+ 200061a:	00f306b3          	add	a3,t1,a5
+ 200061e:	0006c583          	lbu	a1,0(a3)
+ 2000622:	4685                	li	a3,1
+ 2000624:	8636                	mv	a2,a3
+ 2000626:	857a                	mv	a0,t5
+ 2000628:	ec3e                	sd	a5,24(sp)
+ 200062a:	fc3a                	sd	a4,56(sp)
+ 200062c:	f842                	sd	a6,48(sp)
+ 200062e:	f472                	sd	t3,40(sp)
+ 2000630:	f076                	sd	t4,32(sp)
+ 2000632:	e81a                	sd	t1,16(sp)
+ 2000634:	e47a                	sd	t5,8(sp)
+ 2000636:	e6dff0ef          	jal	20004a2 <dif_i2c_write_byte>
+        for (uint64_t b = 0; b < MIN(len - 1, half_fill); b++)
+ 200063a:	67e2                	ld	a5,24(sp)
+ 200063c:	0785                	addi	a5,a5,1
+            CHECK_CALL(dif_i2c_write_byte(i2c, ((uint8_t *)buf)[b], kDifI2cFmtTx, true))
+ 200063e:	d571                	beqz	a0,200060a <__i2c_24fc1025_access_chunk+0x10a>
+    do CHECK_CALL(dif_i2c_get_fifo_levels(i2c, &lfmt, &lrx, &ltx, &lacq))
+ 2000640:	450d                	li	a0,3
+}
+ 2000642:	60e6                	ld	ra,88(sp)
+ 2000644:	6446                	ld	s0,80(sp)
+ 2000646:	64a6                	ld	s1,72(sp)
+ 2000648:	6125                	addi	sp,sp,96
+ 200064a:	8082                	ret
+        CHECK_CALL(dif_i2c_write_byte(i2c, ctrl_rdata, kDifI2cFmtStart, true))
+ 200064c:	4685                	li	a3,1
+ 200064e:	4601                	li	a2,0
+ 2000650:	0a100593          	li	a1,161
+ 2000654:	857a                	mv	a0,t5
+ 2000656:	f042                	sd	a6,32(sp)
+ 2000658:	e872                	sd	t3,16(sp)
+ 200065a:	ec1a                	sd	t1,24(sp)
+ 200065c:	e47a                	sd	t5,8(sp)
+ 200065e:	e45ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 2000662:	fd79                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+        CHECK_CALL(dif_i2c_write_byte(i2c, len, kDifI2cFmtRx, false))
+ 2000664:	01014583          	lbu	a1,16(sp)
+ 2000668:	6522                	ld	a0,8(sp)
+ 200066a:	4681                	li	a3,0
+ 200066c:	460d                	li	a2,3
+ 200066e:	e35ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 2000672:	f579                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000674:	7802                	ld	a6,32(sp)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000676:	6362                	ld	t1,24(sp)
+ 2000678:	6e42                	ld	t3,16(sp)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 200067a:	01082783          	lw	a5,16(a6)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200067e:	6f22                	ld	t5,8(sp)
+  bitfield |= (value & field.mask) << field.index;
+ 2000680:	0017e793          	ori	a5,a5,1
+ 2000684:	00f82823          	sw	a5,16(a6)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000688:	02482783          	lw	a5,36(a6)
+  return (bitfield >> field.index) & field.mask;
+ 200068c:	0107d79b          	srliw	a5,a5,0x10
+        while (lrx < len);
+ 2000690:	07f7f793          	andi	a5,a5,127
+ 2000694:	ffc7eae3          	bltu	a5,t3,2000688 <__i2c_24fc1025_access_chunk+0x188>
+ 2000698:	9e1a                	add	t3,t3,t1
+        for (uint64_t b = 0; b < len; b++) CHECK_CALL(dif_i2c_read_byte(i2c, (uint8_t *)buf + b))
+ 200069a:	000f3783          	ld	a5,0(t5)
+ 200069e:	4f9c                	lw	a5,24(a5)
+  if (byte != NULL) {
+ 20006a0:	00030463          	beqz	t1,20006a8 <__i2c_24fc1025_access_chunk+0x1a8>
+    *byte = bitfield_field32_read(values, I2C_RDATA_RDATA_FIELD);
+ 20006a4:	00f30023          	sb	a5,0(t1)
+ 20006a8:	0305                	addi	t1,t1,1
+ 20006aa:	ffc318e3          	bne	t1,t3,200069a <__i2c_24fc1025_access_chunk+0x19a>
+    return 0;
+ 20006ae:	4501                	li	a0,0
+ 20006b0:	bf49                	j	2000642 <__i2c_24fc1025_access_chunk+0x142>
+        CHECK_CALL(dif_i2c_write_byte(i2c, ((uint8_t *)buf)[len - 1], kDifI2cFmtTx, true))
+ 20006b2:	009307b3          	add	a5,t1,s1
+ 20006b6:	0007c583          	lbu	a1,0(a5)
+ 20006ba:	4685                	li	a3,1
+ 20006bc:	8636                	mv	a2,a3
+ 20006be:	857a                	mv	a0,t5
+ 20006c0:	f83a                	sd	a4,48(sp)
+ 20006c2:	f442                	sd	a6,40(sp)
+ 20006c4:	f072                	sd	t3,32(sp)
+ 20006c6:	ec76                	sd	t4,24(sp)
+ 20006c8:	e81a                	sd	t1,16(sp)
+ 20006ca:	e47a                	sd	t5,8(sp)
+ 20006cc:	dd7ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 20006d0:	f925                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+dif_result_t dif_i2c_host_set_enabled(const dif_i2c_t *i2c,
+ 20006d2:	7822                	ld	a6,40(sp)
+ 20006d4:	7e02                	ld	t3,32(sp)
+        if (len > half_fill)
+ 20006d6:	02000693          	li	a3,32
+ 20006da:	01082783          	lw	a5,16(a6)
+ 20006de:	6f22                	ld	t5,8(sp)
+ 20006e0:	6342                	ld	t1,16(sp)
+  bitfield |= (value & field.mask) << field.index;
+ 20006e2:	0017e793          	ori	a5,a5,1
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20006e6:	00f82823          	sw	a5,16(a6)
+ 20006ea:	6ee2                	ld	t4,24(sp)
+ 20006ec:	7742                	ld	a4,48(sp)
+ 20006ee:	fdc6f0e3          	bgeu	a3,t3,20006ae <__i2c_24fc1025_access_chunk+0x1ae>
+            CHECK_CALL(__i2c_24fc1025_access_chunk(i2c, (uint8_t *)buf + len, addr + len,
+ 20006f2:	9372                	add	t1,t1,t3
+ 20006f4:	9ef2                	add	t4,t4,t3
+ 20006f6:	1e01                	addi	t3,t3,-32
+  if (i2c == NULL) {
+ 20006f8:	f40f04e3          	beqz	t5,2000640 <__i2c_24fc1025_access_chunk+0x140>
+ 20006fc:	bd29                	j	2000516 <__i2c_24fc1025_access_chunk+0x16>
+        CHECK_CALL(dif_i2c_write_byte(i2c, ((uint8_t *)buf)[len - 1], kDifI2cFmtTx, true))
+ 20006fe:	00034583          	lbu	a1,0(t1)
+ 2000702:	4685                	li	a3,1
+ 2000704:	857a                	mv	a0,t5
+ 2000706:	8636                	mv	a2,a3
+ 2000708:	e442                	sd	a6,8(sp)
+ 200070a:	d99ff0ef          	jal	20004a2 <dif_i2c_write_byte>
+ 200070e:	f90d                	bnez	a0,2000640 <__i2c_24fc1025_access_chunk+0x140>
+dif_result_t dif_i2c_host_set_enabled(const dif_i2c_t *i2c,
+ 2000710:	6822                	ld	a6,8(sp)
+    return 0;
+ 2000712:	4501                	li	a0,0
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000714:	01082783          	lw	a5,16(a6)
+ 2000718:	0017e793          	ori	a5,a5,1
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200071c:	00f82823          	sw	a5,16(a6)
+        if (len > half_fill)
+ 2000720:	b70d                	j	2000642 <__i2c_24fc1025_access_chunk+0x142>
+
+0000000002000722 <i2c_24fc1025_read>:
+    }
+    // Nothing went wrong
+    return 0;
+}
+
+int i2c_24fc1025_read(void *priv, void *buf, uint64_t addr, uint64_t len) {
+ 2000722:	7139                	addi	sp,sp,-64
+ 2000724:	f822                	sd	s0,48(sp)
+ 2000726:	f426                	sd	s1,40(sp)
+ 2000728:	f04a                	sd	s2,32(sp)
+ 200072a:	ec4e                	sd	s3,24(sp)
+ 200072c:	e852                	sd	s4,16(sp)
+ 200072e:	fc06                	sd	ra,56(sp)
+    uint64_t addr_offs = addr % I2C_PARAM_FIFO_DEPTH;
+ 2000730:	03f67413          	andi	s0,a2,63
+int i2c_24fc1025_read(void *priv, void *buf, uint64_t addr, uint64_t len) {
+ 2000734:	8932                	mv	s2,a2
+ 2000736:	84b6                	mv	s1,a3
+ 2000738:	89aa                	mv	s3,a0
+ 200073a:	8a2e                	mv	s4,a1
+    if (addr_offs) {
+ 200073c:	ec31                	bnez	s0,2000798 <i2c_24fc1025_read+0x76>
+ 200073e:	e456                	sd	s5,8(sp)
+        uint64_t chunk_len = MIN(I2C_PARAM_FIFO_DEPTH, len - offs);
+ 2000740:	04000a93          	li	s5,64
+    for (; offs < len; offs += I2C_PARAM_FIFO_DEPTH) {
+ 2000744:	00946563          	bltu	s0,s1,200074e <i2c_24fc1025_read+0x2c>
+ 2000748:	a835                	j	2000784 <i2c_24fc1025_read+0x62>
+ 200074a:	02947d63          	bgeu	s0,s1,2000784 <i2c_24fc1025_read+0x62>
+        uint64_t chunk_len = MIN(I2C_PARAM_FIFO_DEPTH, len - offs);
+ 200074e:	408486b3          	sub	a3,s1,s0
+        CHECK_CALL(
+ 2000752:	4701                	li	a4,0
+ 2000754:	00890633          	add	a2,s2,s0
+ 2000758:	008a05b3          	add	a1,s4,s0
+ 200075c:	854e                	mv	a0,s3
+        uint64_t chunk_len = MIN(I2C_PARAM_FIFO_DEPTH, len - offs);
+ 200075e:	00daf463          	bgeu	s5,a3,2000766 <i2c_24fc1025_read+0x44>
+ 2000762:	04000693          	li	a3,64
+        CHECK_CALL(
+ 2000766:	d9bff0ef          	jal	2000500 <__i2c_24fc1025_access_chunk>
+    for (; offs < len; offs += I2C_PARAM_FIFO_DEPTH) {
+ 200076a:	04040413          	addi	s0,s0,64
+        CHECK_CALL(
+ 200076e:	dd71                	beqz	a0,200074a <i2c_24fc1025_read+0x28>
+ 2000770:	6aa2                	ld	s5,8(sp)
+    return __i2c_24fc1025_access(priv, buf, addr, len, 0);
+}
+ 2000772:	70e2                	ld	ra,56(sp)
+ 2000774:	7442                	ld	s0,48(sp)
+ 2000776:	74a2                	ld	s1,40(sp)
+ 2000778:	7902                	ld	s2,32(sp)
+ 200077a:	69e2                	ld	s3,24(sp)
+ 200077c:	6a42                	ld	s4,16(sp)
+        CHECK_CALL(__i2c_24fc1025_access_chunk(i2c, buf, addr, offs, write))
+ 200077e:	450d                	li	a0,3
+}
+ 2000780:	6121                	addi	sp,sp,64
+ 2000782:	8082                	ret
+ 2000784:	70e2                	ld	ra,56(sp)
+ 2000786:	7442                	ld	s0,48(sp)
+    return 0;
+ 2000788:	6aa2                	ld	s5,8(sp)
+}
+ 200078a:	74a2                	ld	s1,40(sp)
+ 200078c:	7902                	ld	s2,32(sp)
+ 200078e:	69e2                	ld	s3,24(sp)
+ 2000790:	6a42                	ld	s4,16(sp)
+    return 0;
+ 2000792:	4501                	li	a0,0
+}
+ 2000794:	6121                	addi	sp,sp,64
+ 2000796:	8082                	ret
+        offs = I2C_PARAM_FIFO_DEPTH - addr_offs;
+ 2000798:	04000793          	li	a5,64
+ 200079c:	40878433          	sub	s0,a5,s0
+        CHECK_CALL(__i2c_24fc1025_access_chunk(i2c, buf, addr, offs, write))
+ 20007a0:	86a2                	mv	a3,s0
+ 20007a2:	4701                	li	a4,0
+ 20007a4:	d5dff0ef          	jal	2000500 <__i2c_24fc1025_access_chunk>
+ 20007a8:	d959                	beqz	a0,200073e <i2c_24fc1025_read+0x1c>
+ 20007aa:	b7e1                	j	2000772 <i2c_24fc1025_read+0x50>
+
+00000000020007ac <spi_host_reset.isra.0>:
+ 20007ac:	400007b7          	lui	a5,0x40000
+ 20007b0:	c91c                	sw	a5,16(a0)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20007b2:	495c                	lw	a5,20(a0)
+  bool active;
+  do {
+    uint32_t reg =
+        mmio_region_read32(spi_host->base_addr, SPI_HOST_STATUS_REG_OFFSET);
+    active = bitfield_bit32_read(reg, SPI_HOST_STATUS_ACTIVE_BIT);
+  } while (active);
+ 20007b4:	02179713          	slli	a4,a5,0x21
+ 20007b8:	fe074de3          	bltz	a4,20007b2 <spi_host_reset.isra.0+0x6>
+ 20007bc:	4958                	lw	a4,20(a0)
+  return (bitfield >> field.index) & field.mask;
+ 20007be:	0087579b          	srliw	a5,a4,0x8
+  do {
+    uint32_t reg =
+        mmio_region_read32(spi_host->base_addr, SPI_HOST_STATUS_REG_OFFSET);
+    txqd = bitfield_field32_read(reg, SPI_HOST_STATUS_TXQD_FIELD);
+    rxqd = bitfield_field32_read(reg, SPI_HOST_STATUS_RXQD_FIELD);
+  } while (txqd != 0 || rxqd != 0);
+ 20007c2:	8fd9                	or	a5,a5,a4
+ 20007c4:	0ff7f793          	zext.b	a5,a5
+ 20007c8:	fbf5                	bnez	a5,20007bc <spi_host_reset.isra.0+0x10>
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20007ca:	00052823          	sw	zero,16(a0)
+
+  // Clear the software reset request bit.
+  mmio_region_write32(
+      spi_host->base_addr, SPI_HOST_CONTROL_REG_OFFSET,
+      bitfield_bit32_write(0, SPI_HOST_CONTROL_SW_RST_BIT, false));
+}
+ 20007ce:	8082                	ret
+
+00000000020007d0 <dif_spi_host_configure_cs.isra.0>:
+
+void dif_spi_host_enable(const dif_spi_host_t *spi_host, bool enable) {
+  spi_host_enable(spi_host, enable);
+}
+
+dif_result_t dif_spi_host_configure_cs(const dif_spi_host_t *spi_host,
+ 20007d0:	00014e03          	lbu	t3,0(sp)
+ 20007d4:	4322                	lw	t1,8(sp)
+                                    dif_spi_host_config_t config,
+                                    uint32_t csid) {
+  if (spi_host == NULL) {
+ 20007d6:	c939                	beqz	a0,200082c <dif_spi_host_configure_cs.isra.0+0x5c>
+    return kDifBadArg;
+  }
+  if (config.peripheral_clock_freq_hz == 0 || config.spi_clock == 0) {
+ 20007d8:	ca31                	beqz	a2,200082c <dif_spi_host_configure_cs.isra.0+0x5c>
+ 20007da:	c9a9                	beqz	a1,200082c <dif_spi_host_configure_cs.isra.0+0x5c>
+    uint32_t cpol_bit       = SPI_HOST_CONFIGOPTS_0_CPOL_0_BIT;
+    uint32_t reg_offset     = SPI_HOST_CONFIGOPTS_0_REG_OFFSET + 4*csid;
+#endif
+
+  uint32_t divider =
+      ((config.peripheral_clock_freq_hz / config.spi_clock) / 2) - 1;
+ 20007dc:	02b6563b          	divuw	a2,a2,a1
+  if (divider & ~clkdiv_mask) {
+ 20007e0:	65c1                	lui	a1,0x10
+      ((config.peripheral_clock_freq_hz / config.spi_clock) / 2) - 1;
+ 20007e2:	0016561b          	srliw	a2,a2,0x1
+  uint32_t divider =
+ 20007e6:	367d                	addiw	a2,a2,-1
+  if (divider & ~clkdiv_mask) {
+ 20007e8:	04b67263          	bgeu	a2,a1,200082c <dif_spi_host_configure_cs.isra.0+0x5c>
+  bitfield |= (value & field.mask) << field.index;
+ 20007ec:	01fe1e1b          	slliw	t3,t3,0x1f
+ 20007f0:	01e8989b          	slliw	a7,a7,0x1e
+ 20007f4:	01c8e8b3          	or	a7,a7,t3
+ 20007f8:	01d8181b          	slliw	a6,a6,0x1d
+ 20007fc:	8bbd                	andi	a5,a5,15
+ 20007fe:	01186833          	or	a6,a6,a7
+ 2000802:	07e2                	slli	a5,a5,0x18
+ 2000804:	8b3d                	andi	a4,a4,15
+    uint32_t reg_offset     = SPI_HOST_CONFIGOPTS_0_REG_OFFSET + 4*csid;
+ 2000806:	030a                	slli	t1,t1,0x2
+ 2000808:	610c                	ld	a1,0(a0)
+ 200080a:	0107e7b3          	or	a5,a5,a6
+ 200080e:	2361                	addiw	t1,t1,24
+ 2000810:	0752                	slli	a4,a4,0x14
+ 2000812:	8abd                	andi	a3,a3,15
+ 2000814:	8f5d                	or	a4,a4,a5
+ 2000816:	1302                	slli	t1,t1,0x20
+ 2000818:	06c2                	slli	a3,a3,0x10
+ 200081a:	02035313          	srli	t1,t1,0x20
+ 200081e:	8ed9                	or	a3,a3,a4
+ 2000820:	8ed1                	or	a3,a3,a2
+ 2000822:	006587b3          	add	a5,a1,t1
+ 2000826:	c394                	sw	a3,0(a5)
+                             config.full_cycle);
+  reg = bitfield_bit32_write(reg, cpha_bit, config.cpha);
+  reg = bitfield_bit32_write(reg, cpol_bit, config.cpol);
+  mmio_region_write32(spi_host->base_addr, reg_offset, reg);
+
+  return kDifOk;
+ 2000828:	4501                	li	a0,0
+ 200082a:	8082                	ret
+    return kDifBadArg;
+ 200082c:	450d                	li	a0,3
+}
+ 200082e:	8082                	ret
+
+0000000002000830 <spi_s25fs512s_init.constprop.0>:
+
+int spi_s25fs512s_init(spi_s25fs512s_t *handle, uint64_t core_freq) {
+    // Check for legal arguments
+    CHECK_ASSERT(0x11, handle != 0)
+    CHECK_ASSERT(0x12, handle->csid < SPI_HOST_PARAM_NUM_C_S)
+    CHECK_ASSERT(0x13, handle->spi_freq != 0)
+ 2000830:	6514                	ld	a3,8(a0)
+ 2000832:	c2b9                	beqz	a3,2000878 <spi_s25fs512s_init.constprop.0+0x48>
+    CHECK_ASSERT(0x14, handle->spi_freq <= core_freq)
+ 2000834:	04d5e063          	bltu	a1,a3,2000874 <spi_s25fs512s_init.constprop.0+0x44>
+int spi_s25fs512s_init(spi_s25fs512s_t *handle, uint64_t core_freq) {
+ 2000838:	7139                	addi	sp,sp,-64
+ 200083a:	872a                	mv	a4,a0
+                               dif_spi_host_t *spi_host) {
+  if (spi_host == NULL) {
+    return kDifBadArg;
+  }
+
+  spi_host->base_addr = base_addr;
+ 200083c:	01003517          	auipc	a0,0x1003
+ 2000840:	fc06                	sd	ra,56(sp)
+ 2000842:	7c450513          	addi	a0,a0,1988 # 3004000 <__base_spih>
+ 2000846:	e308                	sd	a0,0(a4)
+ 2000848:	f02e                	sd	a1,32(sp)
+ 200084a:	ec3a                	sd	a4,24(sp)
+  spi_host_reset(spi_host);
+ 200084c:	f436                	sd	a3,40(sp)
+ 200084e:	f5fff0ef          	jal	20007ac <spi_host_reset.isra.0>
+                                    .cpha = 0,
+                                    .cpol = 0,
+                                    .full_cycle = false,
+                                    .peripheral_clock_freq_hz = core_freq,
+                                    .spi_clock = handle->spi_freq};
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid))
+ 2000852:	4785                	li	a5,1
+ 2000854:	5602                	lw	a2,32(sp)
+ 2000856:	55a2                	lw	a1,40(sp)
+ 2000858:	6562                	ld	a0,24(sp)
+ 200085a:	e43e                	sd	a5,8(sp)
+ 200085c:	47bd                	li	a5,15
+ 200085e:	e002                	sd	zero,0(sp)
+ 2000860:	873e                	mv	a4,a5
+ 2000862:	86be                	mv	a3,a5
+ 2000864:	4881                	li	a7,0
+ 2000866:	4801                	li	a6,0
+ 2000868:	f69ff0ef          	jal	20007d0 <dif_spi_host_configure_cs.isra.0>
+ 200086c:	c901                	beqz	a0,200087c <spi_s25fs512s_init.constprop.0+0x4c>
+    // Enable SPI host (no traps or interrupts)
+    dif_spi_host_enable(&handle->spi_host, 1);
+    CHECK_CALL(dif_spi_host_output_set_enabled(&handle->spi_host, 1))
+    // Nothing went wrong
+    return 0;
+}
+ 200086e:	70e2                	ld	ra,56(sp)
+ 2000870:	6121                	addi	sp,sp,64
+ 2000872:	8082                	ret
+    CHECK_ASSERT(0x14, handle->spi_freq <= core_freq)
+ 2000874:	4551                	li	a0,20
+}
+ 2000876:	8082                	ret
+    CHECK_ASSERT(0x13, handle->spi_freq != 0)
+ 2000878:	454d                	li	a0,19
+ 200087a:	8082                	ret
+ 200087c:	01003717          	auipc	a4,0x1003
+ 2000880:	78470713          	addi	a4,a4,1924 # 3004000 <__base_spih>
+ 2000884:	800006b7          	lui	a3,0x80000
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000888:	01003797          	auipc	a5,0x1003
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200088c:	cb14                	sw	a3,16(a4)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 200088e:	77878793          	addi	a5,a5,1912 # 3004000 <__base_spih>
+ 2000892:	4b98                	lw	a4,16(a5)
+ 2000894:	200006b7          	lui	a3,0x20000
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000898:	01003797          	auipc	a5,0x1003
+ 200089c:	8f55                	or	a4,a4,a3
+ 200089e:	76878793          	addi	a5,a5,1896 # 3004000 <__base_spih>
+ 20008a2:	cb98                	sw	a4,16(a5)
+ 20008a4:	b7e9                	j	200086e <spi_s25fs512s_init.constprop.0+0x3e>
+
+00000000020008a6 <uart_read_str.constprop.0>:
+        ;
+    return *reg8(uart_base, UART_RBR_REG_OFFSET);
+}
+
+void uart_read_str(void *uart_base, void *dst, uint64_t len) {
+    for (uint64_t i = 0; i < len; ++i) ((uint8_t *)dst)[i] = uart_read(uart_base);
+ 20008a6:	c585                	beqz	a1,20008ce <uart_read_str.constprop.0+0x28>
+ 20008a8:	00b50733          	add	a4,a0,a1
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_DATA_READY_BIT);
+ 20008ac:	01001797          	auipc	a5,0x1001
+ 20008b0:	75478793          	addi	a5,a5,1876 # 3002000 <__base_uart>
+ 20008b4:	0147c783          	lbu	a5,20(a5)
+    while (!uart_read_ready(uart_base))
+ 20008b8:	8b85                	andi	a5,a5,1
+ 20008ba:	dbed                	beqz	a5,20008ac <uart_read_str.constprop.0+0x6>
+    return *reg8(uart_base, UART_RBR_REG_OFFSET);
+ 20008bc:	01001797          	auipc	a5,0x1001
+ 20008c0:	7447c783          	lbu	a5,1860(a5) # 3002000 <__base_uart>
+    for (uint64_t i = 0; i < len; ++i) ((uint8_t *)dst)[i] = uart_read(uart_base);
+ 20008c4:	0505                	addi	a0,a0,1
+ 20008c6:	fef50fa3          	sb	a5,-1(a0)
+ 20008ca:	fee511e3          	bne	a0,a4,20008ac <uart_read_str.constprop.0+0x6>
+}
+ 20008ce:	8082                	ret
+
+00000000020008d0 <uart_debug_serve.constprop.0>:
+
+int uart_debug_serve(void *uart_base) {
+ 20008d0:	7179                	addi	sp,sp,-48
+ 20008d2:	f406                	sd	ra,40(sp)
+ 20008d4:	f022                	sd	s0,32(sp)
+ 20008d6:	ec26                	sd	s1,24(sp)
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 20008d8:	01001797          	auipc	a5,0x1001
+ 20008dc:	72878793          	addi	a5,a5,1832 # 3002000 <__base_uart>
+ 20008e0:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 20008e4:	0207f793          	andi	a5,a5,32
+ 20008e8:	dbe5                	beqz	a5,20008d8 <uart_debug_serve.constprop.0+0x8>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 20008ea:	01001797          	auipc	a5,0x1001
+ 20008ee:	4719                	li	a4,6
+ 20008f0:	70e78b23          	sb	a4,1814(a5) # 3002000 <__base_uart>
+        uint8_t cmd;
+        uint64_t addr, len;
+        uint32_t ret;
+        fence();
+        cmd = uart_read(uart_base);
+        switch (cmd) {
+ 20008f4:	44c9                	li	s1,18
+ 20008f6:	444d                	li	s0,19
+ 20008f8:	0ff0000f          	fence
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_DATA_READY_BIT);
+ 20008fc:	01001797          	auipc	a5,0x1001
+ 2000900:	70478793          	addi	a5,a5,1796 # 3002000 <__base_uart>
+ 2000904:	0147c783          	lbu	a5,20(a5)
+    while (!uart_read_ready(uart_base))
+ 2000908:	8b85                	andi	a5,a5,1
+ 200090a:	dbed                	beqz	a5,20008fc <uart_debug_serve.constprop.0+0x2c>
+    return *reg8(uart_base, UART_RBR_REG_OFFSET);
+ 200090c:	01001797          	auipc	a5,0x1001
+ 2000910:	6f47c783          	lbu	a5,1780(a5) # 3002000 <__base_uart>
+ 2000914:	0ff7f713          	zext.b	a4,a5
+ 2000918:	10978563          	beq	a5,s1,2000a22 <uart_debug_serve.constprop.0+0x152>
+ 200091c:	08870063          	beq	a4,s0,200099c <uart_debug_serve.constprop.0+0xcc>
+ 2000920:	47c5                	li	a5,17
+ 2000922:	14f71963          	bne	a4,a5,2000a74 <uart_debug_serve.constprop.0+0x1a4>
+        // READ addr64 len64 -> ACK str EOT
+        case kUartDebugCmdRead:
+            uart_read_str(uart_base, &addr, sizeof(uint64_t));
+ 2000926:	45a1                	li	a1,8
+ 2000928:	850a                	mv	a0,sp
+ 200092a:	f7dff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+            uart_read_str(uart_base, &len, sizeof(uint64_t));
+ 200092e:	0028                	addi	a0,sp,8
+ 2000930:	45a1                	li	a1,8
+ 2000932:	f75ff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 2000936:	01001797          	auipc	a5,0x1001
+ 200093a:	6ca78793          	addi	a5,a5,1738 # 3002000 <__base_uart>
+ 200093e:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 2000942:	0207f793          	andi	a5,a5,32
+ 2000946:	dbe5                	beqz	a5,2000936 <uart_debug_serve.constprop.0+0x66>
+            uart_write(uart_base, kUartDebugAck);
+            uart_write_str(uart_base, (void *)(uintptr_t)addr, len);
+ 2000948:	6622                	ld	a2,8(sp)
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 200094a:	01001797          	auipc	a5,0x1001
+ 200094e:	4719                	li	a4,6
+ 2000950:	6ae78b23          	sb	a4,1718(a5) # 3002000 <__base_uart>
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 2000954:	c60d                	beqz	a2,200097e <uart_debug_serve.constprop.0+0xae>
+ 2000956:	6702                	ld	a4,0(sp)
+ 2000958:	963a                	add	a2,a2,a4
+ 200095a:	00074683          	lbu	a3,0(a4)
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 200095e:	01001797          	auipc	a5,0x1001
+ 2000962:	6a278793          	addi	a5,a5,1698 # 3002000 <__base_uart>
+ 2000966:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 200096a:	0207f793          	andi	a5,a5,32
+ 200096e:	dbe5                	beqz	a5,200095e <uart_debug_serve.constprop.0+0x8e>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000970:	01001797          	auipc	a5,0x1001
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 2000974:	0705                	addi	a4,a4,1
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000976:	68d78823          	sb	a3,1680(a5) # 3002000 <__base_uart>
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 200097a:	fec710e3          	bne	a4,a2,200095a <uart_debug_serve.constprop.0+0x8a>
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 200097e:	01001797          	auipc	a5,0x1001
+ 2000982:	68278793          	addi	a5,a5,1666 # 3002000 <__base_uart>
+ 2000986:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 200098a:	0207f793          	andi	a5,a5,32
+ 200098e:	dbe5                	beqz	a5,200097e <uart_debug_serve.constprop.0+0xae>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000990:	01001797          	auipc	a5,0x1001
+ 2000994:	4711                	li	a4,4
+ 2000996:	66e78823          	sb	a4,1648(a5) # 3002000 <__base_uart>
+}
+ 200099a:	bfb9                	j	20008f8 <uart_debug_serve.constprop.0+0x28>
+            uart_read_str(uart_base, (void *)(uintptr_t)addr, len);
+            uart_write(uart_base, kUartDebugEot);
+            break;
+        // EXEC addr64 (->ACK) execute
+        case kUartDebugCmdExec:
+            uart_read_str(uart_base, &addr, sizeof(uint64_t));
+ 200099c:	45a1                	li	a1,8
+ 200099e:	850a                	mv	a0,sp
+ 20009a0:	f07ff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 20009a4:	01001797          	auipc	a5,0x1001
+ 20009a8:	65c78793          	addi	a5,a5,1628 # 3002000 <__base_uart>
+ 20009ac:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 20009b0:	0207f793          	andi	a5,a5,32
+ 20009b4:	dbe5                	beqz	a5,20009a4 <uart_debug_serve.constprop.0+0xd4>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 20009b6:	01001797          	auipc	a5,0x1001
+ 20009ba:	4719                	li	a4,6
+ 20009bc:	64e78523          	sb	a4,1610(a5) # 3002000 <__base_uart>
+ 20009c0:	0ff0000f          	fence
+    return mcycle;
+}
+
+// This may also be used to invoke code that does not return.
+static inline uint64_t invoke(void *code) {
+    uint64_t (*code_fun_ptr)(void) = code;
+ 20009c4:	6782                	ld	a5,0(sp)
+    asm volatile("fence.i" ::: "memory");
+ 20009c6:	0000100f          	fence.i
+    fencei();
+    return code_fun_ptr();
+ 20009ca:	9782                	jalr	a5
+            uart_write(uart_base, kUartDebugAck);
+            fence();
+            ret = invoke((void *)(uintptr_t)addr);
+ 20009cc:	c42a                	sw	a0,8(sp)
+    asm volatile("fence" ::: "memory");
+ 20009ce:	0ff0000f          	fence
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 20009d2:	01001797          	auipc	a5,0x1001
+ 20009d6:	62e78793          	addi	a5,a5,1582 # 3002000 <__base_uart>
+ 20009da:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 20009de:	0207f793          	andi	a5,a5,32
+ 20009e2:	dbe5                	beqz	a5,20009d2 <uart_debug_serve.constprop.0+0x102>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 20009e4:	4751                	li	a4,20
+ 20009e6:	01001797          	auipc	a5,0x1001
+ 20009ea:	60e78d23          	sb	a4,1562(a5) # 3002000 <__base_uart>
+ 20009ee:	0070                	addi	a2,sp,12
+ 20009f0:	0038                	addi	a4,sp,8
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 20009f2:	00074683          	lbu	a3,0(a4)
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 20009f6:	01001797          	auipc	a5,0x1001
+ 20009fa:	60a78793          	addi	a5,a5,1546 # 3002000 <__base_uart>
+ 20009fe:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 2000a02:	0207f793          	andi	a5,a5,32
+ 2000a06:	dbe5                	beqz	a5,20009f6 <uart_debug_serve.constprop.0+0x126>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000a08:	01001797          	auipc	a5,0x1001
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 2000a0c:	0705                	addi	a4,a4,1
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000a0e:	5ed78c23          	sb	a3,1528(a5) # 3002000 <__base_uart>
+    for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
+ 2000a12:	fee610e3          	bne	a2,a4,20009f2 <uart_debug_serve.constprop.0+0x122>
+            fence();
+            // Report return code on UART
+            uart_write(uart_base, kUartDebugEoc);
+            uart_write_str(uart_base, (void *)(uintptr_t)&ret, sizeof(uint32_t));
+            return ret;
+ 2000a16:	4522                	lw	a0,8(sp)
+        // Unknown command
+        default:
+            return 1;
+        }
+    }
+}
+ 2000a18:	70a2                	ld	ra,40(sp)
+ 2000a1a:	7402                	ld	s0,32(sp)
+ 2000a1c:	64e2                	ld	s1,24(sp)
+ 2000a1e:	6145                	addi	sp,sp,48
+ 2000a20:	8082                	ret
+            uart_read_str(uart_base, &addr, sizeof(uint64_t));
+ 2000a22:	45a1                	li	a1,8
+ 2000a24:	850a                	mv	a0,sp
+ 2000a26:	e81ff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+            uart_read_str(uart_base, &len, sizeof(uint64_t));
+ 2000a2a:	0028                	addi	a0,sp,8
+ 2000a2c:	45a1                	li	a1,8
+ 2000a2e:	e79ff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 2000a32:	01001797          	auipc	a5,0x1001
+ 2000a36:	5ce78793          	addi	a5,a5,1486 # 3002000 <__base_uart>
+ 2000a3a:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 2000a3e:	0207f793          	andi	a5,a5,32
+ 2000a42:	dbe5                	beqz	a5,2000a32 <uart_debug_serve.constprop.0+0x162>
+            uart_read_str(uart_base, (void *)(uintptr_t)addr, len);
+ 2000a44:	65a2                	ld	a1,8(sp)
+ 2000a46:	6502                	ld	a0,0(sp)
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000a48:	01001797          	auipc	a5,0x1001
+ 2000a4c:	4719                	li	a4,6
+ 2000a4e:	5ae78c23          	sb	a4,1464(a5) # 3002000 <__base_uart>
+ 2000a52:	e55ff0ef          	jal	20008a6 <uart_read_str.constprop.0>
+    return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
+ 2000a56:	01001797          	auipc	a5,0x1001
+ 2000a5a:	5aa78793          	addi	a5,a5,1450 # 3002000 <__base_uart>
+ 2000a5e:	0147c783          	lbu	a5,20(a5)
+    while (!__uart_write_ready(uart_base))
+ 2000a62:	0207f793          	andi	a5,a5,32
+ 2000a66:	dbe5                	beqz	a5,2000a56 <uart_debug_serve.constprop.0+0x186>
+    *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
+ 2000a68:	01001797          	auipc	a5,0x1001
+ 2000a6c:	4711                	li	a4,4
+ 2000a6e:	58e78c23          	sb	a4,1432(a5) # 3002000 <__base_uart>
+    while (1) {
+ 2000a72:	b559                	j	20008f8 <uart_debug_serve.constprop.0+0x28>
+        switch (cmd) {
+ 2000a74:	4505                	li	a0,1
+ 2000a76:	b74d                	j	2000a18 <uart_debug_serve.constprop.0+0x148>
+
+0000000002000a78 <gpt_boot_part_else_raw.constprop.0>:
+    }
+    // Nothing went wrong
+    return 0;
+}
+
+int gpt_boot_part_else_raw(gpt_read_t read, void *priv, void *code_buf, uint64_t max_lbas,
+ 2000a78:	7119                	addi	sp,sp,-128
+ 2000a7a:	f4a6                	sd	s1,104(sp)
+ 2000a7c:	84ae                	mv	s1,a1
+ 2000a7e:	f0ca                	sd	s2,96(sp)
+ 2000a80:	fc86                	sd	ra,120(sp)
+ 2000a82:	ecce                	sd	s3,88(sp)
+ 2000a84:	e8d2                	sd	s4,80(sp)
+ 2000a86:	892a                	mv	s2,a0
+    if (read(priv, &sig, 0x200, sizeof(sig))) return 0;
+ 2000a88:	100c                	addi	a1,sp,32
+ 2000a8a:	8526                	mv	a0,s1
+ 2000a8c:	46a1                	li	a3,8
+ 2000a8e:	20000613          	li	a2,512
+ 2000a92:	9902                	jalr	s2
+ 2000a94:	e165                	bnez	a0,2000b74 <gpt_boot_part_else_raw.constprop.0+0xfc>
+                           const uint64_t *tguid, const uint64_t *pguid) {
+    uint64_t lba_begin = 0, lba_end = max_lbas - 1;
+    int64_t part_idx;
+    if (gpt_check_signature(read, priv))
+ 2000a96:	054527b7          	lui	a5,0x5452
+ 2000a9a:	41578793          	addi	a5,a5,1045 # 5452415 <__base_plic+0x1452415>
+ 2000a9e:	20494737          	lui	a4,0x20494
+    return (sig == 0x5452415020494645UL /*EFI PART*/);
+ 2000aa2:	7682                	ld	a3,32(sp)
+    if (gpt_check_signature(read, priv))
+ 2000aa4:	1792                	slli	a5,a5,0x24
+ 2000aa6:	64570713          	addi	a4,a4,1605 # 20494645 <__stack_pointer$+0x1048464d>
+ 2000aaa:	97ba                	add	a5,a5,a4
+ 2000aac:	0cf69463          	bne	a3,a5,2000b74 <gpt_boot_part_else_raw.constprop.0+0xfc>
+    CHECK_CALL(read(priv, &hf, hf_offs, sizeof(hf)));
+ 2000ab0:	46c1                	li	a3,16
+ 2000ab2:	24800613          	li	a2,584
+ 2000ab6:	858a                	mv	a1,sp
+ 2000ab8:	8526                	mv	a0,s1
+ 2000aba:	9902                	jalr	s2
+ 2000abc:	87aa                	mv	a5,a0
+ 2000abe:	12051663          	bnez	a0,2000bea <gpt_boot_part_else_raw.constprop.0+0x172>
+    for (p = 0; p < hf.count; ++p) {
+ 2000ac2:	47a2                	lw	a5,8(sp)
+ 2000ac4:	cbc5                	beqz	a5,2000b74 <gpt_boot_part_else_raw.constprop.0+0xfc>
+ 2000ac6:	e0da                	sd	s6,64(sp)
+            if (guid[0] == tguid[0] && guid[1] == tguid[1]) break;
+ 2000ac8:	622c47b7          	lui	a5,0x622c4
+ 2000acc:	4ce50b37          	lui	s6,0x4ce50
+ 2000ad0:	d95b0b13          	addi	s6,s6,-619 # 4ce4fd95 <__stack_pointer$+0x3ce3fd9d>
+ 2000ad4:	0269b6b7          	lui	a3,0x269b
+ 2000ad8:	10178793          	addi	a5,a5,257 # 622c4101 <__stack_pointer$+0x522b4109>
+ 2000adc:	1494d737          	lui	a4,0x1494d
+ 2000ae0:	1b02                	slli	s6,s6,0x20
+ 2000ae2:	26a68693          	addi	a3,a3,618 # 269b26a <__base_axirtgrd+0x5d926e>
+ 2000ae6:	1782                	slli	a5,a5,0x20
+ 2000ae8:	f9870713          	addi	a4,a4,-104 # 1494cf98 <__stack_pointer$+0x493cfa0>
+    uint64_t lba_begin = 0, lba_end = max_lbas - 1;
+ 2000aec:	05f00993          	li	s3,95
+ 2000af0:	e4d6                	sd	s5,72(sp)
+ 2000af2:	fc5e                	sd	s7,56(sp)
+ 2000af4:	f862                	sd	s8,48(sp)
+ 2000af6:	f8a2                	sd	s0,112(sp)
+            if (guid[0] == tguid[0] && guid[1] == tguid[1]) break;
+ 2000af8:	9b36                	add	s6,s6,a3
+ 2000afa:	00e78c33          	add	s8,a5,a4
+        if (dim.lba_end - dim.lba_begin >= max_lbas) continue;
+ 2000afe:	8ace                	mv	s5,s3
+    uint64_t lba_begin = 0, lba_end = max_lbas - 1;
+ 2000b00:	4a01                	li	s4,0
+    for (p = 0; p < hf.count; ++p) {
+ 2000b02:	4b81                	li	s7,0
+        uint64_t pe_offs = 0x200 * hf.lba + p * hf.size;
+ 2000b04:	00c16783          	lwu	a5,12(sp)
+ 2000b08:	6402                	ld	s0,0(sp)
+        CHECK_CALL(read(priv, &dim, pe_offs + 0x20, sizeof(dim)));
+ 2000b0a:	46c1                	li	a3,16
+        uint64_t pe_offs = 0x200 * hf.lba + p * hf.size;
+ 2000b0c:	037787b3          	mul	a5,a5,s7
+ 2000b10:	0426                	slli	s0,s0,0x9
+        CHECK_CALL(read(priv, &dim, pe_offs + 0x20, sizeof(dim)));
+ 2000b12:	00d105b3          	add	a1,sp,a3
+ 2000b16:	8526                	mv	a0,s1
+        uint64_t pe_offs = 0x200 * hf.lba + p * hf.size;
+ 2000b18:	943e                	add	s0,s0,a5
+        CHECK_CALL(read(priv, &dim, pe_offs + 0x20, sizeof(dim)));
+ 2000b1a:	02040613          	addi	a2,s0,32
+ 2000b1e:	9902                	jalr	s2
+ 2000b20:	87aa                	mv	a5,a0
+            CHECK_CALL(read(priv, &guid[0], pe_offs, sizeof(guid)))
+ 2000b22:	46c1                	li	a3,16
+ 2000b24:	8622                	mv	a2,s0
+ 2000b26:	100c                	addi	a1,sp,32
+ 2000b28:	8526                	mv	a0,s1
+        CHECK_CALL(read(priv, &dim, pe_offs + 0x20, sizeof(dim)));
+ 2000b2a:	ebdd                	bnez	a5,2000be0 <gpt_boot_part_else_raw.constprop.0+0x168>
+            *lba_begin = dim.lba_begin;
+ 2000b2c:	6742                	ld	a4,16(sp)
+            *lba_end = MIN(dim.lba_end, dim.lba_begin + max_lbas - 1);
+ 2000b2e:	67e2                	ld	a5,24(sp)
+        if (p == 0) {
+ 2000b30:	000b9863          	bnez	s7,2000b40 <gpt_boot_part_else_raw.constprop.0+0xc8>
+            *lba_end = MIN(dim.lba_end, dim.lba_begin + max_lbas - 1);
+ 2000b34:	05f70993          	addi	s3,a4,95
+ 2000b38:	0137f363          	bgeu	a5,s3,2000b3e <gpt_boot_part_else_raw.constprop.0+0xc6>
+ 2000b3c:	89be                	mv	s3,a5
+            *lba_begin = dim.lba_begin;
+ 2000b3e:	8a3a                	mv	s4,a4
+        if (dim.lba_end - dim.lba_begin >= max_lbas) continue;
+ 2000b40:	8f99                	sub	a5,a5,a4
+ 2000b42:	00fae863          	bltu	s5,a5,2000b52 <gpt_boot_part_else_raw.constprop.0+0xda>
+            CHECK_CALL(read(priv, &guid[0], pe_offs, sizeof(guid)))
+ 2000b46:	9902                	jalr	s2
+ 2000b48:	87aa                	mv	a5,a0
+ 2000b4a:	e959                	bnez	a0,2000be0 <gpt_boot_part_else_raw.constprop.0+0x168>
+            if (guid[0] == tguid[0] && guid[1] == tguid[1]) break;
+ 2000b4c:	7782                	ld	a5,32(sp)
+ 2000b4e:	09678563          	beq	a5,s6,2000bd8 <gpt_boot_part_else_raw.constprop.0+0x160>
+    for (p = 0; p < hf.count; ++p) {
+ 2000b52:	00816783          	lwu	a5,8(sp)
+ 2000b56:	0b85                	addi	s7,s7,1
+ 2000b58:	fafbc6e3          	blt	s7,a5,2000b04 <gpt_boot_part_else_raw.constprop.0+0x8c>
+    if (p != hf.count) {
+ 2000b5c:	00816783          	lwu	a5,8(sp)
+ 2000b60:	01778463          	beq	a5,s7,2000b68 <gpt_boot_part_else_raw.constprop.0+0xf0>
+        *lba_begin = dim.lba_begin;
+ 2000b64:	6a42                	ld	s4,16(sp)
+        *lba_end = dim.lba_end;
+ 2000b66:	69e2                	ld	s3,24(sp)
+ 2000b68:	7446                	ld	s0,112(sp)
+ 2000b6a:	6aa6                	ld	s5,72(sp)
+ 2000b6c:	6b06                	ld	s6,64(sp)
+ 2000b6e:	7be2                	ld	s7,56(sp)
+ 2000b70:	7c42                	ld	s8,48(sp)
+ 2000b72:	a021                	j	2000b7a <gpt_boot_part_else_raw.constprop.0+0x102>
+    uint64_t lba_begin = 0, lba_end = max_lbas - 1;
+ 2000b74:	05f00993          	li	s3,95
+ 2000b78:	4a01                	li	s4,0
+        CHECK_CALL(
+            gpt_find_partition(read, priv, &part_idx, &lba_begin, &lba_end, max_lbas, tguid, pguid))
+    // Copy code to SPM (end is *inclusive*, not past-the-end)
+    uint64_t addr = 0x200 * lba_begin;
+    uint64_t len = 0x200 * (lba_end - lba_begin + 1);
+ 2000b7a:	414986b3          	sub	a3,s3,s4
+    CHECK_CALL(read(priv, code_buf, addr, len));
+ 2000b7e:	0dfff597          	auipc	a1,0xdfff
+ 2000b82:	06a6                	slli	a3,a3,0x9
+ 2000b84:	20068693          	addi	a3,a3,512
+ 2000b88:	009a1613          	slli	a2,s4,0x9
+ 2000b8c:	48258593          	addi	a1,a1,1154 # 10000000 <__base_spm>
+ 2000b90:	8526                	mv	a0,s1
+ 2000b92:	9902                	jalr	s2
+ 2000b94:	87aa                	mv	a5,a0
+ 2000b96:	e931                	bnez	a0,2000bea <gpt_boot_part_else_raw.constprop.0+0x172>
+    // Write pointers for used read function to scratch registers for use in following stages
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_0_REG_OFFSET) = (uintptr_t)((void *)read) | 1;
+ 2000b98:	00196913          	ori	s2,s2,1
+ 2000b9c:	2901                	sext.w	s2,s2
+ 2000b9e:	00fff717          	auipc	a4,0xfff
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_1_REG_OFFSET) = (uintptr_t)priv;
+ 2000ba2:	00fff797          	auipc	a5,0xfff
+ 2000ba6:	2481                	sext.w	s1,s1
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_0_REG_OFFSET) = (uintptr_t)((void *)read) | 1;
+ 2000ba8:	47272123          	sw	s2,1122(a4) # 3000000 <__base_regs>
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_1_REG_OFFSET) = (uintptr_t)priv;
+ 2000bac:	45e78793          	addi	a5,a5,1118 # 3000000 <__base_regs>
+ 2000bb0:	c3c4                	sw	s1,4(a5)
+}
+
+// Set global pointer and return prior value. Use with caution.
+static inline void *gprw(void *gp) {
+    void *ret;
+    asm volatile("mv %0, gp" : "=r"(ret)::"memory");
+ 2000bb2:	870e                	mv	a4,gp
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_3_REG_OFFSET) = (uintptr_t)gprw(0);
+ 2000bb4:	00fff797          	auipc	a5,0xfff
+    // Invoke code
+    return boot_next_stage((void *)code_buf);
+}
+ 2000bb8:	70e6                	ld	ra,120(sp)
+ 2000bba:	74a6                	ld	s1,104(sp)
+ 2000bbc:	7906                	ld	s2,96(sp)
+ 2000bbe:	69e6                	ld	s3,88(sp)
+ 2000bc0:	6a46                	ld	s4,80(sp)
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_3_REG_OFFSET) = (uintptr_t)gprw(0);
+ 2000bc2:	2701                	sext.w	a4,a4
+ 2000bc4:	44c78793          	addi	a5,a5,1100 # 3000000 <__base_regs>
+    return boot_next_stage((void *)code_buf);
+ 2000bc8:	0dfff517          	auipc	a0,0xdfff
+    *reg32(&__base_regs, CHESHIRE_SCRATCH_3_REG_OFFSET) = (uintptr_t)gprw(0);
+ 2000bcc:	c7d8                	sw	a4,12(a5)
+    return boot_next_stage((void *)code_buf);
+ 2000bce:	43850513          	addi	a0,a0,1080 # 10000000 <__base_spm>
+}
+ 2000bd2:	6109                	addi	sp,sp,128
+    return boot_next_stage((void *)code_buf);
+ 2000bd4:	d1cff06f          	j	20000f0 <boot_next_stage>
+            if (guid[0] == tguid[0] && guid[1] == tguid[1]) break;
+ 2000bd8:	77a2                	ld	a5,40(sp)
+ 2000bda:	f7879ce3          	bne	a5,s8,2000b52 <gpt_boot_part_else_raw.constprop.0+0xda>
+ 2000bde:	bfbd                	j	2000b5c <gpt_boot_part_else_raw.constprop.0+0xe4>
+ 2000be0:	7446                	ld	s0,112(sp)
+ 2000be2:	6aa6                	ld	s5,72(sp)
+ 2000be4:	6b06                	ld	s6,64(sp)
+ 2000be6:	7be2                	ld	s7,56(sp)
+ 2000be8:	7c42                	ld	s8,48(sp)
+}
+ 2000bea:	70e6                	ld	ra,120(sp)
+ 2000bec:	74a6                	ld	s1,104(sp)
+ 2000bee:	7906                	ld	s2,96(sp)
+ 2000bf0:	69e6                	ld	s3,88(sp)
+ 2000bf2:	6a46                	ld	s4,80(sp)
+ 2000bf4:	853e                	mv	a0,a5
+ 2000bf6:	6109                	addi	sp,sp,128
+ 2000bf8:	8082                	ret
+
+0000000002000bfa <dif_spi_host_fifo_write.isra.0>:
+}
+
+dif_result_t dif_spi_host_fifo_write(const dif_spi_host_t *spi_host,
+                                     const void *src, uint16_t len) {
+  uintptr_t ptr = (uintptr_t)src;
+  if (spi_host == NULL || (src == NULL && len > 0)) {
+ 2000bfa:	cd51                	beqz	a0,2000c96 <dif_spi_host_fifo_write.isra.0+0x9c>
+ 2000bfc:	e191                	bnez	a1,2000c00 <dif_spi_host_fifo_write.isra.0+0x6>
+ 2000bfe:	ee41                	bnez	a2,2000c96 <dif_spi_host_fifo_write.isra.0+0x9c>
+    return kDifBadArg;
+  }
+
+  // If the pointer starts mis-aligned, write until we are aligned.
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000c00:	0035f793          	andi	a5,a1,3
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 2000c04:	04800693          	li	a3,72
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000c08:	c39d                	beqz	a5,2000c2e <dif_spi_host_fifo_write.isra.0+0x34>
+ 2000c0a:	c659                	beqz	a2,2000c98 <dif_spi_host_fifo_write.isra.0+0x9e>
+ 2000c0c:	6118                	ld	a4,0(a0)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000c0e:	4b5c                	lw	a5,20(a4)
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 2000c10:	0ff7f793          	zext.b	a5,a5
+ 2000c14:	fed78de3          	beq	a5,a3,2000c0e <dif_spi_host_fifo_write.isra.0+0x14>
+  mmio_region_write8(spi_host->base_addr, SPI_HOST_TXDATA_REG_OFFSET, *src);
+ 2000c18:	0005c783          	lbu	a5,0(a1)
+    tx_fifo_write8(spi_host, ptr);
+    ptr += 1;
+    len -= 1;
+ 2000c1c:	367d                	addiw	a2,a2,-1
+    ptr += 1;
+ 2000c1e:	0585                	addi	a1,a1,1
+  ((volatile uint8_t *)base.base)[offset / sizeof(uint8_t)] = value;
+ 2000c20:	02f70823          	sb	a5,48(a4)
+    len -= 1;
+ 2000c24:	1642                	slli	a2,a2,0x30
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000c26:	0035f793          	andi	a5,a1,3
+    len -= 1;
+ 2000c2a:	9241                	srli	a2,a2,0x30
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000c2c:	fff9                	bnez	a5,2000c0a <dif_spi_host_fifo_write.isra.0+0x10>
+  }
+
+  // Write complete 32-bit words to the fifo.
+  while (len > 3) {
+ 2000c2e:	478d                	li	a5,3
+ 2000c30:	882e                	mv	a6,a1
+ 2000c32:	02c7fa63          	bgeu	a5,a2,2000c66 <dif_spi_host_fifo_write.isra.0+0x6c>
+ 2000c36:	0026581b          	srliw	a6,a2,0x2
+ 2000c3a:	387d                	addiw	a6,a6,-1
+ 2000c3c:	1842                	slli	a6,a6,0x30
+ 2000c3e:	03085813          	srli	a6,a6,0x30
+ 2000c42:	6118                	ld	a4,0(a0)
+ 2000c44:	00458793          	addi	a5,a1,4
+ 2000c48:	080a                	slli	a6,a6,0x2
+ 2000c4a:	983e                	add	a6,a6,a5
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 2000c4c:	04800693          	li	a3,72
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000c50:	4b5c                	lw	a5,20(a4)
+ 2000c52:	0ff7f793          	zext.b	a5,a5
+ 2000c56:	fed78de3          	beq	a5,a3,2000c50 <dif_spi_host_fifo_write.isra.0+0x56>
+  // Failing to get that particular codegen in either GCC or Clang with -O2 or
+  // -Os set shall be considered a bug in this function. The same applies to
+  // `write32()`.
+  ptr = __builtin_assume_aligned(ptr, alignof(uint32_t));
+  uint32_t val;
+  __builtin_memcpy(&val, ptr, sizeof(uint32_t));
+ 2000c5a:	419c                	lw	a5,0(a1)
+    tx_fifo_write32(spi_host, ptr);
+    ptr += 4;
+ 2000c5c:	0591                	addi	a1,a1,4
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000c5e:	db1c                	sw	a5,48(a4)
+  while (len > 3) {
+ 2000c60:	ff0598e3          	bne	a1,a6,2000c50 <dif_spi_host_fifo_write.isra.0+0x56>
+ 2000c64:	8a0d                	andi	a2,a2,3
+    len -= 4;
+  }
+
+  // Clean up any leftover bytes.
+  while (len > 0) {
+ 2000c66:	ca05                	beqz	a2,2000c96 <dif_spi_host_fifo_write.isra.0+0x9c>
+ 2000c68:	00c8073b          	addw	a4,a6,a2
+ 2000c6c:	1742                	slli	a4,a4,0x30
+ 2000c6e:	85c2                	mv	a1,a6
+ 2000c70:	9341                	srli	a4,a4,0x30
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 2000c72:	04800613          	li	a2,72
+ 2000c76:	6114                	ld	a3,0(a0)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000c78:	4adc                	lw	a5,20(a3)
+ 2000c7a:	0ff7f793          	zext.b	a5,a5
+ 2000c7e:	fec78de3          	beq	a5,a2,2000c78 <dif_spi_host_fifo_write.isra.0+0x7e>
+  mmio_region_write8(spi_host->base_addr, SPI_HOST_TXDATA_REG_OFFSET, *src);
+ 2000c82:	0005c803          	lbu	a6,0(a1)
+    tx_fifo_write8(spi_host, ptr);
+    ptr += 1;
+ 2000c86:	0585                	addi	a1,a1,1
+  while (len > 0) {
+ 2000c88:	03059793          	slli	a5,a1,0x30
+ 2000c8c:	93c1                	srli	a5,a5,0x30
+  ((volatile uint8_t *)base.base)[offset / sizeof(uint8_t)] = value;
+ 2000c8e:	03068823          	sb	a6,48(a3)
+ 2000c92:	fef712e3          	bne	a4,a5,2000c76 <dif_spi_host_fifo_write.isra.0+0x7c>
+    len -= 1;
+  }
+
+  return kDifOk;
+}
+ 2000c96:	8082                	ret
+ 2000c98:	8082                	ret
+
+0000000002000c9a <issue_data_phase>:
+                    kDifSpiHostDirectionDummy, last_segment);
+}
+
+static dif_result_t issue_data_phase(const dif_spi_host_t *spi_host,
+                                     dif_spi_host_segment_t *segment,
+                                     bool last_segment) {
+ 2000c9a:	86ae                	mv	a3,a1
+  size_t length;
+  dif_spi_host_width_t width;
+  dif_spi_host_direction_t direction;
+
+  switch (segment->type) {
+ 2000c9c:	418c                	lw	a1,0(a1)
+                                     bool last_segment) {
+ 2000c9e:	7179                	addi	sp,sp,-48
+ 2000ca0:	f406                	sd	ra,40(sp)
+  switch (segment->type) {
+ 2000ca2:	4711                	li	a4,4
+                                     bool last_segment) {
+ 2000ca4:	87b2                	mv	a5,a2
+ 2000ca6:	882a                	mv	a6,a0
+  switch (segment->type) {
+ 2000ca8:	06e58a63          	beq	a1,a4,2000d1c <issue_data_phase+0x82>
+ 2000cac:	4715                	li	a4,5
+ 2000cae:	04e58763          	beq	a1,a4,2000cfc <issue_data_phase+0x62>
+ 2000cb2:	470d                	li	a4,3
+ 2000cb4:	06e59963          	bne	a1,a4,2000d26 <issue_data_phase+0x8c>
+    case kDifSpiHostSegmentTypeTx:
+      width = segment->tx.width;
+      length = segment->tx.length;
+      direction = kDifSpiHostDirectionTx;
+      spi_host_fifo_write_alias(spi_host, segment->tx.buf, segment->tx.length);
+ 2000cb8:	0186d603          	lhu	a2,24(a3)
+      width = segment->tx.width;
+ 2000cbc:	4698                	lw	a4,8(a3)
+      spi_host_fifo_write_alias(spi_host, segment->tx.buf, segment->tx.length);
+ 2000cbe:	6a8c                	ld	a1,16(a3)
+ 2000cc0:	e032                	sd	a2,0(sp)
+      width = segment->tx.width;
+ 2000cc2:	e43a                	sd	a4,8(sp)
+      spi_host_fifo_write_alias(spi_host, segment->tx.buf, segment->tx.length);
+ 2000cc4:	ec3e                	sd	a5,24(sp)
+ 2000cc6:	e82a                	sd	a0,16(sp)
+ 2000cc8:	f33ff0ef          	jal	2000bfa <dif_spi_host_fifo_write.isra.0>
+      break;
+ 2000ccc:	6602                	ld	a2,0(sp)
+ 2000cce:	6722                	ld	a4,8(sp)
+ 2000cd0:	6842                	ld	a6,16(sp)
+ 2000cd2:	67e2                	ld	a5,24(sp)
+ 2000cd4:	6689                	lui	a3,0x2
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 2000cd6:	0017c793          	xori	a5,a5,1
+  bitfield |= (value & field.mask) << field.index;
+ 2000cda:	0097979b          	slliw	a5,a5,0x9
+ 2000cde:	8b0d                	andi	a4,a4,3
+ 2000ce0:	8fd5                	or	a5,a5,a3
+ 2000ce2:	072a                	slli	a4,a4,0xa
+ 2000ce4:	00083683          	ld	a3,0(a6)
+  reg = bitfield_field32_write(reg, SPI_HOST_COMMAND_LEN_FIELD, length - 1);
+ 2000ce8:	367d                	addiw	a2,a2,-1
+      // represent a data transfer.
+      return kDifBadArg;
+  }
+  write_command_reg(spi_host, length, width, direction, last_segment);
+  return kDifOk;
+}
+ 2000cea:	70a2                	ld	ra,40(sp)
+ 2000cec:	8fd9                	or	a5,a5,a4
+ 2000cee:	1ff67613          	andi	a2,a2,511
+ 2000cf2:	8fd1                	or	a5,a5,a2
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000cf4:	d69c                	sw	a5,40(a3)
+  return kDifOk;
+ 2000cf6:	4501                	li	a0,0
+}
+ 2000cf8:	6145                	addi	sp,sp,48
+ 2000cfa:	8082                	ret
+      width = segment->bidir.width;
+ 2000cfc:	4698                	lw	a4,8(a3)
+      spi_host_fifo_write_alias(spi_host, segment->bidir.txbuf,
+ 2000cfe:	6a8c                	ld	a1,16(a3)
+ 2000d00:	ec32                	sd	a2,24(sp)
+ 2000d02:	0206d603          	lhu	a2,32(a3) # 2020 <gpt.c.d01acdb6-0x486a>
+      width = segment->bidir.width;
+ 2000d06:	e43a                	sd	a4,8(sp)
+      spi_host_fifo_write_alias(spi_host, segment->bidir.txbuf,
+ 2000d08:	e82a                	sd	a0,16(sp)
+ 2000d0a:	e032                	sd	a2,0(sp)
+ 2000d0c:	eefff0ef          	jal	2000bfa <dif_spi_host_fifo_write.isra.0>
+      break;
+ 2000d10:	6602                	ld	a2,0(sp)
+ 2000d12:	6722                	ld	a4,8(sp)
+ 2000d14:	6842                	ld	a6,16(sp)
+ 2000d16:	67e2                	ld	a5,24(sp)
+ 2000d18:	668d                	lui	a3,0x3
+ 2000d1a:	bf75                	j	2000cd6 <issue_data_phase+0x3c>
+      width = segment->rx.width;
+ 2000d1c:	4698                	lw	a4,8(a3)
+  write_command_reg(spi_host, length, width, direction, last_segment);
+ 2000d1e:	0186d603          	lhu	a2,24(a3) # 3018 <gpt.c.d01acdb6-0x3872>
+      break;
+ 2000d22:	6685                	lui	a3,0x1
+ 2000d24:	bf4d                	j	2000cd6 <issue_data_phase+0x3c>
+}
+ 2000d26:	70a2                	ld	ra,40(sp)
+  switch (segment->type) {
+ 2000d28:	853a                	mv	a0,a4
+}
+ 2000d2a:	6145                	addi	sp,sp,48
+ 2000d2c:	8082                	ret
+
+0000000002000d2e <dif_spi_host_fifo_read.part.0.isra.0>:
+dif_result_t dif_spi_host_fifo_read(const dif_spi_host_t *spi_host, void *dst,
+ 2000d2e:	1141                	addi	sp,sp,-16
+  queue_t queue = {0};
+ 2000d30:	e002                	sd	zero,0(sp)
+ 2000d32:	e402                	sd	zero,8(sp)
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000d34:	0035f793          	andi	a5,a1,3
+ 2000d38:	cb85                	beqz	a5,2000d68 <dif_spi_host_fifo_read.part.0.isra.0+0x3a>
+ 2000d3a:	6841                	lui	a6,0x10
+ 2000d3c:	f0080813          	addi	a6,a6,-256 # ff00 <uart.c.064117c7+0x4309>
+ 2000d40:	c679                	beqz	a2,2000e0e <dif_spi_host_fifo_read.part.0.isra.0+0xe0>
+    if (queue.length < 1) {
+ 2000d42:	4702                	lw	a4,0(sp)
+ 2000d44:	0ce05763          	blez	a4,2000e12 <dif_spi_host_fifo_read.part.0.isra.0+0xe4>
+  queue->length -= 1;
+ 2000d48:	377d                	addiw	a4,a4,-1
+  write_64(qword >> 8, queue->data);
+ 2000d4a:	67a2                	ld	a5,8(sp)
+  uint8_t val = queue->data[0];
+ 2000d4c:	00814683          	lbu	a3,8(sp)
+    len -= 1;
+ 2000d50:	367d                	addiw	a2,a2,-1
+  write_64(qword >> 8, queue->data);
+ 2000d52:	83a1                	srli	a5,a5,0x8
+    *p = dequeue_byte(&queue);
+ 2000d54:	00d58023          	sb	a3,0(a1)
+    ptr += 1;
+ 2000d58:	0585                	addi	a1,a1,1
+inline void write_64(uint64_t value, void *ptr) {
+  // Both GCC and Clang optimize the code below into a single word-store on most
+  // platforms. See the comment in `read_64()` for more implementation-private
+  // information.
+  ptr = __builtin_assume_aligned(ptr, alignof(uint64_t));
+  __builtin_memcpy(ptr, &value, sizeof(uint64_t));
+ 2000d5a:	e43e                	sd	a5,8(sp)
+    len -= 1;
+ 2000d5c:	1642                	slli	a2,a2,0x30
+  queue->length -= 1;
+ 2000d5e:	c03a                	sw	a4,0(sp)
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000d60:	0035f793          	andi	a5,a1,3
+    len -= 1;
+ 2000d64:	9241                	srli	a2,a2,0x30
+  while (misalignment32_of(ptr) && len > 0) {
+ 2000d66:	ffe9                	bnez	a5,2000d40 <dif_spi_host_fifo_read.part.0.isra.0+0x12>
+  while (len > 3) {
+ 2000d68:	430d                	li	t1,3
+ 2000d6a:	86ae                	mv	a3,a1
+ 2000d6c:	06c37a63          	bgeu	t1,a2,2000de0 <dif_spi_host_fifo_read.part.0.isra.0+0xb2>
+ 2000d70:	0026579b          	srliw	a5,a2,0x2
+ 2000d74:	37fd                	addiw	a5,a5,-1
+ 2000d76:	17c2                	slli	a5,a5,0x30
+ 2000d78:	93c1                	srli	a5,a5,0x30
+ 2000d7a:	00458713          	addi	a4,a1,4
+ 2000d7e:	078a                	slli	a5,a5,0x2
+  } while (rxqd == 0);
+ 2000d80:	68c1                	lui	a7,0x10
+ 2000d82:	00e786b3          	add	a3,a5,a4
+ 2000d86:	f0088893          	addi	a7,a7,-256 # ff00 <uart.c.064117c7+0x4309>
+ 2000d8a:	00410e93          	addi	t4,sp,4
+ 2000d8e:	a819                	j	2000da4 <dif_spi_host_fifo_read.part.0.isra.0+0x76>
+  queue->length -= 4;
+ 2000d90:	3771                	addiw	a4,a4,-4
+  __builtin_memcpy(&val, ptr, sizeof(uint32_t));
+ 2000d92:	4822                	lw	a6,8(sp)
+  __builtin_memcpy(ptr, &value, sizeof(uint32_t));
+ 2000d94:	47b2                	lw	a5,12(sp)
+ 2000d96:	c03a                	sw	a4,0(sp)
+ 2000d98:	0105a023          	sw	a6,0(a1)
+ 2000d9c:	c43e                	sw	a5,8(sp)
+    ptr += 4;
+ 2000d9e:	0591                	addi	a1,a1,4
+  while (len > 3) {
+ 2000da0:	02b68f63          	beq	a3,a1,2000dde <dif_spi_host_fifo_read.part.0.isra.0+0xb0>
+    if (queue.length < 4) {
+ 2000da4:	4702                	lw	a4,0(sp)
+ 2000da6:	fee345e3          	blt	t1,a4,2000d90 <dif_spi_host_fifo_read.part.0.isra.0+0x62>
+ 2000daa:	00053803          	ld	a6,0(a0)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000dae:	01482783          	lw	a5,20(a6)
+  } while (rxqd == 0);
+ 2000db2:	0117f7b3          	and	a5,a5,a7
+ 2000db6:	dfe5                	beqz	a5,2000dae <dif_spi_host_fifo_read.part.0.isra.0+0x80>
+ 2000db8:	02c82783          	lw	a5,44(a6)
+  if (queue->length % sizeof(uint32_t) == 0) {
+ 2000dbc:	00377813          	andi	a6,a4,3
+ 2000dc0:	2781                	sext.w	a5,a5
+ 2000dc2:	06081763          	bnez	a6,2000e30 <dif_spi_host_fifo_read.part.0.isra.0+0x102>
+ 2000dc6:	970a                	add	a4,a4,sp
+ 2000dc8:	c71c                	sw	a5,8(a4)
+    queue->length += 4;
+ 2000dca:	4702                	lw	a4,0(sp)
+  __builtin_memcpy(&val, ptr, sizeof(uint32_t));
+ 2000dcc:	4822                	lw	a6,8(sp)
+  __builtin_memcpy(ptr, &value, sizeof(uint32_t));
+ 2000dce:	47b2                	lw	a5,12(sp)
+  queue->length -= 4;
+ 2000dd0:	c03a                	sw	a4,0(sp)
+ 2000dd2:	0105a023          	sw	a6,0(a1)
+ 2000dd6:	c43e                	sw	a5,8(sp)
+    ptr += 4;
+ 2000dd8:	0591                	addi	a1,a1,4
+  while (len > 3) {
+ 2000dda:	fcb695e3          	bne	a3,a1,2000da4 <dif_spi_host_fifo_read.part.0.isra.0+0x76>
+ 2000dde:	8a0d                	andi	a2,a2,3
+  while (len > 0) {
+ 2000de0:	c61d                	beqz	a2,2000e0e <dif_spi_host_fifo_read.part.0.isra.0+0xe0>
+ 2000de2:	9e35                	addw	a2,a2,a3
+ 2000de4:	1642                	slli	a2,a2,0x30
+ 2000de6:	87b6                	mv	a5,a3
+ 2000de8:	9241                	srli	a2,a2,0x30
+    if (queue.length < 1) {
+ 2000dea:	4682                	lw	a3,0(sp)
+ 2000dec:	06d05c63          	blez	a3,2000e64 <dif_spi_host_fifo_read.part.0.isra.0+0x136>
+  queue->length -= 1;
+ 2000df0:	36fd                	addiw	a3,a3,-1 # fff <gpt.c.d01acdb6-0x588b>
+  write_64(qword >> 8, queue->data);
+ 2000df2:	6722                	ld	a4,8(sp)
+  queue->length -= 1;
+ 2000df4:	c036                	sw	a3,0(sp)
+  uint8_t val = queue->data[0];
+ 2000df6:	00814683          	lbu	a3,8(sp)
+  write_64(qword >> 8, queue->data);
+ 2000dfa:	8321                	srli	a4,a4,0x8
+  __builtin_memcpy(ptr, &value, sizeof(uint64_t));
+ 2000dfc:	e43a                	sd	a4,8(sp)
+    *p = dequeue_byte(&queue);
+ 2000dfe:	00d78023          	sb	a3,0(a5)
+    ptr += 1;
+ 2000e02:	0785                	addi	a5,a5,1
+  while (len > 0) {
+ 2000e04:	03079713          	slli	a4,a5,0x30
+ 2000e08:	9341                	srli	a4,a4,0x30
+ 2000e0a:	fec710e3          	bne	a4,a2,2000dea <dif_spi_host_fifo_read.part.0.isra.0+0xbc>
+}
+ 2000e0e:	0141                	addi	sp,sp,16
+ 2000e10:	8082                	ret
+ 2000e12:	6114                	ld	a3,0(a0)
+ 2000e14:	4adc                	lw	a5,20(a3)
+  } while (rxqd == 0);
+ 2000e16:	0107f7b3          	and	a5,a5,a6
+ 2000e1a:	dfed                	beqz	a5,2000e14 <dif_spi_host_fifo_read.part.0.isra.0+0xe6>
+ 2000e1c:	56dc                	lw	a5,44(a3)
+  if (queue->length % sizeof(uint32_t) == 0) {
+ 2000e1e:	00377693          	andi	a3,a4,3
+ 2000e22:	2781                	sext.w	a5,a5
+ 2000e24:	e295                	bnez	a3,2000e48 <dif_spi_host_fifo_read.part.0.isra.0+0x11a>
+  __builtin_memcpy(ptr, &value, sizeof(uint32_t));
+ 2000e26:	970a                	add	a4,a4,sp
+ 2000e28:	c71c                	sw	a5,8(a4)
+  queue->length -= 1;
+ 2000e2a:	4702                	lw	a4,0(sp)
+ 2000e2c:	270d                	addiw	a4,a4,3
+ 2000e2e:	bf31                	j	2000d4a <dif_spi_host_fifo_read.part.0.isra.0+0x1c>
+ 2000e30:	00e10833          	add	a6,sp,a4
+ 2000e34:	00ee8e33          	add	t3,t4,a4
+      enqueue_byte(queue, (uint8_t)data);
+ 2000e38:	00f80423          	sb	a5,8(a6)
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e3c:	0805                	addi	a6,a6,1
+      data >>= 8;
+ 2000e3e:	0087d79b          	srliw	a5,a5,0x8
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e42:	ffc81be3          	bne	a6,t3,2000e38 <dif_spi_host_fifo_read.part.0.isra.0+0x10a>
+ 2000e46:	b7b1                	j	2000d92 <dif_spi_host_fifo_read.part.0.isra.0+0x64>
+ 2000e48:	00410893          	addi	a7,sp,4
+ 2000e4c:	00e106b3          	add	a3,sp,a4
+ 2000e50:	98ba                	add	a7,a7,a4
+      enqueue_byte(queue, (uint8_t)data);
+ 2000e52:	00f68423          	sb	a5,8(a3)
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e56:	0685                	addi	a3,a3,1
+      data >>= 8;
+ 2000e58:	0087d79b          	srliw	a5,a5,0x8
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e5c:	fed89be3          	bne	a7,a3,2000e52 <dif_spi_host_fifo_read.part.0.isra.0+0x124>
+ 2000e60:	270d                	addiw	a4,a4,3
+ 2000e62:	b5e5                	j	2000d4a <dif_spi_host_fifo_read.part.0.isra.0+0x1c>
+ 2000e64:	00053803          	ld	a6,0(a0)
+  } while (rxqd == 0);
+ 2000e68:	65c1                	lui	a1,0x10
+ 2000e6a:	f0058593          	addi	a1,a1,-256 # ff00 <uart.c.064117c7+0x4309>
+ 2000e6e:	01482703          	lw	a4,20(a6)
+ 2000e72:	8f6d                	and	a4,a4,a1
+ 2000e74:	df6d                	beqz	a4,2000e6e <dif_spi_host_fifo_read.part.0.isra.0+0x140>
+ 2000e76:	02c82583          	lw	a1,44(a6)
+  if (queue->length % sizeof(uint32_t) == 0) {
+ 2000e7a:	0036f713          	andi	a4,a3,3
+ 2000e7e:	2581                	sext.w	a1,a1
+ 2000e80:	cf19                	beqz	a4,2000e9e <dif_spi_host_fifo_read.part.0.isra.0+0x170>
+ 2000e82:	00410813          	addi	a6,sp,4
+ 2000e86:	00d10733          	add	a4,sp,a3
+ 2000e8a:	9836                	add	a6,a6,a3
+      enqueue_byte(queue, (uint8_t)data);
+ 2000e8c:	00b70423          	sb	a1,8(a4)
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e90:	0705                	addi	a4,a4,1
+      data >>= 8;
+ 2000e92:	0085d59b          	srliw	a1,a1,0x8
+    for (size_t i = 0; i < sizeof(uint32_t); ++i) {
+ 2000e96:	ff071be3          	bne	a4,a6,2000e8c <dif_spi_host_fifo_read.part.0.isra.0+0x15e>
+ 2000e9a:	268d                	addiw	a3,a3,3
+ 2000e9c:	bf99                	j	2000df2 <dif_spi_host_fifo_read.part.0.isra.0+0xc4>
+ 2000e9e:	968a                	add	a3,a3,sp
+ 2000ea0:	c68c                	sw	a1,8(a3)
+  queue->length -= 1;
+ 2000ea2:	4682                	lw	a3,0(sp)
+ 2000ea4:	268d                	addiw	a3,a3,3
+ 2000ea6:	b7b1                	j	2000df2 <dif_spi_host_fifo_read.part.0.isra.0+0xc4>
+
+0000000002000ea8 <issue_address.isra.0>:
+static void issue_address(const dif_spi_host_t *spi_host,
+ 2000ea8:	1101                	addi	sp,sp,-32
+ 2000eaa:	e822                	sd	s0,16(sp)
+ 2000eac:	ec06                	sd	ra,24(sp)
+ 2000eae:	842a                	mv	s0,a0
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 2000eb0:	04800713          	li	a4,72
+ 2000eb4:	485c                	lw	a5,20(s0)
+ 2000eb6:	0ff7f793          	zext.b	a5,a5
+ 2000eba:	fee78de3          	beq	a5,a4,2000eb4 <issue_address.isra.0+0xc>
+ * @param bitfield Bitfield to reverse bytes of.
+ * @return `bitfield` with the order of bytes reversed.
+ */
+OT_WARN_UNUSED_RESULT
+inline uint32_t bitfield_byteswap32(uint32_t bitfield) {
+  return __builtin_bswap32(bitfield);
+ 2000ebe:	4988                	lw	a0,16(a1)
+ 2000ec0:	e432                	sd	a2,8(sp)
+ 2000ec2:	e02e                	sd	a1,0(sp)
+ 2000ec4:	accff0ef          	jal	2000190 <__bswapsi2>
+  if (segment->address.mode == kDifSpiHostAddrMode4b) {
+ 2000ec8:	6582                	ld	a1,0(sp)
+ 2000eca:	4785                	li	a5,1
+ 2000ecc:	6622                	ld	a2,8(sp)
+ 2000ece:	45d8                	lw	a4,12(a1)
+ 2000ed0:	02f70663          	beq	a4,a5,2000efc <issue_address.isra.0+0x54>
+    address >>= 8;
+ 2000ed4:	0085551b          	srliw	a0,a0,0x8
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000ed8:	d808                	sw	a0,48(s0)
+ 2000eda:	4709                	li	a4,2
+  bitfield |= (value & field.mask) << field.index;
+ 2000edc:	459c                	lw	a5,8(a1)
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 2000ede:	00164613          	xori	a2,a2,1
+  bitfield |= (value & field.mask) << field.index;
+ 2000ee2:	0096161b          	slliw	a2,a2,0x9
+ 2000ee6:	8b8d                	andi	a5,a5,3
+ 2000ee8:	8e59                	or	a2,a2,a4
+ 2000eea:	07aa                	slli	a5,a5,0xa
+ 2000eec:	8fd1                	or	a5,a5,a2
+ 2000eee:	6709                	lui	a4,0x2
+ 2000ef0:	8fd9                	or	a5,a5,a4
+}
+ 2000ef2:	60e2                	ld	ra,24(sp)
+ 2000ef4:	d41c                	sw	a5,40(s0)
+ 2000ef6:	6442                	ld	s0,16(sp)
+ 2000ef8:	6105                	addi	sp,sp,32
+ 2000efa:	8082                	ret
+ 2000efc:	d808                	sw	a0,48(s0)
+ 2000efe:	470d                	li	a4,3
+ 2000f00:	bff1                	j	2000edc <issue_address.isra.0+0x34>
+
+0000000002000f02 <__spi_sdcard_csfree>:
+// Issue 8 dummy cycles on an internal dummy CS.
+// This deasserts our chip select and ensures the SD card releases sd[1].
+static inline int __spi_sdcard_csfree(spi_sdcard_t *handle) {
+    dif_spi_host_segment_t seg = {kDifSpiHostSegmentTypeDummy,
+                                  {.dummy = {.width = kDifSpiHostWidthStandard, .length = 8}}};
+    return dif_spi_host_transaction(&handle->spi_host, handle->csid_dummy, &seg, 1);
+ 2000f02:	495c                	lw	a5,20(a0)
+                                      uint32_t csid,
+                                      dif_spi_host_segment_t *segments,
+                                      size_t length,
+                                      int csaat) {
+  // Write to chip select ID.
+  mmio_region_write32(spi_host->base_addr, SPI_HOST_CSID_REG_OFFSET, csid);
+ 2000f04:	6118                	ld	a4,0(a0)
+ 2000f06:	d35c                	sw	a5,36(a4)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000f08:	4b5c                	lw	a5,20(a4)
+  return (bitfield >> field.index) & field.mask;
+ 2000f0a:	01f7d79b          	srliw	a5,a5,0x1f
+  } while (!ready);
+ 2000f0e:	dfed                	beqz	a5,2000f08 <__spi_sdcard_csfree+0x6>
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2000f10:	479d                	li	a5,7
+ 2000f12:	d71c                	sw	a5,40(a4)
+}
+ 2000f14:	4501                	li	a0,0
+ 2000f16:	8082                	ret
+
+0000000002000f18 <spi_s25fs512s_single_read>:
+
+int spi_s25fs512s_single_read(void *priv, void *buf, uint64_t addr, uint64_t len) {
+    // The private pointer passed is a device handle
+    spi_s25fs512s_t *handle = (spi_s25fs512s_t *)priv;
+    // Top speed for the used command is 50 MHz
+    CHECK_ASSERT(0x15, handle->spi_freq < 50 * 1000 * 1000)
+ 2000f18:	6518                	ld	a4,8(a0)
+ 2000f1a:	02faf7b7          	lui	a5,0x2faf
+ 2000f1e:	07f78793          	addi	a5,a5,127 # 2faf07f <__base_axirtgrd+0xeed083>
+ 2000f22:	18e7eb63          	bltu	a5,a4,20010b8 <spi_s25fs512s_single_read+0x1a0>
+int spi_s25fs512s_single_read(void *priv, void *buf, uint64_t addr, uint64_t len) {
+ 2000f26:	7111                	addi	sp,sp,-256
+ 2000f28:	f1ca                	sd	s2,224(sp)
+ 2000f2a:	fd86                	sd	ra,248(sp)
+    // Copy in chunks (no alignment necessary)
+    for (uint64_t offs = 0; offs < len; offs += 4 * SPI_HOST_PARAM_RX_DEPTH) {
+ 2000f2c:	4901                	li	s2,0
+ 2000f2e:	14068363          	beqz	a3,2001074 <spi_s25fs512s_single_read+0x15c>
+ 2000f32:	e9d2                	sd	s4,208(sp)
+    dif_spi_host_segment_t segs[] = {
+ 2000f34:	4a05                	li	s4,1
+ 2000f36:	f9a2                	sd	s0,240(sp)
+ 2000f38:	f5a6                	sd	s1,232(sp)
+ 2000f3a:	edce                	sd	s3,216(sp)
+ 2000f3c:	e5d6                	sd	s5,200(sp)
+ 2000f3e:	e1da                	sd	s6,192(sp)
+ 2000f40:	fd5e                	sd	s7,184(sp)
+ 2000f42:	f962                	sd	s8,176(sp)
+ 2000f44:	f566                	sd	s9,168(sp)
+ 2000f46:	f16a                	sd	s10,160(sp)
+ 2000f48:	ed6e                	sd	s11,152(sp)
+ 2000f4a:	84b6                	mv	s1,a3
+ 2000f4c:	89b2                	mv	s3,a2
+ 2000f4e:	e42e                	sd	a1,8(sp)
+ 2000f50:	8baa                	mv	s7,a0
+ 2000f52:	020a1b13          	slli	s6,s4,0x20
+ 2000f56:	4acd                	li	s5,19
+
+  // For each segment, write the segment information to the
+  // COMMAND register and transmit FIFO.
+  for (size_t i = 0; i < length; ++i) {
+ 2000f58:	440d                	li	s0,3
+ 2000f5a:	012987bb          	addw	a5,s3,s2
+ 2000f5e:	c8be                	sw	a5,80(sp)
+ 2000f60:	4791                	li	a5,4
+ 2000f62:	d4be                	sw	a5,104(sp)
+        uint64_t chunk_len = MIN(4 * SPI_HOST_PARAM_RX_DEPTH, len - offs);
+        CHECK_CALL(__spi_s25fs512s_single_read_chunk(handle, (uint8_t *)buf + offs, addr + offs,
+ 2000f64:	67a2                	ld	a5,8(sp)
+    dif_spi_host_segment_t segs[] = {
+ 2000f66:	cc02                	sw	zero,24(sp)
+ 2000f68:	03510023          	sb	s5,32(sp)
+        CHECK_CALL(__spi_s25fs512s_single_read_chunk(handle, (uint8_t *)buf + offs, addr + offs,
+ 2000f6c:	97ca                	add	a5,a5,s2
+    dif_spi_host_segment_t segs[] = {
+ 2000f6e:	fcbe                	sd	a5,120(sp)
+ 2000f70:	c0d2                	sw	s4,64(sp)
+ 2000f72:	e4da                	sd	s6,72(sp)
+ 2000f74:	d882                	sw	zero,112(sp)
+        uint64_t chunk_len = MIN(4 * SPI_HOST_PARAM_RX_DEPTH, len - offs);
+ 2000f76:	412487b3          	sub	a5,s1,s2
+ 2000f7a:	10000693          	li	a3,256
+ 2000f7e:	00f6f363          	bgeu	a3,a5,2000f84 <spi_s25fs512s_single_read+0x6c>
+ 2000f82:	87b6                	mv	a5,a3
+ 2000f84:	000bb503          	ld	a0,0(s7)
+    dif_spi_host_segment_t segs[] = {
+ 2000f88:	e13e                	sd	a5,128(sp)
+    CHECK_CALL(dif_spi_host_transaction(&handle->spi_host, handle->csid, segs, 3))
+ 2000f8a:	010ba783          	lw	a5,16(s7)
+ 2000f8e:	01810d93          	addi	s11,sp,24
+ 2000f92:	8cee                	mv	s9,s11
+ 2000f94:	d15c                	sw	a5,36(a0)
+ 2000f96:	4c01                	li	s8,0
+    // Only signal last segment if CSAAT is not requested
+    bool last_segment = !csaat && (i == length - 1);
+    wait_ready(spi_host);
+    dif_spi_host_segment_t *segment = &segments[i];
+    switch (segment->type) {
+ 2000f98:	4d09                	li	s10,2
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2000f9a:	495c                	lw	a5,20(a0)
+ 2000f9c:	01f7d79b          	srliw	a5,a5,0x1f
+  } while (!ready);
+ 2000fa0:	dfed                	beqz	a5,2000f9a <spi_s25fs512s_single_read+0x82>
+    switch (segment->type) {
+ 2000fa2:	000ca783          	lw	a5,0(s9)
+ 2000fa6:	05a78c63          	beq	a5,s10,2000ffe <spi_s25fs512s_single_read+0xe6>
+    bool last_segment = !csaat && (i == length - 1);
+ 2000faa:	ffec0613          	addi	a2,s8,-2
+ 2000fae:	00163613          	seqz	a2,a2
+    switch (segment->type) {
+ 2000fb2:	00fd6e63          	bltu	s10,a5,2000fce <spi_s25fs512s_single_read+0xb6>
+ 2000fb6:	c7e1                	beqz	a5,200107e <spi_s25fs512s_single_read+0x166>
+      case kDifSpiHostSegmentTypeOpcode:
+        issue_opcode(spi_host, segment, last_segment);
+        break;
+      case kDifSpiHostSegmentTypeAddress:
+        issue_address(spi_host, segment, last_segment);
+ 2000fb8:	85e6                	mv	a1,s9
+ 2000fba:	eefff0ef          	jal	2000ea8 <issue_address.isra.0>
+  for (size_t i = 0; i < length; ++i) {
+ 2000fbe:	0c05                	addi	s8,s8,1
+ 2000fc0:	068c0463          	beq	s8,s0,2001028 <spi_s25fs512s_single_read+0x110>
+ 2000fc4:	000bb503          	ld	a0,0(s7)
+ 2000fc8:	028c8c93          	addi	s9,s9,40
+ 2000fcc:	b7f9                	j	2000f9a <spi_s25fs512s_single_read+0x82>
+    switch (segment->type) {
+ 2000fce:	37f5                	addiw	a5,a5,-3
+ 2000fd0:	00fd6763          	bltu	s10,a5,2000fde <spi_s25fs512s_single_read+0xc6>
+        issue_dummy(spi_host, segment, last_segment);
+        break;
+      case kDifSpiHostSegmentTypeTx:
+      case kDifSpiHostSegmentTypeRx:
+      case kDifSpiHostSegmentTypeBidirectional: {
+        dif_result_t error = issue_data_phase(spi_host, segment, last_segment);
+ 2000fd4:	85e6                	mv	a1,s9
+ 2000fd6:	855e                	mv	a0,s7
+ 2000fd8:	cc3ff0ef          	jal	2000c9a <issue_data_phase>
+        if (error != kDifOk) {
+ 2000fdc:	d16d                	beqz	a0,2000fbe <spi_s25fs512s_single_read+0xa6>
+ 2000fde:	744e                	ld	s0,240(sp)
+                                                     chunk_len))
+    }
+    // Nothing went wrong
+    return 0;
+}
+ 2000fe0:	70ee                	ld	ra,248(sp)
+ 2000fe2:	74ae                	ld	s1,232(sp)
+ 2000fe4:	69ee                	ld	s3,216(sp)
+ 2000fe6:	6a4e                	ld	s4,208(sp)
+ 2000fe8:	6aae                	ld	s5,200(sp)
+ 2000fea:	6b0e                	ld	s6,192(sp)
+ 2000fec:	7bea                	ld	s7,184(sp)
+ 2000fee:	7c4a                	ld	s8,176(sp)
+ 2000ff0:	7caa                	ld	s9,168(sp)
+ 2000ff2:	7d0a                	ld	s10,160(sp)
+ 2000ff4:	6dea                	ld	s11,152(sp)
+ 2000ff6:	790e                	ld	s2,224(sp)
+        CHECK_CALL(__spi_s25fs512s_single_read_chunk(handle, (uint8_t *)buf + offs, addr + offs,
+ 2000ff8:	450d                	li	a0,3
+}
+ 2000ffa:	6111                	addi	sp,sp,256
+ 2000ffc:	8082                	ret
+  bitfield |= (value & field.mask) << field.index;
+ 2000ffe:	008ca603          	lw	a2,8(s9)
+  reg = bitfield_field32_write(reg, SPI_HOST_COMMAND_LEN_FIELD, length - 1);
+ 2001002:	010cd683          	lhu	a3,16(s9)
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 2001006:	ffec0793          	addi	a5,s8,-2
+  bitfield |= (value & field.mask) << field.index;
+ 200100a:	8a0d                	andi	a2,a2,3
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 200100c:	00f037b3          	snez	a5,a5
+  bitfield |= (value & field.mask) << field.index;
+ 2001010:	062a                	slli	a2,a2,0xa
+ 2001012:	0097979b          	slliw	a5,a5,0x9
+ 2001016:	36fd                	addiw	a3,a3,-1
+ 2001018:	8fd1                	or	a5,a5,a2
+ 200101a:	1ff6f693          	andi	a3,a3,511
+ 200101e:	8fd5                	or	a5,a5,a3
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2001020:	d51c                	sw	a5,40(a0)
+  for (size_t i = 0; i < length; ++i) {
+ 2001022:	0c05                	addi	s8,s8,1
+ 2001024:	fa8c10e3          	bne	s8,s0,2000fc4 <spi_s25fs512s_single_read+0xac>
+ 2001028:	078d8c93          	addi	s9,s11,120
+  }
+
+  // For each segment which receives data, read from the receive FIFO.
+  for (size_t i = 0; i < length; ++i) {
+    dif_spi_host_segment_t *segment = &segments[i];
+    switch (segment->type) {
+ 200102c:	4c11                	li	s8,4
+ 200102e:	000da783          	lw	a5,0(s11)
+ 2001032:	07878c63          	beq	a5,s8,20010aa <spi_s25fs512s_single_read+0x192>
+ 2001036:	4715                	li	a4,5
+ 2001038:	00e79b63          	bne	a5,a4,200104e <spi_s25fs512s_single_read+0x136>
+      case kDifSpiHostSegmentTypeRx:
+        spi_host_fifo_read_alias(spi_host, segment->rx.buf, segment->rx.length);
+        break;
+      case kDifSpiHostSegmentTypeBidirectional:
+        spi_host_fifo_read_alias(spi_host, segment->bidir.rxbuf,
+ 200103c:	018db583          	ld	a1,24(s11)
+ 2001040:	020dd603          	lhu	a2,32(s11)
+dif_result_t dif_spi_host_fifo_read(const dif_spi_host_t *spi_host, void *dst,
+ 2001044:	855e                	mv	a0,s7
+  if (spi_host == NULL || (dst == NULL && len > 0)) {
+ 2001046:	e191                	bnez	a1,200104a <spi_s25fs512s_single_read+0x132>
+ 2001048:	e219                	bnez	a2,200104e <spi_s25fs512s_single_read+0x136>
+ 200104a:	ce5ff0ef          	jal	2000d2e <dif_spi_host_fifo_read.part.0.isra.0>
+  for (size_t i = 0; i < length; ++i) {
+ 200104e:	028d8d93          	addi	s11,s11,40
+ 2001052:	fdbc9ee3          	bne	s9,s11,200102e <spi_s25fs512s_single_read+0x116>
+    for (uint64_t offs = 0; offs < len; offs += 4 * SPI_HOST_PARAM_RX_DEPTH) {
+ 2001056:	10090913          	addi	s2,s2,256
+ 200105a:	f09960e3          	bltu	s2,s1,2000f5a <spi_s25fs512s_single_read+0x42>
+ 200105e:	744e                	ld	s0,240(sp)
+ 2001060:	74ae                	ld	s1,232(sp)
+ 2001062:	69ee                	ld	s3,216(sp)
+ 2001064:	6a4e                	ld	s4,208(sp)
+ 2001066:	6aae                	ld	s5,200(sp)
+ 2001068:	6b0e                	ld	s6,192(sp)
+ 200106a:	7bea                	ld	s7,184(sp)
+ 200106c:	7c4a                	ld	s8,176(sp)
+ 200106e:	7caa                	ld	s9,168(sp)
+ 2001070:	7d0a                	ld	s10,160(sp)
+ 2001072:	6dea                	ld	s11,152(sp)
+}
+ 2001074:	70ee                	ld	ra,248(sp)
+ 2001076:	790e                	ld	s2,224(sp)
+    return 0;
+ 2001078:	4501                	li	a0,0
+}
+ 200107a:	6111                	addi	sp,sp,256
+ 200107c:	8082                	ret
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 200107e:	04800693          	li	a3,72
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2001082:	495c                	lw	a5,20(a0)
+ 2001084:	0ff7f793          	zext.b	a5,a5
+ 2001088:	fed78de3          	beq	a5,a3,2001082 <spi_s25fs512s_single_read+0x16a>
+  mmio_region_write8(spi_host->base_addr, SPI_HOST_TXDATA_REG_OFFSET,
+ 200108c:	008cc683          	lbu	a3,8(s9)
+  return bitfield_field32_write(bitfield, bitfield_bit32_to_field32(bit_index),
+ 2001090:	ffec0793          	addi	a5,s8,-2
+ 2001094:	00f037b3          	snez	a5,a5
+  ((volatile uint8_t *)base.base)[offset / sizeof(uint8_t)] = value;
+ 2001098:	02d50823          	sb	a3,48(a0)
+  bitfield |= (value & field.mask) << field.index;
+ 200109c:	000bb683          	ld	a3,0(s7)
+ 20010a0:	0107e793          	ori	a5,a5,16
+ 20010a4:	07a6                	slli	a5,a5,0x9
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20010a6:	d69c                	sw	a5,40(a3)
+}
+ 20010a8:	bf19                	j	2000fbe <spi_s25fs512s_single_read+0xa6>
+        spi_host_fifo_read_alias(spi_host, segment->rx.buf, segment->rx.length);
+ 20010aa:	010db583          	ld	a1,16(s11)
+ 20010ae:	018dd603          	lhu	a2,24(s11)
+dif_result_t dif_spi_host_fifo_read(const dif_spi_host_t *spi_host, void *dst,
+ 20010b2:	855e                	mv	a0,s7
+  if (spi_host == NULL || (dst == NULL && len > 0)) {
+ 20010b4:	d9d1                	beqz	a1,2001048 <spi_s25fs512s_single_read+0x130>
+ 20010b6:	bf51                	j	200104a <spi_s25fs512s_single_read+0x132>
+    CHECK_ASSERT(0x15, handle->spi_freq < 50 * 1000 * 1000)
+ 20010b8:	4555                	li	a0,21
+}
+ 20010ba:	8082                	ret
+
+00000000020010bc <dif_spi_host_transaction_csaat.constprop.0>:
+                                      size_t length) {
+  return spi_host_transaction(spi_host, csid, segments, length, 0);
+}
+
+
+dif_result_t dif_spi_host_transaction_csaat(const dif_spi_host_t *spi_host,
+ 20010bc:	882a                	mv	a6,a0
+ 20010be:	6108                	ld	a0,0(a0)
+ 20010c0:	1101                	addi	sp,sp,-32
+ 20010c2:	ec06                	sd	ra,24(sp)
+ 20010c4:	8732                	mv	a4,a2
+ 20010c6:	d14c                	sw	a1,36(a0)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20010c8:	495c                	lw	a5,20(a0)
+  return (bitfield >> field.index) & field.mask;
+ 20010ca:	01f7d79b          	srliw	a5,a5,0x1f
+  } while (!ready);
+ 20010ce:	dfed                	beqz	a5,20010c8 <dif_spi_host_transaction_csaat.constprop.0+0xc>
+    switch (segment->type) {
+ 20010d0:	431c                	lw	a5,0(a4)
+ 20010d2:	4689                	li	a3,2
+ 20010d4:	04d78f63          	beq	a5,a3,2001132 <dif_spi_host_transaction_csaat.constprop.0+0x76>
+ 20010d8:	02f6ee63          	bltu	a3,a5,2001114 <dif_spi_host_transaction_csaat.constprop.0+0x58>
+ 20010dc:	c3c9                	beqz	a5,200115e <dif_spi_host_transaction_csaat.constprop.0+0xa2>
+        issue_address(spi_host, segment, last_segment);
+ 20010de:	85ba                	mv	a1,a4
+ 20010e0:	4601                	li	a2,0
+ 20010e2:	e442                	sd	a6,8(sp)
+ 20010e4:	e03a                	sd	a4,0(sp)
+ 20010e6:	dc3ff0ef          	jal	2000ea8 <issue_address.isra.0>
+ 20010ea:	6822                	ld	a6,8(sp)
+ 20010ec:	6702                	ld	a4,0(sp)
+    switch (segment->type) {
+ 20010ee:	431c                	lw	a5,0(a4)
+ 20010f0:	4691                	li	a3,4
+ 20010f2:	06d78063          	beq	a5,a3,2001152 <dif_spi_host_transaction_csaat.constprop.0+0x96>
+ 20010f6:	4695                	li	a3,5
+ 20010f8:	00d79a63          	bne	a5,a3,200110c <dif_spi_host_transaction_csaat.constprop.0+0x50>
+        spi_host_fifo_read_alias(spi_host, segment->bidir.rxbuf,
+ 20010fc:	02075603          	lhu	a2,32(a4) # 2020 <gpt.c.d01acdb6-0x486a>
+ 2001100:	6f0c                	ld	a1,24(a4)
+  if (spi_host == NULL || (dst == NULL && len > 0)) {
+ 2001102:	c211                	beqz	a2,2001106 <dif_spi_host_transaction_csaat.constprop.0+0x4a>
+ 2001104:	c581                	beqz	a1,200110c <dif_spi_host_transaction_csaat.constprop.0+0x50>
+ 2001106:	8542                	mv	a0,a6
+ 2001108:	c27ff0ef          	jal	2000d2e <dif_spi_host_fifo_read.part.0.isra.0>
+          return error;
+ 200110c:	4501                	li	a0,0
+                                            uint32_t csid,
+                                            dif_spi_host_segment_t *segments,
+                                            size_t length) {
+  return spi_host_transaction(spi_host, csid, segments, length, 1);
+}
+ 200110e:	60e2                	ld	ra,24(sp)
+ 2001110:	6105                	addi	sp,sp,32
+ 2001112:	8082                	ret
+    switch (segment->type) {
+ 2001114:	37f5                	addiw	a5,a5,-3
+ 2001116:	00f6ec63          	bltu	a3,a5,200112e <dif_spi_host_transaction_csaat.constprop.0+0x72>
+        dif_result_t error = issue_data_phase(spi_host, segment, last_segment);
+ 200111a:	85ba                	mv	a1,a4
+ 200111c:	8542                	mv	a0,a6
+ 200111e:	4601                	li	a2,0
+ 2001120:	e43a                	sd	a4,8(sp)
+ 2001122:	e042                	sd	a6,0(sp)
+ 2001124:	b77ff0ef          	jal	2000c9a <issue_data_phase>
+        if (error != kDifOk) {
+ 2001128:	6802                	ld	a6,0(sp)
+ 200112a:	6722                	ld	a4,8(sp)
+ 200112c:	d169                	beqz	a0,20010ee <dif_spi_host_transaction_csaat.constprop.0+0x32>
+          return error;
+ 200112e:	450d                	li	a0,3
+ 2001130:	bff9                	j	200110e <dif_spi_host_transaction_csaat.constprop.0+0x52>
+  reg = bitfield_field32_write(reg, SPI_HOST_COMMAND_LEN_FIELD, length - 1);
+ 2001132:	01075783          	lhu	a5,16(a4)
+  bitfield |= (value & field.mask) << field.index;
+ 2001136:	4714                	lw	a3,8(a4)
+ 2001138:	37fd                	addiw	a5,a5,-1
+ 200113a:	8a8d                	andi	a3,a3,3
+ 200113c:	06aa                	slli	a3,a3,0xa
+ 200113e:	1ff7f793          	andi	a5,a5,511
+ 2001142:	8fd5                	or	a5,a5,a3
+ 2001144:	2007e793          	ori	a5,a5,512
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2001148:	d51c                	sw	a5,40(a0)
+    switch (segment->type) {
+ 200114a:	431c                	lw	a5,0(a4)
+ 200114c:	4691                	li	a3,4
+ 200114e:	fad794e3          	bne	a5,a3,20010f6 <dif_spi_host_transaction_csaat.constprop.0+0x3a>
+        spi_host_fifo_read_alias(spi_host, segment->rx.buf, segment->rx.length);
+ 2001152:	01875603          	lhu	a2,24(a4)
+ 2001156:	6b0c                	ld	a1,16(a4)
+  if (spi_host == NULL || (dst == NULL && len > 0)) {
+ 2001158:	d65d                	beqz	a2,2001106 <dif_spi_host_transaction_csaat.constprop.0+0x4a>
+ 200115a:	f5d5                	bnez	a1,2001106 <dif_spi_host_transaction_csaat.constprop.0+0x4a>
+ 200115c:	bf45                	j	200110c <dif_spi_host_transaction_csaat.constprop.0+0x50>
+  } while (txqd == SPI_HOST_PARAM_TX_DEPTH);
+ 200115e:	04800693          	li	a3,72
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 2001162:	495c                	lw	a5,20(a0)
+ 2001164:	0ff7f793          	zext.b	a5,a5
+ 2001168:	fed78de3          	beq	a5,a3,2001162 <dif_spi_host_transaction_csaat.constprop.0+0xa6>
+  mmio_region_write8(spi_host->base_addr, SPI_HOST_TXDATA_REG_OFFSET,
+ 200116c:	00874683          	lbu	a3,8(a4)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2001170:	6789                	lui	a5,0x2
+ 2001172:	20078793          	addi	a5,a5,512 # 2200 <gpt.c.d01acdb6-0x468a>
+  ((volatile uint8_t *)base.base)[offset / sizeof(uint8_t)] = value;
+ 2001176:	02d50823          	sb	a3,48(a0)
+ 200117a:	00083683          	ld	a3,0(a6)
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 200117e:	d69c                	sw	a5,40(a3)
+ 2001180:	b7bd                	j	20010ee <dif_spi_host_transaction_csaat.constprop.0+0x32>
+
+0000000002001182 <__spi_sdcard_cmd>:
+
+// Send an SD card command and obtain the data for the expected response
+static inline int __spi_sdcard_cmd(spi_sdcard_t *handle, uint64_t cmd, spi_sdcard_resp_t resp,
+                                   uint8_t *rdata, int csaat) {
+ 2001182:	7119                	addi	sp,sp,-128
+ 2001184:	f8a2                	sd	s0,112(sp)
+ 2001186:	f0ca                	sd	s2,96(sp)
+ 2001188:	e4d6                	sd	s5,72(sp)
+ 200118a:	e0da                	sd	s6,64(sp)
+ 200118c:	fc86                	sd	ra,120(sp)
+ 200118e:	e42e                	sd	a1,8(sp)
+ 2001190:	842a                	mv	s0,a0
+ 2001192:	8ab2                	mv	s5,a2
+ 2001194:	8936                	mv	s2,a3
+ 2001196:	8b3a                	mv	s6,a4
+    uint8_t rdummy;
+    // If a command is provided, Start CS phase by sending 6-byte command or a 1-byte stop tran
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 2001198:	c5b1                	beqz	a1,20011e4 <__spi_sdcard_cmd+0x62>
+ 200119a:	0fd00793          	li	a5,253
+ 200119e:	10f58063          	beq	a1,a5,200129e <__spi_sdcard_cmd+0x11c>
+ 20011a2:	4799                	li	a5,6
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011a4:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 20011a6:	f83e                	sd	a5,48(sp)
+ 20011a8:	470d                	li	a4,3
+ 20011aa:	003c                	addi	a5,sp,8
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011ac:	0830                	addi	a2,sp,24
+ 20011ae:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 20011b0:	d002                	sw	zero,32(sp)
+ 20011b2:	cc3a                	sw	a4,24(sp)
+ 20011b4:	f43e                	sd	a5,40(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011b6:	f07ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 20011ba:	e971                	bnez	a0,200128e <__spi_sdcard_cmd+0x10c>
+    // If we sent CMD12, discard stuff byte after command
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 20011bc:	00814703          	lbu	a4,8(sp)
+ 20011c0:	04c00793          	li	a5,76
+ 20011c4:	02f71063          	bne	a4,a5,20011e4 <__spi_sdcard_cmd+0x62>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011c8:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 20011ca:	4691                	li	a3,4
+ 20011cc:	01710713          	addi	a4,sp,23
+ 20011d0:	4785                	li	a5,1
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011d2:	0830                	addi	a2,sp,24
+ 20011d4:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 20011d6:	d002                	sw	zero,32(sp)
+ 20011d8:	cc36                	sw	a3,24(sp)
+ 20011da:	f43a                	sd	a4,40(sp)
+ 20011dc:	f83e                	sd	a5,48(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011de:	edfff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 20011e2:	e555                	bnez	a0,200128e <__spi_sdcard_cmd+0x10c>
+ 20011e4:	f4a6                	sd	s1,104(sp)
+ 20011e6:	ecce                	sd	s3,88(sp)
+ 20011e8:	e8d2                	sd	s4,80(sp)
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 20011ea:	44a1                	li	s1,8
+        seg = (dif_spi_host_segment_t){
+ 20011ec:	4a11                	li	s4,4
+ 20011ee:	4985                	li	s3,1
+ 20011f0:	a029                	j	20011fa <__spi_sdcard_cmd+0x78>
+    // Poll bytes until we get a response (i.e. most significant bit low)
+    int timeout = 8;
+    do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata, NULL, 1))
+    while (--timeout && *rdata & 0x80);
+ 20011f2:	00090783          	lb	a5,0(s2)
+ 20011f6:	0207d963          	bgez	a5,2001228 <__spi_sdcard_cmd+0xa6>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20011fa:	480c                	lw	a1,16(s0)
+ 20011fc:	0830                	addi	a2,sp,24
+ 20011fe:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001200:	cc52                	sw	s4,24(sp)
+ 2001202:	d002                	sw	zero,32(sp)
+ 2001204:	f44a                	sd	s2,40(sp)
+ 2001206:	f84e                	sd	s3,48(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001208:	eb5ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    while (--timeout && *rdata & 0x80);
+ 200120c:	34fd                	addiw	s1,s1,-1
+    do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata, NULL, 1))
+ 200120e:	ed2d                	bnez	a0,2001288 <__spi_sdcard_cmd+0x106>
+    while (--timeout && *rdata & 0x80);
+ 2001210:	f0ed                	bnez	s1,20011f2 <__spi_sdcard_cmd+0x70>
+ 2001212:	74a6                	ld	s1,104(sp)
+ 2001214:	69e6                	ld	s3,88(sp)
+ 2001216:	6a46                	ld	s4,80(sp)
+    if (timeout == 0) return 0x12;
+ 2001218:	4549                	li	a0,18
+        CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata + 1, NULL, rem_bytes))
+    // Release CS and data lanes if requested
+    if (!csaat) CHECK_CALL(__spi_sdcard_csfree(handle));
+    // Nothing went wrong
+    return 0;
+}
+ 200121a:	70e6                	ld	ra,120(sp)
+ 200121c:	7446                	ld	s0,112(sp)
+ 200121e:	7906                	ld	s2,96(sp)
+ 2001220:	6aa6                	ld	s5,72(sp)
+ 2001222:	6b06                	ld	s6,64(sp)
+ 2001224:	6109                	addi	sp,sp,128
+ 2001226:	8082                	ret
+    if (resp == kSpiSdcardRespR1b) {
+ 2001228:	033a8963          	beq	s5,s3,200125a <__spi_sdcard_cmd+0xd8>
+    uint64_t rem_bytes = __spi_sdcard_resp_len[resp] - 1;
+ 200122c:	020a9713          	slli	a4,s5,0x20
+ 2001230:	01d75793          	srli	a5,a4,0x1d
+ 2001234:	16c18613          	addi	a2,gp,364 # 2001f50 <__spi_sdcard_resp_len>
+ 2001238:	963e                	add	a2,a2,a5
+ 200123a:	621c                	ld	a5,0(a2)
+ 200123c:	17fd                	addi	a5,a5,-1
+    else if (rem_bytes)
+ 200123e:	e3b5                	bnez	a5,20012a2 <__spi_sdcard_cmd+0x120>
+    if (!csaat) CHECK_CALL(__spi_sdcard_csfree(handle));
+ 2001240:	060b0e63          	beqz	s6,20012bc <__spi_sdcard_cmd+0x13a>
+}
+ 2001244:	70e6                	ld	ra,120(sp)
+ 2001246:	7446                	ld	s0,112(sp)
+ 2001248:	74a6                	ld	s1,104(sp)
+ 200124a:	69e6                	ld	s3,88(sp)
+ 200124c:	6a46                	ld	s4,80(sp)
+ 200124e:	7906                	ld	s2,96(sp)
+ 2001250:	6aa6                	ld	s5,72(sp)
+ 2001252:	6b06                	ld	s6,64(sp)
+    return 0;
+ 2001254:	4501                	li	a0,0
+}
+ 2001256:	6109                	addi	sp,sp,128
+ 2001258:	8082                	ret
+        timeout = __spi_sdcard_r1b_timeout;
+ 200125a:	64e1                	lui	s1,0x18
+ 200125c:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.064117c7+0xcaa9>
+        seg = (dif_spi_host_segment_t){
+ 2001260:	4a11                	li	s4,4
+ 2001262:	01710993          	addi	s3,sp,23
+ 2001266:	4905                	li	s2,1
+ 2001268:	a029                	j	2001272 <__spi_sdcard_cmd+0xf0>
+        while (--timeout && rdummy == 0);
+ 200126a:	cca9                	beqz	s1,20012c4 <__spi_sdcard_cmd+0x142>
+ 200126c:	01714783          	lbu	a5,23(sp)
+ 2001270:	fbe1                	bnez	a5,2001240 <__spi_sdcard_cmd+0xbe>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001272:	480c                	lw	a1,16(s0)
+ 2001274:	0830                	addi	a2,sp,24
+ 2001276:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001278:	cc52                	sw	s4,24(sp)
+ 200127a:	d002                	sw	zero,32(sp)
+ 200127c:	f44e                	sd	s3,40(sp)
+ 200127e:	f84a                	sd	s2,48(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001280:	e3dff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+        while (--timeout && rdummy == 0);
+ 2001284:	34fd                	addiw	s1,s1,-1
+        do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 2001286:	d175                	beqz	a0,200126a <__spi_sdcard_cmd+0xe8>
+ 2001288:	74a6                	ld	s1,104(sp)
+ 200128a:	69e6                	ld	s3,88(sp)
+ 200128c:	6a46                	ld	s4,80(sp)
+}
+ 200128e:	70e6                	ld	ra,120(sp)
+ 2001290:	7446                	ld	s0,112(sp)
+ 2001292:	7906                	ld	s2,96(sp)
+ 2001294:	6aa6                	ld	s5,72(sp)
+ 2001296:	6b06                	ld	s6,64(sp)
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 2001298:	450d                	li	a0,3
+}
+ 200129a:	6109                	addi	sp,sp,128
+ 200129c:	8082                	ret
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 200129e:	4785                	li	a5,1
+ 20012a0:	b711                	j	20011a4 <__spi_sdcard_cmd+0x22>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20012a2:	480c                	lw	a1,16(s0)
+        CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata + 1, NULL, rem_bytes))
+ 20012a4:	0905                	addi	s2,s2,1
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20012a6:	0830                	addi	a2,sp,24
+ 20012a8:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 20012aa:	f44a                	sd	s2,40(sp)
+ 20012ac:	cc52                	sw	s4,24(sp)
+ 20012ae:	d002                	sw	zero,32(sp)
+ 20012b0:	f83e                	sd	a5,48(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20012b2:	e0bff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+        CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata + 1, NULL, rem_bytes))
+ 20012b6:	f969                	bnez	a0,2001288 <__spi_sdcard_cmd+0x106>
+    if (!csaat) CHECK_CALL(__spi_sdcard_csfree(handle));
+ 20012b8:	f80b16e3          	bnez	s6,2001244 <__spi_sdcard_cmd+0xc2>
+ 20012bc:	8522                	mv	a0,s0
+ 20012be:	c45ff0ef          	jal	2000f02 <__spi_sdcard_csfree>
+ 20012c2:	b749                	j	2001244 <__spi_sdcard_cmd+0xc2>
+        if (timeout == 0) return 0x13;
+ 20012c4:	74a6                	ld	s1,104(sp)
+ 20012c6:	69e6                	ld	s3,88(sp)
+ 20012c8:	6a46                	ld	s4,80(sp)
+ 20012ca:	454d                	li	a0,19
+ 20012cc:	b7b9                	j	200121a <__spi_sdcard_cmd+0x98>
+
+00000000020012ce <__spi_sdcard_cmd_check>:
+
+// Handle a command and check its response against an expected value or discard it
+static inline int __spi_sdcard_cmd_check(spi_sdcard_t *handle, uint64_t cmd, spi_sdcard_resp_t resp,
+                                         int check_exp, uint64_t exp) {
+ 20012ce:	7179                	addi	sp,sp,-48
+ 20012d0:	f022                	sd	s0,32(sp)
+ 20012d2:	e84a                	sd	s2,16(sp)
+ 20012d4:	8436                	mv	s0,a3
+ 20012d6:	893a                	mv	s2,a4
+    uint64_t buf;
+    CHECK_CALL(__spi_sdcard_cmd(handle, cmd, resp, (uint8_t *)&buf, 0))
+ 20012d8:	0034                	addi	a3,sp,8
+ 20012da:	4701                	li	a4,0
+                                         int check_exp, uint64_t exp) {
+ 20012dc:	ec26                	sd	s1,24(sp)
+ 20012de:	f406                	sd	ra,40(sp)
+ 20012e0:	84b2                	mv	s1,a2
+    CHECK_CALL(__spi_sdcard_cmd(handle, cmd, resp, (uint8_t *)&buf, 0))
+ 20012e2:	ea1ff0ef          	jal	2001182 <__spi_sdcard_cmd>
+ 20012e6:	e50d                	bnez	a0,2001310 <__spi_sdcard_cmd_check+0x42>
+    uint64_t resp_mask = (1 << (8UL * __spi_sdcard_resp_len[resp])) - 1;
+    if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
+ 20012e8:	c405                	beqz	s0,2001310 <__spi_sdcard_cmd_check+0x42>
+    uint64_t resp_mask = (1 << (8UL * __spi_sdcard_resp_len[resp])) - 1;
+ 20012ea:	02049713          	slli	a4,s1,0x20
+ 20012ee:	01d75793          	srli	a5,a4,0x1d
+ 20012f2:	16c18613          	addi	a2,gp,364 # 2001f50 <__spi_sdcard_resp_len>
+ 20012f6:	963e                	add	a2,a2,a5
+ 20012f8:	621c                	ld	a5,0(a2)
+    if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
+ 20012fa:	66a2                	ld	a3,8(sp)
+    uint64_t resp_mask = (1 << (8UL * __spi_sdcard_resp_len[resp])) - 1;
+ 20012fc:	4705                	li	a4,1
+ 20012fe:	0037979b          	slliw	a5,a5,0x3
+ 2001302:	00f7173b          	sllw	a4,a4,a5
+ 2001306:	377d                	addiw	a4,a4,-1
+    if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
+ 2001308:	0126c7b3          	xor	a5,a3,s2
+ 200130c:	8ff9                	and	a5,a5,a4
+ 200130e:	e799                	bnez	a5,200131c <__spi_sdcard_cmd_check+0x4e>
+    return 0;
+}
+ 2001310:	70a2                	ld	ra,40(sp)
+ 2001312:	7402                	ld	s0,32(sp)
+ 2001314:	64e2                	ld	s1,24(sp)
+ 2001316:	6942                	ld	s2,16(sp)
+ 2001318:	6145                	addi	sp,sp,48
+ 200131a:	8082                	ret
+ 200131c:	70a2                	ld	ra,40(sp)
+ 200131e:	7402                	ld	s0,32(sp)
+    if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
+ 2001320:	8f75                	and	a4,a4,a3
+}
+ 2001322:	64e2                	ld	s1,24(sp)
+ 2001324:	6942                	ld	s2,16(sp)
+    if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
+ 2001326:	0007051b          	sext.w	a0,a4
+}
+ 200132a:	6145                	addi	sp,sp,48
+ 200132c:	8082                	ret
+
+000000000200132e <spi_sdcard_init.constprop.0>:
+}
+
+int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
+    // Check for legal arguments
+    CHECK_ASSERT(0x14, handle != 0)
+    CHECK_ASSERT(0x15, handle->csid < SPI_HOST_PARAM_NUM_C_S)
+ 200132e:	4914                	lw	a3,16(a0)
+ 2001330:	4309                	li	t1,2
+ 2001332:	06d34563          	blt	t1,a3,200139c <spi_sdcard_init.constprop.0+0x6e>
+    CHECK_ASSERT(0x15, handle->csid_dummy < SPI_HOST_PARAM_NUM_C_S)
+    CHECK_ASSERT(0x16, handle->spi_freq != 0)
+ 2001336:	651c                	ld	a5,8(a0)
+ 2001338:	1e078f63          	beqz	a5,2001536 <spi_sdcard_init.constprop.0+0x208>
+    CHECK_ASSERT(0x17, handle->spi_freq <= 25 * 1000 * 1000) // Max SD spi speed is 25 MHz
+ 200133c:	017d8737          	lui	a4,0x17d8
+ 2001340:	84070713          	addi	a4,a4,-1984 # 17d7840 <__base_dma+0x7d7840>
+ 2001344:	1ef76563          	bltu	a4,a5,200152e <spi_sdcard_init.constprop.0+0x200>
+    CHECK_ASSERT(0x18, handle->spi_freq <= core_freq)
+ 2001348:	1ef5e563          	bltu	a1,a5,2001532 <spi_sdcard_init.constprop.0+0x204>
+int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
+ 200134c:	7119                	addi	sp,sp,-128
+ 200134e:	f8a2                	sd	s0,112(sp)
+ 2001350:	842a                	mv	s0,a0
+ 2001352:	01003517          	auipc	a0,0x1003
+ 2001356:	f4a6                	sd	s1,104(sp)
+ 2001358:	fc86                	sd	ra,120(sp)
+ 200135a:	cae50513          	addi	a0,a0,-850 # 3004000 <__base_spih>
+ 200135e:	e008                	sd	a0,0(s0)
+ 2001360:	ec2e                	sd	a1,24(sp)
+  spi_host_reset(spi_host);
+ 2001362:	f036                	sd	a3,32(sp)
+ 2001364:	c48ff0ef          	jal	20007ac <spi_host_reset.isra.0>
+    mmio_region_t spi_host_base = (mmio_region_t){.base = (void *)&__base_spih};
+    CHECK_CALL(dif_spi_host_init(spi_host_base, &handle->spi_host))
+    // Reset SPI host
+    dif_spi_host_reset(&handle->spi_host);
+    // Configure SPI host for SD card
+    dif_spi_host_config_t config = {// TODO: what are appropriate values for these?
+ 2001368:	47e2                	lw	a5,24(sp)
+                                    .cpol = 0,
+                                    .full_cycle = false,
+                                    .peripheral_clock_freq_hz = core_freq,
+                                    .spi_clock = __spi_sdcard_init_clock};
+    // Configure both regular CS and dummy at same speed
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid))
+ 200136a:	7682                	ld	a3,32(sp)
+ 200136c:	000315b7          	lui	a1,0x31
+    dif_spi_host_config_t config = {// TODO: what are appropriate values for these?
+ 2001370:	84be                	mv	s1,a5
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid))
+ 2001372:	e436                	sd	a3,8(sp)
+ 2001374:	863e                	mv	a2,a5
+ 2001376:	e002                	sd	zero,0(sp)
+ 2001378:	8522                	mv	a0,s0
+ 200137a:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.064117c7+0x25149>
+ 200137e:	4881                	li	a7,0
+ 2001380:	4801                	li	a6,0
+ 2001382:	4781                	li	a5,0
+ 2001384:	4701                	li	a4,0
+ 2001386:	4681                	li	a3,0
+ 2001388:	c48ff0ef          	jal	20007d0 <dif_spi_host_configure_cs.isra.0>
+ 200138c:	c919                	beqz	a0,20013a2 <spi_sdcard_init.constprop.0+0x74>
+ 200138e:	430d                	li	t1,3
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid))
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid_dummy))
+    CHECK_CALL(dif_spi_host_output_set_enabled(&handle->spi_host, 1))
+    // Nothing went wrong
+    return 0;
+}
+ 2001390:	70e6                	ld	ra,120(sp)
+ 2001392:	7446                	ld	s0,112(sp)
+ 2001394:	74a6                	ld	s1,104(sp)
+ 2001396:	851a                	mv	a0,t1
+ 2001398:	6109                	addi	sp,sp,128
+ 200139a:	8082                	ret
+    CHECK_ASSERT(0x15, handle->csid < SPI_HOST_PARAM_NUM_C_S)
+ 200139c:	4355                	li	t1,21
+}
+ 200139e:	851a                	mv	a0,t1
+ 20013a0:	8082                	ret
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid_dummy))
+ 20013a2:	485c                	lw	a5,20(s0)
+ 20013a4:	000315b7          	lui	a1,0x31
+ 20013a8:	e002                	sd	zero,0(sp)
+ 20013aa:	e43e                	sd	a5,8(sp)
+ 20013ac:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.064117c7+0x25149>
+ 20013b0:	4881                	li	a7,0
+ 20013b2:	4801                	li	a6,0
+ 20013b4:	4781                	li	a5,0
+ 20013b6:	4701                	li	a4,0
+ 20013b8:	4681                	li	a3,0
+ 20013ba:	8626                	mv	a2,s1
+ 20013bc:	8522                	mv	a0,s0
+ 20013be:	c12ff0ef          	jal	20007d0 <dif_spi_host_configure_cs.isra.0>
+ 20013c2:	f571                	bnez	a0,200138e <spi_sdcard_init.constprop.0+0x60>
+        seg = (dif_spi_host_segment_t){
+ 20013c4:	4309                	li	t1,2
+ 20013c6:	01003797          	auipc	a5,0x1003
+ 20013ca:	dc1a                	sw	t1,56(sp)
+ 20013cc:	c3a78793          	addi	a5,a5,-966 # 3004000 <__base_spih>
+ 20013d0:	80000737          	lui	a4,0x80000
+ 20013d4:	cb98                	sw	a4,16(a5)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20013d6:	01003797          	auipc	a5,0x1003
+ 20013da:	c2a78793          	addi	a5,a5,-982 # 3004000 <__base_spih>
+ 20013de:	4b98                	lw	a4,16(a5)
+ 20013e0:	200006b7          	lui	a3,0x20000
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20013e4:	01003797          	auipc	a5,0x1003
+ 20013e8:	c1c78793          	addi	a5,a5,-996 # 3004000 <__base_spih>
+ 20013ec:	8f55                	or	a4,a4,a3
+ 20013ee:	cb98                	sw	a4,16(a5)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20013f0:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 20013f2:	05000793          	li	a5,80
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20013f6:	1830                	addi	a2,sp,56
+ 20013f8:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 20013fa:	c082                	sw	zero,64(sp)
+ 20013fc:	e4be                	sd	a5,72(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20013fe:	cbfff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, NULL, 10))
+ 2001402:	f551                	bnez	a0,200138e <spi_sdcard_init.constprop.0+0x60>
+    /*CMD0*/ CHECK_CALL(
+ 2001404:	09500593          	li	a1,149
+ 2001408:	4705                	li	a4,1
+ 200140a:	15a2                	slli	a1,a1,0x28
+ 200140c:	04058593          	addi	a1,a1,64
+ 2001410:	86ba                	mv	a3,a4
+ 2001412:	4601                	li	a2,0
+ 2001414:	8522                	mv	a0,s0
+ 2001416:	eb9ff0ef          	jal	20012ce <__spi_sdcard_cmd_check>
+ 200141a:	832a                	mv	t1,a0
+ 200141c:	f935                	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
+    /*CMD8*/ CHECK_CALL(
+ 200141e:	0087b5b7          	lui	a1,0x87b
+ 2001422:	a0158593          	addi	a1,a1,-1535 # 87aa01 <uart.c.064117c7+0x86ee0a>
+ 2001426:	0aa01737          	lui	a4,0xaa01
+ 200142a:	05e2                	slli	a1,a1,0x18
+ 200142c:	0732                	slli	a4,a4,0xc
+ 200142e:	04858593          	addi	a1,a1,72
+ 2001432:	0705                	addi	a4,a4,1 # aa01001 <__base_clic+0x2a01001>
+ 2001434:	4685                	li	a3,1
+ 2001436:	4611                	li	a2,4
+ 2001438:	8522                	mv	a0,s0
+ 200143a:	e95ff0ef          	jal	20012ce <__spi_sdcard_cmd_check>
+ 200143e:	832a                	mv	t1,a0
+ 2001440:	f921                	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
+    uint8_t ret = 1;
+ 2001442:	4705                	li	a4,1
+ 2001444:	02e10c23          	sb	a4,56(sp)
+        /*CMD55*/ CHECK_CALL(
+ 2001448:	06500593          	li	a1,101
+ 200144c:	15a2                	slli	a1,a1,0x28
+ 200144e:	07758593          	addi	a1,a1,119
+ 2001452:	4701                	li	a4,0
+ 2001454:	4681                	li	a3,0
+ 2001456:	4601                	li	a2,0
+ 2001458:	8522                	mv	a0,s0
+ 200145a:	e75ff0ef          	jal	20012ce <__spi_sdcard_cmd_check>
+        /*ACMD41*/ CHECK_CALL(__spi_sdcard_cmd(handle, 0x770000004069UL, kSpiSdcardRespR1, &ret, 0))
+ 200145e:	07700593          	li	a1,119
+ 2001462:	05ea                	slli	a1,a1,0x1a
+ 2001464:	0585                	addi	a1,a1,1
+        /*CMD55*/ CHECK_CALL(
+ 2001466:	832a                	mv	t1,a0
+        /*ACMD41*/ CHECK_CALL(__spi_sdcard_cmd(handle, 0x770000004069UL, kSpiSdcardRespR1, &ret, 0))
+ 2001468:	05ba                	slli	a1,a1,0xe
+ 200146a:	4701                	li	a4,0
+ 200146c:	1834                	addi	a3,sp,56
+ 200146e:	4601                	li	a2,0
+ 2001470:	06958593          	addi	a1,a1,105
+ 2001474:	8522                	mv	a0,s0
+        /*CMD55*/ CHECK_CALL(
+ 2001476:	f0031de3          	bnez	t1,2001390 <spi_sdcard_init.constprop.0+0x62>
+        /*ACMD41*/ CHECK_CALL(__spi_sdcard_cmd(handle, 0x770000004069UL, kSpiSdcardRespR1, &ret, 0))
+ 200147a:	d09ff0ef          	jal	2001182 <__spi_sdcard_cmd>
+ 200147e:	832a                	mv	t1,a0
+ 2001480:	f00518e3          	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
+    } while (ret);
+ 2001484:	03814783          	lbu	a5,56(sp)
+ 2001488:	f3e1                	bnez	a5,2001448 <spi_sdcard_init.constprop.0+0x11a>
+    /*CMD58*/ CHECK_CALL(__spi_sdcard_cmd_check(handle, 0xFD000000007AUL, kSpiSdcardRespR3, 0, 0))
+ 200148a:	0fd00593          	li	a1,253
+ 200148e:	15a2                	slli	a1,a1,0x28
+ 2001490:	07a58593          	addi	a1,a1,122
+ 2001494:	4701                	li	a4,0
+ 2001496:	4681                	li	a3,0
+ 2001498:	460d                	li	a2,3
+ 200149a:	8522                	mv	a0,s0
+ 200149c:	e33ff0ef          	jal	20012ce <__spi_sdcard_cmd_check>
+ 20014a0:	832a                	mv	t1,a0
+ 20014a2:	ee0517e3          	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
+    /*CMD16*/ CHECK_CALL(
+ 20014a6:	000a85b7          	lui	a1,0xa8
+ 20014aa:	0585                	addi	a1,a1,1 # a8001 <uart.c.064117c7+0x9c40a>
+ 20014ac:	05e6                	slli	a1,a1,0x19
+ 20014ae:	05058593          	addi	a1,a1,80
+ 20014b2:	4701                	li	a4,0
+ 20014b4:	4685                	li	a3,1
+ 20014b6:	4601                	li	a2,0
+ 20014b8:	8522                	mv	a0,s0
+ 20014ba:	e15ff0ef          	jal	20012ce <__spi_sdcard_cmd_check>
+ 20014be:	832a                	mv	t1,a0
+    CHECK_CALL(__spi_sdcard_activate(handle))
+ 20014c0:	ec0518e3          	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
+ 20014c4:	00043e03          	ld	t3,0(s0)
+  bitfield &= ~(field.mask << field.index);
+ 20014c8:	e0000737          	lui	a4,0xe0000
+ 20014cc:	177d                	addi	a4,a4,-1 # ffffffffdfffffff <__base_dram+0xffffffff5fffffff>
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20014ce:	010e2783          	lw	a5,16(t3)
+    config.spi_clock = handle->spi_freq;
+ 20014d2:	440c                	lw	a1,8(s0)
+ 20014d4:	f42a                	sd	a0,40(sp)
+ 20014d6:	8ff9                	and	a5,a5,a4
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 20014d8:	00fe2823          	sw	a5,16(t3)
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid))
+ 20014dc:	481c                	lw	a5,16(s0)
+ 20014de:	4881                	li	a7,0
+ 20014e0:	e002                	sd	zero,0(sp)
+ 20014e2:	e43e                	sd	a5,8(sp)
+ 20014e4:	4801                	li	a6,0
+ 20014e6:	4781                	li	a5,0
+ 20014e8:	4701                	li	a4,0
+ 20014ea:	4681                	li	a3,0
+ 20014ec:	8626                	mv	a2,s1
+ 20014ee:	8522                	mv	a0,s0
+ 20014f0:	f072                	sd	t3,32(sp)
+ 20014f2:	ec2e                	sd	a1,24(sp)
+ 20014f4:	adcff0ef          	jal	20007d0 <dif_spi_host_configure_cs.isra.0>
+ 20014f8:	e8051be3          	bnez	a0,200138e <spi_sdcard_init.constprop.0+0x60>
+    CHECK_CALL(dif_spi_host_configure_cs(&handle->spi_host, config, handle->csid_dummy))
+ 20014fc:	485c                	lw	a5,20(s0)
+ 20014fe:	65e2                	ld	a1,24(sp)
+ 2001500:	8522                	mv	a0,s0
+ 2001502:	e43e                	sd	a5,8(sp)
+ 2001504:	e002                	sd	zero,0(sp)
+ 2001506:	8626                	mv	a2,s1
+ 2001508:	4881                	li	a7,0
+ 200150a:	4801                	li	a6,0
+ 200150c:	4781                	li	a5,0
+ 200150e:	4701                	li	a4,0
+ 2001510:	4681                	li	a3,0
+ 2001512:	abeff0ef          	jal	20007d0 <dif_spi_host_configure_cs.isra.0>
+ 2001516:	e6051ce3          	bnez	a0,200138e <spi_sdcard_init.constprop.0+0x60>
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 200151a:	7e02                	ld	t3,32(sp)
+  bitfield |= (value & field.mask) << field.index;
+ 200151c:	20000737          	lui	a4,0x20000
+ 2001520:	7322                	ld	t1,40(sp)
+ 2001522:	010e2783          	lw	a5,16(t3)
+ 2001526:	8fd9                	or	a5,a5,a4
+  ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
+ 2001528:	00fe2823          	sw	a5,16(t3)
+ 200152c:	b595                	j	2001390 <spi_sdcard_init.constprop.0+0x62>
+    CHECK_ASSERT(0x17, handle->spi_freq <= 25 * 1000 * 1000) // Max SD spi speed is 25 MHz
+ 200152e:	435d                	li	t1,23
+ 2001530:	b5bd                	j	200139e <spi_sdcard_init.constprop.0+0x70>
+    CHECK_ASSERT(0x18, handle->spi_freq <= core_freq)
+ 2001532:	4361                	li	t1,24
+ 2001534:	b5ad                	j	200139e <spi_sdcard_init.constprop.0+0x70>
+    CHECK_ASSERT(0x16, handle->spi_freq != 0)
+ 2001536:	4359                	li	t1,22
+ 2001538:	b59d                	j	200139e <spi_sdcard_init.constprop.0+0x70>
+
+000000000200153a <__spi_sdcard_read.part.0.constprop.0>:
+    else
+        return __spi_sdcard_csfree(handle);
+}
+
+// Read any alignment abstracted through blocks with or without CRC
+static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len, int check_crc) {
+ 200153a:	d3010113          	addi	sp,sp,-720
+ 200153e:	29613823          	sd	s6,656(sp)
+    uint8_t swap[512];
+    // Handle block alignment
+    if (len == 0) return 0;
+    uint64_t block = addr / 512;
+    uint64_t first_offs = addr % 512;
+    uint64_t pte_offs = (addr + len) % 512;
+ 2001542:	00d60b33          	add	s6,a2,a3
+static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len, int check_crc) {
+ 2001546:	29713423          	sd	s7,648(sp)
+ 200154a:	2c113423          	sd	ra,712(sp)
+ 200154e:	2b213823          	sd	s2,688(sp)
+    uint64_t pte_offs = (addr + len) % 512;
+ 2001552:	1ffb7b13          	andi	s6,s6,511
+    uint64_t first_offs = addr % 512;
+ 2001556:	1ff67b93          	andi	s7,a2,511
+    uint64_t last_len = (pte_offs == 0) ? 512 : pte_offs;
+ 200155a:	000b1463          	bnez	s6,2001562 <__spi_sdcard_read.part.0.constprop.0+0x28>
+ 200155e:	20000b13          	li	s6,512
+    uint64_t len_blocks = (len + first_offs + 511) / 512;
+ 2001562:	1ff68913          	addi	s2,a3,511 # 200001ff <__stack_pointer$+0xfff0207>
+ 2001566:	995e                	add	s2,s2,s7
+ 2001568:	00995913          	srli	s2,s2,0x9
+    if (len == 0) return 0;
+ 200156c:	3e090c63          	beqz	s2,2001964 <__spi_sdcard_read.part.0.constprop.0+0x42a>
+ 2001570:	2c813023          	sd	s0,704(sp)
+ 2001574:	27b13423          	sd	s11,616(sp)
+    uint64_t cmd = __spi_sdcard_build_cmd((len > 1) ? 0x52 : 0x51, block);
+ 2001578:	4785                	li	a5,1
+    uint64_t block = addr / 512;
+ 200157a:	8225                	srli	a2,a2,0x9
+    uint64_t cmd = __spi_sdcard_build_cmd((len > 1) ? 0x52 : 0x51, block);
+ 200157c:	0ef90963          	beq	s2,a5,200166e <__spi_sdcard_read.part.0.constprop.0+0x134>
+ 2001580:	05200693          	li	a3,82
+    cmd |= (((uint64_t)(arg) >> 24) & 0xff) << 8;
+ 2001584:	0186581b          	srliw	a6,a2,0x18
+    cmd |= (((uint64_t)(arg) >> 0) & 0xff) << 32;
+ 2001588:	0ff67713          	zext.b	a4,a2
+    cmd |= (((uint64_t)(arg) >> 16) & 0xff) << 16;
+ 200158c:	00ff08b7          	lui	a7,0xff0
+    cmd |= (((uint64_t)(arg) >> 8) & 0xff) << 24;
+ 2001590:	0086579b          	srliw	a5,a2,0x8
+    cmd |= (((uint64_t)(arg) >> 24) & 0xff) << 8;
+ 2001594:	0822                	slli	a6,a6,0x8
+    cmd |= (((uint64_t)(arg) >> 0) & 0xff) << 32;
+ 2001596:	1702                	slli	a4,a4,0x20
+    cmd |= (((uint64_t)(arg) >> 16) & 0xff) << 16;
+ 2001598:	01167633          	and	a2,a2,a7
+    cmd |= (((uint64_t)(arg) >> 0) & 0xff) << 32;
+ 200159c:	00e86833          	or	a6,a6,a4
+    cmd |= (((uint64_t)(arg) >> 8) & 0xff) << 24;
+ 20015a0:	0ff7f793          	zext.b	a5,a5
+ 20015a4:	07e2                	slli	a5,a5,0x18
+    cmd |= (((uint64_t)(arg) >> 0) & 0xff) << 32;
+ 20015a6:	00c86833          	or	a6,a6,a2
+ 20015aa:	00f86833          	or	a6,a6,a5
+ 20015ae:	00d86833          	or	a6,a6,a3
+ 20015b2:	f0c2                	sd	a6,96(sp)
+ 20015b4:	1094                	addi	a3,sp,96
+ 20015b6:	06510893          	addi	a7,sp,101
+    uint8_t state = 0;
+ 20015ba:	4781                	li	a5,0
+        state = __spi_sdcard_crc7_lookup[(data[i] ^ (state << 1)) & 0xFFU];
+ 20015bc:	0006c603          	lbu	a2,0(a3)
+ 20015c0:	0017979b          	slliw	a5,a5,0x1
+ 20015c4:	8fb1                	xor	a5,a5,a2
+ 20015c6:	0ff7f793          	zext.b	a5,a5
+ 20015ca:	06c18713          	addi	a4,gp,108 # 2001e50 <__spi_sdcard_crc7_lookup>
+ 20015ce:	97ba                	add	a5,a5,a4
+    for (uint64_t i = 0; i < len; ++i)
+ 20015d0:	0685                	addi	a3,a3,1
+        state = __spi_sdcard_crc7_lookup[(data[i] ^ (state << 1)) & 0xFFU];
+ 20015d2:	0007c783          	lbu	a5,0(a5)
+    for (uint64_t i = 0; i < len; ++i)
+ 20015d6:	ff1693e3          	bne	a3,a7,20015bc <__spi_sdcard_read.part.0.constprop.0+0x82>
+    uint64_t crcbyte = (__spi_sdcard_crc7((uint8_t *)&cmd, 5)) << 1 | 1;
+ 20015da:	0017979b          	slliw	a5,a5,0x1
+ 20015de:	0017e793          	ori	a5,a5,1
+ 20015e2:	8dae                	mv	s11,a1
+    return (crcbyte << 40) | cmd;
+ 20015e4:	17a2                	slli	a5,a5,0x28
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20015e6:	490c                	lw	a1,16(a0)
+    return (crcbyte << 40) | cmd;
+ 20015e8:	0107e7b3          	or	a5,a5,a6
+ 20015ec:	fc3e                	sd	a5,56(sp)
+        seg = (dif_spi_host_segment_t){
+ 20015ee:	468d                	li	a3,3
+ 20015f0:	1838                	addi	a4,sp,56
+ 20015f2:	4799                	li	a5,6
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20015f4:	1090                	addi	a2,sp,96
+ 20015f6:	842a                	mv	s0,a0
+        seg = (dif_spi_host_segment_t){
+ 20015f8:	d482                	sw	zero,104(sp)
+ 20015fa:	d0b6                	sw	a3,96(sp)
+ 20015fc:	f8ba                	sd	a4,112(sp)
+ 20015fe:	fcbe                	sd	a5,120(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001600:	abdff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 2001604:	22051d63          	bnez	a0,200183e <__spi_sdcard_read.part.0.constprop.0+0x304>
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 2001608:	03814703          	lbu	a4,56(sp)
+ 200160c:	04c00793          	li	a5,76
+ 2001610:	26f70b63          	beq	a4,a5,2001886 <__spi_sdcard_read.part.0.constprop.0+0x34c>
+ 2001614:	2a913c23          	sd	s1,696(sp)
+ 2001618:	2b313423          	sd	s3,680(sp)
+ 200161c:	2b413023          	sd	s4,672(sp)
+ 2001620:	29513c23          	sd	s5,664(sp)
+    uint8_t state = 0;
+ 2001624:	44a1                	li	s1,8
+        seg = (dif_spi_host_segment_t){
+ 2001626:	4a91                	li	s5,4
+ 2001628:	02610a13          	addi	s4,sp,38
+ 200162c:	4985                	li	s3,1
+ 200162e:	a029                	j	2001638 <__spi_sdcard_read.part.0.constprop.0+0xfe>
+    while (--timeout && *rdata & 0x80);
+ 2001630:	02610783          	lb	a5,38(sp)
+ 2001634:	0407d063          	bgez	a5,2001674 <__spi_sdcard_read.part.0.constprop.0+0x13a>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001638:	480c                	lw	a1,16(s0)
+ 200163a:	1090                	addi	a2,sp,96
+ 200163c:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 200163e:	d0d6                	sw	s5,96(sp)
+ 2001640:	d482                	sw	zero,104(sp)
+ 2001642:	f8d2                	sd	s4,112(sp)
+ 2001644:	fcce                	sd	s3,120(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001646:	a77ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    while (--timeout && *rdata & 0x80);
+ 200164a:	34fd                	addiw	s1,s1,-1
+    do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata, NULL, 1))
+ 200164c:	1e051163          	bnez	a0,200182e <__spi_sdcard_read.part.0.constprop.0+0x2f4>
+    while (--timeout && *rdata & 0x80);
+ 2001650:	f0e5                	bnez	s1,2001630 <__spi_sdcard_read.part.0.constprop.0+0xf6>
+ 2001652:	2c013403          	ld	s0,704(sp)
+ 2001656:	2b813483          	ld	s1,696(sp)
+ 200165a:	2a813983          	ld	s3,680(sp)
+ 200165e:	2a013a03          	ld	s4,672(sp)
+ 2001662:	29813a83          	ld	s5,664(sp)
+ 2001666:	26813d83          	ld	s11,616(sp)
+    CHECK_CALL(__spi_sdcard_cmd(handle, cmd, kSpiSdcardRespR1, &rx, 1))
+ 200166a:	4549                	li	a0,18
+ 200166c:	aaf1                	j	2001848 <__spi_sdcard_read.part.0.constprop.0+0x30e>
+ 200166e:	05100693          	li	a3,81
+ 2001672:	bf09                	j	2001584 <__spi_sdcard_read.part.0.constprop.0+0x4a>
+ 2001674:	27913c23          	sd	s9,632(sp)
+ 2001678:	27a13823          	sd	s10,624(sp)
+ 200167c:	29813023          	sd	s8,640(sp)
+ 2001680:	417d8d33          	sub	s10,s11,s7
+ 2001684:	4c81                	li	s9,0
+        seg = (dif_spi_host_segment_t){
+ 2001686:	4a11                	li	s4,4
+ 2001688:	02610493          	addi	s1,sp,38
+ 200168c:	4985                	li	s3,1
+        while (--timeout && rx == 0xFF);
+ 200168e:	0ff00a93          	li	s5,255
+    CHECK_CALL(__spi_sdcard_cmd(handle, cmd, kSpiSdcardRespR1, &rx, 1))
+ 2001692:	6c61                	lui	s8,0x18
+ 2001694:	6a0c0c13          	addi	s8,s8,1696 # 186a0 <uart.c.064117c7+0xcaa9>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001698:	481c                	lw	a5,16(s0)
+ 200169a:	6018                	ld	a4,0(s0)
+        seg = (dif_spi_host_segment_t){
+ 200169c:	dc52                	sw	s4,56(sp)
+ 200169e:	c082                	sw	zero,64(sp)
+ 20016a0:	e4a6                	sd	s1,72(sp)
+ 20016a2:	e8ce                	sd	s3,80(sp)
+ 20016a4:	d35c                	sw	a5,36(a4)
+  return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
+ 20016a6:	4b5c                	lw	a5,20(a4)
+  return (bitfield >> field.index) & field.mask;
+ 20016a8:	01f7d79b          	srliw	a5,a5,0x1f
+  } while (!ready);
+ 20016ac:	dfed                	beqz	a5,20016a6 <__spi_sdcard_read.part.0.constprop.0+0x16c>
+        dif_result_t error = issue_data_phase(spi_host, segment, last_segment);
+ 20016ae:	4601                	li	a2,0
+ 20016b0:	182c                	addi	a1,sp,56
+ 20016b2:	8522                	mv	a0,s0
+ 20016b4:	de6ff0ef          	jal	2000c9a <issue_data_phase>
+        if (error != kDifOk) {
+ 20016b8:	26051f63          	bnez	a0,2001936 <__spi_sdcard_read.part.0.constprop.0+0x3fc>
+ 20016bc:	4605                	li	a2,1
+ 20016be:	85a6                	mv	a1,s1
+ 20016c0:	8522                	mv	a0,s0
+        while (--timeout && rx == 0xFF);
+ 20016c2:	3c7d                	addiw	s8,s8,-1
+ 20016c4:	e6aff0ef          	jal	2000d2e <dif_spi_host_fifo_read.part.0.isra.0>
+ 20016c8:	200c0263          	beqz	s8,20018cc <__spi_sdcard_read.part.0.constprop.0+0x392>
+ 20016cc:	02614783          	lbu	a5,38(sp)
+ 20016d0:	fd5784e3          	beq	a5,s5,2001698 <__spi_sdcard_read.part.0.constprop.0+0x15e>
+        if (rx != 0xFE) return 0x20;
+ 20016d4:	0fe00713          	li	a4,254
+ 20016d8:	28e79863          	bne	a5,a4,2001968 <__spi_sdcard_read.part.0.constprop.0+0x42e>
+        int first_block = (b == 0 && first_offs != 0);
+ 20016dc:	001cb793          	seqz	a5,s9
+ 20016e0:	01703733          	snez	a4,s7
+ 20016e4:	8ff9                	and	a5,a5,a4
+ 20016e6:	e83e                	sd	a5,16(sp)
+        int last_block = (b == len - 1 && last_len != 512);
+ 20016e8:	fff90793          	addi	a5,s2,-1
+ 20016ec:	17978963          	beq	a5,s9,200185e <__spi_sdcard_read.part.0.constprop.0+0x324>
+        uint8_t *block_buf = (first_block || last_block) ? block_swap : block_dst;
+ 20016f0:	67c2                	ld	a5,16(sp)
+ 20016f2:	16079f63          	bnez	a5,2001870 <__spi_sdcard_read.part.0.constprop.0+0x336>
+ 20016f6:	8c6a                	mv	s8,s10
+ 20016f8:	ec02                	sd	zero,24(sp)
+ 20016fa:	200c0813          	addi	a6,s8,512
+ 20016fe:	87e2                	mv	a5,s8
+    else if (rx)
+ 2001700:	16078c63          	beqz	a5,2001878 <__spi_sdcard_read.part.0.constprop.0+0x33e>
+        seg = (dif_spi_host_segment_t){
+ 2001704:	10000713          	li	a4,256
+ 2001708:	e8ba                	sd	a4,80(sp)
+ 200170a:	c082                	sw	zero,64(sp)
+ 200170c:	e4be                	sd	a5,72(sp)
+ 200170e:	4711                	li	a4,4
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001710:	480c                	lw	a1,16(s0)
+ 2001712:	1830                	addi	a2,sp,56
+ 2001714:	8522                	mv	a0,s0
+ 2001716:	e03e                	sd	a5,0(sp)
+ 2001718:	e442                	sd	a6,8(sp)
+ 200171a:	dc3a                	sw	a4,56(sp)
+ 200171c:	9a1ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+        for (uint64_t offs = 0; offs < 512; offs += 4 * SPI_HOST_PARAM_RX_DEPTH) {
+ 2001720:	6782                	ld	a5,0(sp)
+ 2001722:	10078793          	addi	a5,a5,256
+            CHECK_CALL(__spi_sdcard_xfer_csaat(handle, block_buf + offs, NULL, chunk_len))
+ 2001726:	20051863          	bnez	a0,2001936 <__spi_sdcard_read.part.0.constprop.0+0x3fc>
+        for (uint64_t offs = 0; offs < 512; offs += 4 * SPI_HOST_PARAM_RX_DEPTH) {
+ 200172a:	6822                	ld	a6,8(sp)
+ 200172c:	fd079ae3          	bne	a5,a6,2001700 <__spi_sdcard_read.part.0.constprop.0+0x1c6>
+        seg = (dif_spi_host_segment_t){
+ 2001730:	4791                	li	a5,4
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001732:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 2001734:	dc3e                	sw	a5,56(sp)
+ 2001736:	181c                	addi	a5,sp,48
+ 2001738:	e4be                	sd	a5,72(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200173a:	1830                	addi	a2,sp,56
+        seg = (dif_spi_host_segment_t){
+ 200173c:	4789                	li	a5,2
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200173e:	8522                	mv	a0,s0
+ 2001740:	e042                	sd	a6,0(sp)
+        seg = (dif_spi_host_segment_t){
+ 2001742:	c082                	sw	zero,64(sp)
+ 2001744:	e8be                	sd	a5,80(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001746:	977ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+        CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &crc, NULL, 2))
+ 200174a:	1e051663          	bnez	a0,2001936 <__spi_sdcard_read.part.0.constprop.0+0x3fc>
+    uint16_t state = 0;
+ 200174e:	6802                	ld	a6,0(sp)
+ 2001750:	4701                	li	a4,0
+            (__spi_sdcard_crc16_lookup[(data[i] ^ (state >> 8)) & 0xFFU] ^ (state << 8)) & 0xFFFFU;
+ 2001752:	000c4683          	lbu	a3,0(s8)
+ 2001756:	01871793          	slli	a5,a4,0x18
+ 200175a:	0207d613          	srli	a2,a5,0x20
+ 200175e:	8eb1                	xor	a3,a3,a2
+ 2001760:	02069613          	slli	a2,a3,0x20
+ 2001764:	01f65693          	srli	a3,a2,0x1f
+ 2001768:	e6c18793          	addi	a5,gp,-404 # 2001c50 <__spi_sdcard_crc16_lookup>
+ 200176c:	97b6                	add	a5,a5,a3
+ 200176e:	0007d683          	lhu	a3,0(a5)
+        state =
+ 2001772:	0ff77793          	zext.b	a5,a4
+ 2001776:	07a2                	slli	a5,a5,0x8
+    for (uint64_t i = 0; i < len; ++i)
+ 2001778:	0c05                	addi	s8,s8,1
+        state =
+ 200177a:	00d7c733          	xor	a4,a5,a3
+    for (uint64_t i = 0; i < len; ++i)
+ 200177e:	fd0c1ae3          	bne	s8,a6,2001752 <__spi_sdcard_read.part.0.constprop.0+0x218>
+    return ((state & 0xFF) << 8) | ((state & 0xFF00) >> 8);
+ 2001782:	0087569b          	srliw	a3,a4,0x8
+ 2001786:	0087179b          	slliw	a5,a4,0x8
+ 200178a:	9fb5                	addw	a5,a5,a3
+        if (check_crc && crc != __spi_sdcard_crc16((uint8_t *)block_buf, 512)) return 0x21;
+ 200178c:	03015703          	lhu	a4,48(sp)
+ 2001790:	17c2                	slli	a5,a5,0x30
+ 2001792:	93c1                	srli	a5,a5,0x30
+ 2001794:	1cf71d63          	bne	a4,a5,200196e <__spi_sdcard_read.part.0.constprop.0+0x434>
+        if (first_block && last_block)
+ 2001798:	67e2                	ld	a5,24(sp)
+ 200179a:	10078d63          	beqz	a5,20018b4 <__spi_sdcard_read.part.0.constprop.0+0x37a>
+ 200179e:	67c2                	ld	a5,16(sp)
+ 20017a0:	10078263          	beqz	a5,20018a4 <__spi_sdcard_read.part.0.constprop.0+0x36a>
+            __builtin_memcpy(block_dst + first_offs, block_swap + first_offs,
+ 20017a4:	108c                	addi	a1,sp,96
+ 20017a6:	95de                	add	a1,a1,s7
+ 20017a8:	417b0633          	sub	a2,s6,s7
+ 20017ac:	01ab8533          	add	a0,s7,s10
+ 20017b0:	3b0000ef          	jal	2001b60 <memcpy>
+    for (uint64_t b = 0; b < len; ++b) {
+ 20017b4:	001c8793          	addi	a5,s9,1
+ 20017b8:	8cbe                	mv	s9,a5
+ 20017ba:	200d0d13          	addi	s10,s10,512
+ 20017be:	ecf91ae3          	bne	s2,a5,2001692 <__spi_sdcard_read.part.0.constprop.0+0x158>
+    if (len > 1)
+ 20017c2:	4485                	li	s1,1
+ 20017c4:	16990b63          	beq	s2,s1,200193a <__spi_sdcard_read.part.0.constprop.0+0x400>
+ 20017c8:	06100793          	li	a5,97
+ 20017cc:	17a2                	slli	a5,a5,0x28
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20017ce:	480c                	lw	a1,16(s0)
+ 20017d0:	04c78793          	addi	a5,a5,76
+ 20017d4:	f83e                	sd	a5,48(sp)
+        seg = (dif_spi_host_segment_t){
+ 20017d6:	468d                	li	a3,3
+ 20017d8:	1818                	addi	a4,sp,48
+ 20017da:	4799                	li	a5,6
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20017dc:	1830                	addi	a2,sp,56
+ 20017de:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 20017e0:	c082                	sw	zero,64(sp)
+ 20017e2:	dc36                	sw	a3,56(sp)
+ 20017e4:	e4ba                	sd	a4,72(sp)
+ 20017e6:	e8be                	sd	a5,80(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 20017e8:	8d5ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 20017ec:	14051563          	bnez	a0,2001936 <__spi_sdcard_read.part.0.constprop.0+0x3fc>
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 20017f0:	03014703          	lbu	a4,48(sp)
+ 20017f4:	04c00793          	li	a5,76
+ 20017f8:	16f70e63          	beq	a4,a5,2001974 <__spi_sdcard_read.part.0.constprop.0+0x43a>
+        if (check_crc && crc != __spi_sdcard_crc16((uint8_t *)block_buf, 512)) return 0x21;
+ 20017fc:	44a1                	li	s1,8
+        seg = (dif_spi_host_segment_t){
+ 20017fe:	4a11                	li	s4,4
+ 2001800:	02810993          	addi	s3,sp,40
+ 2001804:	4905                	li	s2,1
+ 2001806:	a029                	j	2001810 <__spi_sdcard_read.part.0.constprop.0+0x2d6>
+    while (--timeout && *rdata & 0x80);
+ 2001808:	02810783          	lb	a5,40(sp)
+ 200180c:	0e07de63          	bgez	a5,2001908 <__spi_sdcard_read.part.0.constprop.0+0x3ce>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001810:	480c                	lw	a1,16(s0)
+ 2001812:	1830                	addi	a2,sp,56
+ 2001814:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001816:	dc52                	sw	s4,56(sp)
+ 2001818:	c082                	sw	zero,64(sp)
+ 200181a:	e4ce                	sd	s3,72(sp)
+ 200181c:	e8ca                	sd	s2,80(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200181e:	89fff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    while (--timeout && *rdata & 0x80);
+ 2001822:	34fd                	addiw	s1,s1,-1
+    do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, rdata, NULL, 1))
+ 2001824:	10051963          	bnez	a0,2001936 <__spi_sdcard_read.part.0.constprop.0+0x3fc>
+    while (--timeout && *rdata & 0x80);
+ 2001828:	f0e5                	bnez	s1,2001808 <__spi_sdcard_read.part.0.constprop.0+0x2ce>
+    if (timeout == 0) return 0x12;
+ 200182a:	4549                	li	a0,18
+ 200182c:	a04d                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+ 200182e:	2b813483          	ld	s1,696(sp)
+ 2001832:	2a813983          	ld	s3,680(sp)
+ 2001836:	2a013a03          	ld	s4,672(sp)
+ 200183a:	29813a83          	ld	s5,664(sp)
+    CHECK_CALL(__spi_sdcard_cmd(handle, cmd, kSpiSdcardRespR1, &rx, 1))
+ 200183e:	2c013403          	ld	s0,704(sp)
+ 2001842:	26813d83          	ld	s11,616(sp)
+ 2001846:	450d                	li	a0,3
+    // Read blocks
+    return __spi_sdcard_read_blocks((spi_sdcard_t *)priv, buf, block, len_blocks, swap, first_offs,
+                                    last_len, check_crc);
+}
+ 2001848:	2c813083          	ld	ra,712(sp)
+ 200184c:	2b013903          	ld	s2,688(sp)
+ 2001850:	29013b03          	ld	s6,656(sp)
+ 2001854:	28813b83          	ld	s7,648(sp)
+ 2001858:	2d010113          	addi	sp,sp,720
+ 200185c:	8082                	ret
+        int last_block = (b == len - 1 && last_len != 512);
+ 200185e:	20000793          	li	a5,512
+ 2001862:	e8fb07e3          	beq	s6,a5,20016f0 <__spi_sdcard_read.part.0.constprop.0+0x1b6>
+ 2001866:	4785                	li	a5,1
+ 2001868:	ec3e                	sd	a5,24(sp)
+        uint8_t *block_buf = (first_block || last_block) ? block_swap : block_dst;
+ 200186a:	06010c13          	addi	s8,sp,96
+ 200186e:	b571                	j	20016fa <__spi_sdcard_read.part.0.constprop.0+0x1c0>
+ 2001870:	ec02                	sd	zero,24(sp)
+ 2001872:	06010c13          	addi	s8,sp,96
+ 2001876:	b551                	j	20016fa <__spi_sdcard_read.part.0.constprop.0+0x1c0>
+        seg = (dif_spi_host_segment_t){
+ 2001878:	6705                	lui	a4,0x1
+ 200187a:	80070713          	addi	a4,a4,-2048 # 800 <gpt.c.d01acdb6-0x608a>
+ 200187e:	e4ba                	sd	a4,72(sp)
+ 2001880:	c082                	sw	zero,64(sp)
+ 2001882:	4709                	li	a4,2
+ 2001884:	b571                	j	2001710 <__spi_sdcard_read.part.0.constprop.0+0x1d6>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001886:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 2001888:	4691                	li	a3,4
+ 200188a:	1818                	addi	a4,sp,48
+ 200188c:	4785                	li	a5,1
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200188e:	1090                	addi	a2,sp,96
+ 2001890:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001892:	d482                	sw	zero,104(sp)
+ 2001894:	d0b6                	sw	a3,96(sp)
+ 2001896:	f8ba                	sd	a4,112(sp)
+ 2001898:	fcbe                	sd	a5,120(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200189a:	823ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 200189e:	d6050be3          	beqz	a0,2001614 <__spi_sdcard_read.part.0.constprop.0+0xda>
+ 20018a2:	bf71                	j	200183e <__spi_sdcard_read.part.0.constprop.0+0x304>
+        else if (last_block)
+ 20018a4:	67e2                	ld	a5,24(sp)
+ 20018a6:	d799                	beqz	a5,20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
+            __builtin_memcpy(block_dst, block_swap, last_len);
+ 20018a8:	865a                	mv	a2,s6
+ 20018aa:	108c                	addi	a1,sp,96
+ 20018ac:	856a                	mv	a0,s10
+ 20018ae:	2b2000ef          	jal	2001b60 <memcpy>
+ 20018b2:	b709                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
+        else if (first_block)
+ 20018b4:	67c2                	ld	a5,16(sp)
+ 20018b6:	d7fd                	beqz	a5,20018a4 <__spi_sdcard_read.part.0.constprop.0+0x36a>
+            __builtin_memcpy(block_dst + first_offs, block_swap + first_offs, 512 - first_offs);
+ 20018b8:	108c                	addi	a1,sp,96
+ 20018ba:	20000613          	li	a2,512
+ 20018be:	41760633          	sub	a2,a2,s7
+ 20018c2:	95de                	add	a1,a1,s7
+ 20018c4:	856e                	mv	a0,s11
+ 20018c6:	29a000ef          	jal	2001b60 <memcpy>
+ 20018ca:	b5ed                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
+        if (timeout == 0) return 0x19;
+ 20018cc:	4565                	li	a0,25
+ 20018ce:	2c013403          	ld	s0,704(sp)
+}
+ 20018d2:	2c813083          	ld	ra,712(sp)
+ 20018d6:	2b813483          	ld	s1,696(sp)
+ 20018da:	2a813983          	ld	s3,680(sp)
+ 20018de:	2a013a03          	ld	s4,672(sp)
+ 20018e2:	29813a83          	ld	s5,664(sp)
+ 20018e6:	28013c03          	ld	s8,640(sp)
+ 20018ea:	27813c83          	ld	s9,632(sp)
+ 20018ee:	27013d03          	ld	s10,624(sp)
+ 20018f2:	26813d83          	ld	s11,616(sp)
+ 20018f6:	2b013903          	ld	s2,688(sp)
+ 20018fa:	29013b03          	ld	s6,656(sp)
+ 20018fe:	28813b83          	ld	s7,648(sp)
+ 2001902:	2d010113          	addi	sp,sp,720
+ 2001906:	8082                	ret
+        timeout = __spi_sdcard_r1b_timeout;
+ 2001908:	64e1                	lui	s1,0x18
+ 200190a:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.064117c7+0xcaa9>
+        seg = (dif_spi_host_segment_t){
+ 200190e:	4a11                	li	s4,4
+ 2001910:	02710993          	addi	s3,sp,39
+ 2001914:	4905                	li	s2,1
+ 2001916:	a029                	j	2001920 <__spi_sdcard_read.part.0.constprop.0+0x3e6>
+        while (--timeout && rdummy == 0);
+ 2001918:	c0d9                	beqz	s1,200199e <__spi_sdcard_read.part.0.constprop.0+0x464>
+ 200191a:	02714783          	lbu	a5,39(sp)
+ 200191e:	ebbd                	bnez	a5,2001994 <__spi_sdcard_read.part.0.constprop.0+0x45a>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001920:	480c                	lw	a1,16(s0)
+ 2001922:	1830                	addi	a2,sp,56
+ 2001924:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001926:	dc52                	sw	s4,56(sp)
+ 2001928:	c082                	sw	zero,64(sp)
+ 200192a:	e4ce                	sd	s3,72(sp)
+ 200192c:	e8ca                	sd	s2,80(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200192e:	f8eff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+        while (--timeout && rdummy == 0);
+ 2001932:	34fd                	addiw	s1,s1,-1
+        do CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 2001934:	d175                	beqz	a0,2001918 <__spi_sdcard_read.part.0.constprop.0+0x3de>
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 2001936:	450d                	li	a0,3
+ 2001938:	bf59                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+        return __spi_sdcard_csfree(handle);
+ 200193a:	8522                	mv	a0,s0
+ 200193c:	dc6ff0ef          	jal	2000f02 <__spi_sdcard_csfree>
+ 2001940:	2c013403          	ld	s0,704(sp)
+ 2001944:	2b813483          	ld	s1,696(sp)
+ 2001948:	2a813983          	ld	s3,680(sp)
+ 200194c:	2a013a03          	ld	s4,672(sp)
+ 2001950:	29813a83          	ld	s5,664(sp)
+ 2001954:	28013c03          	ld	s8,640(sp)
+ 2001958:	27813c83          	ld	s9,632(sp)
+ 200195c:	27013d03          	ld	s10,624(sp)
+ 2001960:	26813d83          	ld	s11,616(sp)
+    if (len == 0) return 0;
+ 2001964:	4501                	li	a0,0
+ 2001966:	b5cd                	j	2001848 <__spi_sdcard_read.part.0.constprop.0+0x30e>
+        if (rx != 0xFE) return 0x20;
+ 2001968:	02000513          	li	a0,32
+ 200196c:	b78d                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+        if (check_crc && crc != __spi_sdcard_crc16((uint8_t *)block_buf, 512)) return 0x21;
+ 200196e:	02100513          	li	a0,33
+ 2001972:	bfb1                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001974:	480c                	lw	a1,16(s0)
+        seg = (dif_spi_host_segment_t){
+ 2001976:	4711                	li	a4,4
+ 2001978:	02710793          	addi	a5,sp,39
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 200197c:	1830                	addi	a2,sp,56
+ 200197e:	8522                	mv	a0,s0
+        seg = (dif_spi_host_segment_t){
+ 2001980:	e8a6                	sd	s1,80(sp)
+ 2001982:	c082                	sw	zero,64(sp)
+ 2001984:	dc3a                	sw	a4,56(sp)
+ 2001986:	e4be                	sd	a5,72(sp)
+    return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
+ 2001988:	f34ff0ef          	jal	20010bc <dif_spi_host_transaction_csaat.constprop.0>
+    if ((cmd & 0xFF) == 0x4C) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, &rdummy, NULL, 1))
+ 200198c:	e60508e3          	beqz	a0,20017fc <__spi_sdcard_read.part.0.constprop.0+0x2c2>
+    if (cmd) CHECK_CALL(__spi_sdcard_xfer_csaat(handle, NULL, &cmd, cmd == 0xFD ? 1 : 6))
+ 2001990:	450d                	li	a0,3
+ 2001992:	bf35                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+    if (!csaat) CHECK_CALL(__spi_sdcard_csfree(handle));
+ 2001994:	8522                	mv	a0,s0
+ 2001996:	d6cff0ef          	jal	2000f02 <__spi_sdcard_csfree>
+    return 0;
+ 200199a:	4501                	li	a0,0
+ 200199c:	bf0d                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+        if (timeout == 0) return 0x13;
+ 200199e:	454d                	li	a0,19
+ 20019a0:	b73d                	j	20018ce <__spi_sdcard_read.part.0.constprop.0+0x394>
+
+00000000020019a2 <spi_sdcard_read_checkcrc>:
+    if (len == 0) return 0;
+ 20019a2:	c291                	beqz	a3,20019a6 <spi_sdcard_read_checkcrc+0x4>
+
+int spi_sdcard_read_checkcrc(void *priv, void *buf, uint64_t addr, uint64_t len) {
+ 20019a4:	be59                	j	200153a <__spi_sdcard_read.part.0.constprop.0>
+    return __spi_sdcard_read(priv, buf, addr, len, 1);
+}
+ 20019a6:	4501                	li	a0,0
+ 20019a8:	8082                	ret
+
+00000000020019aa <main>:
+    CHECK_CALL(i2c_24fc1025_init(&i2c, core_freq))
+    return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
+                                  __BOOT_ZSL_TYPE_GUID, 0);
+}
+
+int main() {
+ 20019aa:	711d                	addi	sp,sp,-96
+ 20019ac:	fc4e                	sd	s3,56(sp)
+    // Read boot mode and reference frequency
+    uint32_t bootmode = *reg32(&__base_regs, CHESHIRE_BOOT_MODE_REG_OFFSET);
+ 20019ae:	030009b7          	lui	s3,0x3000
+int main() {
+ 20019b2:	e4a6                	sd	s1,72(sp)
+    uint32_t bootmode = *reg32(&__base_regs, CHESHIRE_BOOT_MODE_REG_OFFSET);
+ 20019b4:	00098493          	mv	s1,s3
+int main() {
+ 20019b8:	e8a2                	sd	s0,80(sp)
+ 20019ba:	e0ca                	sd	s2,64(sp)
+    uint32_t bootmode = *reg32(&__base_regs, CHESHIRE_BOOT_MODE_REG_OFFSET);
+ 20019bc:	0404a903          	lw	s2,64(s1)
+    uint32_t rtc_freq = *reg32(&__base_regs, CHESHIRE_RTC_FREQ_REG_OFFSET);
+ 20019c0:	40e0                	lw	s0,68(s1)
+int main() {
+ 20019c2:	f852                	sd	s4,48(sp)
+ 20019c4:	ec86                	sd	ra,88(sp)
+    // Compute the boot core frequency using the reference clock
+    uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
+ 20019c6:	1402                	slli	s0,s0,0x20
+ 20019c8:	9001                	srli	s0,s0,0x20
+ 20019ca:	8522                	mv	a0,s0
+ 20019cc:	81bfe0ef          	jal	20001e6 <clint_get_core_freq.constprop.0>
+    uint32_t bootmode = *reg32(&__base_regs, CHESHIRE_BOOT_MODE_REG_OFFSET);
+ 20019d0:	2901                	sext.w	s2,s2
+    // In case of reentry, store return in scratch0 as is convention
+    switch (bootmode) {
+ 20019d2:	4a09                	li	s4,2
+    uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
+ 20019d4:	85aa                	mv	a1,a0
+    switch (bootmode) {
+ 20019d6:	11490363          	beq	s2,s4,2001adc <main+0x132>
+ 20019da:	072a6e63          	bltu	s4,s2,2001a56 <main+0xac>
+ 20019de:	0a091763          	bnez	s2,2001a8c <main+0xe2>
+    clint_spin_until((500 * rtc_freq) / (1000 * 1000) + 1);
+ 20019e2:	1f400513          	li	a0,500
+ 20019e6:	02a40533          	mul	a0,s0,a0
+ 20019ea:	000f47b7          	lui	a5,0xf4
+ 20019ee:	24078793          	addi	a5,a5,576 # f4240 <uart.c.064117c7+0xe8649>
+ 20019f2:	02f55533          	divu	a0,a0,a5
+ 20019f6:	0505                	addi	a0,a0,1
+ 20019f8:	fbefe0ef          	jal	20001b6 <clint_spin_until>
+    dynamic_info.magic = FW_DYNAMIC_INFO_MAGIC_VALUE;
+ 20019fc:	494257b7          	lui	a5,0x49425
+ 2001a00:	34f78793          	addi	a5,a5,847 # 4942534f <__stack_pointer$+0x39415357>
+ 2001a04:	e03e                	sd	a5,0(sp)
+    dynamic_info.next_addr = FW_DYNAMIC_NEXT_ADDRESS;
+ 2001a06:	40100793          	li	a5,1025
+ 2001a0a:	07d6                	slli	a5,a5,0x15
+ 2001a0c:	e83e                	sd	a5,16(sp)
+    dynamic_info.next_mode = FW_DYNAMIC_INFO_NEXT_MODE_S;
+ 2001a0e:	4785                	li	a5,1
+    dynamic_info.version = FW_DYNAMIC_INFO_VERSION_MAX;
+ 2001a10:	e452                	sd	s4,8(sp)
+    dynamic_info.next_mode = FW_DYNAMIC_INFO_NEXT_MODE_S;
+ 2001a12:	ec3e                	sd	a5,24(sp)
+    dynamic_info.options = 0x00000000;
+ 2001a14:	f002                	sd	zero,32(sp)
+    dynamic_info.boot_hart = BOOT_HART_ID;
+ 2001a16:	f402                	sd	zero,40(sp)
+	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
+ 2001a18:	f14027f3          	csrr	a5,mhartid
+    __asm__ volatile (
+ 2001a1c:	4725                	li	a4,9
+	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
+ 2001a1e:	2781                	sext.w	a5,a5
+    __asm__ volatile (
+ 2001a20:	0772                	slli	a4,a4,0x1c
+ 2001a22:	853e                	mv	a0,a5
+ 2001a24:	85ba                	mv	a1,a4
+ 2001a26:	860a                	mv	a2,sp
+    scratch[0] = (uint32_t)(next_addr & 0xFFFFFFFF);
+ 2001a28:	800007b7          	lui	a5,0x80000
+ 2001a2c:	00f9a023          	sw	a5,0(s3) # 3000000 <__base_regs>
+    scratch[1] = (uint32_t)(next_addr >> 32);
+ 2001a30:	0004a223          	sw	zero,4(s1)
+    return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
+ 2001a34:	40c8                	lw	a0,4(s1)
+ 2001a36:	0009a783          	lw	a5,0(s3)
+ 2001a3a:	1502                	slli	a0,a0,0x20
+ 2001a3c:	1782                	slli	a5,a5,0x20
+ 2001a3e:	9381                	srli	a5,a5,0x20
+ 2001a40:	8d5d                	or	a0,a0,a5
+ 2001a42:	eaefe0ef          	jal	20000f0 <boot_next_stage>
+    case 3:
+        return boot_i2c_24fc1025(core_freq);
+    default:
+        return boot_passive(core_freq);
+    }
+}
+ 2001a46:	60e6                	ld	ra,88(sp)
+ 2001a48:	6446                	ld	s0,80(sp)
+ 2001a4a:	64a6                	ld	s1,72(sp)
+ 2001a4c:	6906                	ld	s2,64(sp)
+ 2001a4e:	79e2                	ld	s3,56(sp)
+ 2001a50:	7a42                	ld	s4,48(sp)
+ 2001a52:	6125                	addi	sp,sp,96
+ 2001a54:	8082                	ret
+    switch (bootmode) {
+ 2001a56:	478d                	li	a5,3
+ 2001a58:	0cf90a63          	beq	s2,a5,2001b2c <main+0x182>
+    uart_debug_init(&__base_uart, core_freq);
+ 2001a5c:	9b1fe0ef          	jal	200040c <uart_debug_init.constprop.0.isra.0>
+    while (!(scratch[2] & 2))
+ 2001a60:	449c                	lw	a5,8(s1)
+ 2001a62:	8b89                	andi	a5,a5,2
+ 2001a64:	0e078163          	beqz	a5,2001b46 <main+0x19c>
+    scratch[2] = 0;
+ 2001a68:	0004a423          	sw	zero,8(s1)
+    return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
+ 2001a6c:	40c8                	lw	a0,4(s1)
+ 2001a6e:	0009a783          	lw	a5,0(s3)
+}
+ 2001a72:	6446                	ld	s0,80(sp)
+ 2001a74:	60e6                	ld	ra,88(sp)
+ 2001a76:	64a6                	ld	s1,72(sp)
+ 2001a78:	6906                	ld	s2,64(sp)
+ 2001a7a:	79e2                	ld	s3,56(sp)
+ 2001a7c:	7a42                	ld	s4,48(sp)
+    return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
+ 2001a7e:	1782                	slli	a5,a5,0x20
+ 2001a80:	1502                	slli	a0,a0,0x20
+ 2001a82:	9381                	srli	a5,a5,0x20
+ 2001a84:	8d5d                	or	a0,a0,a5
+}
+ 2001a86:	6125                	addi	sp,sp,96
+    return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
+ 2001a88:	e68fe06f          	j	20000f0 <boot_next_stage>
+        .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
+ 2001a8c:	02dc7737          	lui	a4,0x2dc7
+ 2001a90:	016e37b7          	lui	a5,0x16e3
+    spi_sdcard_t device = {
+ 2001a94:	e002                	sd	zero,0(sp)
+ 2001a96:	c802                	sw	zero,16(sp)
+        .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
+ 2001a98:	bff70713          	addi	a4,a4,-1025 # 2dc6bff <__base_axirtgrd+0xd04c03>
+ 2001a9c:	60078793          	addi	a5,a5,1536 # 16e3600 <__base_dma+0x6e3600>
+ 2001aa0:	00a76463          	bltu	a4,a0,2001aa8 <main+0xfe>
+ 2001aa4:	00155793          	srli	a5,a0,0x1
+    spi_sdcard_t device = {
+ 2001aa8:	e43e                	sd	a5,8(sp)
+    CHECK_CALL(spi_sdcard_init(&device, core_freq))
+ 2001aaa:	850a                	mv	a0,sp
+    spi_sdcard_t device = {
+ 2001aac:	4789                	li	a5,2
+ 2001aae:	ca3e                	sw	a5,20(sp)
+    CHECK_CALL(spi_sdcard_init(&device, core_freq))
+ 2001ab0:	87fff0ef          	jal	200132e <spi_sdcard_init.constprop.0>
+ 2001ab4:	f949                	bnez	a0,2001a46 <main+0x9c>
+    clint_spin_until((1000 * rtc_freq) / (1000 * 1000) + 1);
+ 2001ab6:	3e800513          	li	a0,1000
+ 2001aba:	02a40533          	mul	a0,s0,a0
+ 2001abe:	000f47b7          	lui	a5,0xf4
+ 2001ac2:	24078793          	addi	a5,a5,576 # f4240 <uart.c.064117c7+0xe8649>
+ 2001ac6:	02f55533          	divu	a0,a0,a5
+ 2001aca:	0505                	addi	a0,a0,1
+ 2001acc:	eeafe0ef          	jal	20001b6 <clint_spin_until>
+    return gpt_boot_part_else_raw(spi_sdcard_read_checkcrc, &device, &__base_spm,
+ 2001ad0:	858a                	mv	a1,sp
+ 2001ad2:	bbe18513          	addi	a0,gp,-1090 # 20019a2 <spi_sdcard_read_checkcrc>
+    return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
+ 2001ad6:	fa3fe0ef          	jal	2000a78 <gpt_boot_part_else_raw.constprop.0>
+ 2001ada:	b7b5                	j	2001a46 <main+0x9c>
+        .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
+ 2001adc:	09896737          	lui	a4,0x9896
+ 2001ae0:	026267b7          	lui	a5,0x2626
+    spi_s25fs512s_t device = {
+ 2001ae4:	e002                	sd	zero,0(sp)
+ 2001ae6:	e802                	sd	zero,16(sp)
+        .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
+ 2001ae8:	7ff70713          	addi	a4,a4,2047 # 98967ff <__base_clic+0x18967ff>
+ 2001aec:	a0078793          	addi	a5,a5,-1536 # 2625a00 <__base_axirtgrd+0x563a04>
+ 2001af0:	00a76463          	bltu	a4,a0,2001af8 <main+0x14e>
+ 2001af4:	00255793          	srli	a5,a0,0x2
+    spi_s25fs512s_t device = {
+ 2001af8:	e43e                	sd	a5,8(sp)
+    CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
+ 2001afa:	850a                	mv	a0,sp
+    spi_s25fs512s_t device = {
+ 2001afc:	4785                	li	a5,1
+ 2001afe:	c83e                	sw	a5,16(sp)
+    CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
+ 2001b00:	d31fe0ef          	jal	2000830 <spi_s25fs512s_init.constprop.0>
+ 2001b04:	f129                	bnez	a0,2001a46 <main+0x9c>
+    clint_spin_until((350 * rtc_freq) / (1000 * 1000) + 1);
+ 2001b06:	15e00793          	li	a5,350
+ 2001b0a:	02f40533          	mul	a0,s0,a5
+ 2001b0e:	000f47b7          	lui	a5,0xf4
+ 2001b12:	24078793          	addi	a5,a5,576 # f4240 <uart.c.064117c7+0xe8649>
+ 2001b16:	02f55533          	divu	a0,a0,a5
+ 2001b1a:	0505                	addi	a0,a0,1
+ 2001b1c:	e9afe0ef          	jal	20001b6 <clint_spin_until>
+    return gpt_boot_part_else_raw(spi_s25fs512s_single_read, &device, &__base_spm,
+ 2001b20:	02001537          	lui	a0,0x2001
+ 2001b24:	858a                	mv	a1,sp
+ 2001b26:	f1850513          	addi	a0,a0,-232 # 2000f18 <spi_s25fs512s_single_read>
+ 2001b2a:	b775                	j	2001ad6 <main+0x12c>
+    CHECK_CALL(i2c_24fc1025_init(&i2c, core_freq))
+ 2001b2c:	850a                	mv	a0,sp
+ 2001b2e:	f6efe0ef          	jal	200029c <i2c_24fc1025_init>
+ 2001b32:	87aa                	mv	a5,a0
+ 2001b34:	4549                	li	a0,18
+ 2001b36:	f00798e3          	bnez	a5,2001a46 <main+0x9c>
+    return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
+ 2001b3a:	02000537          	lui	a0,0x2000
+ 2001b3e:	858a                	mv	a1,sp
+ 2001b40:	72250513          	addi	a0,a0,1826 # 2000722 <i2c_24fc1025_read>
+ 2001b44:	bf49                	j	2001ad6 <main+0x12c>
+        if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
+ 2001b46:	939fe0ef          	jal	200047e <uart_debug_check.constprop.0>
+ 2001b4a:	f0050be3          	beqz	a0,2001a60 <main+0xb6>
+}
+ 2001b4e:	6446                	ld	s0,80(sp)
+ 2001b50:	60e6                	ld	ra,88(sp)
+ 2001b52:	64a6                	ld	s1,72(sp)
+ 2001b54:	6906                	ld	s2,64(sp)
+ 2001b56:	79e2                	ld	s3,56(sp)
+ 2001b58:	7a42                	ld	s4,48(sp)
+ 2001b5a:	6125                	addi	sp,sp,96
+        if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
+ 2001b5c:	d75fe06f          	j	20008d0 <uart_debug_serve.constprop.0>
+
+0000000002001b60 <memcpy>:
+ 2001b60:	00a5c7b3          	xor	a5,a1,a0
+ 2001b64:	8b9d                	andi	a5,a5,7
+ 2001b66:	00c508b3          	add	a7,a0,a2
+ 2001b6a:	e7b1                	bnez	a5,2001bb6 <memcpy+0x56>
+ 2001b6c:	00863613          	sltiu	a2,a2,8
+ 2001b70:	e239                	bnez	a2,2001bb6 <memcpy+0x56>
+ 2001b72:	00757793          	andi	a5,a0,7
+ 2001b76:	872a                	mv	a4,a0
+ 2001b78:	e7cd                	bnez	a5,2001c22 <memcpy+0xc2>
+ 2001b7a:	ff88f613          	andi	a2,a7,-8
+ 2001b7e:	40e606b3          	sub	a3,a2,a4
+ 2001b82:	04000793          	li	a5,64
+ 2001b86:	04d7c463          	blt	a5,a3,2001bce <memcpy+0x6e>
+ 2001b8a:	86ae                	mv	a3,a1
+ 2001b8c:	87ba                	mv	a5,a4
+ 2001b8e:	02c77163          	bgeu	a4,a2,2001bb0 <memcpy+0x50>
+ 2001b92:	0006b803          	ld	a6,0(a3)
+ 2001b96:	07a1                	addi	a5,a5,8
+ 2001b98:	06a1                	addi	a3,a3,8
+ 2001b9a:	ff07bc23          	sd	a6,-8(a5)
+ 2001b9e:	fec7eae3          	bltu	a5,a2,2001b92 <memcpy+0x32>
+ 2001ba2:	167d                	addi	a2,a2,-1
+ 2001ba4:	8e19                	sub	a2,a2,a4
+ 2001ba6:	9a61                	andi	a2,a2,-8
+ 2001ba8:	05a1                	addi	a1,a1,8
+ 2001baa:	0721                	addi	a4,a4,8
+ 2001bac:	95b2                	add	a1,a1,a2
+ 2001bae:	9732                	add	a4,a4,a2
+ 2001bb0:	01176663          	bltu	a4,a7,2001bbc <memcpy+0x5c>
+ 2001bb4:	8082                	ret
+ 2001bb6:	872a                	mv	a4,a0
+ 2001bb8:	ff157ee3          	bgeu	a0,a7,2001bb4 <memcpy+0x54>
+ 2001bbc:	0005c783          	lbu	a5,0(a1)
+ 2001bc0:	0705                	addi	a4,a4,1
+ 2001bc2:	0585                	addi	a1,a1,1
+ 2001bc4:	fef70fa3          	sb	a5,-1(a4)
+ 2001bc8:	fee89ae3          	bne	a7,a4,2001bbc <memcpy+0x5c>
+ 2001bcc:	8082                	ret
+ 2001bce:	6194                	ld	a3,0(a1)
+ 2001bd0:	0085b283          	ld	t0,8(a1)
+ 2001bd4:	0105bf83          	ld	t6,16(a1)
+ 2001bd8:	0185bf03          	ld	t5,24(a1)
+ 2001bdc:	0205be83          	ld	t4,32(a1)
+ 2001be0:	0285be03          	ld	t3,40(a1)
+ 2001be4:	0305b303          	ld	t1,48(a1)
+ 2001be8:	0385b803          	ld	a6,56(a1)
+ 2001bec:	e314                	sd	a3,0(a4)
+ 2001bee:	61b4                	ld	a3,64(a1)
+ 2001bf0:	04870713          	addi	a4,a4,72
+ 2001bf4:	fc573023          	sd	t0,-64(a4)
+ 2001bf8:	fed73c23          	sd	a3,-8(a4)
+ 2001bfc:	fdf73423          	sd	t6,-56(a4)
+ 2001c00:	40e606b3          	sub	a3,a2,a4
+ 2001c04:	fde73823          	sd	t5,-48(a4)
+ 2001c08:	fdd73c23          	sd	t4,-40(a4)
+ 2001c0c:	ffc73023          	sd	t3,-32(a4)
+ 2001c10:	fe673423          	sd	t1,-24(a4)
+ 2001c14:	ff073823          	sd	a6,-16(a4)
+ 2001c18:	04858593          	addi	a1,a1,72
+ 2001c1c:	fad7c9e3          	blt	a5,a3,2001bce <memcpy+0x6e>
+ 2001c20:	b7ad                	j	2001b8a <memcpy+0x2a>
+ 2001c22:	0005c683          	lbu	a3,0(a1)
+ 2001c26:	0705                	addi	a4,a4,1
+ 2001c28:	00777793          	andi	a5,a4,7
+ 2001c2c:	fed70fa3          	sb	a3,-1(a4)
+ 2001c30:	0585                	addi	a1,a1,1
+ 2001c32:	d7a1                	beqz	a5,2001b7a <memcpy+0x1a>
+ 2001c34:	0005c683          	lbu	a3,0(a1)
+ 2001c38:	0705                	addi	a4,a4,1
+ 2001c3a:	00777793          	andi	a5,a4,7
+ 2001c3e:	fed70fa3          	sb	a3,-1(a4)
+ 2001c42:	0585                	addi	a1,a1,1
+ 2001c44:	fff9                	bnez	a5,2001c22 <memcpy+0xc2>
+ 2001c46:	bf15                	j	2001b7a <memcpy+0x1a>
