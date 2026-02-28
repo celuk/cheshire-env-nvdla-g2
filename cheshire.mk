@@ -8,6 +8,7 @@
 
 BENDER ?= bender
 VLOGAN ?= vlogan
+VIVADO ?= vivado
 
 # Caution: Questasim requires this to point to the *actual* compiler install path
 CXX_PATH := $(shell which $(CXX))
@@ -71,6 +72,9 @@ export CHS_REG_DIR CHS_SLINK_DIR CHS_LLC_DIR
 
 REGTOOL ?= $(CHS_REG_DIR)/vendor/lowrisc_opentitan/util/regtool.py
 
+$(REGTOOL):
+	chmod +x $@
+
 ################
 # Dependencies #
 ################
@@ -120,18 +124,18 @@ include $(CHS_ROOT)/sw/sw.mk
 ###############
 
 # SoC registers
-$(CHS_ROOT)/hw/regs/cheshire_reg_pkg.sv $(CHS_ROOT)/hw/regs/cheshire_reg_top.sv: $(CHS_ROOT)/hw/regs/cheshire_regs.hjson
+$(CHS_ROOT)/hw/regs/cheshire_reg_pkg.sv $(CHS_ROOT)/hw/regs/cheshire_reg_top.sv: $(CHS_ROOT)/hw/regs/cheshire_regs.hjson | $(REGTOOL)
 	$(REGTOOL) -r $< --outdir $(dir $@)
 
 # CLINT
 CLINTCORES ?= 1
 include $(CLINTROOT)/clint.mk
-$(CLINTROOT)/.generated:
+$(CLINTROOT)/.generated: | $(REGTOOL)
 	flock -x $@ $(MAKE) clint && touch $@
 
 # OpenTitan peripherals
 include $(OTPROOT)/otp.mk
-$(OTPROOT)/.generated: $(CHS_ROOT)/hw/rv_plic.cfg.hjson
+$(OTPROOT)/.generated: $(CHS_ROOT)/hw/rv_plic.cfg.hjson | $(REGTOOL)
 	flock -x $@ sh -c "cp $< $(dir $@)/src/rv_plic/; $(MAKE) -j1 otp" && touch $@
 
 # AXI RT
@@ -147,7 +151,7 @@ $(AXI_VGA_ROOT)/.generated:
 	flock -x $@ $(MAKE) axi_vga && touch $@
 
 # Custom serial link
-$(CHS_SLINK_DIR)/.generated: $(CHS_ROOT)/hw/serial_link.hjson
+$(CHS_SLINK_DIR)/.generated: $(CHS_ROOT)/hw/serial_link.hjson | $(REGTOOL)
 	cp $< $(dir $@)/src/regs/serial_link_single_channel.hjson
 	flock -x $@ $(MAKE) -C $(CHS_SLINK_DIR) update-regs REGGEN="$(REGTOOL)" && touch $@
 
