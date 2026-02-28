@@ -19,7 +19,7 @@ package cva6_config_pkg;
   localparam CVA6ConfigF8AltEn = 0;
   localparam CVA6ConfigFVecEn = 0;
 
-  localparam CVA6ConfigCvxifEn = 0;
+  localparam CVA6ConfigCvxifEn = 1;
   localparam CVA6ConfigCExtEn = 1;
   localparam CVA6ConfigZcbExtEn = 1;
   localparam CVA6ConfigAExtEn = 1;
@@ -29,7 +29,7 @@ package cva6_config_pkg;
   localparam CVA6ConfigZiCondExtEn = 1;
   localparam CVA6ConfigSclicExtEn = 1;
 
-  localparam CVA6ConfigAxiIdWidth = 4;
+  localparam CVA6ConfigAxiIdWidth = 8;
   localparam CVA6ConfigAxiAddrWidth = 64;
   localparam CVA6ConfigAxiDataWidth = 64;
   localparam CVA6ConfigFetchUserEn = 0;
@@ -37,11 +37,11 @@ package cva6_config_pkg;
   localparam CVA6ConfigDataUserEn = 0;
   localparam CVA6ConfigDataUserWidth = 1;
 
-  localparam CVA6ConfigIcacheByteSize = 16384;
-  localparam CVA6ConfigIcacheSetAssoc = 4;
+  localparam CVA6ConfigIcacheByteSize = 128;
+  localparam CVA6ConfigIcacheSetAssoc = 2;
   localparam CVA6ConfigIcacheLineWidth = 128;
-  localparam CVA6ConfigDcacheByteSize = 32768;
-  localparam CVA6ConfigDcacheSetAssoc = 8;
+  localparam CVA6ConfigDcacheByteSize = 128;
+  localparam CVA6ConfigDcacheSetAssoc = 2;
   localparam CVA6ConfigDcacheLineWidth = 128;
 
   localparam CVA6ConfigDcacheIdWidth = 1;
@@ -135,8 +135,8 @@ package cva6_config_pkg;
       unsigned'(
       2
       ),
-      NonIdempotentAddrBase: 1024'({64'b0, 64'b0}),
-      NonIdempotentLength: 1024'({64'b0, 64'b0}),
+      NonIdempotentAddrBase: 1024'({64'h0000_0000, 64'h4000_0000}),
+      NonIdempotentLength:   1024'({64'h1000_0000, 64'h4000_0000}),
       NrExecuteRegionRules: unsigned'(3),
       //                      DRAM,          Boot ROM,   Debug Module
       ExecuteRegionAddrBase:
@@ -153,7 +153,7 @@ package cva6_config_pkg;
       CachedRegionLength: 1024'({64'h40000000}),
       MaxOutstandingStores: unsigned'(7),
       DebugEn: bit'(1),
-      NonIdemPotenceEn: bit'(0),
+      NonIdemPotenceEn: bit'(1),
       AxiBurstWriteEn: bit'(0)
   };
 

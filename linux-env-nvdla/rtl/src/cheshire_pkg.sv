@@ -459,7 +459,7 @@ package cheshire_pkg;
   ////////////
 
   // CVA6 imposes an ID width of 4, but only 7 of 16 IDs are ever used
-  localparam int unsigned Cva6IdWidth = 4;
+  localparam int unsigned Cva6IdWidth = 8;
   localparam int unsigned Cva6IdsUsed = 7;
   typedef logic [Cva6IdWidth-1:0] cva6_id_t;
   typedef int unsigned cva6_id_map_t [Cva6IdsUsed-1:0][0:1];

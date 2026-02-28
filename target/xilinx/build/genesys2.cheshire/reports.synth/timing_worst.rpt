@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Feb 27 21:42:16 2026
+| Date         : Sat Feb 28 21:16:31 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_timing -file /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/reports.synth/timing_worst.rpt -nworst 1 -delay_type max -sort_by group
 | Design       : cheshire_top_xilinx
@@ -1230,8 +1230,8 @@ Slack (MET) :             1.241ns  (required time - arrival time)
                          net (fo=2, unplaced)         0.281     3.390    i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_axi_isolate_flush/i_axi_isolate/from_llc_req[b_ready]
                          LUT6 (Prop_lut6_I5_O)        0.043     3.433 f  i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_axi_isolate_flush/i_axi_isolate/gen_spill_reg.b_data_q[id][2]_i_2/O
                          net (fo=10, unplaced)        0.313     3.746    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/axi_llc_mst_req[b_ready]
-                         LUT5 (Prop_lut5_I0_O)        0.049     3.795 r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__43/O
-                         net (fo=1, unplaced)         0.000     3.795    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__43_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.049     3.795 r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__39/O
+                         net (fo=1, unplaced)         0.000     3.795    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__39_n_0
                          FDCE                                         r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D
   -------------------------------------------------------------------    -------------------
 
