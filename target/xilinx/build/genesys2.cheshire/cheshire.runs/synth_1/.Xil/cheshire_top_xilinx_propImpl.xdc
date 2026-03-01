@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.srcs/constrs_1/imports/constraints/cheshire.xdc rfile:../../../cheshire.srcs/constrs_1/imports/constraints/cheshire.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.srcs/constrs_1/imports/constraints/genesys2.xdc rfile:../../../cheshire.srcs/constrs_1/imports/constraints/genesys2.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.srcs/constrs_1/imports/constraints/cheshire.xdc rfile:../../../cheshire.srcs/constrs_1/imports/constraints/cheshire.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.srcs/constrs_1/imports/constraints/genesys2.xdc rfile:../../../cheshire.srcs/constrs_1/imports/constraints/genesys2.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter clk_jtag 1.000
 set_property src_info {type:XDC file:1 line:48 export:INPUT save:INPUT read:READ} [current_design]

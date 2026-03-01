@@ -170,14 +170,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
   logic       vio_reset, vio_boot_mode_sel;
   logic [1:0] boot_mode, vio_boot_mode;
   logic       sys_rst;
-  logic       soc_rst_n;
-
-  logic       system_reset_o;
-  logic       uart_dram_write_we;
-  logic [31:0] uart_dram_write_addr;
-  logic [31:0] uart_dram_write_data;
-  logic       uart_dram_write_rst = 0;
-  logic       uart_dram_mode;
 
 `ifdef USE_VIO
   vio i_vio (
@@ -199,19 +191,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
 `endif
   assign boot_mode = vio_boot_mode_sel ? vio_boot_mode : boot_mode_i;
 
-  uart_programmer up_dram (
-    .clk_i             ( soc_clk ),
-    .rst_ni            ( ~sys_rst ),
-    .program_rx_i      ( uart_rx_i ),
-    .system_reset_o    ( system_reset_o ),
-    .prog_mode_led_o   ( ),
-    .dram_write_we_o   ( uart_dram_write_we ),
-    .dram_write_addr_o ( uart_dram_write_addr ),
-    .dram_write_data_o ( uart_dram_write_data ),
-    .dram_write_rst_o  (  ),
-    .dram_mode_o       ( uart_dram_mode )
-  );
-
   //////////////////
   //  Reset Sync  //
   //////////////////
@@ -225,8 +204,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .rst_no       ( rst_n       ),
     .init_no      ( )
   );
-
-  assign soc_rst_n = rst_n & system_reset_o & ~uart_dram_mode;
 
   ////////////
   //  JTAG  //
@@ -504,13 +481,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .axi_soc_resp_t    ( axi_llc_rsp_t     )
   ) i_dram_wrapper (
     .sys_rst_i    ( sys_rst ),
-    .soc_resetn_i ( rst_n | uart_dram_mode ),
+    .soc_resetn_i ( rst_n   ),
     .soc_clk_i    ( soc_clk ),
     .dram_clk_i   ( sys_clk ),
-    .uart_dram_write_we_i   ( uart_dram_write_we   ),
-    .uart_dram_write_addr_i ( uart_dram_write_addr ),
-    .uart_dram_write_data_i ( uart_dram_write_data ),
-    .uart_dram_write_rst_i  ( uart_dram_write_rst  ),
     .soc_req_i    ( axi_llc_mst_req ),
     .soc_rsp_o    ( axi_llc_mst_rsp ),
     .*
@@ -534,7 +507,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .reg_ext_rsp_t      ( reg_rsp_t )
   ) i_cheshire_soc (
     .clk_i              ( soc_clk ),
-    .rst_ni             ( soc_rst_n ),
+    .rst_ni             ( rst_n   ),
     .test_mode_i        ( test_mode_i ),
     .boot_mode_i        ( boot_mode   ),
     .rtc_i              ( rtc_clk_q       ),
