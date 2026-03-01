@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
+  variable script "C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
   variable category "vivado_impl"
 }
 
@@ -124,14 +124,15 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 5
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-996144-karpuz/incrSyn
+  set_param general.maxThreads 8
+  set_param chipscope.maxJobs 5
+  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-23156-ECIT01684/incrSyn
   reset_param project.defaultXPMLibraries 
-  open_checkpoint /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
-  set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
-  set_property parent.project_path /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr [current_project]
-  set_property ip_output_repo /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/ip [current_project]
+  open_checkpoint C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
+  set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
+  set_property parent.project_path C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr [current_project]
+  set_property ip_output_repo C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 OPTRACE "init_design_reports" START { REPORT }

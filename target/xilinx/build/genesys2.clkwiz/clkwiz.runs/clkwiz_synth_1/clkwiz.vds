@@ -1,14 +1,14 @@
 #-----------------------------------------------------------
 # Vivado v2022.2 (64-bit)
-# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Feb 27 21:15:02 2026
-# Process ID: 534713
-# Current directory: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1
-# Command line: vivado -log clkwiz.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clkwiz.tcl
-# Log file: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.vds
-# Journal file: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/vivado.jou
-# Running On: karpuz, OS: Linux, CPU Frequency: 799.365 MHz, CPU Physical cores: 12, Host memory: 67154 MB
+# Start of session at: Sat Feb 28 21:42:44 2026
+# Process ID: 27580
+# Current directory: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1
+# Command line: vivado.exe -log clkwiz.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clkwiz.tcl
+# Log file: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.vds
+# Journal file: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1\vivado.jou
+# Running On: ECIT01684, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 12, Host memory: 34033 MB
 #-----------------------------------------------------------
 source clkwiz.tcl -notrace
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: clkwiz
@@ -16,20 +16,17 @@ Command: synth_design -top clkwiz -part xc7k325tffg900-2 -incremental_mode off -
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
-INFO: [Common 17-86] Your Synthesis license expires in 23 day(s)
 INFO: [Device 21-403] Loading part xc7k325tffg900-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 534945
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 28996
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2479.406 ; gain = 369.801 ; free physical = 8758 ; free virtual = 31375
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.066
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3463.496; parent = 2482.379; children = 981.117
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1948.109 ; gain = 407.516
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'clkwiz' [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.v:71]
-INFO: [Synth 8-6157] synthesizing module 'clkwiz_clk_wiz' [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_clk_wiz.v:71]
-INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:79852]
+INFO: [Synth 8-6157] synthesizing module 'clkwiz' [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.v:71]
+INFO: [Synth 8-6157] synthesizing module 'clkwiz_clk_wiz' [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_clk_wiz.v:71]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:79852]
 	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
 	Parameter CLKFBOUT_MULT_F bound to: 6.000000 - type: double 
 	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
@@ -55,83 +52,69 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [/tools/Xilinx/Vivado/2022
 	Parameter COMPENSATION bound to: ZHOLD - type: string 
 	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
 	Parameter STARTUP_WAIT bound to: FALSE - type: string 
-INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:79852]
-INFO: [Synth 8-6157] synthesizing module 'BUFG' [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6155] done synthesizing module 'clkwiz_clk_wiz' (0#1) [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_clk_wiz.v:71]
-INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.v:71]
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:79852]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
+INFO: [Synth 8-6155] done synthesizing module 'clkwiz_clk_wiz' (0#1) [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_clk_wiz.v:71]
+INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.v:71]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2555.344 ; gain = 445.738 ; free physical = 8721 ; free virtual = 31335
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3536.465; parent = 2555.348; children = 981.117
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2038.578 ; gain = 497.984
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2570.188 ; gain = 460.582 ; free physical = 8716 ; free virtual = 31330
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3551.309; parent = 2570.191; children = 981.117
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2056.492 ; gain = 515.898
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2570.188 ; gain = 460.582 ; free physical = 8714 ; free virtual = 31328
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3551.309; parent = 2570.191; children = 981.117
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2056.492 ; gain = 515.898
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2576.125 ; gain = 0.000 ; free physical = 8717 ; free virtual = 31333
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2068.516 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc] for cell 'inst'
-Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc] for cell 'inst'
-Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc] for cell 'inst'
-Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc]
-Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc] for cell 'inst'
-Finished Parsing XDC File [/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc] for cell 'inst'
+Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc] for cell 'inst'
+Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc] for cell 'inst'
+Finished Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc] for cell 'inst'
+Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc] for cell 'inst'
+Finished Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc] for cell 'inst'
+Parsing XDC File [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc]
+Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc] for cell 'inst'
+Finished Parsing XDC File [c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc] for cell 'inst'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.094 ; gain = 0.000 ; free physical = 8737 ; free virtual = 31353
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2088.562 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Timing 38-2] Deriving generated clocks
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2646.094 ; gain = 0.000 ; free physical = 8737 ; free virtual = 31353
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 2088.562 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8725 ; free virtual = 31366
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8725 ; free virtual = 31366
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc, line 9).
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8724 ; free virtual = 31365
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8724 ; free virtual = 31365
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -154,33 +137,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8751 ; free virtual = 31381
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1878.647; parent = 1678.581; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8812 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1949.491; parent = 1749.477; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8812 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1949.726; parent = 1749.711; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8798 ; free virtual = 31420
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.374; parent = 1750.359; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -198,49 +173,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31435
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.524; parent = 1750.508; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31435
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.540; parent = 1750.523; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.556; parent = 1750.539; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.634; parent = 1750.617; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.634; parent = 1750.617; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.649; parent = 1750.633; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -260,30 +223,30 @@ Report Cell Usage:
 |2     |MMCME2_ADV |     1|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8817 ; free virtual = 31434
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1950.681; parent = 1750.664; children = 200.067
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3595.199; parent = 2614.082; children = 981.117
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2646.094 ; gain = 460.582 ; free physical = 8853 ; free virtual = 31470
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2646.094 ; gain = 536.488 ; free physical = 8853 ; free virtual = 31470
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:16 . Memory (MB): peak = 2088.562 ; gain = 515.898
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2088.562 ; gain = 547.969
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.094 ; gain = 0.000 ; free physical = 8844 ; free virtual = 31461
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2088.562 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.094 ; gain = 0.000 ; free physical = 8940 ; free virtual = 31574
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2088.562 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete, checksum: 687aaa5c
 INFO: [Common 17-83] Releasing license: Synthesis
-30 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+29 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2646.094 ; gain = 902.414 ; free physical = 9099 ; free virtual = 31734
-INFO: [Common 17-1381] The checkpoint '/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:31 . Memory (MB): peak = 2088.562 ; gain = 976.500
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint 'C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.dcp' has been generated.
 INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP clkwiz, cache-ID = f29b0215ecc32ba0
-INFO: [Common 17-1381] The checkpoint '/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.runs/clkwiz_synth_1/clkwiz.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file clkwiz_utilization_synth.rpt -pb clkwiz_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 27 21:15:23 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 28 21:43:26 2026...

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="mig7s_synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772216193">
-  <File Type="VDS-TIMINGSUMMARY" Name="mig7s_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="mig7s.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="mig7s_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="mig7s_utilization_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="mig7s_timing_summary_synth.pb"/>
+<GenRun Id="mig7s_synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772315156">
   <File Type="PA-TCL" Name="mig7s.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="mig7s_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="mig7s_reports.tcl"/>
   <File Type="RDS-RDS" Name="mig7s.vds"/>
-  <File Type="RDS-PROPCONSTRS" Name="mig7s_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="mig7s_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="mig7s_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="mig7s.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="mig7s_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="mig7s_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/mig7s">
     <File Path="$PSRCDIR/sources_1/ip/mig7s/mig7s.xci">
       <FileInfo>

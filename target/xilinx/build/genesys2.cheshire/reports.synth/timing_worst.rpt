@@ -1,13 +1,13 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Sat Feb 28 21:16:31 2026
-| Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
-| Command      : report_timing -file /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/reports.synth/timing_worst.rpt -nworst 1 -delay_type max -sort_by group
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Sat Feb 28 22:57:44 2026
+| Host         : ECIT01684 running 64-bit major release  (build 9200)
+| Command      : report_timing -file C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/reports.synth/timing_worst.rpt -nworst 1 -delay_type max -sort_by group
 | Design       : cheshire_top_xilinx
 | Device       : 7k325t-ffg900
 | Speed File   : -2  PRODUCTION 1.12 2017-02-17
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Timing Report
 
@@ -877,7 +877,7 @@ Slack (MET) :             0.845ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/bit_cnt_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.223     3.456 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/bit_cnt_reg[1]/Q
@@ -916,7 +916,7 @@ Slack (MET) :             0.845ns  (required time - arrival time)
                                                      -0.968     6.899 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.442     7.342    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.083     7.425 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.321     7.745    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/CLK
+                         net (fo=13408, unplaced)     0.321     7.745    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/ref_bit_reg[0]/C
                          clock pessimism              0.343     8.088    
                          clock uncertainty           -0.052     8.036    
@@ -1230,8 +1230,8 @@ Slack (MET) :             1.241ns  (required time - arrival time)
                          net (fo=2, unplaced)         0.281     3.390    i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_axi_isolate_flush/i_axi_isolate/from_llc_req[b_ready]
                          LUT6 (Prop_lut6_I5_O)        0.043     3.433 f  i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_axi_isolate_flush/i_axi_isolate/gen_spill_reg.b_data_q[id][2]_i_2/O
                          net (fo=10, unplaced)        0.313     3.746    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/axi_llc_mst_req[b_ready]
-                         LUT5 (Prop_lut5_I0_O)        0.049     3.795 r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__39/O
-                         net (fo=1, unplaced)         0.000     3.795    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__39_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.049     3.795 r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__38/O
+                         net (fo=1, unplaced)         0.000     3.795    i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_i_1__38_n_0
                          FDCE                                         r  i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D
   -------------------------------------------------------------------    -------------------
 
@@ -1460,7 +1460,7 @@ Slack (MET) :             3.377ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/CLK
                          FDPE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/rstdiv0_sync_r1_reg_rep__4/C
   -------------------------------------------------------------------    -------------------
                          FDPE (Prop_fdpe_C_Q)         0.223     3.456 f  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/rstdiv0_sync_r1_reg_rep__4/Q
@@ -1485,7 +1485,7 @@ Slack (MET) :             3.377ns  (required time - arrival time)
                                                      -0.968     6.899 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.442     7.342    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.083     7.425 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.321     7.745    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/u_ddr_phy_init/CLK
+                         net (fo=13408, unplaced)     0.321     7.745    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/u_ddr_phy_init/CLK
                          FDCE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/u_ddr_phy_init/phy_reset_n_reg/C
                          clock pessimism              0.343     8.088    
                          clock uncertainty           -0.052     8.036    
@@ -1584,7 +1584,7 @@ Slack (MET) :             3.997ns  (required time - arrival time)
                          FDPE (Prop_fdpe_C_Q)         0.223     0.223 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/rstdiv0_sync_r1_reg_rep/Q
                          net (fo=1, unplaced)         0.191     0.414    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/rstdiv0_sync_r1_reg_rep_n_0
                          LUT1 (Prop_lut1_I0_O)        0.123     0.537 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/rstdiv0_sync_r1_inst/O
-                         net (fo=389, unplaced)       0.466     1.003    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/in0
+                         net (fo=391, unplaced)       0.466     1.003    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/in0
     PHY_CONTROL_X1Y2     PHY_CONTROL                                  r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/phy_control_i/RESET
   -------------------------------------------------------------------    -------------------
 
@@ -1634,7 +1634,7 @@ Slack (MET) :             5.315ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.223     3.456 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/Q
@@ -1708,7 +1708,7 @@ Slack (MET) :             5.322ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.223     3.456 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/Q
@@ -1782,7 +1782,7 @@ Slack (MET) :             5.328ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.223     3.456 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/Q
@@ -1856,7 +1856,7 @@ Slack (MET) :             5.342ns  (required time - arrival time)
                                                      -1.024     2.209 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
                          net (fo=1, unplaced)         0.466     2.675    i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/clk_pll_i
                          BUFG (Prop_bufg_I_O)         0.093     2.768 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O
-                         net (fo=13406, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
+                         net (fo=13408, unplaced)     0.466     3.233    i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/CLK
                          FDRE                                         r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.223     3.456 r  i_dram_wrapper/i_dram/u_mig7s_mig/u_memc_ui_top_axi/mem_intfc0/mc0/mc_read_idle_r_reg/Q

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.runs/mig7s_synth_1/mig7s.tcl"
+  variable script "C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.runs/mig7s_synth_1/mig7s.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "mig7s_synth_1" START { ROLLUP_AUTO }
+set_param general.maxThreads 8
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -79,19 +80,19 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.cache/wt [current_project]
-set_property parent.project_path /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.cache/wt [current_project]
+set_property parent.project_path C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {/home/shc/temp/vivado-boards-master/new/board_files/genesys2/H} [current_project]
+set_property board_part_repo_paths {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/vivado-boards-master/new/board_files} [current_project]
 set_property board_part digilentinc.com:genesys2:part0:1.1 [current_project]
-set_property ip_output_repo /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.cache/ip [current_project]
+set_property ip_output_repo c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s_ooc.xdc]
+read_ip -quiet c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -124,45 +125,45 @@ create_report "mig7s_synth_1_synth_report_utilization_0" "report_utilization -fi
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.runs/mig7s_synth_1/mig7s.dcp /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s.dcp
+  file copy -force C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.runs/mig7s_synth_1/mig7s.dcp c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.v
+  write_verilog -force -mode synth_stub c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.vhdl
+  write_vhdl -force -mode synth_stub c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_sim_netlist.v
+  write_verilog -force -mode funcsim c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-if {[file isdir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s]} {
+if {[file isdir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s]} {
   catch { 
-    file copy -force /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.v /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s
+    file copy -force c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.v C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s
   }
 }
 
-if {[file isdir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s]} {
+if {[file isdir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s]} {
   catch { 
-    file copy -force /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.vhdl /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s
+    file copy -force c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s_stub.vhdl C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.ip_user_files/ip/mig7s
   }
 }
 file delete __synthesis_is_running__
