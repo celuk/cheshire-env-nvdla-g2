@@ -587,9 +587,14 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .vga_green_o,
     .vga_blue_o,
 `endif
-    .uart_tx_o,
-    .uart_rx_i,
-    .usb_clk_i          ( usb_clk ),
+    .uart_tx_o          ( uart_tx_o ),
+    .uart_rx_i          ( uart_rx_i ),
+    .uart_cts_ni        ( 1'b0 ),
+    .uart_dsr_ni        ( 1'b0 ),
+    .uart_dcd_ni        ( 1'b0 ),
+    .uart_rin_ni        ( 1'b0 ),
+
+    .usb_clk_i          ( 0 ),
     .usb_rst_ni         ( rst_n ), // Technically should sync to `usb_clk`, but pulse is long enough
     .usb_dm_i,
     .usb_dm_o,

@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Sat Feb 28 22:33:16 2026
-# Process ID: 28072
+# Start of session at: Sun Mar  1 16:48:46 2026
+# Process ID: 16340
 # Current directory: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1
 # Command line: vivado.exe -log cheshire_top_xilinx.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cheshire_top_xilinx.tcl
 # Log file: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/cheshire_top_xilinx.vds
@@ -18,7 +18,7 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325
 INFO: [Device 21-403] Loading part xc7k325tffg900-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11752
+INFO: [Synth 8-7075] Helper process launched with PID 28356
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 WARNING: [Synth 8-11067] parameter 'BurstWidth' declared inside package 'axi_pkg' shall be treated as localparam [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_pkg.sv:25]
 WARNING: [Synth 8-11067] parameter 'RespWidth' declared inside package 'axi_pkg' shall be treated as localparam [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_pkg.sv:27]
@@ -142,14 +142,14 @@ INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [
 INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFQD1.v:22]
 INFO: [Synth 8-11241] undeclared symbol 'sel', assumed default net type 'wire' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFSNQD1.v:24]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2077.031 ; gain = 512.820
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2077.832 ; gain = 511.555
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'cheshire_top_xilinx' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/cheshire_top_xilinx.sv:16]
 INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
 	Parameter IBUF_LOW_PWR bound to: FALSE - type: string 
 INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
-INFO: [Synth 8-6157] synthesizing module 'clkwiz' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-28072-ECIT01684/realtime/clkwiz_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-28072-ECIT01684/realtime/clkwiz_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clkwiz' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-16340-ECIT01684/realtime/clkwiz_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clkwiz' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-16340-ECIT01684/realtime/clkwiz_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'uart_programmer' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/rtl/src/uart_programmer.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'simpleuart' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/rtl/src/simpleuart.sv:20]
 	Parameter DEFAULT_DIV bound to: 434 - type: integer 
@@ -287,8 +287,8 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 INFO: [Synth 8-6155] done synthesizing module 'axi_id_remap' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_id_remap.sv:32]
 INFO: [Synth 8-6155] done synthesizing module 'axi_iw_converter' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_iw_converter.sv:44]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/dram_wrapper_xilinx.sv:244]
-INFO: [Synth 8-6157] synthesizing module 'mig7s' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-28072-ECIT01684/realtime/mig7s_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mig7s' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-28072-ECIT01684/realtime/mig7s_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mig7s' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-16340-ECIT01684/realtime/mig7s_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mig7s' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/.Xil/Vivado-16340-ECIT01684/realtime/mig7s_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'dram_wrapper_xilinx' (0#1) [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/dram_wrapper_xilinx.sv:14]
 INFO: [Synth 8-6157] synthesizing module 'cheshire_soc' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/rtl/src/cheshire_soc.sv:11]
 	Parameter Cfg[Cva6RASDepth] bound to: 16'b0000000000000010 
@@ -11692,6 +11692,7 @@ WARNING: [Synth 8-689] width (10) of port connection 's_axi_rid' does not match 
 	Parameter DW bound to: 32'b00000000000000000000000000000101 
 WARNING: [Synth 8-689] width (2) of port connection 'irq_o' does not match port width (1) of module 'rv_plic' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/rtl/src/cheshire_soc.sv:1104]
 	Parameter STAGES bound to: 32'b00000000000000000000000000000010 
+WARNING: [Synth 8-689] width (32) of port connection 'usb_clk_i' does not match port width (1) of module 'cheshire_soc' [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/cheshire_top_xilinx.sv:597]
 WARNING: [Synth 8-6014] Unused sequential element read_pointer_q_reg was removed.  [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/fifo_v3.sv:118]
 WARNING: [Synth 8-6014] Unused sequential element desc_q_reg[a_x_lock] was removed.  [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_llc-a8c3bcff05d5fc09/src/axi_llc_write_unit.sv:200]
 WARNING: [Synth 8-6014] Unused sequential element desc_q_reg[a_x_cache] was removed.  [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_llc-a8c3bcff05d5fc09/src/axi_llc_write_unit.sv:200]
@@ -11976,18 +11977,18 @@ WARNING: [Synth 8-7129] Port axi_req_i[aw][atop][2] in module axi_err_unit_wrap_
 WARNING: [Synth 8-7129] Port axi_req_i[aw][atop][1] in module axi_err_unit_wrap__parameterized0 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:41 ; elapsed = 00:01:02 . Memory (MB): peak = 4378.770 ; gain = 2814.559
+Finished RTL Elaboration : Time (s): cpu = 00:00:42 ; elapsed = 00:01:03 . Memory (MB): peak = 4385.539 ; gain = 2819.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:01:06 . Memory (MB): peak = 4378.770 ; gain = 2814.559
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:01:07 . Memory (MB): peak = 4385.539 ; gain = 2819.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:44 ; elapsed = 00:01:06 . Memory (MB): peak = 4378.770 ; gain = 2814.559
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:45 ; elapsed = 00:01:07 . Memory (MB): peak = 4385.539 ; gain = 2819.262
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 5686.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 5676.250 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -12109,22 +12110,22 @@ Parsing XDC File [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-n
 Finished Parsing XDC File [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.362 . Memory (MB): peak = 8751.629 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.353 . Memory (MB): peak = 8738.242 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   BUFGMUX => BUFGCTRL (inverted pins: CE0): 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 8751.629 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 8738.242 ; gain = 0.000
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:03:11 ; elapsed = 00:03:13 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Constraint Validation : Time (s): cpu = 00:03:13 ; elapsed = 00:03:18 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:11 ; elapsed = 00:03:13 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:13 ; elapsed = 00:03:18 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -12387,7 +12388,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for i_dram_wrapper/\gen_cdc.i_axi_cdc
 Applied set_property KEEP_HIERARCHY = SOFT for i_dram_wrapper/i_dram. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_clkwiz. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:11 ; elapsed = 00:03:13 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:14 ; elapsed = 00:03:18 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_prog_reg' in module 'uart_programmer'
 INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'axi_id_remap'
@@ -13049,7 +13050,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'initiator_state_q_reg' usi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'dmi_jtag'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:35 ; elapsed = 00:04:42 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:04:32 ; elapsed = 00:04:44 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'NV_NVDLA_sync3d:/UJ_dft_xclamp_ctrl_hold_sync_i' (NV_BLKBOX_SRC0) to 'NV_NVDLA_sync3d:/UJ_dft_xclamp_scan_hold_sync_i'
 INFO: [Synth 8-223] decloning instance 'NV_NVDLA_sync3d_s:/UJ_dft_xclamp_ctrl_hold_sync_i' (NV_BLKBOX_SRC0) to 'NV_NVDLA_sync3d_s:/UJ_dft_xclamp_scan_hold_sync_i'
@@ -14452,7 +14453,7 @@ INFO: [Synth 8-5544] ROM "tl_characters" won't be mapped to Block RAM because ad
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:12:45 ; elapsed = 00:12:58 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:12:39 ; elapsed = 00:13:00 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -14683,13 +14684,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:13:12 ; elapsed = 00:13:26 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:13:04 ; elapsed = 00:13:28 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:18:11 ; elapsed = 00:18:32 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Timing Optimization : Time (s): cpu = 00:18:12 ; elapsed = 00:18:41 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -14977,7 +14978,7 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_core.v:363]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/linux-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_core.v:363]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:19:03 ; elapsed = 00:19:26 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Technology Mapping : Time (s): cpu = 00:19:03 ; elapsed = 00:19:33 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -15086,37 +15087,37 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5410] Found another clock driver \i_cheshire_soc/i_dbg_dmi_jtag/i_dmi_jtag_tap/i_dft_tck_mux/i_BUFGMUX :O [C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv:67]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:19:34 ; elapsed = 00:20:01 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished IO Insertion : Time (s): cpu = 00:19:35 ; elapsed = 00:20:07 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:19:35 ; elapsed = 00:20:02 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Renaming Generated Instances : Time (s): cpu = 00:19:37 ; elapsed = 00:20:09 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:20:17 ; elapsed = 00:20:46 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:20:19 ; elapsed = 00:20:52 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:20:19 ; elapsed = 00:20:48 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Renaming Generated Ports : Time (s): cpu = 00:20:21 ; elapsed = 00:20:54 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:20:26 ; elapsed = 00:20:54 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Handling Custom Attributes : Time (s): cpu = 00:20:28 ; elapsed = 00:21:01 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:20:27 ; elapsed = 00:20:55 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Renaming Generated Nets : Time (s): cpu = 00:20:29 ; elapsed = 00:21:02 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -15244,30 +15245,30 @@ Report Cell Usage:
 |33    |OBUF     |     2|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:20:28 ; elapsed = 00:20:56 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Finished Writing Synthesis Report : Time (s): cpu = 00:20:29 ; elapsed = 00:21:03 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 812 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:17:33 ; elapsed = 00:19:09 . Memory (MB): peak = 8759.234 ; gain = 2814.559
-Synthesis Optimization Complete : Time (s): cpu = 00:20:28 ; elapsed = 00:20:59 . Memory (MB): peak = 8759.234 ; gain = 7195.023
+Synthesis Optimization Runtime : Time (s): cpu = 00:17:30 ; elapsed = 00:19:10 . Memory (MB): peak = 8746.074 ; gain = 2819.262
+Synthesis Optimization Complete : Time (s): cpu = 00:20:30 ; elapsed = 00:21:04 . Memory (MB): peak = 8746.074 ; gain = 7179.797
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8759.234 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8746.074 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 18602 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 8759.234 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 8746.074 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   BUFGMUX => BUFGCTRL (inverted pins: CE0): 4 instances
 
-Synth Design complete, checksum: e8396a08
+Synth Design complete, checksum: d720555d
 INFO: [Common 17-83] Releasing license: Synthesis
-1377 Infos, 913 Warnings, 0 Critical Warnings and 0 Errors encountered.
+1377 Infos, 914 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:21:16 ; elapsed = 00:21:52 . Memory (MB): peak = 8759.234 ; gain = 7621.258
+synth_design: Time (s): cpu = 00:21:16 ; elapsed = 00:21:58 . Memory (MB): peak = 8746.074 ; gain = 7607.488
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/synth_1/cheshire_top_xilinx.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:01:12 ; elapsed = 00:01:08 . Memory (MB): peak = 8759.234 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:01:10 ; elapsed = 00:01:10 . Memory (MB): peak = 8746.074 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file cheshire_top_xilinx_utilization_synth.rpt -pb cheshire_top_xilinx_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Feb 28 22:56:28 2026...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar  1 17:12:06 2026...
