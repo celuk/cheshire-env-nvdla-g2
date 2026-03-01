@@ -23,3 +23,17 @@ $(foreach phony,$(CHS_PHONY),$(eval $(call chs_phony_fwd_rule,$(phony))))
 help:
 	@echo "Possible phonies (may not all be implemented):"
 	@$(foreach phony,$(sort $(CHS_PHONY)),echo '- $(patsubst chs-%,%,$(phony))';)
+
+ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+
+.PHONY: jtag
+jtag:
+	/mnt/c/Users/2640084/Downloads/riscv-openocd-built/riscv-openocd/src/openocd -f verification/jtag/debug_soc.cfg
+
+PHONY: gdb
+gdb:
+	gdb-multiarch -ex "target remote :3333"
+
+.PHONY: pico
+pico:
+	picocom -b 115200 /dev/ttyUSB$(ARGS) --imap lfcrlf
