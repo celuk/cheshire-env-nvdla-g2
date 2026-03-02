@@ -83,10 +83,6 @@ set_property src_info {type:XDC file:2 line:36 export:INPUT save:INPUT read:READ
 set_input_jitter clk_jtag 1.000
 set_property src_info {type:XDC file:2 line:48 export:INPUT save:INPUT read:READ} [current_design]
 set_false_path -hold -from [get_ports jtag_trst_ni]
-set_property src_info {type:XDC file:2 line:58 export:INPUT save:INPUT read:READ} [current_design]
-set_false_path -hold -from [get_ports uart_rx_i]
-set_property src_info {type:XDC file:2 line:61 export:INPUT save:INPUT read:READ} [current_design]
-set_false_path -hold -to [get_ports uart_tx_o]
 set_property src_info {type:XDC file:2 line:70 export:INPUT save:INPUT read:READ} [current_design]
 set_false_path -hold -through [get_pins -of_objects [get_cells -hier -filter {ORIG_REF_NAME=="sync" || REF_NAME=="sync"}] -filter {NAME=~*serial_i}]
 set_property src_info {type:XDC file:2 line:73 export:INPUT save:INPUT read:READ} [current_design]
