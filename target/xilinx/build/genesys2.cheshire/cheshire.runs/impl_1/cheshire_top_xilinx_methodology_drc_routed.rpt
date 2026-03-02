@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Mar  2 07:07:24 2026
+| Date         : Mon Mar  2 07:32:06 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_methodology -file cheshire_top_xilinx_methodology_drc_routed.rpt -pb cheshire_top_xilinx_methodology_drc_routed.pb -rpx cheshire_top_xilinx_methodology_drc_routed.rpx
 | Design       : cheshire_top_xilinx
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: checkpoint_cheshire_top_xilinx
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 111
+             Violations found: 105
 +-----------+------------------+---------------------------------------------------+------------+
 | Rule      | Severity         | Description                                       | Violations |
 +-----------+------------------+---------------------------------------------------+------------+
@@ -32,7 +32,7 @@ Table of Contents
 | PDRC-190  | Warning          | Suboptimally placed synchronized register chain   | 12         |
 | SYNTH-10  | Warning          | Wide multiplier                                   | 24         |
 | TIMING-9  | Warning          | Unknown CDC Logic                                 | 1          |
-| TIMING-11 | Warning          | Inappropriate max delay with datapath only option | 36         |
+| TIMING-11 | Warning          | Inappropriate max delay with datapath only option | 30         |
 | TIMING-18 | Warning          | Missing input or output delay                     | 3          |
 | XDCB-5    | Warning          | Runtime inefficient way to find pin objects       | 1          |
 | REQP-1959 | Advisory         | connects_SERDES_RST_driver_not_FF                 | 32         |
@@ -67,62 +67,62 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0] in site SLICE_X78Y136 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[0] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0] in site SLICE_X78Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[0] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#2 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[10] in site SLICE_X79Y140 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[10] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[10] in site SLICE_X77Y140 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[10] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#3 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[11] in site SLICE_X77Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[11] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[11] in site SLICE_X77Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[11] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#4 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[1] in site SLICE_X77Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[1] in site SLICE_X79Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#5 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[2] in site SLICE_X75Y138 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[2] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[2] in site SLICE_X75Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[2] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#6 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[3] in site SLICE_X80Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[3] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[3] in site SLICE_X78Y141 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[3] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#7 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[4] in site SLICE_X76Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[4] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[4] in site SLICE_X78Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[4] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#8 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[5] in site SLICE_X79Y136 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[5] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[5] in site SLICE_X76Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[5] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#9 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[6] in site SLICE_X79Y138 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[6] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[6] in site SLICE_X73Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[6] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#10 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[7] in site SLICE_X74Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[7] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[7] in site SLICE_X76Y141 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[7] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#11 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[8] in site SLICE_X77Y135 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[8] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[8] in site SLICE_X74Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[8] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#12 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[9] in site SLICE_X78Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[9] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[9] in site SLICE_X76Y137 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[9] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 SYNTH-10#1 Warning
@@ -398,36 +398,6 @@ Related violations: <none>
 TIMING-11#30 Warning
 Inappropriate max delay with datapath only option  
 A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_r/rptr_q_reg[5]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_r/i_spill_register/spill_register_flushable_i/gen_spill_reg.a_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#31 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[0]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#32 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[1]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#33 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[2]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#34 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[3]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#35 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[4]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
-Related violations: <none>
-
-TIMING-11#36 Warning
-Inappropriate max delay with datapath only option  
-A max delay constraint with -datapath_only has been applied between i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_src_w/wptr_q_reg[5]/C and i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_b/i_spill_register/spill_register_flushable_i/gen_spill_reg.b_full_q_reg/D. The startpoint(s) and endpoint(s) either belong to the same clock domain or belong to two clock domains that can safely be timed together (without valid synchronizer). It is only recommended to use the -datapath_only option on paths between clocks that do not have a known phase relationship. This DRC is waived when a synchronizer is found on the path endpoint
 Related violations: <none>
 
 TIMING-18#1 Warning

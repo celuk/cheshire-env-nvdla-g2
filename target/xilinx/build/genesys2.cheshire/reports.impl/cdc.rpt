@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Mar  2 07:08:49 2026
+| Date         : Mon Mar  2 07:33:22 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_cdc -file /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/reports.impl/cdc.rpt
 | Design       : cheshire_top_xilinx
@@ -15,7 +15,7 @@ Severity  Source Clock         Destination Clock                                
 --------  -------------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------  -----------------------  -----------------------  ---------  ----  ------  -------  ------------  
 Critical  clk_jtag             clk_50_clkwiz                                                                                                                                              No Common Primary Clock  Asynch Clock Groups            772    72       0      700             0  
 Critical  clk_50_clkwiz        clk_jtag                                                                                                                                                   No Common Primary Clock  Asynch Clock Groups            177     8       0      169             0  
-Critical  clk_50_clkwiz        clk_pll_i                                                                                                                                                  Safely Timed             Max Delay Datapath Only        194   179       0       15             0  
+Critical  clk_50_clkwiz        clk_pll_i                                                                                                                                                  Safely Timed             Max Delay Datapath Only        192   177       0       15             0  
 Warning   clk_pll_i            clk_50_clkwiz                                                                                                                                              Safely Timed             Max Delay Datapath Only        103   103       0        0             0  
 Warning   input port clock     clk_ref_mmcm_400                                                                                                                                           No Common Primary Clock  False Path                       1     1       0        0             1  
 Warning   input port clock     sys_clk                                                                                                                                                    No Common Primary Clock  False Path                       1     1       0        0             1  
