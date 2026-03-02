@@ -74,8 +74,8 @@ module dram_wrapper_xilinx #(
     AddrWidth     : 30,
     DataWidth     : 64,
     StrobeWidth   : 8,
-    MaxUniqIds    : 8,    // TODO: suboptimal, but limited by CVA6/LLC
-    MaxTxns       : 24    // TODO: suboptimal, but limited by CVA6/LLC
+    MaxUniqIds    : 4,    // TODO: suboptimal, but limited by CVA6/LLC
+    MaxTxns       : 1    // TODO: suboptimal, but limited by CVA6/LLC
   };
 `endif
 
