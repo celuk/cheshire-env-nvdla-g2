@@ -429,7 +429,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_ctrl.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_mem.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_missunit.sv \
-    $ROOT/../rtl/src/wt_dcache_wbuffer.sv \
+    $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_wbuffer.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/cva6_icache.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_cache_subsystem.sv \
@@ -449,7 +449,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/sram_pulp.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOT/../rtl/src/tc_sram.sv \
+    $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/tc_sram_fpga_wrapper.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
@@ -589,14 +589,13 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/hw/regs/cheshire_reg_pkg.sv \
     $ROOT/hw/regs/cheshire_reg_top.sv \
     $ROOT/hw/cheshire_idma_wrap.sv \
-    $ROOT/../rtl/src/cheshire_pkg.sv \
-    $ROOT/../rtl/src/cheshire_soc.sv \
+    $ROOT/hw/cheshire_pkg.sv \
+    $ROOT/hw/cheshire_soc.sv \
     $ROOT/../rtl/src/regwriter.sv \
     $ROOT/../rtl/src/simpleuart.sv \
     $ROOT/../rtl/src/nvdla_wrapper_axi.sv \
     $ROOT/../rtl/src/uart_programmer.sv \
     $ROOT/../rtl/header.vh \
-    $ROOT/../rtl/src/nvdla_wrapper_axi.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/target/xilinx/src/dram_wrapper_xilinx.sv \
