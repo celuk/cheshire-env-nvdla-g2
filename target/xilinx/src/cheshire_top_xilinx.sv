@@ -132,10 +132,11 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .O  ( sys_clk   )
   );
 
+  wire locked;
   clkwiz i_clkwiz (
     .clk_in1  ( sys_clk ),
-    .reset    ( '0 ),
-    .locked   ( ),
+    .reset    ( sys_resetn ),
+    .locked   ( locked ),
     .clk_50   ( soc_clk ),
     .clk_48   ( usb_clk ),
     .clk_20   ( ),
@@ -199,7 +200,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
 
   rstgen i_rstgen (
     .clk_i        ( soc_clk     ),
-    .rst_ni       ( ~sys_rst    ),
+    .rst_ni       ( ~sys_rst & locked    ),
     .test_mode_i  ( test_mode_i ),
     .rst_no       ( rst_n       ),
     .init_no      ( )

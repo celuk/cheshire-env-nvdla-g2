@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Mar  2 03:42:42 2026
+| Date         : Mon Mar  2 05:07:51 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_drc -file cheshire_top_xilinx_drc_opted.rpt -pb cheshire_top_xilinx_drc_opted.pb -rpx cheshire_top_xilinx_drc_opted.rpx
 | Design       : cheshire_top_xilinx
@@ -29,13 +29,12 @@ Table of Contents
 | Rule        | Severity | Description                                                 | Violations |
 +-------------+----------+-------------------------------------------------------------+------------+
 | CFGBVS-1    | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
-| CHECK-3     | Warning  | Report rule limit reached                                   | 2          |
+| CHECK-3     | Warning  | Report rule limit reached                                   | 3          |
 | DPIP-1      | Warning  | Input pipelining                                            | 106        |
 | DPOP-1      | Warning  | PREG Output pipelining                                      | 28         |
 | DPOP-2      | Warning  | MREG Output pipelining                                      | 50         |
 | DPOR-1      | Warning  | Asynchronous load check                                     | 167        |
 | DPREG-4     | Warning  | DSP48E1_PregDynOpmodeZmuxP:                                 | 1          |
-| PLCK-12     | Warning  | Clock Placer Checks                                         | 1          |
 | PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 120        |
 | RBOR-1      | Warning  | RAMB output registers                                       | 8          |
 | REQP-1709   | Warning  | Clock output buffering                                      | 1          |
@@ -64,6 +63,11 @@ REQP-1839 rule limit reached: 20 violations have been found.
 Related violations: <none>
 
 CHECK-3#2 Warning
+Report rule limit reached  
+REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+CHECK-3#3 Warning
 Report rule limit reached  
 REQP-1840 rule limit reached: 20 violations have been found.
 Related violations: <none>
@@ -1887,18 +1891,6 @@ Related violations: <none>
 DPREG-4#1 Warning
 DSP48E1_PregDynOpmodeZmuxP:  
 The DSP48E1 cell i_cheshire_soc/gen_nvdla.i_nvdla_wrapper/nvdla_core/nvdla_top/u_partition_o/u_NV_NVDLA_cdp/u_dp/u_NV_NVDLA_CDP_DP_cvtout/p_1_out with the given dynamic OPMODE[6:0] connections may lead to an unregistered asynchronous feedback path without the PREG attribute enabled. Please refer to the user guide and if one of the internal P feedback opmodes is possible for this design the PREG attribute must be set to 1, currently set to 0
-Related violations: <none>
-
-PLCK-12#1 Warning
-Clock Placer Checks  
-Poor placement for routing between an IO pin and BUFG. 
-Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
- This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
-
-	sys_resetn_IBUF_inst (IBUF.O) is locked to R19
-	i_rstgen/i_rstgen_bypass/i_tc_clk_mux2_rst_n/i_BUFGMUX (BUFGCTRL.I0) cannot be placed
-	i_rstgen/i_rstgen_bypass/i_tc_clk_mux2_rst_no/i_BUFGMUX (BUFGCTRL.I1) cannot be placed
-
 Related violations: <none>
 
 PLHOLDVIO-2#1 Warning

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Mar  2 03:40:12 2026
+| Date         : Mon Mar  2 05:05:21 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/reports.synth/utilization.rpt -hierarchical
 | Design       : cheshire_top_xilinx
@@ -22,7 +22,7 @@ Table of Contents
 +-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------+------------+---------+------+--------+--------+--------+------------+
 |                                                Instance                                               |                                       Module                                       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |   FFs  | RAMB36 | RAMB18 | DSP Blocks |
 +-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------+------------+---------+------+--------+--------+--------+------------+
-| cheshire_top_xilinx                                                                                   |                                                                              (top) |     168383 |     167155 |     860 |  368 | 157848 |    159 |     21 |         60 |
+| cheshire_top_xilinx                                                                                   |                                                                              (top) |     168384 |     167156 |     860 |  368 | 157848 |    159 |     21 |         60 |
 |   (cheshire_top_xilinx)                                                                               |                                                                              (top) |        680 |        680 |       0 |    0 |     25 |      0 |      0 |          0 |
 |   i_cheshire_soc                                                                                      |                                                                       cheshire_soc |     154419 |     154411 |       0 |    8 | 140932 |    158 |     21 |         60 |
 |     (i_cheshire_soc)                                                                                  |                                                                       cheshire_soc |        956 |        956 |       0 |    0 |     35 |      0 |      0 |          0 |
@@ -5272,11 +5272,11 @@ Table of Contents
 |             ui_cmd0                                                                                   |                                                      mig7s_mig_7series_v4_2_ui_cmd |         31 |         31 |       0 |    0 |     56 |      0 |      0 |          0 |
 |             ui_rd_data0                                                                               |                                                  mig7s_mig_7series_v4_2_ui_rd_data |        208 |         32 |     176 |    0 |    291 |      0 |      0 |          0 |
 |             ui_wr_data0                                                                               |                                                  mig7s_mig_7series_v4_2_ui_wr_data |        526 |        326 |     200 |    0 |    621 |      0 |      0 |          0 |
-|   i_rstgen                                                                                            |                                                                             rstgen |          2 |          2 |       0 |    0 |      4 |      0 |      0 |          0 |
-|     i_rstgen_bypass                                                                                   |                                                                      rstgen_bypass |          2 |          2 |       0 |    0 |      4 |      0 |      0 |          0 |
+|   i_rstgen                                                                                            |                                                                             rstgen |          3 |          3 |       0 |    0 |      4 |      0 |      0 |          0 |
+|     i_rstgen_bypass                                                                                   |                                                                      rstgen_bypass |          3 |          3 |       0 |    0 |      4 |      0 |      0 |          0 |
 |       (i_rstgen_bypass)                                                                               |                                                                      rstgen_bypass |          1 |          1 |       0 |    0 |      4 |      0 |      0 |          0 |
 |       i_tc_clk_mux2_init_no                                                                           |                                                                        tc_clk_mux2 |          0 |          0 |       0 |    0 |      0 |      0 |      0 |          0 |
-|       i_tc_clk_mux2_rst_n                                                                             |                                                                      tc_clk_mux2_0 |          0 |          0 |       0 |    0 |      0 |      0 |      0 |          0 |
+|       i_tc_clk_mux2_rst_n                                                                             |                                                                      tc_clk_mux2_0 |          1 |          1 |       0 |    0 |      0 |      0 |      0 |          0 |
 |       i_tc_clk_mux2_rst_no                                                                            |                                                                      tc_clk_mux2_1 |          1 |          1 |       0 |    0 |      0 |      0 |      0 |          0 |
 +-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------+------------+------------+---------+------+--------+--------+--------+------------+
 
