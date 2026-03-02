@@ -135,7 +135,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
   wire locked;
   clkwiz i_clkwiz (
     .clk_in1  ( sys_clk ),
-    .reset    ( sys_resetn ),
+    .reset    ( ~sys_resetn ),
     .locked   ( locked ),
     .clk_50   ( soc_clk ),
     .clk_48   ( usb_clk ),
