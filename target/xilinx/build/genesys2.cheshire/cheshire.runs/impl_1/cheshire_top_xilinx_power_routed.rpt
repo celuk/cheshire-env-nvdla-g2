@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Mon Mar  2 07:32:23 2026
+| Date             : Mon Mar  2 08:36:42 2026
 | Host             : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file cheshire_top_xilinx_power_routed.rpt -pb cheshire_top_xilinx_power_summary_routed.pb -rpx cheshire_top_xilinx_power_routed.rpx
 | Design           : cheshire_top_xilinx
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 2.041        |
+| Total On-Chip Power (W)  | 2.233        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.867        |
-| Device Static (W)        | 0.174        |
+| Dynamic (W)              | 2.048        |
+| Device Static (W)        | 0.185        |
 | Effective TJA (C/W)      | 1.8          |
-| Max Ambient (C)          | 81.4         |
-| Junction Temperature (C) | 28.6         |
+| Max Ambient (C)          | 81.0         |
+| Junction Temperature (C) | 29.0         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,26 +52,26 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.166 |       39 |       --- |             --- |
-| Slice Logic              |     0.069 |   153860 |       --- |             --- |
-|   LUT as Logic           |     0.065 |    71735 |    203800 |           35.20 |
-|   CARRY4                 |     0.002 |     2672 |     50950 |            5.24 |
-|   Register               |     0.001 |    56747 |    407600 |           13.92 |
+| Clocks                   |     0.236 |       39 |       --- |             --- |
+| Slice Logic              |     0.091 |   367428 |       --- |             --- |
+|   LUT as Logic           |     0.084 |   157512 |    203800 |           77.29 |
+|   CARRY4                 |     0.004 |     6396 |     50950 |           12.55 |
+|   Register               |     0.002 |   154752 |    407600 |           37.97 |
 |   LUT as Distributed RAM |    <0.001 |      852 |     64000 |            1.33 |
-|   LUT as Shift Register  |    <0.001 |      336 |     64000 |            0.53 |
-|   F7/F8 Muxes            |    <0.001 |     4677 |    203800 |            2.29 |
-|   Others                 |     0.000 |     1390 |       --- |             --- |
+|   F7/F8 Muxes            |    <0.001 |     9958 |    203800 |            4.89 |
+|   LUT as Shift Register  |    <0.001 |      348 |     64000 |            0.54 |
+|   Others                 |    <0.001 |     5405 |       --- |             --- |
 |   BUFG                   |     0.000 |        2 |        32 |            6.25 |
-| Signals                  |     0.087 |   121295 |       --- |             --- |
-| Block RAM                |     0.018 |       25 |       445 |            5.62 |
+| Signals                  |     0.124 |   286685 |       --- |             --- |
+| Block RAM                |     0.068 |    169.5 |       445 |           38.09 |
 | MMCM                     |     0.332 |        3 |        10 |           30.00 |
 | PLL                      |     0.133 |        1 |        10 |           10.00 |
-| DSPs                     |    <0.001 |       27 |       840 |            3.21 |
+| DSPs                     |     0.004 |       60 |       840 |            7.14 |
 | I/O                      |     0.600 |       81 |       500 |           16.20 |
 | PHASER                   |     0.456 |       28 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
-| Static Power             |     0.174 |          |           |                 |
-| Total                    |     2.041 |          |           |                 |
+| Static Power             |     0.185 |          |           |                 |
+| Total                    |     2.233 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -81,7 +81,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.564 |       0.484 |      0.079 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.746 |       0.662 |      0.085 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.483 |       0.455 |      0.029 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -90,7 +90,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       2.000 |     0.109 |       0.109 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.004 |       0.002 |      0.002 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.013 |       0.005 |      0.008 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -184,40 +184,47 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------------------------------------------------+-----------+
-| Name                                                  | Power (W) |
-+-------------------------------------------------------+-----------+
-| cheshire_top_xilinx                                   |     1.867 |
-|   i_cheshire_soc                                      |     0.107 |
-|     gen_cva6_cores[0].gen_cva6_bus_err.i_cva6_bus_err |     0.001 |
-|     gen_cva6_cores[0].i_core_cva6                     |     0.081 |
-|       csr_regfile_i                                   |     0.004 |
-|       ex_stage_i                                      |     0.027 |
-|       gen_cache_wt.i_cache_subsystem                  |     0.021 |
-|       i_frontend                                      |     0.010 |
-|       issue_stage_i                                   |     0.018 |
-|     gen_llc_atomics.i_llc_atomics                     |     0.002 |
-|       i_axi_riscv_atomics_wrap                        |     0.002 |
-|     i_axi_to_reg_v2                                   |     0.006 |
-|       gen_tcdm_to_reg[0].i_mem_req_spill              |     0.005 |
-|     i_axi_xbar                                        |     0.005 |
-|       i_xbar_unmuxed                                  |     0.003 |
-|     i_dbg_dm_top                                      |     0.001 |
-|     i_dbg_slv_axi_atomics                             |     0.002 |
-|       i_axi_riscv_atomics_wrap                        |     0.002 |
-|     i_dbg_slv_axi_to_mem                              |     0.003 |
-|       i_axi_to_mem_read                               |     0.002 |
-|       i_axi_to_mem_write                              |     0.001 |
-|     i_reg_atomics                                     |     0.002 |
-|       i_axi_riscv_atomics_wrap                        |     0.002 |
-|   i_clkwiz                                            |     0.118 |
-|     inst                                              |     0.118 |
-|   i_dram_wrapper                                      |     1.634 |
-|     gen_cdc.i_axi_cdc_mig                             |     0.053 |
-|       i_axi_cdc_dst                                   |     0.035 |
-|       i_axi_cdc_src                                   |     0.018 |
-|     i_dram                                            |     1.581 |
-|       u_mig7s_mig                                     |     1.580 |
-+-------------------------------------------------------+-----------+
++-------------------------------------------------+-----------+
+| Name                                            | Power (W) |
++-------------------------------------------------+-----------+
+| cheshire_top_xilinx                             |     2.048 |
+|   i_cheshire_soc                                |     0.308 |
+|     gen_cva6_cores[0].i_core_cva6               |     0.079 |
+|       csr_regfile_i                             |     0.002 |
+|       ex_stage_i                                |     0.024 |
+|       gen_cache_wt.i_cache_subsystem            |     0.024 |
+|       i_frontend                                |     0.009 |
+|       id_stage_i                                |     0.002 |
+|       issue_stage_i                             |     0.016 |
+|     gen_llc.i_llc                               |     0.043 |
+|       i_axi_llc_top_raw                         |     0.043 |
+|     gen_llc_atomics.i_llc_atomics               |     0.001 |
+|       i_axi_riscv_atomics_wrap                  |     0.001 |
+|     gen_llc_atomics.i_llc_atomics_cut           |     0.001 |
+|     gen_nvdla.gen_nvdla_bus_err.i_nvdla_bus_err |     0.011 |
+|       i_read_err_unit                           |     0.008 |
+|       i_write_err_unit                          |     0.002 |
+|     gen_nvdla.i_nvdla_wrapper                   |     0.145 |
+|       nvdla_core                                |     0.145 |
+|     i_axi_to_reg_v2                             |     0.006 |
+|       gen_tcdm_to_reg[0].i_mem_req_spill        |     0.005 |
+|     i_axi_xbar                                  |     0.010 |
+|       i_xbar_unmuxed                            |     0.008 |
+|     i_dbg_slv_axi_atomics                       |     0.001 |
+|       i_axi_riscv_atomics_wrap                  |     0.001 |
+|     i_dbg_slv_axi_to_mem                        |     0.002 |
+|       i_axi_to_mem_read                         |     0.001 |
+|       i_axi_to_mem_write                        |     0.001 |
+|     i_reg_atomics                               |     0.002 |
+|       i_axi_riscv_atomics_wrap                  |     0.002 |
+|   i_clkwiz                                      |     0.119 |
+|     inst                                        |     0.119 |
+|   i_dram_wrapper                                |     1.614 |
+|     gen_cdc.i_axi_cdc_mig                       |     0.045 |
+|       i_axi_cdc_dst                             |     0.030 |
+|       i_axi_cdc_src                             |     0.015 |
+|     i_dram                                      |     1.569 |
+|       u_mig7s_mig                               |     1.568 |
++-------------------------------------------------+-----------+
 
 

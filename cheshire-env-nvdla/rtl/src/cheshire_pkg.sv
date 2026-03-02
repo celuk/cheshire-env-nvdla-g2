@@ -622,7 +622,7 @@ package cheshire_pkg;
     SerialLink        : 0,
     Vga               : 0,
     Usb               : 0,
-    Nvdla             : 0,
+    Nvdla             : 1,
     AxiRt             : 0,
     Clic              : 0,
     IrqRouter         : 0,
@@ -635,7 +635,7 @@ package cheshire_pkg;
     DbgAmoNumCuts     : 1,
     DbgAmoPostCut     : 1,
     // LLC: 128 KiB, up to 2 GiB DRAM
-    LlcNotBypass      : 0,
+    LlcNotBypass      : 1,
     LlcSetAssoc       : 8,
     LlcNumLines       : 256,
     LlcNumBlocks      : 8,
