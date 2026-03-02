@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Mar  2 15:47:08 2026
+| Date         : Mon Mar  2 16:55:30 2026
 | Host         : karpuz running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_methodology -file cheshire_top_xilinx_methodology_drc_routed.rpt -pb cheshire_top_xilinx_methodology_drc_routed.pb -rpx cheshire_top_xilinx_methodology_drc_routed.rpx
 | Design       : cheshire_top_xilinx
@@ -67,62 +67,62 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0] in site SLICE_X57Y148 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[0] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[0] in site SLICE_X88Y131 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[0] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#2 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[10] in site SLICE_X60Y148 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[10] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[10] in site SLICE_X87Y128 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[10] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#3 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[11] in site SLICE_X48Y142 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[11] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[11] in site SLICE_X86Y131 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[11] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#4 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[1] in site SLICE_X59Y148 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[1] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[1] in site SLICE_X89Y132 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[1] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#5 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[2] in site SLICE_X59Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[2] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[2] in site SLICE_X86Y133 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[2] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#6 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[3] in site SLICE_X57Y139 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[3] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[3] in site SLICE_X89Y129 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[3] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#7 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[4] in site SLICE_X55Y148 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[4] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[4] in site SLICE_X90Y130 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[4] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#8 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[5] in site SLICE_X62Y148 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[5] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[5] in site SLICE_X86Y129 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[5] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#9 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[6] in site SLICE_X58Y149 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[6] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[6] in site SLICE_X87Y132 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[6] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#10 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[7] in site SLICE_X60Y145 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[7] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[7] in site SLICE_X88Y128 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[7] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#11 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[8] in site SLICE_X56Y149 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[8] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[8] in site SLICE_X85Y131 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[8] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 PDRC-190#12 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[9] in site SLICE_X61Y149 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[9] is not placed in the same (SLICE) site.
+The FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_sync_r5_reg[9] in site SLICE_X87Y130 is part of a synchronized register chain that is suboptimally placed as the load FDRE cell i_dram_wrapper/i_dram/u_mig7s_mig/temp_mon_enabled.u_tempmon/device_temp_r_reg[9] is not placed in the same (SLICE) site.
 Related violations: <none>
 
 SYNTH-10#1 Warning
