@@ -87,16 +87,16 @@ wire prog_mode_led_o;
   logic [1:0] boot_mode_i = 2'b00;
   logic test_mode = 0;
   // JTAG
-  logic jtag_tck = jtag_tck_i;
-  logic jtag_trst_n;
+  wire jtag_tck = jtag_tck_i;
+  wire jtag_trst_n;
   `ifdef GENESYS2
   assign jtag_trst_n = jtag_trst_ni;
   `else
   assign jtag_trst_n = 1'b1;
   `endif
-  logic jtag_tms = jtag_tms_i;
-  logic jtag_tdi = jtag_tdi_i;
-  logic jtag_tdo;
+  wire jtag_tms = jtag_tms_i;
+  wire jtag_tdi = jtag_tdi_i;
+  wire jtag_tdo;
   assign jtag_tdo_o = jtag_tdo;
   // I2C
   logic i2c_sda;
@@ -127,7 +127,7 @@ wire prog_mode_led_o;
         .reset(~sys_resetn),
         .locked(clkwiz_locked)
      );
-     wire rst_n = sys_resetn & system_reset_o & clkwiz_locked;
+     wire async_rst_n = sys_resetn & system_reset_o & clkwiz_locked;
   `elsif ZC706
      wire pll_locked;
      wire clk100;
@@ -164,7 +164,7 @@ wire prog_mode_led_o;
      );
 
      wire clkwiz_o = clk_i;
-     wire rst_n = sys_resetn & system_reset_o & !uart_dram_mode; // & !uart_dram_mode
+     wire async_rst_n = sys_resetn & system_reset_o & !uart_dram_mode; // & !uart_dram_mode
      wire dram_ref_clk = clk_ref; //sys_clk;
   `elsif GENESYS2
      wire pll_locked;
@@ -194,7 +194,7 @@ wire prog_mode_led_o;
      );
 
      wire clkwiz_o = soc_clk;
-     wire rst_n = sys_resetn & system_reset_o & !uart_dram_mode & pll_locked;
+     wire async_rst_n = sys_resetn & system_reset_o & !uart_dram_mode & pll_locked;
 
      // For GENESYS2, MIG needs the raw 200 MHz IBUFDS output (sys_clk),
      // NOT a PLL-derived clock. The MIG has its own internal MMCM;
@@ -202,8 +202,17 @@ wire prog_mode_led_o;
      wire dram_ref_clk = sys_clk;
   `else
      wire clkwiz_o = clk_i;
-     wire rst_n = sys_resetn & system_reset_o;
+     wire async_rst_n = sys_resetn & system_reset_o;
   `endif
+
+  wire rst_n;
+  rstgen i_rstgen (
+    .clk_i        ( clkwiz_o     ),
+    .rst_ni       ( async_rst_n  ),
+    .test_mode_i  ( test_mode ),
+    .rst_no       ( rst_n       ),
+    .init_no      ( )
+  );
 
   uart_programmer up_dram (
      .clk_i(clkwiz_o),

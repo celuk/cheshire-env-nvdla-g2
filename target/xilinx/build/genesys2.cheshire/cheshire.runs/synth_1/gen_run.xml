@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772468988">
+<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1772474510">
   <File Type="VDS-TIMINGSUMMARY" Name="cheshire_top_xilinx_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="cheshire_top_xilinx.dcp"/>
   <File Type="RDS-UTIL-PB" Name="cheshire_top_xilinx_utilization_synth.pb"/>
@@ -4232,6 +4232,20 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen_bypass.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -4850,14 +4864,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen_bypass.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/serial_deglitch.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -4955,14 +4961,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/max_counter.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

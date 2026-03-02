@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2928569-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3107417-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -406,6 +406,8 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/apb_uart-4d4f3bfa4a1ee910/src/reg_uart_wrap.sv
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/regwriter.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rr_arb_tree.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen_bypass.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_gateway.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_reg_top.sv
