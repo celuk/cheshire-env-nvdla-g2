@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2316686-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2512845-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -109,11 +109,6 @@ set_property include_dirs {
 set_property verilog_define {TARGET_CV64A6_IMAFDCSCLIC_SV39 TARGET_CVA6 TARGET_FPGA TARGET_GENESYS2 TARGET_RTL TARGET_SYNTHESIS TARGET_VIVADO TARGET_XILINX} [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog {
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/include/simulate_x_tick.vh
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/include/NV_HWACC_NVDLA_tick_defines.vh
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/header.vh
-}
 read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv
@@ -249,12 +244,11 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clint-7c9dd35834098ca9/src/clint_reg_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/future/spinal_usb_ohci.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_reg_pkg.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cheshire_pkg.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/cheshire_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/regs/cheshire_reg_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/regs/cheshire_reg_top.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cvxif_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dm_pkg.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cheshire_soc.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/cheshire_soc.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clic-e7533acc1e7273c3/src/mclic_reg_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clic-e7533acc1e7273c3/src/clicint_reg_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clic-e7533acc1e7273c3/src/clic.sv
@@ -273,6 +267,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/counter.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/csr_buffer.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/csr_regfile.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cvxif_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6_accel_first_pass_decoder_stub.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6_clic_controller.sv
@@ -363,7 +358,6 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/norm_div_sqrt_mvp.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/nrbd_nrsc_mvp.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/nvdla_wrapper_axi.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_baudgen.sv
@@ -404,7 +398,6 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/src/reg_to_axi.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/src/reg_to_mem.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/apb_uart-4d4f3bfa4a1ee910/src/reg_uart_wrap.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/regwriter.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rr_arb_tree.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/rstgen_bypass.sv
@@ -472,301 +465,12 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_ctrl.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_mem.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_missunit.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/wt_dcache_wbuffer.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_wbuffer.sv
   /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/src/cheshire_top_xilinx.sv
 }
 read_verilog -library xil_defaultlib {
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/AN2D4PO4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/CKLNQD12.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/HLS_cdp_icvt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/HLS_cdp_ocvt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/LNQD1PO4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/MUX2D4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/MUX2HDD2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_BLKBOX_BUFFER.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_BLKBOX_SINK.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_BLKBOX_SRC0.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_BLKBOX_SRC0_X.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_CLK_gate_power.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_CALC_int8.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_assembly_buffer.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_assembly_ctrl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_calculator.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_delivery_buffer.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_delivery_ctrl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_dual_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_regfile.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_single_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_CACC_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_CVT_cell.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_DC_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_IMG_ctrl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_IMG_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_IMG_pack.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_IMG_sg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_IMG_sg2pack_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_WT_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_cvt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dc.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dma_mux.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_dual_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_img.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_regfile.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_shared_buffer.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_single_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_status.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_CDMA_wt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_INTP_unit.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_LUT_CTRL_unit.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_LUT_ctrl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_MUL_unit.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_bufferin_tp1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_cvtin.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_cvtout.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_intp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_lut.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_mul.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_nan.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_sum.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_DP_syncfifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_RDMA_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_dp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_rdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_CDP_wdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cfgrom/NV_NVDLA_CFGROM_rom.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_active.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_cfg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_mac.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_rt_in.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_rt_out.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_CORE_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_core.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_CMAC_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csb_master/NV_NVDLA_CSB_MASTER_csb2falcon_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csb_master/NV_NVDLA_CSB_MASTER_falcon2csb_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_SG_dat_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_SG_wt_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_WL_dec.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_dl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_dual_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_regfile.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_sg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_single_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_CSC_wl.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_DMAIF_rdreq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_DMAIF_rdrsp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_DMAIF_wr.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/glb/NV_NVDLA_GLB_CSB_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/glb/NV_NVDLA_GLB_csb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/glb/NV_NVDLA_GLB_ic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_NVDLA_HLS_saturate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_NVDLA_HLS_shiftleftsu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_NVDLA_HLS_shiftrightsatsu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/NV_NVDLA_HLS_shiftrightsu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_MCIF_CSB_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_MCIF_csb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_IG_arb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_IG_bpt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_IG_cvt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_IG_spt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_READ_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_IG_arb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_IG_bpt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_IG_cvt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_IG_spt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_WRITE_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_read.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_DRAM_write.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_NOCIF_dram.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal1d.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_cal2d.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_preproc.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_CORE_unit1d.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_RDMA_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_WDMA_cmd.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_WDMA_dat.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_core.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_nan.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_rdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_slcg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_PDP_wdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_BRDMA_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_BRDMA_gate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_BRDMA_lat_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_CORE_gate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_CORE_pack.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_CORE_unpack.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_C_int.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_X_int_alu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_X_int_mul.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_X_int_relu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_X_int_trt.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_c.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_prelu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_relu.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_sync2data.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_x1_int.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_HLS_x2_int.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_EG_cmd.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_EG_din.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_EG_dout.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_gate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_MRDMA_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_NRDMA_cq.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_NRDMA_gate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_NRDMA_lat_fifo.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_EG_ro.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_dmaif.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_eg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_ig.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_pack.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_RDMA_unpack.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_REG_dual.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_REG_single.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_DAT_in.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_DAT_out.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_cmd.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_dat.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_gate.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_WDMA_intr.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_brdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_cmux.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_core.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_mrdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_nrdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_rdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_reg.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_SDP_wdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/nocif/NV_NVDLA_XXIF_libs.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/apb2csb/NV_NVDLA_apb2csb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cacc/NV_NVDLA_cacc.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cbuf/NV_NVDLA_cbuf.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdma/NV_NVDLA_cdma.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/NV_NVDLA_cdp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cfgrom/NV_NVDLA_cfgrom.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cmac/NV_NVDLA_cmac.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/car/NV_NVDLA_core_reset.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csb_master/NV_NVDLA_csb_master.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/csc/NV_NVDLA_csc.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/glb/NV_NVDLA_glb.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_NVDLA_partition_a.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_NVDLA_partition_c.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_NVDLA_partition_m.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_NVDLA_partition_o.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_NVDLA_partition_p.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/pdp/NV_NVDLA_pdp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/car/NV_NVDLA_reset.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/sdp/NV_NVDLA_sdp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/car/NV_NVDLA_sync3d.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/car/NV_NVDLA_sync3d_c.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/car/NV_NVDLA_sync3d_s.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/top/NV_nvdla.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/OR2D1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_128X11_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_128X6_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_16X256_GL_M1_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_16X272_GL_M1_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_16X64_GL_M1_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_256X4_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_256X7_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_256X8_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_60X22_GL_M1_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_80X14_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_80X15_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_80X9_GL_M2_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMDP_8X66_GL_M1_E2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_128X18_GL_M2_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_160X16_GL_M2_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_160X65_GL_M2_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_256X64_GL_M2_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_64X66_GL_M1_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/model/RAMPDP_80X66_GL_M1_D2.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFCNQD1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFQD1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFSNQD1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/ScanShareSel_JTAG_reg_ext_cg.v
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/future/UsbOhciAxi4.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/int_sum_block_tp1.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_128x18.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_128x18_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x256.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x256_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x272.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x272_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x3.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x3_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x64.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x64_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x7.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_256x7_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_128x11.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_128x11_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_128x6.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_128x6_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_160x16.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_160x16_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_160x65.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_160x65_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_61x65.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_61x65_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_80x14.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_80x14_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_80x65.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_80x65_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_8x65.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsp_8x65_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwst_256x8.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwst_256x8_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_19x4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_60x21.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_60x21_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_80x15.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_80x15_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_80x9.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rwsthp_80x9_logic.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/nvdla_small.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/oneHotClk_async_read_clock.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/oneHotClk_async_write_clock.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SDFCNQD1PO4.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC2DO_C_PP.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC3DO.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC3DO_C_PPP.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC3DO_S_PPP.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_STRICTSYNC3DOTM_C_PPP.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v
@@ -778,11 +482,6 @@ read_verilog -library xil_defaultlib {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync2d_c_pp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync3d.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync3d_c_ppp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync3d_s_ppp.v
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync_reset.v
 }
 read_ip -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc]
