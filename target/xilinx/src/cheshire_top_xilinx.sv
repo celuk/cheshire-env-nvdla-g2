@@ -132,10 +132,11 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .O  ( sys_clk   )
   );
 
+  wire locked;
   clkwiz i_clkwiz (
     .clk_in1  ( sys_clk ),
-    .reset    ( '0 ),
-    .locked   ( ),
+    .reset    ( ~sys_resetn ),
+    .locked   ( locked ),
     .clk_50   ( soc_clk ),
     .clk_48   ( usb_clk ),
     .clk_20   ( ),
@@ -199,7 +200,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
 
   rstgen i_rstgen (
     .clk_i        ( soc_clk     ),
-    .rst_ni       ( ~sys_rst    ),
+    .rst_ni       ( ~sys_rst & locked    ),
     .test_mode_i  ( test_mode_i ),
     .rst_no       ( rst_n       ),
     .init_no      ( )
@@ -560,9 +561,14 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .vga_green_o,
     .vga_blue_o,
 `endif
-    .uart_tx_o,
-    .uart_rx_i,
-    .usb_clk_i          ( usb_clk ),
+    .uart_tx_o          ( uart_tx_o ),
+    .uart_rx_i          ( uart_rx_i ),
+    .uart_cts_ni        ( 1'b0 ),
+    .uart_dsr_ni        ( 1'b0 ),
+    .uart_dcd_ni        ( 1'b0 ),
+    .uart_rin_ni        ( 1'b0 ),
+
+    .usb_clk_i          ( 0 ),
     .usb_rst_ni         ( rst_n ), // Technically should sync to `usb_clk`, but pulse is long enough
     .usb_dm_i,
     .usb_dm_o,
