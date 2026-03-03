@@ -1230,7 +1230,7 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
   if (Cfg.Uart) begin : gen_uart
 
     reg_uart_wrap #(
-      .AddrWidth  ( 32 ),
+      .AddrWidth  ( Cfg.AddrWidth ),
       .reg_req_t  ( reg_req_t ),
       .reg_rsp_t  ( reg_rsp_t )
     ) i_uart (
