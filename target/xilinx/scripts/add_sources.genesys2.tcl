@@ -242,7 +242,7 @@ add_files -norecurse -fileset [current_fileset] [list \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_baudgen.sv \
+    $ROOT/../rtl/src/obi_uart_baudgen.sv \
     $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_interrupts.sv \
     $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_modem.sv \
     $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_rx.sv \
