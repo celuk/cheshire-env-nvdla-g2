@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="9fbc3d56c5334c1591352593b460eb55"/>
+    <Option Name="Id" Val="75446473fbd74b729012d419914c404c"/>
     <Option Name="Part" Val="xc7k325tffg900-2"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -4039,7 +4039,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_interrupts.sv">
+      <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/obi_uart_interrupts.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
