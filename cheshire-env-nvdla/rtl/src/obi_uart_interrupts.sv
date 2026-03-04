@@ -55,11 +55,13 @@ module obi_uart_interrupts import obi_uart_pkg::*; #()
     if (reg_read_i.fcr.fifo_en) begin
       intrpt_reg_d.rxdr |= reg_read_i.ier.dtr & rx_fifo_trigger; // data ready in FIFO mode
     end else begin
-      intrpt_reg_d.rxdr |= reg_read_i.ier.dtr & reg_write_i.rx.data_ready; // in THR mode
+      intrpt_reg_d.rxdr |= reg_read_i.ier.dtr & reg_write_i.rx.data_ready; // in RHR mode
     end
 
     //--Character-Timeout-Interrupt---------------------------------------------------------------
-    intrpt_reg_d.timeout |= reg_read_i.fcr.fifo_en & reg_read_i.ier.dtr & rx_timeout;
+    if (reg_read_i.fcr.fifo_en & reg_read_i.ier.dtr & rx_timeout) begin
+      intrpt_reg_d.timeout = 1'b1;
+    end
 
     //--THR-Empty-Interrupt-----------------------------------------------------------------------
     intrpt_reg_d.thr_empty |= reg_read_i.ier.thr_empty & reg_write_i.tx.thr_empty;
@@ -81,6 +83,9 @@ module obi_uart_interrupts import obi_uart_pkg::*; #()
     end
     if (!reg_read_i.ier.mstat) begin
       intrpt_reg_d.mstat = 1'b0;
+    end
+    if (!reg_read_i.fcr.fifo_en) begin
+      intrpt_reg_d.timeout = 1'b0;
     end
 
     //////////////////////////////////////////////////////////////////////////////////////////////
