@@ -45,48 +45,26 @@ module obi_uart_interrupts import obi_uart_pkg::*; #()
   // Generare Interrupt Signals //
   ////////////////////////////////////////////////////////////////////////////////////////////////
   always_comb begin
-    intrpt_reg_d = intrpt_reg_q;
-
     //--Receive-Line-Status-Interrupt-------------------------------------------------------------
-    intrpt_reg_d.rls |= reg_read_i.ier.rlstat & (reg_write_i.rx.overrun | reg_write_i.rx.par_err |
-                         reg_write_i.rx.frame_err | reg_write_i.rx.break_irq);
+    intrpt_reg_d.rls = reg_read_i.ier.rlstat & (reg_write_i.rx.overrun | reg_write_i.rx.par_err |
+                        reg_write_i.rx.frame_err | reg_write_i.rx.break_irq);
 
     //--Receive-Data-Ready-Interrupt--------------------------------------------------------------
     if (reg_read_i.fcr.fifo_en) begin
-      intrpt_reg_d.rxdr |= reg_read_i.ier.dtr & rx_fifo_trigger; // data ready in FIFO mode
+      intrpt_reg_d.rxdr = reg_read_i.ier.dtr & rx_fifo_trigger; // data ready in FIFO mode
     end else begin
-      intrpt_reg_d.rxdr |= reg_read_i.ier.dtr & reg_write_i.rx.data_ready; // in RHR mode
+      intrpt_reg_d.rxdr = reg_read_i.ier.dtr & reg_write_i.rx.data_ready; // in THR mode
     end
 
     //--Character-Timeout-Interrupt---------------------------------------------------------------
-    if (reg_read_i.fcr.fifo_en & reg_read_i.ier.dtr & rx_timeout) begin
-      intrpt_reg_d.timeout = 1'b1;
-    end
+    intrpt_reg_d.timeout = reg_read_i.fcr.fifo_en & reg_read_i.ier.dtr & rx_timeout;
 
     //--THR-Empty-Interrupt-----------------------------------------------------------------------
-    intrpt_reg_d.thr_empty |= reg_read_i.ier.thr_empty & reg_write_i.tx.thr_empty;
+    intrpt_reg_d.thr_empty = reg_read_i.ier.thr_empty & reg_write_i.tx.thr_empty;
 
     //--Modem-Status-Interrupt--------------------------------------------------------------------
-    intrpt_reg_d.mstat |= reg_read_i.ier.mstat & (reg_write_i.modem.d_cts |
-                       reg_write_i.modem.d_dsr | reg_write_i.modem.te_ri | reg_write_i.modem.d_cd);
-
-    // Clear pending causes when corresponding interrupt enable is disabled
-    if (!reg_read_i.ier.rlstat) begin
-      intrpt_reg_d.rls = 1'b0;
-    end
-    if (!reg_read_i.ier.dtr) begin
-      intrpt_reg_d.rxdr = 1'b0;
-      intrpt_reg_d.timeout = 1'b0;
-    end
-    if (!reg_read_i.ier.thr_empty) begin
-      intrpt_reg_d.thr_empty = 1'b0;
-    end
-    if (!reg_read_i.ier.mstat) begin
-      intrpt_reg_d.mstat = 1'b0;
-    end
-    if (!reg_read_i.fcr.fifo_en) begin
-      intrpt_reg_d.timeout = 1'b0;
-    end
+    intrpt_reg_d.mstat = reg_read_i.ier.mstat & (reg_write_i.modem.d_cts |
+      reg_write_i.modem.d_dsr | reg_write_i.modem.te_ri | reg_write_i.modem.d_cd);
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     // Interrupt Reset Condition //
