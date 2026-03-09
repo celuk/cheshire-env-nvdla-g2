@@ -23,9 +23,13 @@ module dram_wrapper_xilinx #(
   // System reset
   input  logic  sys_rst_i,
   input  logic  dram_clk_i,
+  input  logic  sys_clk_p_i,
+  input  logic  sys_clk_n_i,
   // Controller reset
   input  logic  soc_resetn_i,
   input  logic  soc_clk_i,
+  output logic  dram_axi_clk_o,
+  output logic  dram_axi_rst_no,
   // PHY interfaces
 `ifdef USE_DDR4
   `DDR4_INTF
@@ -70,11 +74,11 @@ module dram_wrapper_xilinx #(
   localparam dram_cfg_t cfg = '{
     EnCdc         : 1,    // 200 MHz AXI (cf. CCdcLogDepth)
     CdcLogDepth   : 5,
-    IdWidth       : 4,    // Fixed
+    IdWidth       : 8,    // Fixed
     AddrWidth     : 30,
     DataWidth     : 64,
     StrobeWidth   : 8,
-    MaxUniqIds    : 4,    // TODO: suboptimal, but limited by CVA6/LLC
+    MaxUniqIds    : 8,    // TODO: suboptimal, but limited by CVA6/LLC
     MaxTxns       : 1    // TODO: suboptimal, but limited by CVA6/LLC
   };
 `endif
@@ -97,6 +101,9 @@ module dram_wrapper_xilinx #(
   // Clock on which is clocked the DRAM AXI
   logic dram_axi_clk;
   logic dram_rst_o;
+
+  assign dram_axi_clk_o = dram_axi_clk;
+  assign dram_axi_rst_no = ~dram_rst_o;
 
   // Signals before resizing
   axi_soc_req_t  soc_dresizer_req;
@@ -305,7 +312,9 @@ module dram_wrapper_xilinx #(
 `ifdef USE_DDR3
   mig7s i_dram (
     .sys_rst              ( sys_rst_i    ), // Active high
-    .sys_clk_i            ( dram_clk_i   ),
+    //.sys_clk_i            ( dram_clk_i   ),
+    .sys_clk_p            ( sys_clk_p_i  ),
+    .sys_clk_n            ( sys_clk_n_i  ),
     .ui_clk               ( dram_axi_clk ),
     .ui_clk_sync_rst      ( dram_rst_o ),
     .mmcm_locked          ( ),

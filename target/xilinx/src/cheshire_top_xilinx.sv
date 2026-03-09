@@ -120,28 +120,44 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
   //  Clock Generation  //
   ////////////////////////
 
-  wire sys_clk;
-  wire soc_clk;
-  wire usb_clk;
+  logic soc_clk;
+  wire dram_axi_clk;
+  wire dram_axi_rst_n;
+  logic dram_ref_clk;
+  logic soc_clk_div2;
 
+`ifdef USE_DDR4
   IBUFDS #(
     .IBUF_LOW_PWR ("FALSE")
   ) i_bufds_sys_clk (
-    .I  ( sys_clk_p ),
-    .IB ( sys_clk_n ),
-    .O  ( sys_clk   )
+    .I  ( sys_clk_p    ),
+    .IB ( sys_clk_n    ),
+    .O  ( dram_ref_clk )
   );
+`else
+  assign dram_ref_clk = '0;
+`endif
 
-  wire locked;
-  clkwiz i_clkwiz (
-    .clk_in1  ( sys_clk ),
-    .reset    ( ~sys_resetn ),
-    .locked   ( locked ),
-    .clk_50   ( soc_clk ),
-    .clk_48   ( usb_clk ),
-    .clk_20   ( ),
-    .clk_10   ( )
-  );
+  //BUFGCE_DIV #(
+  //  .BUFGCE_DIVIDE ( 4 )
+  //) i_soc_clk_div (
+  //  .I   ( dram_axi_clk   ),
+  //  .CE  ( 1'b1           ),
+  //  .CLR ( ~dram_axi_rst_n ),
+  //  .O   ( soc_clk        )
+  //);
+
+  always_ff @(posedge dram_axi_clk or negedge dram_axi_rst_n) begin
+    if (~dram_axi_rst_n) begin
+      soc_clk_div2 <= 1'b0;
+      soc_clk      <= 1'b0;
+    end else begin
+      soc_clk_div2 <= ~soc_clk_div2;
+      if (soc_clk_div2) begin
+        soc_clk <= ~soc_clk;
+      end
+    end
+  end
 
   /////////////////////
   //  System Inputs  //
@@ -200,7 +216,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
 
   rstgen i_rstgen (
     .clk_i        ( soc_clk     ),
-    .rst_ni       ( ~sys_rst & locked    ),
+    .rst_ni       ( ~sys_rst & dram_axi_rst_n ),
     .test_mode_i  ( test_mode_i ),
     .rst_no       ( rst_n       ),
     .init_no      ( )
@@ -482,9 +498,13 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     .axi_soc_resp_t    ( axi_llc_rsp_t     )
   ) i_dram_wrapper (
     .sys_rst_i    ( sys_rst ),
+    .dram_clk_i   ( dram_ref_clk ),
+    .sys_clk_p_i  ( sys_clk_p ),
+    .sys_clk_n_i  ( sys_clk_n ),
     .soc_resetn_i ( rst_n   ),
     .soc_clk_i    ( soc_clk ),
-    .dram_clk_i   ( sys_clk ),
+    .dram_axi_clk_o ( dram_axi_clk ),
+    .dram_axi_rst_no ( dram_axi_rst_n ),
     .soc_req_i    ( axi_llc_mst_req ),
     .soc_rsp_o    ( axi_llc_mst_rsp ),
     .*

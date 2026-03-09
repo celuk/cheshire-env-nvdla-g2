@@ -2299,7 +2299,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>ID_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH">4</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S_AXI.ID_WIDTH">8</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -2605,7 +2605,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.SYS_CLK" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.SYS_CLK" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -2703,7 +2703,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.SYS_CLK_I" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) != &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.SYS_CLK_I" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) != &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -23473,11 +23473,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:29:55 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:15 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23492,11 +23492,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:29:58 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:19 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23507,7 +23507,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23523,11 +23523,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:30:01 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:24 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23543,11 +23543,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:30:04 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:28 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2d7a4efd</spirit:value>
+            <spirit:value>9:b7cf21ac</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23563,11 +23563,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:30:07 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:32 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2d7a4efd</spirit:value>
+            <spirit:value>9:b7cf21ac</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23582,11 +23582,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:30:09 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:35 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23601,11 +23601,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:30:10 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 17:57:37 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -23619,11 +23619,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Mar 03 22:32:24 UTC 2026</spirit:value>
+            <spirit:value>Mon Mar 09 18:00:30 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:da247f5e</spirit:value>
+            <spirit:value>9:f8ca5412</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28293,7 +28293,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28688,7 +28688,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -28756,7 +28756,7 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -29043,7 +29043,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">3</spirit:left>
+            <spirit:left spirit:format="long" spirit:resolve="dependent" spirit:dependency=" ( spirit:decode(id(&apos;MODELPARAM_VALUE.C_S_AXI_ID_WIDTH&apos;)) )- 1 ">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -32987,7 +32987,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_p" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_p" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -33009,7 +33009,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_n" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_n" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) = &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -33031,7 +33031,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_i" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) != &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sys_clk_i" xilinx:dependency=" spirit:decode(id(&apos;MODELPARAM_VALUE.NoOfControllers&apos;)) = 1 and spirit:decode(id(&apos;MODELPARAM_VALUE.SYSCLK_TYPE&apos;)) != &quot;DIFF&quot; and spirit:decode(id(&apos;MODELPARAM_VALUE.IS_CLK_SHARED&apos;)) = &quot;FALSE&quot; ">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -107876,7 +107876,7 @@
         <spirit:name>SYSCLK_TYPE</spirit:name>
         <spirit:displayName>Type of sys clk</spirit:displayName>
         <spirit:description>Type of sys clk</spirit:description>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SYSCLK_TYPE" spirit:choiceRef="choice_list_1570a756" spirit:configGroups="default">NOBUF</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SYSCLK_TYPE" spirit:choiceRef="choice_list_1570a756" spirit:configGroups="default">DIFF</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="long">
         <spirit:name>USE_AXI</spirit:name>
@@ -108368,7 +108368,7 @@
         <spirit:name>C_S_AXI_ID_WIDTH</spirit:name>
         <spirit:displayName>AXI ID Width</spirit:displayName>
         <spirit:description>AXI ID Width</spirit:description>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ID_WIDTH" spirit:configGroups="default" spirit:minimum="0" spirit:maximum="16" spirit:rangeType="long">4</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S_AXI_ID_WIDTH" spirit:configGroups="default" spirit:minimum="0" spirit:maximum="16" spirit:rangeType="long">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="long">
         <spirit:name>C_S_AXI_DATA_WIDTH</spirit:name>
@@ -114830,87 +114830,19 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_addr_decode.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_state.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_common.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_mc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_cntrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_mux.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_common.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_col_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_select.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel_static.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_r_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_register_slice.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -114918,11 +114850,95 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_ar_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_fsm.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_incr_cmd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_simple_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wrap_cmd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_w_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_register_slice.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_upsizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_a_upsizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_and.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_and.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_or.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_or.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -114934,23 +114950,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_or.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_addr_decode.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_ar_channel.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel_static.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_r_upsizer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -114958,83 +114966,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_incr_cmd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_simple_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_or.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_fsm.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_w_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_and.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_a_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_and.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_clk_ibuf.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_tempmon.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115042,15 +114974,71 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_merge_enc.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_gen.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_tempmon.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_mux.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_select.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_cntrl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_common.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_state.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_col_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_mc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_common.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115058,7 +115046,171 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_gen.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_merge_enc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_fi_xor.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_group_io.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_lane.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_if_post_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_of_pre_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_data.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_edge.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_lim.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_mux.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_samp.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_rdlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_tempmon.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrcal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_prbs_gen.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_skip_calib_tap.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_cc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_edge_store.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_meta.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_pd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_tap_base.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115070,159 +115222,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_wr_data.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_skip_calib_tap.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_prbs_gen.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_lane.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_mux.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_tap_base.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_samp.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_of_pre_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_data.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_lim.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_pd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_group_io.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_edge.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_tempmon.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_if_post_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_rdlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_meta.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrcal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_cc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_edge_store.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115262,87 +115262,19 @@
     <spirit:fileSet>
       <spirit:name>xilinx_verilogbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_addr_decode.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_state.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_common.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_mc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_cntrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_mux.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_common.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_col_mach.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_select.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel_static.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_r_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_register_slice.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115350,11 +115282,95 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_ar_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_fsm.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_incr_cmd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_simple_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wrap_cmd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_w_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_register_slice.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_upsizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_a_upsizer.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_and.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_and.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_or.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_or.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115366,23 +115382,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_or.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_addr_decode.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_ar_channel.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel_static.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_r_upsizer.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115390,83 +115398,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_incr_cmd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_simple_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_or.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_fsm.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_w_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_and.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_a_upsizer.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_and.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_clk_ibuf.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_tempmon.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115474,15 +115406,71 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_merge_enc.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_gen.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/clocking/mig_7series_v4_2_tempmon.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v</spirit:name>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_mux.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_arb_select.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_cntrl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_common.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_bank_state.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_col_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_mc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_common.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_rank_mach.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115490,7 +115478,171 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_gen.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_ecc_merge_enc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/ecc/mig_7series_v4_2_fi_xor.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_group_io.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_lane.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_if_post_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_of_pre_fifo.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_data.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_edge.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_lim.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_mux.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_samp.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_rdlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_tempmon.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrcal.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_prbs_gen.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_skip_calib_tap.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_cc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_edge_store.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_meta.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_pd.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_tap_base.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -115502,159 +115654,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_cmd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>mig7s/user_design/rtl/ui/mig_7series_v4_2_ui_wr_data.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_skip_calib_tap.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_prbs_gen.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_lane.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_mux.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_tap_base.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_samp.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_of_pre_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_data.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrlvl_off_delay.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_lim.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_po_cntlr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_pd.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_byte_group_io.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_edge.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_dqs_found_cal_hr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_tempmon.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_if_post_fifo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_rdlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ck_addr_cmd_delay.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_top.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_meta.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_wrcal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_cc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_oclkdelay_cal.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_poc_edge_store.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_prbs_rdlvl.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_mem_intfc.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>mig7s/user_design/rtl/ip_top/mig_7series_v4_2_memc_ui_top_axi.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>

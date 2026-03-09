@@ -1092,8 +1092,6 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
   //  PLIC  //
   ////////////
 
-  logic [rv_plic_reg_pkg::NumTarget-1:0] plic_irq;
-
   rv_plic #(
     .reg_req_t  ( reg_req_t ),
     .reg_rsp_t  ( reg_rsp_t )
@@ -1103,29 +1101,10 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     .reg_req_i  ( reg_out_req[RegOut.plic] ),
     .reg_rsp_o  ( reg_out_rsp[RegOut.plic] ),
     .intr_src_i ( intr_routed[IntrRtdPlic][rv_plic_reg_pkg::NumSrc-1:0] ),
-    .irq_o      ( plic_irq ),
+    .irq_o      ( xeip ),
     .irq_id_o   ( ),
     .msip_o     ( )
   );
-
-  // Map PLIC IRQ targets into Cheshire M/S external interrupt contexts.
-  // Some builds configure the OpenTitan PLIC with one target (NumTarget=1),
-  // while Cheshire expects M+S bits in `xeip`.
-  always_comb begin
-    xeip = '0;
-    for (int i = 0; i < NumIrqHarts; i++) begin
-      if (rv_plic_reg_pkg::NumTarget == NumIrqHarts * NumIrqCtxts) begin
-        xeip[i].m = plic_irq[(i * NumIrqCtxts) + 0];
-        xeip[i].s = plic_irq[(i * NumIrqCtxts) + 1];
-      end else if (rv_plic_reg_pkg::NumTarget == NumIrqHarts) begin
-        xeip[i].m = plic_irq[i];
-        xeip[i].s = plic_irq[i];
-      end else begin
-        xeip[i].m = plic_irq[0];
-        xeip[i].s = plic_irq[0];
-      end
-    end
-  end
 
   /////////////
   //  CLINT  //
