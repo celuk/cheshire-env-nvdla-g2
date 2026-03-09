@@ -19,7 +19,7 @@
     <dci_cascade>0</dci_cascade>
     <Controller number="0" >
         <MemoryDevice>DDR3_SDRAM/Components/MT41J256m16XX-107</MemoryDevice>
-        <TimePeriod>1250</TimePeriod>
+        <TimePeriod>2500</TimePeriod>
         <VccAuxIO>2.0V</VccAuxIO>
         <PHYRatio>4:1</PHYRatio>
         <InputClkFreq>200</InputClkFreq>

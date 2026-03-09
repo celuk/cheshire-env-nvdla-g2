@@ -85,7 +85,7 @@
         "LPDDR2_ADDR_WIDTH": [ { "value": "8", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "LPDDR2_nCK_PER_CLK": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "LPDDR2_DATA_WIDTH": [ { "value": "8", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "FREQ_HZ": [ { "value": "200000000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+        "FREQ_HZ": [ { "value": "100000000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
         "PHASE": [ { "value": "0.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
         "UI_EXTRA_CLOCKS": [ { "value": "FALSE", "resolve_type": "generated", "usage": "all" } ],
         "MMCM_VCO": [ { "value": "800", "resolve_type": "generated", "format": "float", "usage": "all" } ],
@@ -1374,7 +1374,7 @@
           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
           "mode": "master",
           "parameters": {
-            "FREQ_HZ": [ { "value": "200000000", "resolve_type": "dependent", "format": "float", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "100000000", "resolve_type": "dependent", "format": "float", "usage": "all" } ],
             "ASSOCIATED_BUSIF": [ { "value": "S_AXI:S_AXI_CTRL", "value_src": "constant", "usage": "all" } ],
             "ASSOCIATED_RESET": [ { "value": "aresetn:ui_clk_sync_rst", "value_src": "constant", "usage": "all" } ],
             "PHASE": [ { "value": "0", "resolve_type": "dependent", "format": "float", "usage": "all" } ],
@@ -1473,7 +1473,7 @@
           "mode": "slave",
           "memory_map_ref": "memmap",
           "parameters": {
-            "FREQ_HZ": [ { "value": "200000000", "resolve_type": "dependent", "format": "float", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "100000000", "resolve_type": "dependent", "format": "float", "usage": "all" } ],
             "DATA_WIDTH": [ { "value": "64", "value_src": "auto", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PROTOCOL": [ { "value": "AXI4", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ID_WIDTH": [ { "value": "8", "value_src": "auto", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],

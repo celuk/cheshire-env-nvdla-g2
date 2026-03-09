@@ -149,13 +149,13 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
 
   always_ff @(posedge dram_axi_clk or negedge dram_axi_rst_n) begin
     if (~dram_axi_rst_n) begin
-      soc_clk_div2 <= 1'b0;
+      //soc_clk_div2 <= 1'b0;
       soc_clk      <= 1'b0;
     end else begin
-      soc_clk_div2 <= ~soc_clk_div2;
-      if (soc_clk_div2) begin
+      //soc_clk_div2 <= ~soc_clk_div2;
+      //if (soc_clk_div2) begin
         soc_clk <= ~soc_clk;
-      end
+      //end
     end
   end
 

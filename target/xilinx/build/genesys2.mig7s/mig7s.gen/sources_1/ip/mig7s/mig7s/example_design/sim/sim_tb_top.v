@@ -164,7 +164,7 @@ module sim_tb_top;
    //***************************************************************************
    // System clock frequency parameters
    //***************************************************************************
-   parameter tCK                   = 1250;
+   parameter tCK                   = 2500;
                                      // memory tCK paramter.
                      // # = Clock Period in pS.
    parameter nCK_PER_CLK           = 4;
