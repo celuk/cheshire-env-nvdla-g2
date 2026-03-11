@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param general.maxThreads 8
-set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-19576-ECIT01684/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-23332-ECIT01684/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -84,7 +84,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
 set_property parent.project_path C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/vivado-boards-master/new/board_files} [current_project]
@@ -367,8 +367,8 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/nvdla_wrapper_axi.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/obi_uart_baudgen.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/obi_uart_interrupts.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_baudgen.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_interrupts.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_modem.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_register.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_rx.sv
@@ -788,6 +788,12 @@ read_verilog -library xil_defaultlib {
 read_ip -quiet C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
 set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.gen/sources_1/ip/mig7s/mig7s/user_design/constraints/mig7s_ooc.xdc]
+
+read_ip -quiet C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

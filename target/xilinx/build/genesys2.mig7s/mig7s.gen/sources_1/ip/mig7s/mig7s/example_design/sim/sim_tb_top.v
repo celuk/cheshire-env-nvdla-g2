@@ -164,7 +164,7 @@ module sim_tb_top;
    //***************************************************************************
    // System clock frequency parameters
    //***************************************************************************
-   parameter tCK                   = 2500;
+   parameter tCK                   = 1250;
                                      // memory tCK paramter.
                      // # = Clock Period in pS.
    parameter nCK_PER_CLK           = 4;
@@ -185,7 +185,7 @@ module sim_tb_top;
                                              // Width of WDATA and RDATA on SI slot.
                                              // Must be <= APP_DATA_WIDTH.
                                              // # = 32, 64, 128, 256.
-   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 1;
+   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 0;
                                              // Indicates whether to instatiate upsizer
                                              // Range: 0, 1
 
@@ -238,9 +238,6 @@ module sim_tb_top;
 
 
   reg                     sys_clk_i;
-  wire                               sys_clk_p;
-  wire                               sys_clk_n;
-    
 
   reg clk_ref_i;
 
@@ -315,8 +312,6 @@ module sim_tb_top;
   always
     sys_clk_i = #(CLKIN_PERIOD/2.0) ~sys_clk_i;
 
-  assign sys_clk_p = sys_clk_i;
-  assign sys_clk_n = ~sys_clk_i;
 
   initial
     clk_ref_i = 1'b0;
@@ -500,8 +495,7 @@ module sim_tb_top;
      .ddr3_odt             (ddr3_odt_fpga),
     
      
-     .sys_clk_p            (sys_clk_p),
-     .sys_clk_n            (sys_clk_n),
+     .sys_clk_i            (sys_clk_i),
     
       .init_calib_complete (init_calib_complete),
       .tg_compare_error    (tg_compare_error),

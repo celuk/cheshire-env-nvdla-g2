@@ -10,7 +10,7 @@
     <XADC_En>Enabled</XADC_En>
     <TargetFPGA>xc7k325t-ffg900/-2</TargetFPGA>
     <Version>4.1</Version>
-    <SystemClock>Differential</SystemClock>
+    <SystemClock>No Buffer</SystemClock>
     <ReferenceClock>Use System Clock</ReferenceClock>
     <SysResetPolarity>ACTIVE HIGH</SysResetPolarity>
     <BankSelectionFlag>FALSE</BankSelectionFlag>
@@ -19,12 +19,12 @@
     <dci_cascade>0</dci_cascade>
     <Controller number="0" >
         <MemoryDevice>DDR3_SDRAM/Components/MT41J256m16XX-107</MemoryDevice>
-        <TimePeriod>2500</TimePeriod>
+        <TimePeriod>1250</TimePeriod>
         <VccAuxIO>2.0V</VccAuxIO>
         <PHYRatio>4:1</PHYRatio>
         <InputClkFreq>200</InputClkFreq>
         <UIExtraClocks>0</UIExtraClocks>
-        <MMCM_VCO>400</MMCM_VCO>
+        <MMCM_VCO>800</MMCM_VCO>
         <MMCMClkOut0> 1.000</MMCMClkOut0>
         <MMCMClkOut1>1</MMCMClkOut1>
         <MMCMClkOut2>1</MMCMClkOut2>
@@ -150,7 +150,7 @@
             <C0_S_AXI_ADDR_WIDTH>30</C0_S_AXI_ADDR_WIDTH>
             <C0_S_AXI_DATA_WIDTH>64</C0_S_AXI_DATA_WIDTH>
             <C0_S_AXI_ID_WIDTH>8</C0_S_AXI_ID_WIDTH>
-            <C0_S_AXI_SUPPORTS_NARROW_BURST>1</C0_S_AXI_SUPPORTS_NARROW_BURST>
+            <C0_S_AXI_SUPPORTS_NARROW_BURST>0</C0_S_AXI_SUPPORTS_NARROW_BURST>
         </AXIParameters>
     </Controller>
 
