@@ -435,7 +435,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; (
     counter_d = counter_q + 1;
     rtc_clk_d = rtc_clk_q;
 
-    if(counter_q == 11) begin // 11 when 24mhz //if(counter_q == 24) begin
+    if(counter_q == 24) begin
       counter_d = '0;
       rtc_clk_d = ~rtc_clk_q;
     end
