@@ -360,7 +360,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/config_pkg.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cv64a6_imafdcsclic_sv39_config_pkg.sv \
+    $ROOT/../rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/riscv_pkg.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/ariane_pkg.sv \
     $ROOTBENDER/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/tlb.sv \

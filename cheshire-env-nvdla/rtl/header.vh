@@ -4,8 +4,10 @@
 
 //`define DRAM_SIM
 //`define SIM
-`define GENESYS2
+//`define GENESYS2
 //`define ZC706
+
+`define VCU118
 
 `define CPU_CLK 50_000_000
 `define BAUD_RATE 115200
@@ -23,7 +25,17 @@
 
 `define JTAG
 
-`define TARGET_GENESYS2
+`define TARGET_VCU118
+
+`ifdef TARGET_VCU118
+  `define USE_RESET
+  `define USE_JTAG
+  `define USE_DDR4
+  //`define USE_QSPI
+  //`define USE_STARTUPE3
+  //`define USE_VIO
+`endif
+
 `ifdef TARGET_VCU128
   `define USE_RESET
   `define USE_JTAG
