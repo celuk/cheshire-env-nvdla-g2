@@ -3,5 +3,11 @@
 // SPDX-License-Identifier: Apache-2.0
 {
   instance_name: rv_plic
-  param_values: {}
+  param_values:
+  {
+    src: 58
+    target: 2
+    prio: 7
+    nonstd_regs: 0
+  }
 }

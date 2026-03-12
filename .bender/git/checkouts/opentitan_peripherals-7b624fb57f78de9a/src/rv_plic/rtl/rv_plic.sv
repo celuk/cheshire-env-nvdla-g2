@@ -127,18 +127,48 @@ module rv_plic import rv_plic_reg_pkg::*; #(
   assign prio[29] = reg2hw.prio29.q;
   assign prio[30] = reg2hw.prio30.q;
   assign prio[31] = reg2hw.prio31.q;
+  assign prio[32] = reg2hw.prio32.q;
+  assign prio[33] = reg2hw.prio33.q;
+  assign prio[34] = reg2hw.prio34.q;
+  assign prio[35] = reg2hw.prio35.q;
+  assign prio[36] = reg2hw.prio36.q;
+  assign prio[37] = reg2hw.prio37.q;
+  assign prio[38] = reg2hw.prio38.q;
+  assign prio[39] = reg2hw.prio39.q;
+  assign prio[40] = reg2hw.prio40.q;
+  assign prio[41] = reg2hw.prio41.q;
+  assign prio[42] = reg2hw.prio42.q;
+  assign prio[43] = reg2hw.prio43.q;
+  assign prio[44] = reg2hw.prio44.q;
+  assign prio[45] = reg2hw.prio45.q;
+  assign prio[46] = reg2hw.prio46.q;
+  assign prio[47] = reg2hw.prio47.q;
+  assign prio[48] = reg2hw.prio48.q;
+  assign prio[49] = reg2hw.prio49.q;
+  assign prio[50] = reg2hw.prio50.q;
+  assign prio[51] = reg2hw.prio51.q;
+  assign prio[52] = reg2hw.prio52.q;
+  assign prio[53] = reg2hw.prio53.q;
+  assign prio[54] = reg2hw.prio54.q;
+  assign prio[55] = reg2hw.prio55.q;
+  assign prio[56] = reg2hw.prio56.q;
+  assign prio[57] = reg2hw.prio57.q;
 
   //////////////////////
   // Interrupt Enable //
   //////////////////////
-  for (genvar s = 0; s < 32; s++) begin : gen_ie0
+  for (genvar s = 0; s < 58; s++) begin : gen_ie0
     assign ie[0][s] = reg2hw.ie0[s].q;
+  end
+  for (genvar s = 0; s < 58; s++) begin : gen_ie1
+    assign ie[1][s] = reg2hw.ie1[s].q;
   end
 
   ////////////////////////
   // THRESHOLD register //
   ////////////////////////
   assign threshold[0] = reg2hw.threshold0.q;
+  assign threshold[1] = reg2hw.threshold1.q;
 
   /////////////////
   // CC register //
@@ -148,16 +178,21 @@ module rv_plic import rv_plic_reg_pkg::*; #(
   assign complete_we[0] = reg2hw.cc0.qe;
   assign complete_id[0] = reg2hw.cc0.q;
   assign hw2reg.cc0.d   = cc_id[0];
+  assign claim_re[1]    = reg2hw.cc1.re;
+  assign claim_id[1]    = irq_id_o[1];
+  assign complete_we[1] = reg2hw.cc1.qe;
+  assign complete_id[1] = reg2hw.cc1.q;
+  assign hw2reg.cc1.d   = cc_id[1];
 
   ///////////////////
   // MSIP register //
   ///////////////////
-  assign msip_o[0] = reg2hw.msip0.q;
+  assign msip_o = '0;
 
   ////////
   // IP //
   ////////
-  for (genvar s = 0; s < 32; s++) begin : gen_ip
+  for (genvar s = 0; s < 58; s++) begin : gen_ip
     assign hw2reg.ip[s].de = 1'b1; // Always write
     assign hw2reg.ip[s].d  = ip[s];
   end
@@ -238,7 +273,6 @@ module rv_plic import rv_plic_reg_pkg::*; #(
 
   // Assertions
   `ASSERT_KNOWN(IrqKnownO_A, irq_o)
-  `ASSERT_KNOWN(MsipKnownO_A, msip_o)
   for (genvar k = 0; k < NumTarget; k++) begin : gen_irq_id_known
     `ASSERT_KNOWN(IrqIdKnownO_A, irq_id_o[k])
   end

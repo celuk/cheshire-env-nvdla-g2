@@ -14,10 +14,10 @@
 extern "C" {
 #endif
 // Number of interrupt sources
-#define RV_PLIC_PARAM_NUM_SRC 32
+#define RV_PLIC_PARAM_NUM_SRC 58
 
 // Number of Targets (Harts)
-#define RV_PLIC_PARAM_NUM_TARGET 1
+#define RV_PLIC_PARAM_NUM_TARGET 2
 
 // Width of priority signals
 #define RV_PLIC_PARAM_PRIO_WIDTH 3
@@ -252,85 +252,394 @@ extern "C" {
 #define RV_PLIC_PRIO31_PRIO31_FIELD \
   ((bitfield_field32_t) { .mask = RV_PLIC_PRIO31_PRIO31_MASK, .index = RV_PLIC_PRIO31_PRIO31_OFFSET })
 
+// Interrupt Source 32 Priority
+#define RV_PLIC_PRIO32_REG_OFFSET 0x80
+#define RV_PLIC_PRIO32_PRIO32_MASK 0x7
+#define RV_PLIC_PRIO32_PRIO32_OFFSET 0
+#define RV_PLIC_PRIO32_PRIO32_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO32_PRIO32_MASK, .index = RV_PLIC_PRIO32_PRIO32_OFFSET })
+
+// Interrupt Source 33 Priority
+#define RV_PLIC_PRIO33_REG_OFFSET 0x84
+#define RV_PLIC_PRIO33_PRIO33_MASK 0x7
+#define RV_PLIC_PRIO33_PRIO33_OFFSET 0
+#define RV_PLIC_PRIO33_PRIO33_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO33_PRIO33_MASK, .index = RV_PLIC_PRIO33_PRIO33_OFFSET })
+
+// Interrupt Source 34 Priority
+#define RV_PLIC_PRIO34_REG_OFFSET 0x88
+#define RV_PLIC_PRIO34_PRIO34_MASK 0x7
+#define RV_PLIC_PRIO34_PRIO34_OFFSET 0
+#define RV_PLIC_PRIO34_PRIO34_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO34_PRIO34_MASK, .index = RV_PLIC_PRIO34_PRIO34_OFFSET })
+
+// Interrupt Source 35 Priority
+#define RV_PLIC_PRIO35_REG_OFFSET 0x8c
+#define RV_PLIC_PRIO35_PRIO35_MASK 0x7
+#define RV_PLIC_PRIO35_PRIO35_OFFSET 0
+#define RV_PLIC_PRIO35_PRIO35_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO35_PRIO35_MASK, .index = RV_PLIC_PRIO35_PRIO35_OFFSET })
+
+// Interrupt Source 36 Priority
+#define RV_PLIC_PRIO36_REG_OFFSET 0x90
+#define RV_PLIC_PRIO36_PRIO36_MASK 0x7
+#define RV_PLIC_PRIO36_PRIO36_OFFSET 0
+#define RV_PLIC_PRIO36_PRIO36_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO36_PRIO36_MASK, .index = RV_PLIC_PRIO36_PRIO36_OFFSET })
+
+// Interrupt Source 37 Priority
+#define RV_PLIC_PRIO37_REG_OFFSET 0x94
+#define RV_PLIC_PRIO37_PRIO37_MASK 0x7
+#define RV_PLIC_PRIO37_PRIO37_OFFSET 0
+#define RV_PLIC_PRIO37_PRIO37_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO37_PRIO37_MASK, .index = RV_PLIC_PRIO37_PRIO37_OFFSET })
+
+// Interrupt Source 38 Priority
+#define RV_PLIC_PRIO38_REG_OFFSET 0x98
+#define RV_PLIC_PRIO38_PRIO38_MASK 0x7
+#define RV_PLIC_PRIO38_PRIO38_OFFSET 0
+#define RV_PLIC_PRIO38_PRIO38_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO38_PRIO38_MASK, .index = RV_PLIC_PRIO38_PRIO38_OFFSET })
+
+// Interrupt Source 39 Priority
+#define RV_PLIC_PRIO39_REG_OFFSET 0x9c
+#define RV_PLIC_PRIO39_PRIO39_MASK 0x7
+#define RV_PLIC_PRIO39_PRIO39_OFFSET 0
+#define RV_PLIC_PRIO39_PRIO39_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO39_PRIO39_MASK, .index = RV_PLIC_PRIO39_PRIO39_OFFSET })
+
+// Interrupt Source 40 Priority
+#define RV_PLIC_PRIO40_REG_OFFSET 0xa0
+#define RV_PLIC_PRIO40_PRIO40_MASK 0x7
+#define RV_PLIC_PRIO40_PRIO40_OFFSET 0
+#define RV_PLIC_PRIO40_PRIO40_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO40_PRIO40_MASK, .index = RV_PLIC_PRIO40_PRIO40_OFFSET })
+
+// Interrupt Source 41 Priority
+#define RV_PLIC_PRIO41_REG_OFFSET 0xa4
+#define RV_PLIC_PRIO41_PRIO41_MASK 0x7
+#define RV_PLIC_PRIO41_PRIO41_OFFSET 0
+#define RV_PLIC_PRIO41_PRIO41_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO41_PRIO41_MASK, .index = RV_PLIC_PRIO41_PRIO41_OFFSET })
+
+// Interrupt Source 42 Priority
+#define RV_PLIC_PRIO42_REG_OFFSET 0xa8
+#define RV_PLIC_PRIO42_PRIO42_MASK 0x7
+#define RV_PLIC_PRIO42_PRIO42_OFFSET 0
+#define RV_PLIC_PRIO42_PRIO42_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO42_PRIO42_MASK, .index = RV_PLIC_PRIO42_PRIO42_OFFSET })
+
+// Interrupt Source 43 Priority
+#define RV_PLIC_PRIO43_REG_OFFSET 0xac
+#define RV_PLIC_PRIO43_PRIO43_MASK 0x7
+#define RV_PLIC_PRIO43_PRIO43_OFFSET 0
+#define RV_PLIC_PRIO43_PRIO43_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO43_PRIO43_MASK, .index = RV_PLIC_PRIO43_PRIO43_OFFSET })
+
+// Interrupt Source 44 Priority
+#define RV_PLIC_PRIO44_REG_OFFSET 0xb0
+#define RV_PLIC_PRIO44_PRIO44_MASK 0x7
+#define RV_PLIC_PRIO44_PRIO44_OFFSET 0
+#define RV_PLIC_PRIO44_PRIO44_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO44_PRIO44_MASK, .index = RV_PLIC_PRIO44_PRIO44_OFFSET })
+
+// Interrupt Source 45 Priority
+#define RV_PLIC_PRIO45_REG_OFFSET 0xb4
+#define RV_PLIC_PRIO45_PRIO45_MASK 0x7
+#define RV_PLIC_PRIO45_PRIO45_OFFSET 0
+#define RV_PLIC_PRIO45_PRIO45_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO45_PRIO45_MASK, .index = RV_PLIC_PRIO45_PRIO45_OFFSET })
+
+// Interrupt Source 46 Priority
+#define RV_PLIC_PRIO46_REG_OFFSET 0xb8
+#define RV_PLIC_PRIO46_PRIO46_MASK 0x7
+#define RV_PLIC_PRIO46_PRIO46_OFFSET 0
+#define RV_PLIC_PRIO46_PRIO46_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO46_PRIO46_MASK, .index = RV_PLIC_PRIO46_PRIO46_OFFSET })
+
+// Interrupt Source 47 Priority
+#define RV_PLIC_PRIO47_REG_OFFSET 0xbc
+#define RV_PLIC_PRIO47_PRIO47_MASK 0x7
+#define RV_PLIC_PRIO47_PRIO47_OFFSET 0
+#define RV_PLIC_PRIO47_PRIO47_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO47_PRIO47_MASK, .index = RV_PLIC_PRIO47_PRIO47_OFFSET })
+
+// Interrupt Source 48 Priority
+#define RV_PLIC_PRIO48_REG_OFFSET 0xc0
+#define RV_PLIC_PRIO48_PRIO48_MASK 0x7
+#define RV_PLIC_PRIO48_PRIO48_OFFSET 0
+#define RV_PLIC_PRIO48_PRIO48_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO48_PRIO48_MASK, .index = RV_PLIC_PRIO48_PRIO48_OFFSET })
+
+// Interrupt Source 49 Priority
+#define RV_PLIC_PRIO49_REG_OFFSET 0xc4
+#define RV_PLIC_PRIO49_PRIO49_MASK 0x7
+#define RV_PLIC_PRIO49_PRIO49_OFFSET 0
+#define RV_PLIC_PRIO49_PRIO49_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO49_PRIO49_MASK, .index = RV_PLIC_PRIO49_PRIO49_OFFSET })
+
+// Interrupt Source 50 Priority
+#define RV_PLIC_PRIO50_REG_OFFSET 0xc8
+#define RV_PLIC_PRIO50_PRIO50_MASK 0x7
+#define RV_PLIC_PRIO50_PRIO50_OFFSET 0
+#define RV_PLIC_PRIO50_PRIO50_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO50_PRIO50_MASK, .index = RV_PLIC_PRIO50_PRIO50_OFFSET })
+
+// Interrupt Source 51 Priority
+#define RV_PLIC_PRIO51_REG_OFFSET 0xcc
+#define RV_PLIC_PRIO51_PRIO51_MASK 0x7
+#define RV_PLIC_PRIO51_PRIO51_OFFSET 0
+#define RV_PLIC_PRIO51_PRIO51_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO51_PRIO51_MASK, .index = RV_PLIC_PRIO51_PRIO51_OFFSET })
+
+// Interrupt Source 52 Priority
+#define RV_PLIC_PRIO52_REG_OFFSET 0xd0
+#define RV_PLIC_PRIO52_PRIO52_MASK 0x7
+#define RV_PLIC_PRIO52_PRIO52_OFFSET 0
+#define RV_PLIC_PRIO52_PRIO52_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO52_PRIO52_MASK, .index = RV_PLIC_PRIO52_PRIO52_OFFSET })
+
+// Interrupt Source 53 Priority
+#define RV_PLIC_PRIO53_REG_OFFSET 0xd4
+#define RV_PLIC_PRIO53_PRIO53_MASK 0x7
+#define RV_PLIC_PRIO53_PRIO53_OFFSET 0
+#define RV_PLIC_PRIO53_PRIO53_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO53_PRIO53_MASK, .index = RV_PLIC_PRIO53_PRIO53_OFFSET })
+
+// Interrupt Source 54 Priority
+#define RV_PLIC_PRIO54_REG_OFFSET 0xd8
+#define RV_PLIC_PRIO54_PRIO54_MASK 0x7
+#define RV_PLIC_PRIO54_PRIO54_OFFSET 0
+#define RV_PLIC_PRIO54_PRIO54_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO54_PRIO54_MASK, .index = RV_PLIC_PRIO54_PRIO54_OFFSET })
+
+// Interrupt Source 55 Priority
+#define RV_PLIC_PRIO55_REG_OFFSET 0xdc
+#define RV_PLIC_PRIO55_PRIO55_MASK 0x7
+#define RV_PLIC_PRIO55_PRIO55_OFFSET 0
+#define RV_PLIC_PRIO55_PRIO55_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO55_PRIO55_MASK, .index = RV_PLIC_PRIO55_PRIO55_OFFSET })
+
+// Interrupt Source 56 Priority
+#define RV_PLIC_PRIO56_REG_OFFSET 0xe0
+#define RV_PLIC_PRIO56_PRIO56_MASK 0x7
+#define RV_PLIC_PRIO56_PRIO56_OFFSET 0
+#define RV_PLIC_PRIO56_PRIO56_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO56_PRIO56_MASK, .index = RV_PLIC_PRIO56_PRIO56_OFFSET })
+
+// Interrupt Source 57 Priority
+#define RV_PLIC_PRIO57_REG_OFFSET 0xe4
+#define RV_PLIC_PRIO57_PRIO57_MASK 0x7
+#define RV_PLIC_PRIO57_PRIO57_OFFSET 0
+#define RV_PLIC_PRIO57_PRIO57_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_PRIO57_PRIO57_MASK, .index = RV_PLIC_PRIO57_PRIO57_OFFSET })
+
 // Interrupt Pending (common parameters)
 #define RV_PLIC_IP_P_FIELD_WIDTH 1
 #define RV_PLIC_IP_P_FIELDS_PER_REG 32
-#define RV_PLIC_IP_MULTIREG_COUNT 1
+#define RV_PLIC_IP_MULTIREG_COUNT 2
 
 // Interrupt Pending
-#define RV_PLIC_IP_REG_OFFSET 0x1000
-#define RV_PLIC_IP_P_0_BIT 0
-#define RV_PLIC_IP_P_1_BIT 1
-#define RV_PLIC_IP_P_2_BIT 2
-#define RV_PLIC_IP_P_3_BIT 3
-#define RV_PLIC_IP_P_4_BIT 4
-#define RV_PLIC_IP_P_5_BIT 5
-#define RV_PLIC_IP_P_6_BIT 6
-#define RV_PLIC_IP_P_7_BIT 7
-#define RV_PLIC_IP_P_8_BIT 8
-#define RV_PLIC_IP_P_9_BIT 9
-#define RV_PLIC_IP_P_10_BIT 10
-#define RV_PLIC_IP_P_11_BIT 11
-#define RV_PLIC_IP_P_12_BIT 12
-#define RV_PLIC_IP_P_13_BIT 13
-#define RV_PLIC_IP_P_14_BIT 14
-#define RV_PLIC_IP_P_15_BIT 15
-#define RV_PLIC_IP_P_16_BIT 16
-#define RV_PLIC_IP_P_17_BIT 17
-#define RV_PLIC_IP_P_18_BIT 18
-#define RV_PLIC_IP_P_19_BIT 19
-#define RV_PLIC_IP_P_20_BIT 20
-#define RV_PLIC_IP_P_21_BIT 21
-#define RV_PLIC_IP_P_22_BIT 22
-#define RV_PLIC_IP_P_23_BIT 23
-#define RV_PLIC_IP_P_24_BIT 24
-#define RV_PLIC_IP_P_25_BIT 25
-#define RV_PLIC_IP_P_26_BIT 26
-#define RV_PLIC_IP_P_27_BIT 27
-#define RV_PLIC_IP_P_28_BIT 28
-#define RV_PLIC_IP_P_29_BIT 29
-#define RV_PLIC_IP_P_30_BIT 30
-#define RV_PLIC_IP_P_31_BIT 31
+#define RV_PLIC_IP_0_REG_OFFSET 0x1000
+#define RV_PLIC_IP_0_P_0_BIT 0
+#define RV_PLIC_IP_0_P_1_BIT 1
+#define RV_PLIC_IP_0_P_2_BIT 2
+#define RV_PLIC_IP_0_P_3_BIT 3
+#define RV_PLIC_IP_0_P_4_BIT 4
+#define RV_PLIC_IP_0_P_5_BIT 5
+#define RV_PLIC_IP_0_P_6_BIT 6
+#define RV_PLIC_IP_0_P_7_BIT 7
+#define RV_PLIC_IP_0_P_8_BIT 8
+#define RV_PLIC_IP_0_P_9_BIT 9
+#define RV_PLIC_IP_0_P_10_BIT 10
+#define RV_PLIC_IP_0_P_11_BIT 11
+#define RV_PLIC_IP_0_P_12_BIT 12
+#define RV_PLIC_IP_0_P_13_BIT 13
+#define RV_PLIC_IP_0_P_14_BIT 14
+#define RV_PLIC_IP_0_P_15_BIT 15
+#define RV_PLIC_IP_0_P_16_BIT 16
+#define RV_PLIC_IP_0_P_17_BIT 17
+#define RV_PLIC_IP_0_P_18_BIT 18
+#define RV_PLIC_IP_0_P_19_BIT 19
+#define RV_PLIC_IP_0_P_20_BIT 20
+#define RV_PLIC_IP_0_P_21_BIT 21
+#define RV_PLIC_IP_0_P_22_BIT 22
+#define RV_PLIC_IP_0_P_23_BIT 23
+#define RV_PLIC_IP_0_P_24_BIT 24
+#define RV_PLIC_IP_0_P_25_BIT 25
+#define RV_PLIC_IP_0_P_26_BIT 26
+#define RV_PLIC_IP_0_P_27_BIT 27
+#define RV_PLIC_IP_0_P_28_BIT 28
+#define RV_PLIC_IP_0_P_29_BIT 29
+#define RV_PLIC_IP_0_P_30_BIT 30
+#define RV_PLIC_IP_0_P_31_BIT 31
+
+// Interrupt Pending
+#define RV_PLIC_IP_1_REG_OFFSET 0x1004
+#define RV_PLIC_IP_1_P_32_BIT 0
+#define RV_PLIC_IP_1_P_33_BIT 1
+#define RV_PLIC_IP_1_P_34_BIT 2
+#define RV_PLIC_IP_1_P_35_BIT 3
+#define RV_PLIC_IP_1_P_36_BIT 4
+#define RV_PLIC_IP_1_P_37_BIT 5
+#define RV_PLIC_IP_1_P_38_BIT 6
+#define RV_PLIC_IP_1_P_39_BIT 7
+#define RV_PLIC_IP_1_P_40_BIT 8
+#define RV_PLIC_IP_1_P_41_BIT 9
+#define RV_PLIC_IP_1_P_42_BIT 10
+#define RV_PLIC_IP_1_P_43_BIT 11
+#define RV_PLIC_IP_1_P_44_BIT 12
+#define RV_PLIC_IP_1_P_45_BIT 13
+#define RV_PLIC_IP_1_P_46_BIT 14
+#define RV_PLIC_IP_1_P_47_BIT 15
+#define RV_PLIC_IP_1_P_48_BIT 16
+#define RV_PLIC_IP_1_P_49_BIT 17
+#define RV_PLIC_IP_1_P_50_BIT 18
+#define RV_PLIC_IP_1_P_51_BIT 19
+#define RV_PLIC_IP_1_P_52_BIT 20
+#define RV_PLIC_IP_1_P_53_BIT 21
+#define RV_PLIC_IP_1_P_54_BIT 22
+#define RV_PLIC_IP_1_P_55_BIT 23
+#define RV_PLIC_IP_1_P_56_BIT 24
+#define RV_PLIC_IP_1_P_57_BIT 25
 
 // Interrupt Enable for Target 0 (common parameters)
 #define RV_PLIC_IE0_E_FIELD_WIDTH 1
 #define RV_PLIC_IE0_E_FIELDS_PER_REG 32
-#define RV_PLIC_IE0_MULTIREG_COUNT 1
+#define RV_PLIC_IE0_MULTIREG_COUNT 2
 
 // Interrupt Enable for Target 0
-#define RV_PLIC_IE0_REG_OFFSET 0x2000
-#define RV_PLIC_IE0_E_0_BIT 0
-#define RV_PLIC_IE0_E_1_BIT 1
-#define RV_PLIC_IE0_E_2_BIT 2
-#define RV_PLIC_IE0_E_3_BIT 3
-#define RV_PLIC_IE0_E_4_BIT 4
-#define RV_PLIC_IE0_E_5_BIT 5
-#define RV_PLIC_IE0_E_6_BIT 6
-#define RV_PLIC_IE0_E_7_BIT 7
-#define RV_PLIC_IE0_E_8_BIT 8
-#define RV_PLIC_IE0_E_9_BIT 9
-#define RV_PLIC_IE0_E_10_BIT 10
-#define RV_PLIC_IE0_E_11_BIT 11
-#define RV_PLIC_IE0_E_12_BIT 12
-#define RV_PLIC_IE0_E_13_BIT 13
-#define RV_PLIC_IE0_E_14_BIT 14
-#define RV_PLIC_IE0_E_15_BIT 15
-#define RV_PLIC_IE0_E_16_BIT 16
-#define RV_PLIC_IE0_E_17_BIT 17
-#define RV_PLIC_IE0_E_18_BIT 18
-#define RV_PLIC_IE0_E_19_BIT 19
-#define RV_PLIC_IE0_E_20_BIT 20
-#define RV_PLIC_IE0_E_21_BIT 21
-#define RV_PLIC_IE0_E_22_BIT 22
-#define RV_PLIC_IE0_E_23_BIT 23
-#define RV_PLIC_IE0_E_24_BIT 24
-#define RV_PLIC_IE0_E_25_BIT 25
-#define RV_PLIC_IE0_E_26_BIT 26
-#define RV_PLIC_IE0_E_27_BIT 27
-#define RV_PLIC_IE0_E_28_BIT 28
-#define RV_PLIC_IE0_E_29_BIT 29
-#define RV_PLIC_IE0_E_30_BIT 30
-#define RV_PLIC_IE0_E_31_BIT 31
+#define RV_PLIC_IE0_0_REG_OFFSET 0x2000
+#define RV_PLIC_IE0_0_E_0_BIT 0
+#define RV_PLIC_IE0_0_E_1_BIT 1
+#define RV_PLIC_IE0_0_E_2_BIT 2
+#define RV_PLIC_IE0_0_E_3_BIT 3
+#define RV_PLIC_IE0_0_E_4_BIT 4
+#define RV_PLIC_IE0_0_E_5_BIT 5
+#define RV_PLIC_IE0_0_E_6_BIT 6
+#define RV_PLIC_IE0_0_E_7_BIT 7
+#define RV_PLIC_IE0_0_E_8_BIT 8
+#define RV_PLIC_IE0_0_E_9_BIT 9
+#define RV_PLIC_IE0_0_E_10_BIT 10
+#define RV_PLIC_IE0_0_E_11_BIT 11
+#define RV_PLIC_IE0_0_E_12_BIT 12
+#define RV_PLIC_IE0_0_E_13_BIT 13
+#define RV_PLIC_IE0_0_E_14_BIT 14
+#define RV_PLIC_IE0_0_E_15_BIT 15
+#define RV_PLIC_IE0_0_E_16_BIT 16
+#define RV_PLIC_IE0_0_E_17_BIT 17
+#define RV_PLIC_IE0_0_E_18_BIT 18
+#define RV_PLIC_IE0_0_E_19_BIT 19
+#define RV_PLIC_IE0_0_E_20_BIT 20
+#define RV_PLIC_IE0_0_E_21_BIT 21
+#define RV_PLIC_IE0_0_E_22_BIT 22
+#define RV_PLIC_IE0_0_E_23_BIT 23
+#define RV_PLIC_IE0_0_E_24_BIT 24
+#define RV_PLIC_IE0_0_E_25_BIT 25
+#define RV_PLIC_IE0_0_E_26_BIT 26
+#define RV_PLIC_IE0_0_E_27_BIT 27
+#define RV_PLIC_IE0_0_E_28_BIT 28
+#define RV_PLIC_IE0_0_E_29_BIT 29
+#define RV_PLIC_IE0_0_E_30_BIT 30
+#define RV_PLIC_IE0_0_E_31_BIT 31
+
+// Interrupt Enable for Target 0
+#define RV_PLIC_IE0_1_REG_OFFSET 0x2004
+#define RV_PLIC_IE0_1_E_32_BIT 0
+#define RV_PLIC_IE0_1_E_33_BIT 1
+#define RV_PLIC_IE0_1_E_34_BIT 2
+#define RV_PLIC_IE0_1_E_35_BIT 3
+#define RV_PLIC_IE0_1_E_36_BIT 4
+#define RV_PLIC_IE0_1_E_37_BIT 5
+#define RV_PLIC_IE0_1_E_38_BIT 6
+#define RV_PLIC_IE0_1_E_39_BIT 7
+#define RV_PLIC_IE0_1_E_40_BIT 8
+#define RV_PLIC_IE0_1_E_41_BIT 9
+#define RV_PLIC_IE0_1_E_42_BIT 10
+#define RV_PLIC_IE0_1_E_43_BIT 11
+#define RV_PLIC_IE0_1_E_44_BIT 12
+#define RV_PLIC_IE0_1_E_45_BIT 13
+#define RV_PLIC_IE0_1_E_46_BIT 14
+#define RV_PLIC_IE0_1_E_47_BIT 15
+#define RV_PLIC_IE0_1_E_48_BIT 16
+#define RV_PLIC_IE0_1_E_49_BIT 17
+#define RV_PLIC_IE0_1_E_50_BIT 18
+#define RV_PLIC_IE0_1_E_51_BIT 19
+#define RV_PLIC_IE0_1_E_52_BIT 20
+#define RV_PLIC_IE0_1_E_53_BIT 21
+#define RV_PLIC_IE0_1_E_54_BIT 22
+#define RV_PLIC_IE0_1_E_55_BIT 23
+#define RV_PLIC_IE0_1_E_56_BIT 24
+#define RV_PLIC_IE0_1_E_57_BIT 25
+
+// Interrupt Enable for Target 1 (common parameters)
+#define RV_PLIC_IE1_E_FIELD_WIDTH 1
+#define RV_PLIC_IE1_E_FIELDS_PER_REG 32
+#define RV_PLIC_IE1_MULTIREG_COUNT 2
+
+// Interrupt Enable for Target 1
+#define RV_PLIC_IE1_0_REG_OFFSET 0x2080
+#define RV_PLIC_IE1_0_E_0_BIT 0
+#define RV_PLIC_IE1_0_E_1_BIT 1
+#define RV_PLIC_IE1_0_E_2_BIT 2
+#define RV_PLIC_IE1_0_E_3_BIT 3
+#define RV_PLIC_IE1_0_E_4_BIT 4
+#define RV_PLIC_IE1_0_E_5_BIT 5
+#define RV_PLIC_IE1_0_E_6_BIT 6
+#define RV_PLIC_IE1_0_E_7_BIT 7
+#define RV_PLIC_IE1_0_E_8_BIT 8
+#define RV_PLIC_IE1_0_E_9_BIT 9
+#define RV_PLIC_IE1_0_E_10_BIT 10
+#define RV_PLIC_IE1_0_E_11_BIT 11
+#define RV_PLIC_IE1_0_E_12_BIT 12
+#define RV_PLIC_IE1_0_E_13_BIT 13
+#define RV_PLIC_IE1_0_E_14_BIT 14
+#define RV_PLIC_IE1_0_E_15_BIT 15
+#define RV_PLIC_IE1_0_E_16_BIT 16
+#define RV_PLIC_IE1_0_E_17_BIT 17
+#define RV_PLIC_IE1_0_E_18_BIT 18
+#define RV_PLIC_IE1_0_E_19_BIT 19
+#define RV_PLIC_IE1_0_E_20_BIT 20
+#define RV_PLIC_IE1_0_E_21_BIT 21
+#define RV_PLIC_IE1_0_E_22_BIT 22
+#define RV_PLIC_IE1_0_E_23_BIT 23
+#define RV_PLIC_IE1_0_E_24_BIT 24
+#define RV_PLIC_IE1_0_E_25_BIT 25
+#define RV_PLIC_IE1_0_E_26_BIT 26
+#define RV_PLIC_IE1_0_E_27_BIT 27
+#define RV_PLIC_IE1_0_E_28_BIT 28
+#define RV_PLIC_IE1_0_E_29_BIT 29
+#define RV_PLIC_IE1_0_E_30_BIT 30
+#define RV_PLIC_IE1_0_E_31_BIT 31
+
+// Interrupt Enable for Target 1
+#define RV_PLIC_IE1_1_REG_OFFSET 0x2084
+#define RV_PLIC_IE1_1_E_32_BIT 0
+#define RV_PLIC_IE1_1_E_33_BIT 1
+#define RV_PLIC_IE1_1_E_34_BIT 2
+#define RV_PLIC_IE1_1_E_35_BIT 3
+#define RV_PLIC_IE1_1_E_36_BIT 4
+#define RV_PLIC_IE1_1_E_37_BIT 5
+#define RV_PLIC_IE1_1_E_38_BIT 6
+#define RV_PLIC_IE1_1_E_39_BIT 7
+#define RV_PLIC_IE1_1_E_40_BIT 8
+#define RV_PLIC_IE1_1_E_41_BIT 9
+#define RV_PLIC_IE1_1_E_42_BIT 10
+#define RV_PLIC_IE1_1_E_43_BIT 11
+#define RV_PLIC_IE1_1_E_44_BIT 12
+#define RV_PLIC_IE1_1_E_45_BIT 13
+#define RV_PLIC_IE1_1_E_46_BIT 14
+#define RV_PLIC_IE1_1_E_47_BIT 15
+#define RV_PLIC_IE1_1_E_48_BIT 16
+#define RV_PLIC_IE1_1_E_49_BIT 17
+#define RV_PLIC_IE1_1_E_50_BIT 18
+#define RV_PLIC_IE1_1_E_51_BIT 19
+#define RV_PLIC_IE1_1_E_52_BIT 20
+#define RV_PLIC_IE1_1_E_53_BIT 21
+#define RV_PLIC_IE1_1_E_54_BIT 22
+#define RV_PLIC_IE1_1_E_55_BIT 23
+#define RV_PLIC_IE1_1_E_56_BIT 24
+#define RV_PLIC_IE1_1_E_57_BIT 25
 
 // Threshold of priority for Target 0
 #define RV_PLIC_THRESHOLD0_REG_OFFSET 0x200000
@@ -341,17 +650,31 @@ extern "C" {
 
 // Claim interrupt by read, complete interrupt by write for Target 0.
 #define RV_PLIC_CC0_REG_OFFSET 0x200004
-#define RV_PLIC_CC0_CC0_MASK 0x1f
+#define RV_PLIC_CC0_CC0_MASK 0x3f
 #define RV_PLIC_CC0_CC0_OFFSET 0
 #define RV_PLIC_CC0_CC0_FIELD \
   ((bitfield_field32_t) { .mask = RV_PLIC_CC0_CC0_MASK, .index = RV_PLIC_CC0_CC0_OFFSET })
 
+// Threshold of priority for Target 1
+#define RV_PLIC_THRESHOLD1_REG_OFFSET 0x201000
+#define RV_PLIC_THRESHOLD1_THRESHOLD1_MASK 0x7
+#define RV_PLIC_THRESHOLD1_THRESHOLD1_OFFSET 0
+#define RV_PLIC_THRESHOLD1_THRESHOLD1_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_THRESHOLD1_THRESHOLD1_MASK, .index = RV_PLIC_THRESHOLD1_THRESHOLD1_OFFSET })
+
+// Claim interrupt by read, complete interrupt by write for Target 1.
+#define RV_PLIC_CC1_REG_OFFSET 0x201004
+#define RV_PLIC_CC1_CC1_MASK 0x3f
+#define RV_PLIC_CC1_CC1_OFFSET 0
+#define RV_PLIC_CC1_CC1_FIELD \
+  ((bitfield_field32_t) { .mask = RV_PLIC_CC1_CC1_MASK, .index = RV_PLIC_CC1_CC1_OFFSET })
+
 // msip for Hart 0.
-#define RV_PLIC_MSIP0_REG_OFFSET 0x4000000
+#define RV_PLIC_MSIP0_REG_OFFSET 0x3fffff8
 #define RV_PLIC_MSIP0_MSIP0_BIT 0
 
 // Alert Test Register.
-#define RV_PLIC_ALERT_TEST_REG_OFFSET 0x4004000
+#define RV_PLIC_ALERT_TEST_REG_OFFSET 0x3fffffc
 #define RV_PLIC_ALERT_TEST_FATAL_FAULT_BIT 0
 
 #ifdef __cplusplus
