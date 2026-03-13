@@ -41,7 +41,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   input logic [1:0] boot_mode_i,
 `endif
 
-`ifndef TARGET_VCU118
 `ifdef USE_JTAG
   input  logic  jtag_tck_i,
   input  logic  jtag_tms_i,
@@ -54,7 +53,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   output logic  jtag_vdd_o,
   output logic  jtag_gnd_o,
   `endif
-`endif
 `endif
 
 `ifdef USE_I2C
@@ -108,13 +106,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   inout  wire [UsbNumPorts-1:0] usb_dm_io,
   inout  wire [UsbNumPorts-1:0] usb_dp_io
 );
-
-`ifdef TARGET_VCU118
-wire  jtag_tck_i=1'b0;
-wire  jtag_tms_i=1'b0;
-wire  jtag_tdi_i=1'b0;
-wire  jtag_tdo_o;
-`endif
 
   ///////////////////////
   //  Cheshire Config  //
