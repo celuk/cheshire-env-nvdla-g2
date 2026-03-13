@@ -45,6 +45,8 @@ set_property strategy Flow_PerfOptimized_high [get_runs synth_1]
 synth_design -rtl -name rtl_1
 report_clocks -file ${project_root}/clocks.rpt
 
+#set_property STEPS.SYNTH_DESIGN.ARGS.CONTROL_SET_OPT_THRESHOLD 16 [get_runs synth_1]
+
 # Synthesis
 launch_runs -jobs $num_jobs synth_1
 wait_on_run synth_1
