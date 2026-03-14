@@ -83,3 +83,23 @@ set_property PACKAGE_PIN E12 [get_ports sys_clk_p]
 set_property PACKAGE_PIN D12 [get_ports sys_clk_n]
 
 # tclint-enable line-length, spacing
+
+######################
+# NVDLA CBUF hold fix #
+######################
+
+# Small residual hold violations can appear on CBUF write-address paths
+# from FFs to RAMB36 address pins due to local clock-gating skew.
+# Add a tiny datapath-only minimum delay target so implementation inserts
+# enough delay without affecting setup analysis.
+set NVDLA_CBUF_WR_ADDR_SRC [get_pins -hier -filter {
+    REF_PIN_NAME == Q && NAME =~ */u_NV_NVDLA_cbuf/*_wr_addr_d2_reg*/Q
+}]
+set NVDLA_CBUF_WR_ADDR_DST [get_pins -hier -filter {
+    REF_PIN_NAME =~ ADDRBWRADDR* && NAME =~ */u_NV_NVDLA_cbuf/u_cbuf_ram_bank*_ram*/r_nv_ram_rws_256x64/ram_Inst_256X64/ITOP/mem_reg/ADDRBWRADDR*
+}]
+if { [llength $NVDLA_CBUF_WR_ADDR_SRC] > 0 && [llength $NVDLA_CBUF_WR_ADDR_DST] > 0 } {
+    set_min_delay -datapath_only 0.10 \
+        -from $NVDLA_CBUF_WR_ADDR_SRC \
+        -to $NVDLA_CBUF_WR_ADDR_DST
+}

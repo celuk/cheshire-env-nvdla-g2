@@ -68,6 +68,15 @@ launch_runs -jobs $num_jobs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 open_run impl_1
 
+# Extra post-route pass for tiny residual hold violations.
+# Keep it best-effort to stay compatible across Vivado versions.
+if {[catch {phys_opt_design -directive Explore -hold_fix} hold_fix_err]} {
+    puts "Warning: Additional post-route hold-fix pass failed: $hold_fix_err"
+} else {
+    write_checkpoint -force ${project_root}/${proj}.runs/impl_1/${proj}_top_xilinx_post_holdfix.dcp
+    write_bitstream -force ${project_root}/${proj}.runs/impl_1/cheshire_top_xilinx.bit
+}
+
 # Generate implementation reports
 gen_reports ${project_root}/reports.impl
 
