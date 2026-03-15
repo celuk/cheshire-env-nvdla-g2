@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu118.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="696ab74fb29540ec9a499ffa107c62ca"/>
+    <Option Name="Id" Val="b29bd45925ae4d11984f77612c96d3b2"/>
     <Option Name="Part" Val="xcvu9p-flga2104-2L-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -7932,7 +7932,7 @@
       <File Path="$PSRCDIR/constrs_1/imports/constraints/vcu118.xdc">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../constraints/vcu118.xdc"/>
-          <Attr Name="ImportTime" Val="1773479701"/>
+          <Attr Name="ImportTime" Val="1773497893"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
@@ -8039,9 +8039,12 @@
           <Option Id="Directive">0</Option>
         </Step>
         <Step Id="route_design">
+          <Option Id="Directive">0</Option>
           <Option Id="MoreOptsStr"><![CDATA[-tns_cleanup]]></Option>
         </Step>
-        <Step Id="post_route_phys_opt_design" EnableStepBool="1"/>
+        <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">0</Option>
+        </Step>
         <Step Id="write_bitstream"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>

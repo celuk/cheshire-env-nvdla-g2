@@ -131,7 +131,7 @@ set rc [catch {
   set_param chipscope.maxJobs 5
   set_param checkpoint.writeSynthRtdsInDcp 1
   set_param power.BramSDPPropagationFix 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3653536-karpuz/incrSyn
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-4088582-karpuz/incrSyn
   reset_param project.defaultXPMLibraries 
   open_checkpoint /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu118.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
   set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu118.cheshire/cheshire.cache/wt [current_project]
@@ -256,7 +256,7 @@ set rc [catch {
 OPTRACE "read constraints: route_design" START { }
 OPTRACE "read constraints: route_design" END { }
 OPTRACE "route_design" START { }
-  route_design -tns_cleanup
+  route_design -directive Explore -tns_cleanup
 OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
@@ -297,7 +297,7 @@ set rc [catch {
   if {$tool_flow eq {SDx}} {send_msg_id {101-1} {status} {Starting optional post-route physical design optimization.} }
   create_msg_db post_route_phys_opt_design.pb
 OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
+  phys_opt_design -directive Explore
 OPTRACE "phys_opt_design" END { }
 OPTRACE "Post-Route Phys Opt Design: write_checkpoint" START { CHECKPOINT }
   write_checkpoint -force cheshire_top_xilinx_postroute_physopt.dcp

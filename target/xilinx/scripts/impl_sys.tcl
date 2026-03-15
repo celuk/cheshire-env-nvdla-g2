@@ -62,6 +62,9 @@ gen_reports ${project_root}/reports.synth
 # Set implementation properties
 #set_property strategy Performance_ExtraTimingOpt [get_runs impl_1]
 set_property strategy Flow_RunPostRoutePhysOpt [get_runs impl_1]
+set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]
+set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
+set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]
 
 # Implementation
 launch_runs -jobs $num_jobs impl_1 -to_step write_bitstream
