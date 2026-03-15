@@ -3402,6 +3402,44 @@ index 1b22c61..bfb5ecd 100644
  endmodule
  `endif // end EMULATION
  `endif // end RAM_INTERFACE 
+diff --git a/vsrc/large/vmod/rams/synth/nv_ram_rws_16x64_logic.v b/vsrc/large/vmod/rams/synth/nv_ram_rws_16x64_logic.v
+index ac59564..b92c22a 100644
+--- a/vsrc/large/vmod/rams/synth/nv_ram_rws_16x64_logic.v
++++ b/vsrc/large/vmod/rams/synth/nv_ram_rws_16x64_logic.v
+@@ -205,9 +205,15 @@ wire we_0_0;
+ wire re_0_0;
+ // start of predeclareNvregSignals
+ wire ctx_ctrl_we;
++wire ram_clk;
++`ifdef FPGA
++assign ram_clk = clk;
++`else
+ wire clk_en_core = (re_0_0 | (|we_0_0));
+ wire gated_clk_core;
+ CKLNQD12PO4 UJ_clk_gate_core (.Q(gated_clk_core), .CP(clk), .E(clk_en_core), .TE(1'b0 | mbist_en_r | debug_mode_sync | scan_en));
++assign ram_clk = gated_clk_core;
++`endif
+ wire shiftDR_en;
+ reg [63:0] pre_muxed_Di_w0;
+ wire [63:0] pre_muxed_Di_w0_A, pre_muxed_Di_w0_B;
+@@ -393,7 +399,7 @@ wire reb = !piece_re;
+ wire [63:0] ramDataOut;
+ assign dout_0_0[63:0] = ramDataOut[63:0];
+ RAMDP_16X64_GL_M1_E2 ram_Inst_16X64 (
+-                                       .CLK_W (gated_clk_core)
++                                       .CLK_W (ram_clk)
+                                      , .WADR_3 (wa_0_0[3])
+                                      , .WADR_2 (wa_0_0[2])
+                                      , .WADR_1 (wa_0_0[1])
+@@ -463,7 +469,7 @@ RAMDP_16X64_GL_M1_E2 ram_Inst_16X64 (
+                                      , .WD_1 (Wdata[1])
+                                      , .WD_0 (Wdata[0])
+                                      , .WE (!web)
+-                                     , .CLK_R (gated_clk_core)
++                                     , .CLK_R (ram_clk)
+                                      , .RADR_3 (ra_0_0 [3])
+                                      , .RADR_2 (ra_0_0 [2])
+                                      , .RADR_1 (ra_0_0 [1])
 diff --git a/vsrc/large/vmod/rams/synth/nv_ram_rws_256x64_logic.v b/vsrc/large/vmod/rams/synth/nv_ram_rws_256x64_logic.v
 index 479566f..aa2819c 100644
 --- a/vsrc/large/vmod/rams/synth/nv_ram_rws_256x64_logic.v
@@ -3431,6 +3469,23 @@ index 479566f..aa2819c 100644
                                          , .WADR_7 (wa_0_0[7])
                                          , .WADR_6 (wa_0_0[6])
                                          , .WADR_5 (wa_0_0[5])
+diff --git a/vsrc/large/vmod/vlibs/CKLNQD12PO4.v b/vsrc/large/vmod/vlibs/CKLNQD12PO4.v
+index bd06389..113b7b0 100644
+--- a/vsrc/large/vmod/vlibs/CKLNQD12PO4.v
++++ b/vsrc/large/vmod/vlibs/CKLNQD12PO4.v
+@@ -16,8 +16,12 @@ input TE ;
+ input E ;
+ input CP ;
+ output Q ;
++`ifdef FPGA
++assign Q = CP;
++`else
+ reg qd;
+ always @(negedge CP)
+     qd <= TE | E;
+ assign Q = CP & qd;
++`endif
+ endmodule
 diff --git a/vsrc/small/nvdla_small.v b/vsrc/small/nvdla_small.v
 index 69c4904..129db5d 100644
 --- a/vsrc/small/nvdla_small.v
@@ -5481,6 +5536,44 @@ index b9a5672..1f32632 100644
  endmodule
  `endif // end EMULATION
  `endif // end RAM_INTERFACE 
+diff --git a/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64_logic.v b/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64_logic.v
+index ac59564..b92c22a 100644
+--- a/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64_logic.v
++++ b/vsrc/small/vmod/rams/synth/nv_ram_rws_16x64_logic.v
+@@ -205,9 +205,15 @@ wire we_0_0;
+ wire re_0_0;
+ // start of predeclareNvregSignals
+ wire ctx_ctrl_we;
++wire ram_clk;
++`ifdef FPGA
++assign ram_clk = clk;
++`else
+ wire clk_en_core = (re_0_0 | (|we_0_0));
+ wire gated_clk_core;
+ CKLNQD12PO4 UJ_clk_gate_core (.Q(gated_clk_core), .CP(clk), .E(clk_en_core), .TE(1'b0 | mbist_en_r | debug_mode_sync | scan_en));
++assign ram_clk = gated_clk_core;
++`endif
+ wire shiftDR_en;
+ reg [63:0] pre_muxed_Di_w0;
+ wire [63:0] pre_muxed_Di_w0_A, pre_muxed_Di_w0_B;
+@@ -393,7 +399,7 @@ wire reb = !piece_re;
+ wire [63:0] ramDataOut;
+ assign dout_0_0[63:0] = ramDataOut[63:0];
+ RAMDP_16X64_GL_M1_E2 ram_Inst_16X64 (
+-                                       .CLK_W (gated_clk_core)
++                                       .CLK_W (ram_clk)
+                                      , .WADR_3 (wa_0_0[3])
+                                      , .WADR_2 (wa_0_0[2])
+                                      , .WADR_1 (wa_0_0[1])
+@@ -463,7 +469,7 @@ RAMDP_16X64_GL_M1_E2 ram_Inst_16X64 (
+                                      , .WD_1 (Wdata[1])
+                                      , .WD_0 (Wdata[0])
+                                      , .WE (!web)
+-                                     , .CLK_R (gated_clk_core)
++                                     , .CLK_R (ram_clk)
+                                      , .RADR_3 (ra_0_0 [3])
+                                      , .RADR_2 (ra_0_0 [2])
+                                      , .RADR_1 (ra_0_0 [1])
 diff --git a/vsrc/small/vmod/rams/synth/nv_ram_rws_256x64_logic.v b/vsrc/small/vmod/rams/synth/nv_ram_rws_256x64_logic.v
 index 479566f..aa2819c 100644
 --- a/vsrc/small/vmod/rams/synth/nv_ram_rws_256x64_logic.v
@@ -5510,3 +5603,20 @@ index 479566f..aa2819c 100644
                                          , .WADR_7 (wa_0_0[7])
                                          , .WADR_6 (wa_0_0[6])
                                          , .WADR_5 (wa_0_0[5])
+diff --git a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
+index bd06389..113b7b0 100644
+--- a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
++++ b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
+@@ -16,8 +16,12 @@ input TE ;
+ input E ;
+ input CP ;
+ output Q ;
++`ifdef FPGA
++assign Q = CP;
++`else
+ reg qd;
+ always @(negedge CP)
+     qd <= TE | E;
+ assign Q = CP & qd;
++`endif
+ endmodule
