@@ -5453,19 +5453,20 @@ index b9a5672..1f32632 100644
  `endif // end EMULATION
  `endif // end RAM_INTERFACE 
 diff --git a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
-index bd06389..627f604 100644
+index bd06389..e170eca 100644
 --- a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
 +++ b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
-@@ -16,8 +16,16 @@ input TE ;
+@@ -16,8 +16,17 @@ input TE ;
  input E ;
  input CP ;
  output Q ;
 +`ifdef FPGA
-+BUFGCE u_bufgce (
-+    .I  (CP),
-+    .CE (TE | E),
-+    .O  (Q)
-+);
++(* gated_clock = "true" *) reg en_latch;
++
++always @(*)
++    if(!CP) en_latch = TE | E;
++
++assign Q = CP & en_latch;
 +`else
  reg qd;
  always @(negedge CP)
