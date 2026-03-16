@@ -5453,15 +5453,19 @@ index b9a5672..1f32632 100644
  `endif // end EMULATION
  `endif // end RAM_INTERFACE 
 diff --git a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
-index bd06389..113b7b0 100644
+index bd06389..627f604 100644
 --- a/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
 +++ b/vsrc/small/vmod/vlibs/CKLNQD12PO4.v
-@@ -16,8 +16,12 @@ input TE ;
+@@ -16,8 +16,16 @@ input TE ;
  input E ;
  input CP ;
  output Q ;
 +`ifdef FPGA
-+assign Q = CP;
++BUFGCE u_bufgce (
++    .I  (CP),
++    .CE (TE | E),
++    .O  (Q)
++);
 +`else
  reg qd;
  always @(negedge CP)
