@@ -125,9 +125,9 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param general.maxThreads 18
+  set_param general.maxThreads 8
   set_param chipscope.maxJobs 5
-  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-19708-ECIT01684/incrSyn
+  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-38864-ECIT01684/incrSyn
   reset_param project.defaultXPMLibraries 
   open_checkpoint C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
   set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
@@ -223,7 +223,7 @@ set rc [catch {
 OPTRACE "read constraints: phys_opt_design" START { }
 OPTRACE "read constraints: phys_opt_design" END { }
 OPTRACE "phys_opt_design" START { }
-  phys_opt_design -directive Explore
+  phys_opt_design 
 OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
@@ -244,7 +244,6 @@ if {$rc} {
 
 OPTRACE "Phase: Physical Opt Design" END { }
 OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
-  set_msg_config -source 4 -id {Route 35-39} -severity "critical warning" -new_severity warning
 start_step route_design
 set ACTIVE_STEP route_design
 set rc [catch {
@@ -252,7 +251,7 @@ set rc [catch {
 OPTRACE "read constraints: route_design" START { }
 OPTRACE "read constraints: route_design" END { }
 OPTRACE "route_design" START { }
-  route_design -directive Explore -tns_cleanup
+  route_design 
 OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
@@ -264,7 +263,7 @@ OPTRACE "route_design reports" START { REPORT }
   create_report "impl_1_route_report_methodology_0" "report_methodology -file cheshire_top_xilinx_methodology_drc_routed.rpt -pb cheshire_top_xilinx_methodology_drc_routed.pb -rpx cheshire_top_xilinx_methodology_drc_routed.rpx"
   create_report "impl_1_route_report_power_0" "report_power -file cheshire_top_xilinx_power_routed.rpt -pb cheshire_top_xilinx_power_summary_routed.pb -rpx cheshire_top_xilinx_power_routed.rpx"
   create_report "impl_1_route_report_route_status_0" "report_route_status -file cheshire_top_xilinx_route_status.rpt -pb cheshire_top_xilinx_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file cheshire_top_xilinx_timing_summary_routed.rpt -pb cheshire_top_xilinx_timing_summary_routed.pb -rpx cheshire_top_xilinx_timing_summary_routed.rpx"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file cheshire_top_xilinx_timing_summary_routed.rpt -pb cheshire_top_xilinx_timing_summary_routed.pb -rpx cheshire_top_xilinx_timing_summary_routed.rpx -warn_on_violation "
   create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file cheshire_top_xilinx_incremental_reuse_routed.rpt"
   create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file cheshire_top_xilinx_clock_utilization_routed.rpt"
   create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file cheshire_top_xilinx_bus_skew_routed.rpt -pb cheshire_top_xilinx_bus_skew_routed.pb -rpx cheshire_top_xilinx_bus_skew_routed.rpx"
@@ -285,38 +284,6 @@ OPTRACE "route_design write_checkpoint" END { }
 
 OPTRACE "route_design misc" END { }
 OPTRACE "Phase: Route Design" END { }
-OPTRACE "Phase: Phys-Opt Design" START { ROLLUP_AUTO }
-start_step post_route_phys_opt_design
-set ACTIVE_STEP post_route_phys_opt_design
-set rc [catch {
-  set tool_flow [get_property -quiet TOOL_FLOW [current_project -quiet]]
-  if {$tool_flow eq {SDx}} {send_msg_id {101-1} {status} {Starting optional post-route physical design optimization.} }
-  create_msg_db post_route_phys_opt_design.pb
-OPTRACE "phys_opt_design" START { }
-  phys_opt_design -directive Explore
-OPTRACE "phys_opt_design" END { }
-OPTRACE "Post-Route Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force cheshire_top_xilinx_postroute_physopt.dcp
-OPTRACE "Post-Route Phys Opt Design: write_checkpoint" END { }
-OPTRACE "phys_opt_design reports" START { REPORT }
-  create_report "impl_1_post_route_phys_opt_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -warn_on_violation -file cheshire_top_xilinx_timing_summary_postroute_physopted.rpt -pb cheshire_top_xilinx_timing_summary_postroute_physopted.pb -rpx cheshire_top_xilinx_timing_summary_postroute_physopted.rpx"
-  create_report "impl_1_post_route_phys_opt_report_bus_skew_0" "report_bus_skew -warn_on_violation -file cheshire_top_xilinx_bus_skew_postroute_physopted.rpt -pb cheshire_top_xilinx_bus_skew_postroute_physopted.pb -rpx cheshire_top_xilinx_bus_skew_postroute_physopted.rpx"
-OPTRACE "phys_opt_design reports" END { }
-OPTRACE "phys_opt_design misc" START { }
-  close_msg_db -file post_route_phys_opt_design.pb
-  set tool_flow [get_property TOOL_FLOW [current_project]]
-  if {$tool_flow eq {SDx}} {send_msg_id {101-1} {status} {Finished optional post-route physical design optimization.} }
-} RESULT]
-if {$rc} {
-  step_failed post_route_phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step post_route_phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "phys_opt_design misc" END { }
-OPTRACE "Phase: Phys-Opt Design" END { }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
 OPTRACE "write_bitstream setup" START { }
 start_step write_bitstream

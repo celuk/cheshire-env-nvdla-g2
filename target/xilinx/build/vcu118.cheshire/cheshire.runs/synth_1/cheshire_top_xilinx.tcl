@@ -73,10 +73,10 @@ OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param power.enableLutRouteBelPower 1
 set_param power.enableCarry8RouteBelPower 1
 set_param power.enableUnconnectedCarry8PinPower 1
-set_param general.maxThreads 18
+set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param power.BramSDPPropagationFix 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-737199-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3203180-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -298,9 +298,9 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dm_mem.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dm_sba.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dm_top.sv
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/dmi_bscane_tap.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_cdc.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_jtag.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_jtag_tap.sv
   /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/src/dram_wrapper_xilinx.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/ex_stage.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/exp_backoff.sv

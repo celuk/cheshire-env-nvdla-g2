@@ -17,6 +17,7 @@
 `ifdef TARGET_VCU118
   `define USE_RESET
   `define USE_JTAG
+  `define USE_JTAG_VDDGND
   `define USE_DDR4
   //`define USE_QSPI
   //`define USE_STARTUPE3

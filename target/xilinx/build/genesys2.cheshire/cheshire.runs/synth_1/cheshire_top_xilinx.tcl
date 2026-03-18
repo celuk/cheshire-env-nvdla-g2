@@ -71,8 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param general.maxThreads 18
-set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-19708-ECIT01684/incrSyn
+set_param general.maxThreads 8
+set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-38864-ECIT01684/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -119,7 +119,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/config_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cv64a6_imafdcsclic_sv39_config_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/riscv_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/ariane_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_pkg.sv
@@ -816,7 +816,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top cheshire_top_xilinx -part xc7k325tffg900-2 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+synth_design -top cheshire_top_xilinx -part xc7k325tffg900-2
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

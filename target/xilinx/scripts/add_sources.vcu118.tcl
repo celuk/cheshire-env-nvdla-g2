@@ -555,7 +555,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_cdc.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOT/../rtl/src/dmi_bscane_tap.sv \
+    $ROOTBENDER/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_jtag_tap.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dm_sba.sv \

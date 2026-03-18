@@ -58,19 +58,38 @@ set_property IOSTANDARD  LVCMOS18 [get_ports "uart_rx_i"] ;# Bank  67 VCCO - VCC
 set_property PACKAGE_PIN BB21     [get_ports "uart_tx_o"] ;# Bank  67 VCCO - VCC1V8   - IO_L2P_T0L_N2_67
 set_property IOSTANDARD  LVCMOS18 [get_ports "uart_tx_o"] ;# Bank  67 VCCO - VCC1V8   - IO_L2P_T0L_N2_67
 
-# JTAG routed on J53 PMOD male pin header
-# PMOD1_0, J53.1 -> TMS
-set_property PACKAGE_PIN N28     [get_ports jtag_tms_i]
-set_property IOSTANDARD LVCMOS12 [get_ports jtag_tms_i]
-# PMOD1_1, J53.3 -> TDI
-set_property PACKAGE_PIN M30     [get_ports jtag_tdi_i]
-set_property IOSTANDARD LVCMOS12 [get_ports jtag_tdi_i]
-# PMOD1_2, J53.5 -> TDO
-set_property PACKAGE_PIN N30     [get_ports jtag_tdo_o]
-set_property IOSTANDARD LVCMOS12 [get_ports jtag_tdo_o]
-# PMOD1_3, J53.7 -> TCK
-set_property PACKAGE_PIN P30     [get_ports jtag_tck_i]
-set_property IOSTANDARD LVCMOS12 [get_ports jtag_tck_i]
+## JTAG routed on J53 PMOD male pin header
+## PMOD1_0, J53.1 -> TMS
+#set_property PACKAGE_PIN N28     [get_ports jtag_tms_i]
+#set_property IOSTANDARD LVCMOS12 [get_ports jtag_tms_i]
+## PMOD1_1, J53.3 -> TDI
+#set_property PACKAGE_PIN M30     [get_ports jtag_tdi_i]
+#set_property IOSTANDARD LVCMOS12 [get_ports jtag_tdi_i]
+## PMOD1_2, J53.5 -> TDO
+#set_property PACKAGE_PIN N30     [get_ports jtag_tdo_o]
+#set_property IOSTANDARD LVCMOS12 [get_ports jtag_tdo_o]
+## PMOD1_3, J53.7 -> TCK
+#set_property PACKAGE_PIN P30     [get_ports jtag_tck_i]
+#set_property IOSTANDARD LVCMOS12 [get_ports jtag_tck_i]
+
+# BB12 - C15 (FMCP HSPC LA10 N) - J1.04 - GND
+set_property PACKAGE_PIN BB12 [get_ports jtag_gnd_o];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_gnd_o];
+# BB13 - C14 (FMCP_HSPC_LA10_P) - J1.02 - VDD
+set_property PACKAGE_PIN BB13 [get_ports jtag_vdd_o];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_vdd_o];
+# BA15 - H17 (FMCP_HSPC_LA11_N) - J1.08 - TDO
+set_property PACKAGE_PIN BA15 [get_ports jtag_tdo_o];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_tdo_o];
+# BA16 - H16 (FMCP_HSPC_LA11_P) - J1.06 - TCK
+set_property PACKAGE_PIN BA16 [get_ports jtag_tck_i];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_tck_i];
+# BC13 - G16 (FMCP_HSPC_LA12_N) - J1.12 - TMS
+set_property PACKAGE_PIN BC13 [get_ports jtag_tms_i];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_tms_i];
+# BC14 - G15 (FMCP_HSPC LA12_P) - J1.10 - TDI
+set_property PACKAGE_PIN BC14 [get_ports jtag_tdi_i];
+set_property IOSTANDARD LVCMOS18 [get_ports jtag_tdi_i];
 
 # Active high reset
 set_property PACKAGE_PIN L19 [get_ports sys_reset]

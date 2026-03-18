@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu118.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="9b243115df5344f183c17d92f956079c"/>
+    <Option Name="Id" Val="809efc27702642aeae71732f1945e38f"/>
     <Option Name="Part" Val="xcvu9p-flga2104-2L-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -3528,13 +3528,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/dmi_bscane_tap.sv">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../../../../.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_cdc.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -3543,6 +3536,13 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../../../../.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_jtag.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../.bender/git/checkouts/riscv-dbg-1a98531d53bb4602/src/dmi_jtag_tap.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -7932,7 +7932,7 @@
       <File Path="$PSRCDIR/constrs_1/imports/constraints/vcu118.xdc">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../constraints/vcu118.xdc"/>
-          <Attr Name="ImportTime" Val="1773497893"/>
+          <Attr Name="ImportTime" Val="1773861248"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>

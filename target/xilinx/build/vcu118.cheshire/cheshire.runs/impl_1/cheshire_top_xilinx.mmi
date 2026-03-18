@@ -13,97 +13,97 @@
     <AddressSpace Name="i_dram_wrapper_i_dram_inst_u_ddr4_mem_intfc_u_ddr_cal_riu_mcs0_inst_microblaze_I.i_dram_wrapper_i_dram_inst_u_ddr4_mem_intfc_u_ddr_cal_riu_mcs0_inst_dlmb_cntlr" Begin="0" End="65535">
       <AddressSpaceRange Name="i_dram_wrapper_i_dram_inst_u_ddr4_mem_intfc_u_ddr_cal_riu_mcs0_inst_microblaze_I.i_dram_wrapper_i_dram_inst_u_ddr4_mem_intfc_u_ddr_cal_riu_mcs0_inst_dlmb_cntlr" Begin="0" End="65535" CoreMemory_Width="0" MemoryType="RAM_SP" MemoryConfiguration="">
         <BusBlock>
-          <BitLane MemType="RAMB36" Placement="X8Y164" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y155" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="7" LSB="6"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y159" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y157" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="5" LSB="4"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y163" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y154" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="3" LSB="2"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y162" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y152" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="1" LSB="0"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y159" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y156" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="15" LSB="14"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y156" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y156" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="13" LSB="12"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y154" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y155" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="11" LSB="10"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X8Y155" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y158" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="9" LSB="8"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y163" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y148" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="23" LSB="22"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y154" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y146" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="21" LSB="20"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y162" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y147" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="19" LSB="18"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y153" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y145" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="17" LSB="16"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y165" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y147" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="31" LSB="30"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y156" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y148" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="29" LSB="28"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y164" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X9Y151" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="27" LSB="26"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X9Y155" Read_Width="0" SLR_INDEX="-1">
+          <BitLane MemType="RAMB36" Placement="X8Y149" Read_Width="0" SLR_INDEX="-1">
             <DataWidth MSB="25" LSB="24"/>
             <AddressRange Begin="0" End="16383"/>
             <BitLayout pattern=""/>
@@ -115,7 +115,7 @@
   </Processor>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[7].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[7].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y130" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y151" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -128,7 +128,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[6].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[6].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y134" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y152" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -141,7 +141,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[5].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[5].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y133" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y153" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -154,7 +154,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[4].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[4].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y131" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y156" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -167,7 +167,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[3].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[3].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y135" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y154" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -180,7 +180,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[2].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[2].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y137" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y149" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -193,7 +193,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[1].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[1].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y136" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y155" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -206,7 +206,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_llc.i_llc/i_axi_llc_top_raw/i_hit_miss_unit/i_tag_store/gen_tag_macros[0].i_tag_store/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="24" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X3Y132" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
+      <BRAM MemType="RAMB36" Placement="X4Y150" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="23" LSB="0"/>
         <AddressRange_PortA Begin="0" End="255"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -219,7 +219,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="56" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y77" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y125" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -228,7 +228,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y80" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y122" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="55" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -241,7 +241,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="56" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y78" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y124" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -250,7 +250,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y79" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y123" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="55" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -263,7 +263,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="128" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X8Y93" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X9Y137" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -272,7 +272,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X8Y94" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y139" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="63" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -281,7 +281,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X8Y90" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X9Y136" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="95" LSB="64"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -290,7 +290,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X8Y95" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y140" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="127" LSB="96"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -303,7 +303,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="128" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X8Y91" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y138" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -312,7 +312,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y95" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y141" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="63" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -321,7 +321,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X8Y92" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X9Y138" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="95" LSB="64"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -330,7 +330,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y94" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y142" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="127" LSB="96"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -343,7 +343,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="56" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y73" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y128" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -352,7 +352,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y74" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y129" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="55" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -365,7 +365,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="128" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y86" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y133" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -374,7 +374,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y85" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y132" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="63" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -383,7 +383,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y87" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y137" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="95" LSB="64"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -392,7 +392,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y92" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y134" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="127" LSB="96"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -405,7 +405,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="56" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y72" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y126" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -414,7 +414,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y71" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y127" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="55" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d0_p0_d8_p0_d8_p0_d8"/>
@@ -427,7 +427,7 @@
   </MemoryArray>
   <MemoryArray InstPath="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" MemoryPrimitive="auto" MemoryConfiguration="enabled_configuration">
     <MemoryLayout Name="i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst" CoreMemory_Width="128" MemoryType="RAM_SP">
-      <BRAM MemType="RAMB36" Placement="X9Y88" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y131" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="31" LSB="0"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -436,7 +436,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y89" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y130" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="63" LSB="32"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -445,7 +445,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y90" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y136" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="95" LSB="64"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
@@ -454,7 +454,7 @@
         <BitLayout_PortB pattern=""/>
         <Parity ON="false" NumBits="0"/>
       </BRAM>
-      <BRAM MemType="RAMB36" Placement="X9Y91" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="1">
+      <BRAM MemType="RAMB36" Placement="X8Y135" Read_Width_A="36" Read_Width_B="0" SLR_INDEX="2">
         <DataWidth_PortA MSB="127" LSB="96"/>
         <AddressRange_PortA Begin="0" End="3"/>
         <BitLayout_PortA pattern="p0_d8_p0_d8_p0_d8_p0_d8"/>
