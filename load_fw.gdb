@@ -1,4 +1,4 @@
-restore custom5.dtb binary 0x90000000
-restore Image5 binary 0x80200000
-load fw_dynamic5.elf
+restore custom10.dtb binary 0x90000000
+restore Image10 binary 0x80200000
+load fw_dynamic10.elf
 continue

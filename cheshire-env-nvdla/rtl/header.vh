@@ -4,12 +4,12 @@
 
 //`define DRAM_SIM
 //`define SIM
-//`define GENESYS2
-`define ZC706
+`define GENESYS2
+//`define ZC706
 
 //`define VCU118
 
-`define CPU_CLK 10_000_000
+`define CPU_CLK 18_000_000
 `define BAUD_RATE 115200
 `define DDR_MHZ 50
 

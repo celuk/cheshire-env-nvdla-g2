@@ -447,7 +447,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     counter_d = counter_q + 1;
     rtc_clk_d = rtc_clk_q;
 
-    if(counter_q == 4) begin
+    if(counter_q == 8) begin
       counter_d = '0;
       rtc_clk_d = ~rtc_clk_q;
     end
