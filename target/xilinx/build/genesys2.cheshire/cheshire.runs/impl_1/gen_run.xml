@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1773254451">
+<GenRun Id="impl_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1773793358">
   <File Type="OPT-HWDEF" Name="cheshire_top_xilinx.hwdef"/>
   <File Type="ROUTE-BUS-SKEW" Name="cheshire_top_xilinx_bus_skew_routed.rpt"/>
   <File Type="PA-DCP" Name="cheshire_top_xilinx.dcp"/>
@@ -2280,7 +2280,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cv64a6_imafdcsclic_sv39_config_pkg.sv">
+    <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -7827,7 +7827,7 @@
     <File Path="$PSRCDIR/constrs_1/imports/constraints/cheshire.xdc">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../constraints/cheshire.xdc"/>
-        <Attr Name="ImportTime" Val="1772413472"/>
+        <Attr Name="ImportTime" Val="1773337480"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
@@ -7835,7 +7835,7 @@
     <File Path="$PSRCDIR/constrs_1/imports/constraints/genesys2.xdc">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../constraints/genesys2.xdc"/>
-        <Attr Name="ImportTime" Val="1773251583"/>
+        <Attr Name="ImportTime" Val="1773790919"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
@@ -7851,17 +7851,24 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-      <Desc>Default settings for Implementation.</Desc>
+    <StratHandle Name="Flow_RunPostRoutePhysOpt" Flow="Vivado Implementation 2022">
+      <Desc>Similar to the Implementation Run Defaults, but enables the physical optimization step (phys_opt_design) before and after routing.</Desc>
     </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
     <Step Id="place_design"/>
     <Step Id="post_place_power_opt_design"/>
-    <Step Id="phys_opt_design"/>
-    <Step Id="route_design"/>
-    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="phys_opt_design">
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="route_design">
+      <Option Id="MoreOptsStr"><![CDATA[-tns_cleanup]]></Option>
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="post_route_phys_opt_design" EnableStepBool="1">
+      <Option Id="Directive">0</Option>
+    </Step>
     <Step Id="write_bitstream"/>
   </Strategy>
 </GenRun>

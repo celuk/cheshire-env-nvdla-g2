@@ -5,11 +5,11 @@
 //`define DRAM_SIM
 //`define SIM
 //`define GENESYS2
-//`define ZC706
+`define ZC706
 
-`define VCU118
+//`define VCU118
 
-`define CPU_CLK 50_000_000
+`define CPU_CLK 10_000_000
 `define BAUD_RATE 115200
 `define DDR_MHZ 50
 
@@ -25,7 +25,7 @@
 
 `define JTAG
 
-`define TARGET_VCU118
+`define TARGET_GENESYS2
 
 `ifdef TARGET_VCU118
   `define USE_RESET
