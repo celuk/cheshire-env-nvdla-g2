@@ -22,6 +22,12 @@ set fpart(vcu118) "xcvu9p-flga2104-2L-e"
 set hwdev(vcu118) "xcvu9p_0"
 set cfgmp(vcu118) "mt25qu01g-spi-x1_x2_x4"
 
+# vcu108 board params
+set bpart(vcu108) "xilinx.com:vcu108:part0:1.4"
+set fpart(vcu108) "xcvu095-ffva2104-2-e"
+set hwdev(vcu108) "xcvu095_0"
+set cfgmp(vcu108) "mt25qu01g-spi-x1_x2_x4"
+
 set_param board.repoPaths [list [file normalize [file join [file dirname [file normalize [info script]]] ../../../vivado-boards-master/new/board_files]]]
 
 # Initialize an implementation project

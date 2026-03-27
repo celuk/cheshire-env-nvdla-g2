@@ -124,6 +124,43 @@ switch $proj {
                     CONFIG.CLKOUT4_PHASE_ERROR {154.678} \
                     ] [get_ips $proj]
             }
+            vcu108 {
+                set_property -dict [list \
+                    CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
+                    CONFIG.RESET_BOARD_INTERFACE {Custom} \
+                    CONFIG.USE_RESET {true} \
+                    CONFIG.PRIM_SOURCE {No_buffer} \
+                    CONFIG.PRIM_IN_FREQ {300.000} \
+                    CONFIG.CLKOUT1_USED {true} \
+                    CONFIG.CLKOUT2_USED {true} \
+                    CONFIG.CLKOUT3_USED {true} \
+                    CONFIG.CLKOUT4_USED {true} \
+                    CONFIG.CLK_OUT1_PORT {clk_50} \
+                    CONFIG.CLK_OUT2_PORT {clk_48} \
+                    CONFIG.CLK_OUT3_PORT {clk_20} \
+                    CONFIG.CLK_OUT4_PORT {clk_10} \
+                    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
+                    CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {48.000} \
+                    CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {20.000} \
+                    CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {10.000} \
+                    CONFIG.MMCM_CLKFBOUT_MULT_F {4.000} \
+                    CONFIG.MMCM_CLKIN1_PERIOD {3.333} \
+                    CONFIG.MMCM_CLKOUT0_DIVIDE_F {24.000} \
+                    CONFIG.MMCM_CLKOUT1_DIVIDE {25} \
+                    CONFIG.MMCM_CLKOUT2_DIVIDE {60} \
+                    CONFIG.MMCM_CLKOUT3_DIVIDE {120} \
+                    CONFIG.MMCM_CLKOUT4_DIVIDE {1} \
+                    CONFIG.NUM_OUT_CLKS {4} \
+                    CONFIG.CLKOUT1_JITTER {112.316} \
+                    CONFIG.CLKOUT1_PHASE_ERROR {89.971} \
+                    CONFIG.CLKOUT2_JITTER {129.198} \
+                    CONFIG.CLKOUT2_PHASE_ERROR {89.971} \
+                    CONFIG.CLKOUT3_JITTER {155.330} \
+                    CONFIG.CLKOUT3_PHASE_ERROR {89.971} \
+                    CONFIG.CLKOUT4_JITTER {178.053} \
+                    CONFIG.CLKOUT4_PHASE_ERROR {89.971} \
+                    ] [get_ips $proj]
+            }
             default { nocfgexit $proj $board }
         }
     }
@@ -153,7 +190,8 @@ switch $proj {
                     CONFIG.C_NUM_PROBE_IN {0} \
                     ] [get_ips $proj]
             }
-            vcu118 {
+            vcu118 -
+            vcu108 {
                 set_property -dict [list \
                     CONFIG.C_NUM_PROBE_OUT {3} \
                     CONFIG.C_PROBE_OUT0_INIT_VAL {0x0} \
@@ -228,6 +266,26 @@ switch $proj {
                     CONFIG.C0.DDR4_AxiAddressWidth {31} \
                     CONFIG.C0.DDR4_AxiIDWidth {8} \
                     CONFIG.C0.BANK_GROUP_WIDTH {1} \
+                    CONFIG.C0.DDR4_AxiSelection {true} \
+                    ] [get_ips $proj]
+            }
+            vcu108 {
+                set_property -dict [list \
+                    CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c2} \
+                    CONFIG.System_Clock {No_Buffer} \
+                    CONFIG.Reference_Clock {No_Buffer} \
+                    CONFIG.C0.DDR4_InputClockPeriod {3333} \
+                    CONFIG.C0.DDR4_CLKOUT0_DIVIDE {3} \
+                    CONFIG.C0.DDR4_MemoryPart {MT40A512M16HA-075E} \
+                    CONFIG.C0.DDR4_DataWidth {72} \
+                    CONFIG.C0.DDR4_DataMask {NO_DM_NO_DBI} \
+                    CONFIG.C0.DDR4_Ecc {true} \
+                    CONFIG.C0.DDR4_AxiDataWidth {512} \
+                    CONFIG.C0.DDR4_AxiAddressWidth {32} \
+                    CONFIG.C0.DDR4_AxiIDWidth {8} \
+                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {100} \
+                    CONFIG.C0.BANK_GROUP_WIDTH {1} \
+                    CONFIG.C0.CS_WIDTH {1} \
                     CONFIG.C0.DDR4_AxiSelection {true} \
                     ] [get_ips $proj]
             }

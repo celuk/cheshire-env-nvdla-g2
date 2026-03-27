@@ -24,7 +24,8 @@ set hw_cfgmem [get_property PROGRAM.HW_CFGMEM $hw_device]
 switch $board {
     genesys2 -
     vcu128 -
-    vcu118 {
+    vcu118 -
+    vcu108 {
         set mcs ${project_root}/image.mcs
         write_cfgmem -force -format mcs -size 256 -interface SPIx4 \
             -loaddata "up $offs $file" -checksum -file $mcs
