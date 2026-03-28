@@ -126,39 +126,37 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
-                    CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
-                    CONFIG.RESET_BOARD_INTERFACE {Custom} \
-                    CONFIG.USE_RESET {true} \
-                    CONFIG.PRIM_SOURCE {No_buffer} \
-                    CONFIG.PRIM_IN_FREQ {300.000} \
-                    CONFIG.CLKOUT1_USED {true} \
+                    CONFIG.CLKIN1_JITTER_PS {33.32} \
+                    CONFIG.CLKOUT1_JITTER {116.392} \
+                    CONFIG.CLKOUT1_PHASE_ERROR {77.820} \
+                    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
+                    CONFIG.CLKOUT2_JITTER {117.345} \
+                    CONFIG.CLKOUT2_PHASE_ERROR {77.820} \
+                    CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {48.000} \
                     CONFIG.CLKOUT2_USED {true} \
+                    CONFIG.CLKOUT3_JITTER {139.994} \
+                    CONFIG.CLKOUT3_PHASE_ERROR {77.820} \
+                    CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {20.000} \
                     CONFIG.CLKOUT3_USED {true} \
+                    CONFIG.CLKOUT4_JITTER {160.538} \
+                    CONFIG.CLKOUT4_PHASE_ERROR {77.820} \
+                    CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {10.000} \
                     CONFIG.CLKOUT4_USED {true} \
                     CONFIG.CLK_OUT1_PORT {clk_50} \
                     CONFIG.CLK_OUT2_PORT {clk_48} \
                     CONFIG.CLK_OUT3_PORT {clk_20} \
                     CONFIG.CLK_OUT4_PORT {clk_10} \
-                    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
-                    CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {48.000} \
-                    CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {20.000} \
-                    CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {10.000} \
                     CONFIG.MMCM_CLKFBOUT_MULT_F {4.000} \
-                    CONFIG.MMCM_CLKIN1_PERIOD {3.333} \
+                    CONFIG.MMCM_CLKIN1_PERIOD {3.332} \
+                    CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
                     CONFIG.MMCM_CLKOUT0_DIVIDE_F {24.000} \
                     CONFIG.MMCM_CLKOUT1_DIVIDE {25} \
                     CONFIG.MMCM_CLKOUT2_DIVIDE {60} \
                     CONFIG.MMCM_CLKOUT3_DIVIDE {120} \
-                    CONFIG.MMCM_CLKOUT4_DIVIDE {1} \
+                    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
                     CONFIG.NUM_OUT_CLKS {4} \
-                    CONFIG.CLKOUT1_JITTER {112.316} \
-                    CONFIG.CLKOUT1_PHASE_ERROR {89.971} \
-                    CONFIG.CLKOUT2_JITTER {129.198} \
-                    CONFIG.CLKOUT2_PHASE_ERROR {89.971} \
-                    CONFIG.CLKOUT3_JITTER {155.330} \
-                    CONFIG.CLKOUT3_PHASE_ERROR {89.971} \
-                    CONFIG.CLKOUT4_JITTER {178.053} \
-                    CONFIG.CLKOUT4_PHASE_ERROR {89.971} \
+                    CONFIG.PRIM_IN_FREQ {300.120} \
+                    CONFIG.PRIM_SOURCE {No_buffer} \
                     ] [get_ips $proj]
             }
             default { nocfgexit $proj $board }

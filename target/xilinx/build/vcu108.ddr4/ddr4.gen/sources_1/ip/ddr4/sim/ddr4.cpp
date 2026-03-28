@@ -109,7 +109,7 @@ void ddr4::before_end_of_elaboration()
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
     C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -140,7 +140,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -255,7 +255,7 @@ void ddr4::before_end_of_elaboration()
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
     C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -286,7 +286,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -401,7 +401,7 @@ void ddr4::before_end_of_elaboration()
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
     C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -432,7 +432,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -536,7 +536,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
     C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -567,7 +567,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
   mp_C0_DDR4_S_AXI_transactor->ARADDR(c0_ddr4_s_axi_araddr);
   mp_C0_DDR4_S_AXI_transactor->ARBURST(c0_ddr4_s_axi_arburst);
   mp_C0_DDR4_S_AXI_transactor->ARCACHE(c0_ddr4_s_axi_arcache);
@@ -683,7 +683,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
     C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -714,7 +714,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
   mp_C0_DDR4_S_AXI_transactor->ARADDR(c0_ddr4_s_axi_araddr);
   mp_C0_DDR4_S_AXI_transactor->ARBURST(c0_ddr4_s_axi_arburst);
   mp_C0_DDR4_S_AXI_transactor->ARCACHE(c0_ddr4_s_axi_arcache);

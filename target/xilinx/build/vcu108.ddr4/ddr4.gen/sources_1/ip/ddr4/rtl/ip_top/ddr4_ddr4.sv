@@ -109,7 +109,7 @@
   PhyIP_ECC = "false",
   PhyIP_CasLatency = 17,
   PhyIP_CasWriteLatency = 12,
-  PhyIP_DataWidth = 64,
+  PhyIP_DataWidth = 8,
   PhyIP_ChipSelect = "true",
   PhyIP_Slot = "Single",
   PhyIP_isCKEShared = "false",
@@ -134,11 +134,11 @@
 
   PhyIP_EN_PARITY = "false",
   PhyIP_System_Clock = "No_Buffer",
-  PhyIP_Simulation_Mode = "BFM",
+  PhyIP_Simulation_Mode = "Unisim",
   PhyIP_Phy_Only = "Complete_Memory_Controller",
   PhyIP_DEBUG_SIGNAL = "Disable",
   PhyIP_CLKOUTPHY_MODE = "VCO_2X",
-  PhyIP_DQ_WIDTH = 64,
+  PhyIP_DQ_WIDTH = 8,
   PhyIP_MEM_DEVICE_WIDTH = 16,
   PhyIP_MIN_PERIOD = 833,
   PhyIP_USE_DM_PORT = "DM_NO_DBI",
@@ -158,8 +158,8 @@
   PhyIP_ODT_WIDTH = 1,
   PhyIP_nCS_PER_RANK = 1,
   PhyIP_DATABITS_PER_STROBE = 8,
-  PhyIP_DQS_WIDTH = 8,
-  PhyIP_DM_WIDTH = 8
+  PhyIP_DQS_WIDTH = 1,
+  PhyIP_DM_WIDTH = 1
 
 *)
 (* dont_touch = "true" *) module ddr4_ddr4 #
@@ -175,9 +175,9 @@
     parameter integer COL_WIDTH               = 10,
     parameter integer CS_WIDTH                = 1,
     parameter integer ODT_WIDTH               = 1,
-    parameter integer DQ_WIDTH                = 64,
-    parameter integer DQS_WIDTH               = 8,
-    parameter integer DM_WIDTH                = 8,
+    parameter integer DQ_WIDTH                = 8,
+    parameter integer DQS_WIDTH               = 1,
+    parameter integer DM_WIDTH                = 1,
 
     parameter         DRAM_TYPE               = "DDR4",
     parameter         MEM_ADDR_ORDER          = "ROW_COLUMN_BANK",
@@ -236,8 +236,8 @@
     parameter         EXTRA_CMD_DELAY         = 0,
     parameter         nCK_PER_CLK             = 4,
     parameter         APP_ADDR_WIDTH          = 28,
-    parameter         APP_DATA_WIDTH          = 512,
-    parameter         APP_MASK_WIDTH          = 64,
+    parameter         APP_DATA_WIDTH          = 64,
+    parameter         APP_MASK_WIDTH          = 8,
 
     parameter         CLKIN_PERIOD_MMCM        = 3332,
     parameter         CLKFBOUT_MULT_MMCM       = 4,
@@ -254,7 +254,7 @@
     parameter C_S_AXI_ID_WIDTH                = 8,
                                               // Width of all master and slave ID signals.
                                               // # = >= 1.
-    parameter C_S_AXI_ADDR_WIDTH              = 31,
+    parameter C_S_AXI_ADDR_WIDTH              = 28,
                                               // Width of S_AXI_AWADDR, S_AXI_ARADDR, M_AXI_AWADDR and
                                               // M_AXI_ARADDR for all SI/MI slots.
                                               // # = 32.
@@ -263,7 +263,7 @@
                                               // Must be <= APP_DATA_WIDTH.
                                               // # = 32, 64, 128, 256.
     parameter BURST_MODE                      = "8",     // Burst length
-    parameter C_S_AXI_SUPPORTS_NARROW_BURST   = 0,
+    parameter C_S_AXI_SUPPORTS_NARROW_BURST   = 1,
                                               // Indicates whether to instatiate upsizer
                                               // Range: 0, 1
     parameter C_RD_WR_ARB_ALGORITHM           = "RD_PRI_REG",
@@ -329,7 +329,7 @@
     parameter         DDR4_CLAMSHELL       = "OFF",
 
     parameter DDR4_REG_PARITY_ENABLE            = "OFF",
-    parameter integer DBYTES                    = 8,
+    parameter integer DBYTES                    = 1,
     parameter         MR0                       = 13'b0101101100100,
     parameter         DDR4_DB_HIF_RTT_NOM     = 4'b0011, 
     parameter         DDR4_DB_HIF_RTT_WR      = 4'b0000, 
@@ -389,7 +389,7 @@
     parameter [8*LR_WIDTH-1:0]   C_SKEW    = 8'd0,
 
   `ifdef SIMULATION
-    parameter         SIM_MODE                  = "BFM",
+    parameter         SIM_MODE                  = "FULL",
     parameter         BISC_EN                   = 0,
     parameter         BYPASS_CAL                = "TRUE",
     parameter         CAL_DQS_GATE              = "SKIP",

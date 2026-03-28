@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Sat Mar 28 04:48:39 2026
+// Date        : Sat Mar 28 16:14:52 2026
 // Host        : karpuz running 64-bit Ubuntu 22.04.5 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_sim_netlist.v
@@ -138,7 +138,7 @@ module clkwiz_clk_wiz
     .CLKFBOUT_MULT_F(4.000000),
     .CLKFBOUT_PHASE(0.000000),
     .CLKFBOUT_USE_FINE_PS("FALSE"),
-    .CLKIN1_PERIOD(3.333000),
+    .CLKIN1_PERIOD(3.332000),
     .CLKIN2_PERIOD(0.000000),
     .CLKOUT0_DIVIDE_F(24.000000),
     .CLKOUT0_DUTY_CYCLE(0.500000),

@@ -56,19 +56,19 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// __clk_50__50.00000______0.000______50.0______116.415_____77.836
-// __clk_48__48.00000______0.000______50.0______117.369_____77.836
-// __clk_20__20.00000______0.000______50.0______140.023_____77.836
-// __clk_10__10.00000______0.000______50.0______160.570_____77.836
+// __clk_50__50.02000______0.000______50.0______116.392_____77.820
+// __clk_48__48.01920______0.000______50.0______117.345_____77.820
+// __clk_20__20.00800______0.000______50.0______139.994_____77.820
+// __clk_10__10.00400______0.000______50.0______160.538_____77.820
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
 //----------------------------------------------------------------------------
-// __primary_________300.000____________0.010
+// __primary_________300.120____________0.010
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "clkwiz,clk_wiz_v6_0_11_0_0,{component_name=clkwiz,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=4,clkin1_period=3.333,clkin2_period=10.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "clkwiz,clk_wiz_v6_0_11_0_0,{component_name=clkwiz,use_phase_alignment=false,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=4,clkin1_period=3.332,clkin2_period=10.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module clkwiz 
  (

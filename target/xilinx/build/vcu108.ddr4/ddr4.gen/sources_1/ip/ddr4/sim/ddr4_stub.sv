@@ -74,10 +74,10 @@ module ddr4 (
   output bit [1 : 0] c0_ddr4_ba,
   output bit [0 : 0] c0_ddr4_cke,
   output bit [0 : 0] c0_ddr4_cs_n,
-  output bit [7 : 0] c0_ddr4_dm_dbi_n,
-  output bit [63 : 0] c0_ddr4_dq,
-  output bit [7 : 0] c0_ddr4_dqs_c,
-  output bit [7 : 0] c0_ddr4_dqs_t,
+  output bit [0 : 0] c0_ddr4_dm_dbi_n,
+  output bit [7 : 0] c0_ddr4_dq,
+  output bit [0 : 0] c0_ddr4_dqs_c,
+  output bit [0 : 0] c0_ddr4_dqs_t,
   output bit [0 : 0] c0_ddr4_odt,
   output bit [0 : 0] c0_ddr4_bg,
   output bit_as_bool c0_ddr4_reset_n,
@@ -88,7 +88,7 @@ module ddr4 (
   output bit_as_bool c0_ddr4_ui_clk_sync_rst,
   input bit_as_bool c0_ddr4_aresetn,
   input bit [7 : 0] c0_ddr4_s_axi_awid,
-  input bit [30 : 0] c0_ddr4_s_axi_awaddr,
+  input bit [27 : 0] c0_ddr4_s_axi_awaddr,
   input bit [7 : 0] c0_ddr4_s_axi_awlen,
   input bit [2 : 0] c0_ddr4_s_axi_awsize,
   input bit [1 : 0] c0_ddr4_s_axi_awburst,
@@ -108,7 +108,7 @@ module ddr4 (
   output bit [1 : 0] c0_ddr4_s_axi_bresp,
   output bit_as_bool c0_ddr4_s_axi_bvalid,
   input bit [7 : 0] c0_ddr4_s_axi_arid,
-  input bit [30 : 0] c0_ddr4_s_axi_araddr,
+  input bit [27 : 0] c0_ddr4_s_axi_araddr,
   input bit [7 : 0] c0_ddr4_s_axi_arlen,
   input bit [2 : 0] c0_ddr4_s_axi_arsize,
   input bit [1 : 0] c0_ddr4_s_axi_arburst,
@@ -142,10 +142,10 @@ module ddr4 (c0_init_calib_complete,dbg_clk,c0_sys_clk_i,dbg_bus,c0_ddr4_adr,c0_
   output wire [1 : 0] c0_ddr4_ba;
   output wire [0 : 0] c0_ddr4_cke;
   output wire [0 : 0] c0_ddr4_cs_n;
-  inout wire [7 : 0] c0_ddr4_dm_dbi_n;
-  inout wire [63 : 0] c0_ddr4_dq;
-  inout wire [7 : 0] c0_ddr4_dqs_c;
-  inout wire [7 : 0] c0_ddr4_dqs_t;
+  inout wire [0 : 0] c0_ddr4_dm_dbi_n;
+  inout wire [7 : 0] c0_ddr4_dq;
+  inout wire [0 : 0] c0_ddr4_dqs_c;
+  inout wire [0 : 0] c0_ddr4_dqs_t;
   output wire [0 : 0] c0_ddr4_odt;
   output wire [0 : 0] c0_ddr4_bg;
   output wire c0_ddr4_reset_n;
@@ -156,7 +156,7 @@ module ddr4 (c0_init_calib_complete,dbg_clk,c0_sys_clk_i,dbg_bus,c0_ddr4_adr,c0_
   output wire c0_ddr4_ui_clk_sync_rst;
   input bit c0_ddr4_aresetn;
   input bit [7 : 0] c0_ddr4_s_axi_awid;
-  input bit [30 : 0] c0_ddr4_s_axi_awaddr;
+  input bit [27 : 0] c0_ddr4_s_axi_awaddr;
   input bit [7 : 0] c0_ddr4_s_axi_awlen;
   input bit [2 : 0] c0_ddr4_s_axi_awsize;
   input bit [1 : 0] c0_ddr4_s_axi_awburst;
@@ -176,7 +176,7 @@ module ddr4 (c0_init_calib_complete,dbg_clk,c0_sys_clk_i,dbg_bus,c0_ddr4_adr,c0_
   output wire [1 : 0] c0_ddr4_s_axi_bresp;
   output wire c0_ddr4_s_axi_bvalid;
   input bit [7 : 0] c0_ddr4_s_axi_arid;
-  input bit [30 : 0] c0_ddr4_s_axi_araddr;
+  input bit [27 : 0] c0_ddr4_s_axi_araddr;
   input bit [7 : 0] c0_ddr4_s_axi_arlen;
   input bit [2 : 0] c0_ddr4_s_axi_arsize;
   input bit [1 : 0] c0_ddr4_s_axi_arburst;
