@@ -269,7 +269,6 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
-                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {100} \
                     CONFIG.C0.DDR4_AxiAddressWidth {31} \
                     CONFIG.C0.DDR4_AxiDataWidth {512} \
                     CONFIG.C0.DDR4_AxiIDWidth {8} \
