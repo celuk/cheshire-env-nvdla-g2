@@ -271,19 +271,13 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
-                    CONFIG.C0_DDR4_BOARD_INTERFACE {Custom} \
-                    CONFIG.System_Clock {No_Buffer} \
-                    CONFIG.Reference_Clock {No_Buffer} \
-                    CONFIG.C0.DDR4_InputClockPeriod {3332} \
-                    CONFIG.C0.DDR4_TimePeriod {833} \
-                    CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
-                    CONFIG.C0.DDR4_CasWriteLatency {12} \
-                    CONFIG.C0.DDR4_CasLatency {17} \
-                    CONFIG.C0.DDR4_DataWidth {64} \
-                    CONFIG.C0.DDR4_AxiDataWidth {64} \
-                    CONFIG.C0.DDR4_AxiAddressWidth {31} \
                     CONFIG.C0.DDR4_AxiIDWidth {8} \
+                    CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                     CONFIG.C0.DDR4_AxiSelection {true} \
+                    CONFIG.C0.DDR4_InputClockPeriod {3332} \
+                    CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
+                    CONFIG.Simulation_Mode {Unisim} \
+                    CONFIG.System_Clock {No_Buffer} \
                     ] [get_ips $proj]
             }
             default { nocfgexit $proj $board }
