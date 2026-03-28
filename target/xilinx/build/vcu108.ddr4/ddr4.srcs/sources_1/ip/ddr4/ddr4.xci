@@ -70,7 +70,7 @@
         "C0.DDR4_SELF_REFRESH": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "C0.DDR4_SAVE_RESTORE": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "C0.DDR4_RESTORE_CRC": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
-        "ADDN_UI_CLKOUT1_FREQ_HZ": [ { "value": "100", "resolve_type": "user", "usage": "all" } ],
+        "ADDN_UI_CLKOUT1_FREQ_HZ": [ { "value": "100", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "ADDN_UI_CLKOUT2_FREQ_HZ": [ { "value": "None", "resolve_type": "user", "usage": "all" } ],
         "ADDN_UI_CLKOUT3_FREQ_HZ": [ { "value": "None", "resolve_type": "user", "usage": "all" } ],
         "ADDN_UI_CLKOUT4_FREQ_HZ": [ { "value": "None", "resolve_type": "user", "usage": "all" } ],
