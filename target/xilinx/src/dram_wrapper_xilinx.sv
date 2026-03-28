@@ -89,8 +89,8 @@ module dram_wrapper_xilinx #(
     CdcLogDepth   : 5,
     IdWidth       : 8,
     AddrWidth     : 31,
-    DataWidth     : 64,
-    StrobeWidth   : 8,
+    DataWidth     : 512,
+    StrobeWidth   : 64,
     MaxUniqIds    : 8,    // TODO: suboptimal, but limited by CVA6/LLC
     MaxTxns       : 24    // TODO: suboptimal, but limited by CVA6/LLC
   };
@@ -322,9 +322,7 @@ module dram_wrapper_xilinx #(
     `endif
     // Others
     .c0_init_calib_complete     ( ),
-    `ifndef TARGET_VCU108
     .addn_ui_clkout1            ( dram_clk_o ),
-    `endif
     .dbg_clk                    ( ),
     .dbg_bus                    ( ),
     // PHY

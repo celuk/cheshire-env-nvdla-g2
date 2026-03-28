@@ -17,6 +17,8 @@ set SOC_TCK 20.0
 set soc_clk [get_clocks -of_objects [get_pins i_clkwiz/clk_50]]
 #set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets soc_clk]
 
+## TODO: check mig tck if 3.332
+
 #######
 # MIG #
 #######
@@ -56,6 +58,8 @@ set_property IOSTANDARD  LVCMOS18 [get_ports "uart_rx_i"]
 # USB_UART_RX <- FPGA TX
 set_property PACKAGE_PIN BE24     [get_ports "uart_tx_o"]
 set_property IOSTANDARD  LVCMOS18 [get_ports "uart_tx_o"]
+set_property SLEW SLOW [get_ports "uart_tx_o"]
+set_property DRIVE 8 [get_ports "uart_tx_o"]
 
 # JTAG routed via FMC HPC0 differential pairs as single-ended GPIO @ 1.8V
 # FMC_HPC0_LA10_N (BF14) -> GND (debug header)

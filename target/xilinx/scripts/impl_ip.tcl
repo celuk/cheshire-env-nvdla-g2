@@ -269,11 +269,18 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
+                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {100} \
+                    CONFIG.C0.DDR4_AxiAddressWidth {31} \
+                    CONFIG.C0.DDR4_AxiDataWidth {512} \
                     CONFIG.C0.DDR4_AxiIDWidth {8} \
                     CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                     CONFIG.C0.DDR4_AxiSelection {true} \
+                    CONFIG.C0.DDR4_DataWidth {64} \
                     CONFIG.C0.DDR4_InputClockPeriod {3332} \
                     CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
+                    CONFIG.C0_CLOCK_BOARD_INTERFACE {default_sysclk1_300} \
+                    CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c2_DR} \
+                    CONFIG.RESET_BOARD_INTERFACE {reset} \
                     CONFIG.Simulation_Mode {Unisim} \
                     CONFIG.System_Clock {No_Buffer} \
                     ] [get_ips $proj]

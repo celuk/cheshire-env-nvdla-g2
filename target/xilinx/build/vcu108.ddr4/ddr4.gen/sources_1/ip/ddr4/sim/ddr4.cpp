@@ -61,7 +61,7 @@
 
 
 #ifdef XILINX_SIMULATOR
-ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), sys_rst("sys_rst")
+ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), addn_ui_clkout1("addn_ui_clkout1"), sys_rst("sys_rst")
 {
 
   // initialize pins
@@ -86,6 +86,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_compl
   mp_impl->c0_ddr4_ui_clk(c0_ddr4_ui_clk);
   mp_impl->c0_ddr4_ui_clk_sync_rst(c0_ddr4_ui_clk_sync_rst);
   mp_impl->c0_ddr4_aresetn(c0_ddr4_aresetn);
+  mp_impl->addn_ui_clkout1(addn_ui_clkout1);
   mp_impl->sys_rst(sys_rst);
 
   // initialize transactors
@@ -107,9 +108,9 @@ void ddr4::before_end_of_elaboration()
 
   // 'C0_DDR4_S_AXI' transactor parameters
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
-    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "512");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -140,7 +141,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<512,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -207,7 +208,7 @@ void ddr4::before_end_of_elaboration()
 
 
 #ifdef XM_SYSTEMC
-ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), sys_rst("sys_rst")
+ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), addn_ui_clkout1("addn_ui_clkout1"), sys_rst("sys_rst")
 {
 
   // initialize pins
@@ -232,6 +233,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_compl
   mp_impl->c0_ddr4_ui_clk(c0_ddr4_ui_clk);
   mp_impl->c0_ddr4_ui_clk_sync_rst(c0_ddr4_ui_clk_sync_rst);
   mp_impl->c0_ddr4_aresetn(c0_ddr4_aresetn);
+  mp_impl->addn_ui_clkout1(addn_ui_clkout1);
   mp_impl->sys_rst(sys_rst);
 
   // initialize transactors
@@ -253,9 +255,9 @@ void ddr4::before_end_of_elaboration()
 
   // 'C0_DDR4_S_AXI' transactor parameters
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
-    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "512");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -286,7 +288,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<512,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -353,7 +355,7 @@ void ddr4::before_end_of_elaboration()
 
 
 #ifdef RIVIERA
-ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), sys_rst("sys_rst")
+ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), addn_ui_clkout1("addn_ui_clkout1"), sys_rst("sys_rst")
 {
 
   // initialize pins
@@ -378,6 +380,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm), c0_init_calib_compl
   mp_impl->c0_ddr4_ui_clk(c0_ddr4_ui_clk);
   mp_impl->c0_ddr4_ui_clk_sync_rst(c0_ddr4_ui_clk_sync_rst);
   mp_impl->c0_ddr4_aresetn(c0_ddr4_aresetn);
+  mp_impl->addn_ui_clkout1(addn_ui_clkout1);
   mp_impl->sys_rst(sys_rst);
 
   // initialize transactors
@@ -399,9 +402,9 @@ void ddr4::before_end_of_elaboration()
 
   // 'C0_DDR4_S_AXI' transactor parameters
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
-    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "512");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -432,7 +435,7 @@ void ddr4::before_end_of_elaboration()
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<512,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
 
     // C0_DDR4_S_AXI' transactor ports
 
@@ -499,7 +502,7 @@ void ddr4::before_end_of_elaboration()
 
 
 #ifdef VCSSYSTEMC
-ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), sys_rst("sys_rst")
+ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), addn_ui_clkout1("addn_ui_clkout1"), sys_rst("sys_rst")
 {
   // initialize pins
   mp_impl->c0_init_calib_complete(c0_init_calib_complete);
@@ -523,6 +526,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
   mp_impl->c0_ddr4_ui_clk(c0_ddr4_ui_clk);
   mp_impl->c0_ddr4_ui_clk_sync_rst(c0_ddr4_ui_clk_sync_rst);
   mp_impl->c0_ddr4_aresetn(c0_ddr4_aresetn);
+  mp_impl->addn_ui_clkout1(addn_ui_clkout1);
   mp_impl->sys_rst(sys_rst);
 
   // initialize transactors
@@ -534,9 +538,9 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
 
   // configure C0_DDR4_S_AXI_transactor
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
-    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "512");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -567,7 +571,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<512,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
   mp_C0_DDR4_S_AXI_transactor->ARADDR(c0_ddr4_s_axi_araddr);
   mp_C0_DDR4_S_AXI_transactor->ARBURST(c0_ddr4_s_axi_arburst);
   mp_C0_DDR4_S_AXI_transactor->ARCACHE(c0_ddr4_s_axi_arcache);
@@ -646,7 +650,7 @@ void ddr4::before_end_of_elaboration()
 
 
 #ifdef MTI_SYSTEMC
-ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), sys_rst("sys_rst")
+ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_complete("c0_init_calib_complete"), dbg_clk("dbg_clk"), c0_sys_clk_i("c0_sys_clk_i"), dbg_bus("dbg_bus"), c0_ddr4_adr("c0_ddr4_adr"), c0_ddr4_ba("c0_ddr4_ba"), c0_ddr4_cke("c0_ddr4_cke"), c0_ddr4_cs_n("c0_ddr4_cs_n"), c0_ddr4_dm_dbi_n("c0_ddr4_dm_dbi_n"), c0_ddr4_dq("c0_ddr4_dq"), c0_ddr4_dqs_c("c0_ddr4_dqs_c"), c0_ddr4_dqs_t("c0_ddr4_dqs_t"), c0_ddr4_odt("c0_ddr4_odt"), c0_ddr4_bg("c0_ddr4_bg"), c0_ddr4_reset_n("c0_ddr4_reset_n"), c0_ddr4_act_n("c0_ddr4_act_n"), c0_ddr4_ck_c("c0_ddr4_ck_c"), c0_ddr4_ck_t("c0_ddr4_ck_t"), c0_ddr4_ui_clk("c0_ddr4_ui_clk"), c0_ddr4_ui_clk_sync_rst("c0_ddr4_ui_clk_sync_rst"), c0_ddr4_aresetn("c0_ddr4_aresetn"), c0_ddr4_s_axi_awid("c0_ddr4_s_axi_awid"), c0_ddr4_s_axi_awaddr("c0_ddr4_s_axi_awaddr"), c0_ddr4_s_axi_awlen("c0_ddr4_s_axi_awlen"), c0_ddr4_s_axi_awsize("c0_ddr4_s_axi_awsize"), c0_ddr4_s_axi_awburst("c0_ddr4_s_axi_awburst"), c0_ddr4_s_axi_awlock("c0_ddr4_s_axi_awlock"), c0_ddr4_s_axi_awcache("c0_ddr4_s_axi_awcache"), c0_ddr4_s_axi_awprot("c0_ddr4_s_axi_awprot"), c0_ddr4_s_axi_awqos("c0_ddr4_s_axi_awqos"), c0_ddr4_s_axi_awvalid("c0_ddr4_s_axi_awvalid"), c0_ddr4_s_axi_awready("c0_ddr4_s_axi_awready"), c0_ddr4_s_axi_wdata("c0_ddr4_s_axi_wdata"), c0_ddr4_s_axi_wstrb("c0_ddr4_s_axi_wstrb"), c0_ddr4_s_axi_wlast("c0_ddr4_s_axi_wlast"), c0_ddr4_s_axi_wvalid("c0_ddr4_s_axi_wvalid"), c0_ddr4_s_axi_wready("c0_ddr4_s_axi_wready"), c0_ddr4_s_axi_bready("c0_ddr4_s_axi_bready"), c0_ddr4_s_axi_bid("c0_ddr4_s_axi_bid"), c0_ddr4_s_axi_bresp("c0_ddr4_s_axi_bresp"), c0_ddr4_s_axi_bvalid("c0_ddr4_s_axi_bvalid"), c0_ddr4_s_axi_arid("c0_ddr4_s_axi_arid"), c0_ddr4_s_axi_araddr("c0_ddr4_s_axi_araddr"), c0_ddr4_s_axi_arlen("c0_ddr4_s_axi_arlen"), c0_ddr4_s_axi_arsize("c0_ddr4_s_axi_arsize"), c0_ddr4_s_axi_arburst("c0_ddr4_s_axi_arburst"), c0_ddr4_s_axi_arlock("c0_ddr4_s_axi_arlock"), c0_ddr4_s_axi_arcache("c0_ddr4_s_axi_arcache"), c0_ddr4_s_axi_arprot("c0_ddr4_s_axi_arprot"), c0_ddr4_s_axi_arqos("c0_ddr4_s_axi_arqos"), c0_ddr4_s_axi_arvalid("c0_ddr4_s_axi_arvalid"), c0_ddr4_s_axi_arready("c0_ddr4_s_axi_arready"), c0_ddr4_s_axi_rready("c0_ddr4_s_axi_rready"), c0_ddr4_s_axi_rlast("c0_ddr4_s_axi_rlast"), c0_ddr4_s_axi_rvalid("c0_ddr4_s_axi_rvalid"), c0_ddr4_s_axi_rresp("c0_ddr4_s_axi_rresp"), c0_ddr4_s_axi_rid("c0_ddr4_s_axi_rid"), c0_ddr4_s_axi_rdata("c0_ddr4_s_axi_rdata"), addn_ui_clkout1("addn_ui_clkout1"), sys_rst("sys_rst")
 {
   // initialize pins
   mp_impl->c0_init_calib_complete(c0_init_calib_complete);
@@ -670,6 +674,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
   mp_impl->c0_ddr4_ui_clk(c0_ddr4_ui_clk);
   mp_impl->c0_ddr4_ui_clk_sync_rst(c0_ddr4_ui_clk_sync_rst);
   mp_impl->c0_ddr4_aresetn(c0_ddr4_aresetn);
+  mp_impl->addn_ui_clkout1(addn_ui_clkout1);
   mp_impl->sys_rst(sys_rst);
 
   // initialize transactors
@@ -681,9 +686,9 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
 
   // configure C0_DDR4_S_AXI_transactor
     xsc::common_cpp::properties C0_DDR4_S_AXI_transactor_param_props;
-    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("DATA_WIDTH", "512");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ID_WIDTH", "8");
-    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "28");
+    C0_DDR4_S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "31");
     C0_DDR4_S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("ARUSER_WIDTH", "0");
     C0_DDR4_S_AXI_transactor_param_props.addLong("WUSER_WIDTH", "0");
@@ -714,7 +719,7 @@ ddr4::ddr4(const sc_core::sc_module_name& nm) : ddr4_sc(nm),  c0_init_calib_comp
     C0_DDR4_S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     C0_DDR4_S_AXI_transactor_param_props.addString("CLK_DOMAIN", "");
 
-    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,28,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
+    mp_C0_DDR4_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<512,31,8,1,1,1,1,1>("C0_DDR4_S_AXI_transactor", C0_DDR4_S_AXI_transactor_param_props);
   mp_C0_DDR4_S_AXI_transactor->ARADDR(c0_ddr4_s_axi_araddr);
   mp_C0_DDR4_S_AXI_transactor->ARBURST(c0_ddr4_s_axi_arburst);
   mp_C0_DDR4_S_AXI_transactor->ARCACHE(c0_ddr4_s_axi_arcache);

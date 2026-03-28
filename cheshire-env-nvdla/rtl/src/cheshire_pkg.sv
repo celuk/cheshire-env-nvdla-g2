@@ -584,7 +584,7 @@ package cheshire_pkg;
     // Harts
     NumCores          : 1,
     CoreMaxTxns       : `ifdef GENESYS2 8 `elsif VCU118 8 `else 2 `endif,
-    CoreMaxTxnsPerId  : `ifdef GENESYS2 4 `elsif VCU118 4 `else 2 `endif,
+    CoreMaxTxnsPerId  : `ifdef GENESYS2 8 `elsif VCU118 8 `else 2 `endif,
     CoreUserAmoOffs   : 0, // Convention: lower AMO bits for cores, MSB for serial link
     // Interrupts
     NumExtInIntrs     : 0,
