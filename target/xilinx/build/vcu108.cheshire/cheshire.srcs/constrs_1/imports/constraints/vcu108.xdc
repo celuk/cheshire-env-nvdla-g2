@@ -16,16 +16,14 @@ create_clock -period $SYS_TCK -name sys_clk [get_ports sys_clk_p]
 set SOC_TCK 20.0
 set soc_clk [get_clocks -of_objects [get_pins i_clkwiz/clk_50]]
 #set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets soc_clk]
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets i_bufds_sys_clk/O]
-
-## TODO: check mig tck if 3.332
+#set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets i_bufds_sys_clk/O]
 
 #######
 # MIG #
 #######
 
-# Dram axi clock : 333 MHz (defined by MIG constraints)
-set MIG_TCK 3
+# Dram axi clock : 300.12 MHz (defined by MIG constraints)
+set MIG_TCK 3.332
 
 # False-path incoming reset
 set MIG_RST_I [get_pin i_dram_wrapper/i_dram/c0_ddr4_aresetn]
@@ -70,16 +68,29 @@ set_property DRIVE 8 [get_ports "uart_tx_o"]
 #set_property PACKAGE_PIN BE14     [get_ports jtag_vdd_o]
 #set_property IOSTANDARD  LVCMOS18 [get_ports jtag_vdd_o]
 # FMC_HPC0_LA11_N (BD11) -> TDO
-set_property PACKAGE_PIN BD11     [get_ports jtag_tdo_o]
+#set_property PACKAGE_PIN BD11     [get_ports jtag_tdo_o]
+#set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tdo_o]
+## FMC_HPC0_LA11_P (BC11) -> TCK
+#set_property PACKAGE_PIN BC11     [get_ports jtag_tck_i]
+#set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tck_i]
+## FMC_HPC0_LA12_N (BF15) -> TMS
+#set_property PACKAGE_PIN BF15     [get_ports jtag_tms_i]
+#set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tms_i]
+## FMC_HPC0_LA12_P (BE15) -> TDI
+#set_property PACKAGE_PIN BE15     [get_ports jtag_tdi_i]
+#set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tdi_i]
+
+# PMOD0_1_LS
+set_property PACKAGE_PIN BA10     [get_ports jtag_tdo_o]
 set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tdo_o]
-# FMC_HPC0_LA11_P (BC11) -> TCK
-set_property PACKAGE_PIN BC11     [get_ports jtag_tck_i]
+# PMOD0_5_LS
+set_property PACKAGE_PIN BF7     [get_ports jtag_tck_i]
 set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tck_i]
-# FMC_HPC0_LA12_N (BF15) -> TMS
-set_property PACKAGE_PIN BF15     [get_ports jtag_tms_i]
+# PMOD0_2_LS
+set_property PACKAGE_PIN AW16     [get_ports jtag_tms_i]
 set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tms_i]
-# FMC_HPC0_LA12_P (BE15) -> TDI
-set_property PACKAGE_PIN BE15     [get_ports jtag_tdi_i]
+# PMOD0_6_LS
+set_property PACKAGE_PIN AW12     [get_ports jtag_tdi_i]
 set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tdi_i]
 
 # Active high reset (CPU_RESET)

@@ -1,0 +1,14 @@
+List of CLB Tiles
+CLEL_L_X65Y173
+CLEL_R_X65Y173
+CLEL_R_X63Y167
+CLEL_R_X63Y168
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[29]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[16]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[15]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/rd_tag_q_reg[28]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/i_store_unit/store_buffer_i/commit_queue_q_reg[3][valid]_0[33]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/i_store_unit/store_buffer_i/commit_queue_q_reg[3][valid]_0[35]
+

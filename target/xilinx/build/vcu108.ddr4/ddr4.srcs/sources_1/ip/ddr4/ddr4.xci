@@ -28,7 +28,7 @@
         "TIMING_3DS": [ { "value": "false", "resolve_type": "user", "usage": "all" } ],
         "SET_DW_TO_40": [ { "value": "false", "resolve_type": "user", "usage": "all" } ],
         "DIFF_TERM_SYSCLK": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "C0_DDR4_BOARD_INTERFACE": [ { "value": "ddr4_sdram_c2_DR", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "C0_DDR4_BOARD_INTERFACE": [ { "value": "ddr4_sdram_c1_DR", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "C0.DDR4_TimePeriod": [ { "value": "833", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C0.DDR4_InputClockPeriod": [ { "value": "3332", "value_src": "user", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C0.DDR4_Specify_MandD": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],

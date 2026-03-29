@@ -45,8 +45,6 @@ set_property strategy Flow_PerfOptimized_high [get_runs synth_1]
 synth_design -rtl -name rtl_1
 report_clocks -file ${project_root}/clocks.rpt
 
-#set_property STEPS.SYNTH_DESIGN.ARGS.CONTROL_SET_OPT_THRESHOLD 16 [get_runs synth_1]
-
 # Synthesis
 launch_runs -jobs $num_jobs synth_1
 wait_on_run synth_1
@@ -60,25 +58,12 @@ gen_reports ${project_root}/reports.synth
 #insert_ilas {soc_clk}
 
 # Set implementation properties
-#set_property strategy Performance_ExtraTimingOpt [get_runs impl_1]
-set_property strategy Flow_RunPostRoutePhysOpt [get_runs impl_1]
-set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]
-set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
-set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]
+set_property strategy Performance_ExtraTimingOpt [get_runs impl_1]
 
 # Implementation
 launch_runs -jobs $num_jobs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 open_run impl_1
-
-# Extra post-route pass for tiny residual hold violations.
-# Keep it best-effort to stay compatible across Vivado versions.
-if {[catch {phys_opt_design -directive Explore -hold_fix} hold_fix_err]} {
-    puts "Warning: Additional post-route hold-fix pass failed: $hold_fix_err"
-} else {
-    write_checkpoint -force ${project_root}/${proj}.runs/impl_1/${proj}_top_xilinx_post_holdfix.dcp
-    write_bitstream -force ${project_root}/${proj}.runs/impl_1/cheshire_top_xilinx.bit
-}
 
 # Generate implementation reports
 gen_reports ${project_root}/reports.impl
