@@ -1,4 +1,4 @@
-restore custom5.dtb binary 0x90000000
-restore Image5 binary 0x80200000
-load fw_dynamic5.elf
+restore /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb binary 0x90000000
+restore /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image binary 0x80200000
+load /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.elf
 continue
