@@ -28,7 +28,7 @@ ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 
 .PHONY: jtag
 jtag:
-	/mnt/c/Users/2640084/Downloads/riscv-openocd-built/riscv-openocd/src/openocd -f verification/jtag/debug_soc.cfg
+	/media/shc/0EDEBC4906059163/tools/riscv-openocd/src/openocd -f verification/jtag/debug_soc.cfg
 
 PHONY: gdb
 gdb:
