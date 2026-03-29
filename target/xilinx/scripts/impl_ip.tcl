@@ -269,7 +269,7 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
-                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {100} \
+                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {50} \
                     CONFIG.C0.DDR4_AxiAddressWidth {31} \
                     CONFIG.C0.DDR4_AxiDataWidth {512} \
                     CONFIG.C0.DDR4_AxiIDWidth {8} \
@@ -282,7 +282,7 @@ switch $proj {
                     CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c1_DR} \
                     CONFIG.RESET_BOARD_INTERFACE {reset} \
                     CONFIG.Simulation_Mode {Unisim} \
-                    CONFIG.System_Clock {No_Buffer} \
+                    CONFIG.System_Clock {Differential} \
                     ] [get_ips $proj]
             }
             default { nocfgexit $proj $board }

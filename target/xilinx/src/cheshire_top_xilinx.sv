@@ -34,8 +34,13 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   localparam int unsigned Ddr4DqsWidth = 8
 `endif
 )(
+  `ifdef TARGET_VCU108
+  input  logic  c0_sys_clk_p,
+  input  logic  c0_sys_clk_n,
+  `else
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
+  `endif
 
 `ifdef USE_RESET
   input  logic  sys_reset,
@@ -142,6 +147,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
   wire sys_clk;
   wire soc_clk;
+  `ifndef TARGET_VCU108
   wire usb_clk;
 
   IBUFDS #(
@@ -162,6 +168,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .clk_20   ( ),
     .clk_10   ( )
   );
+  `else
+  wire locked = 1'b1;
+  `endif
 
   /////////////////////
   //  System Inputs  //
@@ -507,8 +516,16 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   ) i_dram_wrapper (
     .sys_rst_i    ( sys_rst ),
     .soc_resetn_i ( rst_n   ),
+    `ifdef TARGET_VCU108
+    .dram_clk_o   ( soc_clk ),
+    `else
     .soc_clk_i    ( soc_clk ),
+    `endif
     .dram_clk_i   ( sys_clk ),
+    `ifdef TARGET_VCU108
+    .c0_sys_clk_p ( c0_sys_clk_p ),
+    .c0_sys_clk_n ( c0_sys_clk_n ),
+    `endif
     .soc_req_i    ( axi_llc_mst_req ),
     .soc_rsp_o    ( axi_llc_mst_rsp ),
     .*

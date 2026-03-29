@@ -27,9 +27,14 @@ module dram_wrapper_xilinx #(
   // System reset
   input  logic  sys_rst_i,
   input  logic  dram_clk_i,
+  input  logic  c0_sys_clk_p,
+  input  logic  c0_sys_clk_n,
+  output logic  dram_clk_o,
   // Controller reset
   input  logic  soc_resetn_i,
+  `ifndef TARGET_VCU108
   input  logic  soc_clk_i,
+  `endif
   // PHY interfaces
 `ifdef USE_DDR4
   `DDR4_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
@@ -41,6 +46,10 @@ module dram_wrapper_xilinx #(
   input  axi_soc_req_t  soc_req_i,
   output axi_soc_resp_t soc_rsp_o
 );
+
+`ifdef TARGET_VCU108
+  logic soc_clk_i = dram_clk_o;
+`endif
 
   //////////////////////////////////////
   //  Configurations and definitions  //
@@ -256,7 +265,12 @@ module dram_wrapper_xilinx #(
   ddr4 i_dram (
     // Reset
     .sys_rst                    ( sys_rst_i    ),  // Active high
-    .c0_sys_clk_i               ( dram_clk_i   ),
+    `ifdef TARGET_VCU108
+    .c0_sys_clk_p                ( c0_sys_clk_p ),
+    .c0_sys_clk_n                ( c0_sys_clk_n ),
+    `else
+    .c0_sys_clk_i                ( dram_clk_i   ),
+    `endif
     .c0_ddr4_aresetn            ( soc_resetn_i ),
     // Clock and reset out
     .c0_ddr4_ui_clk             ( dram_axi_clk ),

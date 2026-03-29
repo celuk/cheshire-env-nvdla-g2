@@ -123,7 +123,7 @@
   PhyIP_CLKFBOUT_MULT = "4",
   PhyIP_DIVCLK_DIVIDE = "1",
   PhyIP_CLKOUT0_DIVIDE = "4",
-  PhyIP_CLKOUT1_DIVIDE = "12",
+  PhyIP_CLKOUT1_DIVIDE = "24",
   PhyIP_CLKOUT2_DIVIDE = "0",
   PhyIP_CLKOUT3_DIVIDE = "0",
   PhyIP_CLKOUT4_DIVIDE = "0",
@@ -133,7 +133,7 @@
   PhyIP_CA_MIRROR = "0",
 
   PhyIP_EN_PARITY = "false",
-  PhyIP_System_Clock = "No_Buffer",
+  PhyIP_System_Clock = "Differential",
   PhyIP_Simulation_Mode = "Unisim",
   PhyIP_Phy_Only = "Complete_Memory_Controller",
   PhyIP_DEBUG_SIGNAL = "Disable",
@@ -243,7 +243,7 @@
     parameter         CLKFBOUT_MULT_MMCM       = 4,
     parameter         DIVCLK_DIVIDE_MMCM       = 1,
     parameter         CLKOUT0_DIVIDE_MMCM      = 4,
-    parameter         CLKOUT1_DIVIDE_MMCM      = 12,
+    parameter         CLKOUT1_DIVIDE_MMCM      = 24,
     parameter         CLKOUT2_DIVIDE_MMCM      = 4,
     parameter         CLKOUT3_DIVIDE_MMCM      = 4,
     parameter         CLKOUT4_DIVIDE_MMCM      = 4,
@@ -321,7 +321,8 @@
     parameter MEMORY_SPEED_GRADE                = "083E",
     parameter MEMORY_WIDTH                      = "16",
     parameter MEMORY_CONFIGURATION              = "COMPONENT",
-    parameter         SYSCLK_TYPE             = "NO_BUFFER",
+    parameter         SYSCLK_TYPE             = "DIFFERENTIAL",
+                                // input clock type
     parameter CALIB_HIGH_SPEED                  = "FALSE",
     parameter         CA_MIRROR                 = "OFF",
 
@@ -437,7 +438,8 @@
 
    // iob<>DDR4 signals
 
-   input                           c0_sys_clk_i,
+   input                           c0_sys_clk_p,
+   input                           c0_sys_clk_n,
 
    output                          c0_ddr4_act_n,
    output [ADDR_WIDTH-1:0]         c0_ddr4_adr,
@@ -804,7 +806,8 @@ ddr4_ddr4_mem_intfc #
 u_ddr4_mem_intfc
   (
 
-   .sys_clk_i           (c0_sys_clk_i),
+   .sys_clk_p           (c0_sys_clk_p),
+   .sys_clk_n           (c0_sys_clk_n),
    .mmcm_lock           (mmcm_lock),
    .reset_ub            (reset_ub),
    .pllGate             (pllGate),

@@ -1,8 +1,0 @@
-List of CLB Tiles
-CLE_M_X38Y157
-CLEL_R_X38Y157
-
-List of Congested Nets
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_src/i_cdc_fifo_gray_dst_r/i_spill_register/spill_register_flushable_i/rptr_q_reg[1]_0
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/async_data_r_data[28][data][287]
-

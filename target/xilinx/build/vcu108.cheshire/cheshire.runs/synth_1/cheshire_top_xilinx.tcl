@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-805158-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1119692-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -84,7 +84,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.cache/wt [current_project]
 set_property parent.project_path /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:vcu108:part0:1.7 [current_project]
@@ -803,12 +803,6 @@ set_property used_in_implementation false [get_files -all /home/shc/projects/che
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.gen/sources_1/ip/ddr4/bd_0/ip/ip_0/data/mb_bootloop_le.elf]
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.gen/sources_1/ip/ddr4/ip_0/mb_bootloop_le.elf]
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.gen/sources_1/ip/ddr4/sw/calibration_0/Debug/calibration_ddr.elf]
-
-read_ip -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_board.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_late.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

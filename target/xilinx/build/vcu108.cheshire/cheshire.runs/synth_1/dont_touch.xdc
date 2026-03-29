@@ -7,6 +7,3 @@
 
 # IP: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.srcs/sources_1/ip/ddr4/ddr4.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ddr4 || ORIG_REF_NAME==ddr4} -quiet] -quiet
-
-# IP: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==clkwiz || ORIG_REF_NAME==clkwiz} -quiet] -quiet
