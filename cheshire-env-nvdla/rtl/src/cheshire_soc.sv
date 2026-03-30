@@ -612,7 +612,7 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
         .AXI_ADDR_WIDTH ( Cfg.AddrWidth ),
         .AXI_DATA_WIDTH ( Cfg.AxiDataWidth ),
         .AXI_ID_WIDTH   ( Cfg.AxiMstIdWidth ),
-        .X_ID_WIDTH     ( 4 )
+        .X_ID_WIDTH     ( 8 )
     ) i_regwriter (
         .clk_i,
         .rst_ni,
