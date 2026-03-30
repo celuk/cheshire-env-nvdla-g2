@@ -6,6 +6,8 @@
 # Christopher Reinwardt <creinwar@student.ethz.ch>
 # Paul Scheffler <paulsc@iis.ee.ethz.ch>
 
+XILINX_VIVADO ?= /tools/Xilinx/Vivado/2022.2
+
 CHS_ROOT := $(shell realpath .)
 BENDER	 ?= bender -d $(CHS_ROOT)
 
@@ -37,3 +39,7 @@ gdb:
 .PHONY: pico
 pico:
 	picocom -b 115200 /dev/ttyUSB$(ARGS) --imap lfcrlf
+
+.PHONY: program
+program:
+	$(XILINX_VIVADO)/bin/vivado -mode batch -nolog -nojournal -source program_vcu108.tcl -tclargs $(ARGS)
