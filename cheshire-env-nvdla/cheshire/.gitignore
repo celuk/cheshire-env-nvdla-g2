@@ -9,21 +9,21 @@
 nonfree/
 
 # Dependency files
-#.bender/
+.bender/
 
 # Documentation site
 site/
 
 # Software build files
-#*.bin
-#*.dump
-#*.memh
-#*.elf
+*.bin
+*.dump
+*.memh
+*.elf
 *.gpt
 *.gpth
 *.o
 *.a
-#*.dtb
+*.dtb
 sw/deps/.patched
 
 # Test models
@@ -54,5 +54,5 @@ target/xilinx/out
 target/xilinx/scripts/add_sources.*
 vivado*
 
-#*mem_init*.txt
-#*.hex
+*mem_init.txt
+*.hex

@@ -38,7 +38,7 @@ _start:
     .option norelax
     la t0, __global_pointer$
     80000022:	00000297          	auipc	t0,0x0
-    80000026:	30128293          	addi	t0,t0,769 # 80000323 <__global_pointer$>
+    80000026:	2f128293          	addi	t0,t0,753 # 80000313 <__global_pointer$>
     beqz t0, 1f
     8000002a:	00028363          	beqz	t0,80000030 <__base_dram+0x30>
     mv gp, t0
@@ -64,9 +64,9 @@ _start:
 
     // Zero the .bss section
     la t0, __bss_start      // t0 = bss start address
-    80000044:	00d18293          	addi	t0,gp,13 # 80000330 <__bss_end>
+    80000044:	00d18293          	addi	t0,gp,13 # 80000320 <__bss_end>
     la t1, __bss_end        // t1 = bss end address
-    80000048:	00d18313          	addi	t1,gp,13 # 80000330 <__bss_end>
+    80000048:	00d18313          	addi	t1,gp,13 # 80000320 <__bss_end>
     sub t2, t1, t0          // t2 = #bytes to zero
     8000004c:	405303b3          	sub	t2,t1,t0
     li a0, 0
@@ -329,212 +329,210 @@ int main(void) {
     uint32_t rtc_freq = *reg32(&__base_regs, CHESHIRE_RTC_FREQ_REG_OFFSET);
     8000019a:	83000797          	auipc	a5,0x83000
     8000019e:	e6678793          	addi	a5,a5,-410 # 3000000 <__base_regs>
+    800001a2:	43e8                	lw	a0,68(a5)
     clint_spin_until(clint_get_mtime() + ticks);
 }
 
 uint64_t clint_get_core_freq(uint64_t ref_freq, uint64_t ref_time_inv) {
     uint64_t end_mcycle, start_mcycle;
     uint64_t num_ticks = ref_freq / ref_time_inv;
-    800001a2:	000e3737          	lui	a4,0xe3
-    800001a6:	43e8                	lw	a0,68(a5)
-    800001a8:	68f70713          	addi	a4,a4,1679 # e368f <uart.c.03f63768+0xe2f23>
-    800001ac:	029f17b7          	lui	a5,0x29f1
-    800001b0:	0732                	slli	a4,a4,0xc
-    800001b2:	6b178793          	addi	a5,a5,1713 # 29f16b1 <__base_axirtgrd+0x92f6b5>
-    800001b6:	08570713          	addi	a4,a4,133
-    800001ba:	178e                	slli	a5,a5,0x23
-    800001bc:	97ba                	add	a5,a5,a4
-    800001be:	0035531b          	srliw	t1,a0,0x3
-    800001c2:	02f33333          	mulhu	t1,t1,a5
+    800001a4:	1a36e8b7          	lui	a7,0x1a36e
+    800001a8:	2eb88893          	addi	a7,a7,747 # 1a36e2eb <__base_spm+0xa36e2eb>
+    800001ac:	388667b7          	lui	a5,0x38866
+    800001b0:	94b78793          	addi	a5,a5,-1717 # 3886594b <__base_spm+0x2886594b>
+    uint64_t reset_freq = clint_get_core_freq(rtc_freq, 2500);
+    800001b4:	1502                	slli	a0,a0,0x20
+    800001b6:	1886                	slli	a7,a7,0x21
+    800001b8:	98be                	add	a7,a7,a5
+    800001ba:	9101                	srli	a0,a0,0x20
+    800001bc:	031538b3          	mulhu	a7,a0,a7
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001c6:	82040717          	auipc	a4,0x82040
+    800001c0:	82040717          	auipc	a4,0x82040
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001ca:	82040797          	auipc	a5,0x82040
+    800001c4:	82040797          	auipc	a5,0x82040
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001ce:	6631                	lui	a2,0xc
-    800001d0:	e3a70713          	addi	a4,a4,-454 # 2040000 <__base_clint>
+    800001c8:	6631                	lui	a2,0xc
+    800001ca:	e4070713          	addi	a4,a4,-448 # 2040000 <__base_clint>
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001d4:	e3678793          	addi	a5,a5,-458 # 2040000 <__base_clint>
+    800001ce:	e3c78793          	addi	a5,a5,-452 # 2040000 <__base_clint>
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001d8:	9732                	add	a4,a4,a2
+    800001d2:	9732                	add	a4,a4,a2
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001da:	97b2                	add	a5,a5,a2
+    800001d4:	97b2                	add	a5,a5,a2
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001dc:	ffc72803          	lw	a6,-4(a4)
+    800001d6:	ffc72803          	lw	a6,-4(a4)
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001e0:	ff87a783          	lw	a5,-8(a5)
-    uint64_t reset_freq = clint_get_core_freq(rtc_freq, 25000);
-    800001e4:	1502                	slli	a0,a0,0x20
-    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001e6:	1802                	slli	a6,a6,0x20
-           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001e8:	1782                	slli	a5,a5,0x20
-    800001ea:	9381                	srli	a5,a5,0x20
-    800001ec:	9101                	srli	a0,a0,0x20
+    800001da:	ff87a783          	lw	a5,-8(a5)
     uint64_t num_ticks = ref_freq / ref_time_inv;
-    800001ee:	00835313          	srli	t1,t1,0x8
+    800001de:	0098d893          	srli	a7,a7,0x9
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    800001f2:	00f86833          	or	a6,a6,a5
+    800001e2:	1802                	slli	a6,a6,0x20
+           ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
+    800001e4:	1782                	slli	a5,a5,0x20
+    800001e6:	9381                	srli	a5,a5,0x20
+    return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
+    800001e8:	00f86833          	or	a6,a6,a5
 }
 
 // Get cycle count since reset
 static inline uint64_t get_mcycle() {
     uint64_t mcycle;
     asm volatile("csrr %0, mcycle" : "=r"(mcycle)::"memory");
-    800001f6:	b00025f3          	csrr	a1,mcycle
-    800001fa:	82040717          	auipc	a4,0x82040
+    800001ec:	b00025f3          	csrr	a1,mcycle
+    800001f0:	82040717          	auipc	a4,0x82040
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    800001fe:	82040797          	auipc	a5,0x82040
+    800001f4:	82040797          	auipc	a5,0x82040
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000202:	e0670713          	addi	a4,a4,-506 # 2040000 <__base_clint>
+    800001f8:	e1070713          	addi	a4,a4,-496 # 2040000 <__base_clint>
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    80000206:	e0278793          	addi	a5,a5,-510 # 2040000 <__base_clint>
+    800001fc:	e0c78793          	addi	a5,a5,-500 # 2040000 <__base_clint>
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    8000020a:	9732                	add	a4,a4,a2
+    80000200:	9732                	add	a4,a4,a2
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    8000020c:	97b2                	add	a5,a5,a2
+    80000202:	97b2                	add	a5,a5,a2
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    8000020e:	ffc72683          	lw	a3,-4(a4)
+    80000204:	ffc72683          	lw	a3,-4(a4)
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    80000212:	ff87a783          	lw	a5,-8(a5)
+    80000208:	ff87a783          	lw	a5,-8(a5)
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000216:	1682                	slli	a3,a3,0x20
+    8000020c:	1682                	slli	a3,a3,0x20
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    80000218:	1782                	slli	a5,a5,0x20
-    8000021a:	9381                	srli	a5,a5,0x20
+    8000020e:	1782                	slli	a5,a5,0x20
+    80000210:	9381                	srli	a5,a5,0x20
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    8000021c:	8edd                	or	a3,a3,a5
+    80000212:	8edd                	or	a3,a3,a5
     uint64_t end_mtime = clint_get_mtime(), start_mtime;
     // Capture start times until we observe an RTC tick rollover
     do {
         start_mcycle = get_mcycle();
         start_mtime = clint_get_mtime();
     } while (start_mtime == end_mtime);
-    8000021e:	fcd80ce3          	beq	a6,a3,800001f6 <main+0x5c>
+    80000214:	fcd80ce3          	beq	a6,a3,800001ec <main+0x52>
     // Capture end times until we observe rollover to the past-the-end RTC tick
     do {
         end_mcycle = get_mcycle();
         end_mtime = clint_get_mtime();
     } while (end_mtime < start_mtime + num_ticks);
-    80000222:	9336                	add	t1,t1,a3
+    80000218:	98b6                	add	a7,a7,a3
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000224:	68b1                	lui	a7,0xc
-    80000226:	b0002873          	csrr	a6,mcycle
-    8000022a:	82040717          	auipc	a4,0x82040
+    8000021a:	6331                	lui	t1,0xc
+    8000021c:	b0002873          	csrr	a6,mcycle
+    80000220:	82040717          	auipc	a4,0x82040
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    8000022e:	82040797          	auipc	a5,0x82040
+    80000224:	82040797          	auipc	a5,0x82040
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000232:	dd670713          	addi	a4,a4,-554 # 2040000 <__base_clint>
+    80000228:	de070713          	addi	a4,a4,-544 # 2040000 <__base_clint>
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    80000236:	dd278793          	addi	a5,a5,-558 # 2040000 <__base_clint>
-    8000023a:	97c6                	add	a5,a5,a7
+    8000022c:	ddc78793          	addi	a5,a5,-548 # 2040000 <__base_clint>
+    80000230:	979a                	add	a5,a5,t1
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    8000023c:	9746                	add	a4,a4,a7
-    8000023e:	ffc72703          	lw	a4,-4(a4)
+    80000232:	971a                	add	a4,a4,t1
+    80000234:	ffc72703          	lw	a4,-4(a4)
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    80000242:	ff87a603          	lw	a2,-8(a5)
+    80000238:	ff87a603          	lw	a2,-8(a5)
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000246:	02071793          	slli	a5,a4,0x20
+    8000023c:	02071793          	slli	a5,a4,0x20
            ((uint64_t)*reg32(&__base_clint, CLINT_MTIME_LOW_REG_OFFSET));
-    8000024a:	02061713          	slli	a4,a2,0x20
-    8000024e:	9301                	srli	a4,a4,0x20
+    80000240:	02061713          	slli	a4,a2,0x20
+    80000244:	9301                	srli	a4,a4,0x20
     return (((uint64_t)*reg32(&__base_clint, CLINT_MTIME_HIGH_REG_OFFSET)) << 32) |
-    80000250:	8fd9                	or	a5,a5,a4
+    80000246:	8fd9                	or	a5,a5,a4
     } while (end_mtime < start_mtime + num_ticks);
-    80000252:	fc67eae3          	bltu	a5,t1,80000226 <main+0x8c>
+    80000248:	fd17eae3          	bltu	a5,a7,8000021c <main+0x82>
     // Compute current frequency in Hz
     return ((end_mcycle - start_mcycle) * ref_freq) / (end_mtime - start_mtime);
-    80000256:	40b80733          	sub	a4,a6,a1
-    8000025a:	02a70733          	mul	a4,a4,a0
-    8000025e:	8f95                	sub	a5,a5,a3
+    8000024c:	40b80733          	sub	a4,a6,a1
+    80000250:	02a70733          	mul	a4,a4,a0
+    80000254:	8f95                	sub	a5,a5,a3
 #include "dif/uart.h"
 #include "util.h"
 #include "params.h"
 
 void uart_init(void *uart_base, uint64_t freq, uint64_t baud) {
     uint64_t divisor = freq / (baud << 4);
-    80000260:	0008a637          	lui	a2,0x8a
-    80000264:	abd60613          	addi	a2,a2,-1347 # 89abd <uart.c.03f63768+0x89351>
-    80000268:	012346b7          	lui	a3,0x1234
-    8000026c:	0632                	slli	a2,a2,0xc
-    8000026e:	56768693          	addi	a3,a3,1383 # 1234567 <__base_dma+0x234567>
-    80000272:	f1360613          	addi	a2,a2,-237
-    80000276:	1682                	slli	a3,a3,0x20
-    80000278:	96b2                	add	a3,a3,a2
-    8000027a:	02f757b3          	divu	a5,a4,a5
+    80000256:	226af637          	lui	a2,0x226af
+    8000025a:	012346b7          	lui	a3,0x1234
+    8000025e:	38560613          	addi	a2,a2,901 # 226af385 <__base_spm+0x126af385>
+    80000262:	56768693          	addi	a3,a3,1383 # 1234567 <__base_dma+0x234567>
+    80000266:	060a                	slli	a2,a2,0x2
+    80000268:	1682                	slli	a3,a3,0x20
+    8000026a:	96b2                	add	a3,a3,a2
     uint8_t dlo = (uint8_t)(divisor);
     uint8_t dhi = (uint8_t)(divisor >> 8);
     *reg8(uart_base, UART_INTR_ENABLE_REG_OFFSET) = 0x00;   // Disable all interrupts
-    8000027e:	83002717          	auipc	a4,0x83002
-    80000282:	d8270713          	addi	a4,a4,-638 # 3002000 <__base_uart>
-    80000286:	00070223          	sb	zero,4(a4)
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x80;  // Enable DLAB (set baud rate divisor)
-    8000028a:	83002717          	auipc	a4,0x83002
-    8000028e:	d7670713          	addi	a4,a4,-650 # 3002000 <__base_uart>
-    80000292:	f8000613          	li	a2,-128
-    80000296:	00c70623          	sb	a2,12(a4)
+    8000026c:	f8000613          	li	a2,-128
+    80000270:	02f757b3          	divu	a5,a4,a5
+    *reg8(uart_base, UART_INTR_ENABLE_REG_OFFSET) = 0x00;   // Disable all interrupts
+    80000274:	83002717          	auipc	a4,0x83002
+    80000278:	d8c70713          	addi	a4,a4,-628 # 3002000 <__base_uart>
+    8000027c:	00070223          	sb	zero,4(a4)
+    *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x80;  // Enable DLAB (set baud rate divisor)
+    80000280:	83002717          	auipc	a4,0x83002
+    80000284:	d8070713          	addi	a4,a4,-640 # 3002000 <__base_uart>
+    80000288:	00c70623          	sb	a2,12(a4)
     *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
     *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
-    8000029a:	83002897          	auipc	a7,0x83002
-    8000029e:	d6688893          	addi	a7,a7,-666 # 3002000 <__base_uart>
+    8000028c:	83002897          	auipc	a7,0x83002
+    80000290:	d7488893          	addi	a7,a7,-652 # 3002000 <__base_uart>
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
-    800002a2:	83002817          	auipc	a6,0x83002
-    800002a6:	d5e80813          	addi	a6,a6,-674 # 3002000 <__base_uart>
-    800002aa:	4f0d                	li	t5,3
+    80000294:	83002817          	auipc	a6,0x83002
+    80000298:	d6c80813          	addi	a6,a6,-660 # 3002000 <__base_uart>
+    8000029c:	4f0d                	li	t5,3
     *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
-    800002ac:	83002517          	auipc	a0,0x83002
-    800002b0:	d5450513          	addi	a0,a0,-684 # 3002000 <__base_uart>
-    800002b4:	fc700e93          	li	t4,-57
+    8000029e:	83002517          	auipc	a0,0x83002
+    800002a2:	d6250513          	addi	a0,a0,-670 # 3002000 <__base_uart>
+    800002a6:	fc700e93          	li	t4,-57
     *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
-    800002b8:	83002597          	auipc	a1,0x83002
-    800002bc:	00000717          	auipc	a4,0x0
-    800002c0:	d4858593          	addi	a1,a1,-696 # 3002000 <__base_uart>
-    800002c4:	02000e13          	li	t3,32
-    800002c8:	06470713          	addi	a4,a4,100 # 80000320 <main+0x186>
-    800002cc:	00570613          	addi	a2,a4,5
+    800002aa:	83002597          	auipc	a1,0x83002
+    800002ae:	00000717          	auipc	a4,0x0
+    800002b2:	d5658593          	addi	a1,a1,-682 # 3002000 <__base_uart>
+    800002b6:	02000e13          	li	t3,32
+    800002ba:	06270713          	addi	a4,a4,98 # 80000310 <main+0x176>
+    800002be:	00570613          	addi	a2,a4,5
     uint64_t divisor = freq / (baud << 4);
-    800002d0:	83c1                	srli	a5,a5,0x10
-    800002d2:	02d7b7b3          	mulhu	a5,a5,a3
+    800002c2:	83b5                	srli	a5,a5,0xd
+    800002c4:	02d7b7b3          	mulhu	a5,a5,a3
     *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
-    800002d6:	83002697          	auipc	a3,0x83002
-    800002da:	d2f68523          	sb	a5,-726(a3) # 3002000 <__base_uart>
+    800002c8:	83002697          	auipc	a3,0x83002
+    800002cc:	d2f68c23          	sb	a5,-712(a3) # 3002000 <__base_uart>
     uint8_t dhi = (uint8_t)(divisor >> 8);
-    800002de:	0087df93          	srli	t6,a5,0x8
+    800002d0:	0087df93          	srli	t6,a5,0x8
     *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
-    800002e2:	01f88223          	sb	t6,4(a7)
+    800002d4:	01f88223          	sb	t6,4(a7)
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
-    800002e6:	01e80623          	sb	t5,12(a6)
+    800002d8:	01e80623          	sb	t5,12(a6)
     *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
-    800002ea:	01d50423          	sb	t4,8(a0)
+    800002dc:	01d50423          	sb	t4,8(a0)
     *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
-    800002ee:	01c58823          	sb	t3,16(a1)
+    800002e0:	01c58823          	sb	t3,16(a1)
         ;
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
 }
 
 void uart_write_str(void *uart_base, void *src, uint64_t len) {
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    800002f2:	00074683          	lbu	a3,0(a4)
+    800002e4:	00074683          	lbu	a3,0(a4)
     return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
-    800002f6:	83002797          	auipc	a5,0x83002
-    800002fa:	d0a78793          	addi	a5,a5,-758 # 3002000 <__base_uart>
-    800002fe:	0147c783          	lbu	a5,20(a5)
+    800002e8:	83002797          	auipc	a5,0x83002
+    800002ec:	d1878793          	addi	a5,a5,-744 # 3002000 <__base_uart>
+    800002f0:	0147c783          	lbu	a5,20(a5)
     while (!__uart_write_ready(uart_base))
-    80000302:	0207f793          	andi	a5,a5,32
-    80000306:	dbe5                	beqz	a5,800002f6 <main+0x15c>
+    800002f4:	0207f793          	andi	a5,a5,32
+    800002f8:	dbe5                	beqz	a5,800002e8 <main+0x14e>
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
-    80000308:	83002797          	auipc	a5,0x83002
+    800002fa:	83002797          	auipc	a5,0x83002
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    8000030c:	0705                	addi	a4,a4,1
+    800002fe:	0705                	addi	a4,a4,1
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
-    8000030e:	ced78c23          	sb	a3,-776(a5) # 3002000 <__base_uart>
+    80000300:	d0d78323          	sb	a3,-762(a5) # 3002000 <__base_uart>
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    80000312:	fee610e3          	bne	a2,a4,800002f2 <main+0x158>
+    80000304:	fee610e3          	bne	a2,a4,800002e4 <main+0x14a>
     uart_init(&__base_uart, reset_freq, __BOOT_BAUDRATE);
 
     uart_write_str(&__base_uart, "hello", 5);
     
     return 0;
 }
-    80000316:	4501                	li	a0,0
-    80000318:	8082                	ret
+    80000308:	4501                	li	a0,0
+    8000030a:	8082                	ret

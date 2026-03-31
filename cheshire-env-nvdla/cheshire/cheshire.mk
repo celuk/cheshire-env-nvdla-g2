@@ -19,55 +19,18 @@ VLOGAN_ARGS ?= -kdb -nc -assert svaext +v2k -timescale=1ns/1ps
 CHS_BENDER_RTL_FLAGS ?= -t rtl -t cva6 -t cv64a6_imafdcsclic_sv39
 
 # Define used paths (prefixed to avoid name conflicts)
-CHS_BENDER_ROOT ?= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-CHS_ROOT      ?= $(CHS_BENDER_ROOT)
-
-# Helper to find the latest checkout for a package without calling bender path
-find_pkg = $(firstword $(wildcard $(CHS_ROOT)/.bender/git/checkouts/$(1)-*))
-
-CHS_REG_DIR   := $(call find_pkg,register_interface)
-CHS_SLINK_DIR := $(call find_pkg,serial_link)
-CHS_LLC_DIR   := $(call find_pkg,axi_llc)
+CHS_ROOT      ?= $(shell $(BENDER) path cheshire)
+CHS_REG_DIR   := $(shell $(BENDER) path register_interface)
+CHS_SLINK_DIR := $(shell $(BENDER) path serial_link)
+CHS_LLC_DIR   := $(shell $(BENDER) path axi_llc)
 
 # Define paths used in dependencies
-OTPROOT           := $(call find_pkg,opentitan_peripherals)
-CLINTROOT         := $(call find_pkg,clint)
-AXIRTROOT         := $(call find_pkg,axi_rt)
-AXI_VGA_ROOT      := $(call find_pkg,axi_vga)
-IDMA_ROOT         := $(call find_pkg,idma)
-DRAM_RTL_SIM_ROOT := $(call find_pkg,dram_rtl_sim)
-
-# Fallback to bender if not found (e.g. first run)
-ifeq ($(CHS_REG_DIR),)
-CHS_REG_DIR   := $(shell $(BENDER) path register_interface)
-endif
-ifeq ($(CHS_SLINK_DIR),)
-CHS_SLINK_DIR := $(shell $(BENDER) path serial_link)
-endif
-ifeq ($(CHS_LLC_DIR),)
-CHS_LLC_DIR   := $(shell $(BENDER) path axi_llc)
-endif
-ifeq ($(OTPROOT),)
-OTPROOT       := $(shell $(BENDER) path opentitan_peripherals)
-endif
-ifeq ($(CLINTROOT),)
-CLINTROOT     := $(shell $(BENDER) path clint)
-endif
-ifeq ($(AXIRTROOT),)
-AXIRTROOT     := $(shell $(BENDER) path axi_rt)
-endif
-ifeq ($(AXI_VGA_ROOT),)
-AXI_VGA_ROOT  := $(shell $(BENDER) path axi_vga)
-endif
-ifeq ($(IDMA_ROOT),)
-IDMA_ROOT     := $(shell $(BENDER) path idma)
-endif
-ifeq ($(DRAM_RTL_SIM_ROOT),)
+OTPROOT           := $(shell $(BENDER) path opentitan_peripherals)
+CLINTROOT         := $(shell $(BENDER) path clint)
+AXIRTROOT         := $(shell $(BENDER) path axi_rt)
+AXI_VGA_ROOT      := $(shell $(BENDER) path axi_vga)
+IDMA_ROOT         := $(shell $(BENDER) path idma)
 DRAM_RTL_SIM_ROOT := $(shell $(BENDER) path dram_rtl_sim)
-endif
-
-export OTPROOT CLINTROOT AXIRTROOT AXI_VGA_ROOT IDMA_ROOT DRAM_RTL_SIM_ROOT
-export CHS_REG_DIR CHS_SLINK_DIR CHS_LLC_DIR
 
 REGTOOL ?= $(CHS_REG_DIR)/vendor/lowrisc_opentitan/util/regtool.py
 
@@ -149,7 +112,7 @@ $(AXI_VGA_ROOT)/.generated:
 # Custom serial link
 $(CHS_SLINK_DIR)/.generated: $(CHS_ROOT)/hw/serial_link.hjson
 	cp $< $(dir $@)/src/regs/serial_link_single_channel.hjson
-	flock -x $@ $(MAKE) -C $(CHS_SLINK_DIR) update-regs REGGEN="$(REGTOOL)" && touch $@
+	flock -x $@ $(MAKE) -C $(CHS_SLINK_DIR) update-regs BENDER="$(BENDER)" && touch $@
 
 # iDMA
 include $(IDMA_ROOT)/idma.mk

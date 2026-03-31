@@ -401,7 +401,7 @@ int main(void) {
     // Immediately return an error if AXI_REALM, DMA, or UART are not present
     CHECK_ASSERT(-1, chs_hw_feature_present(CHESHIRE_HW_FEATURES_AXIRT_BIT));
     100001fc:	8b85                	andi	a5,a5,1
-    100001fe:	36078c63          	beqz	a5,10000576 <main+0x388>
+    100001fe:	36078d63          	beqz	a5,10000578 <main+0x38a>
     uint32_t features_bitmap = *reg32(&__base_regs, CHESHIRE_HW_FEATURES_REG_OFFSET);
     10000202:	f3000797          	auipc	a5,0xf3000
     10000206:	dfe78793          	addi	a5,a5,-514 # 3000000 <__base_regs>
@@ -410,7 +410,7 @@ int main(void) {
     1000020c:	0067d79b          	srliw	a5,a5,0x6
     CHECK_ASSERT(-2, chs_hw_feature_present(CHESHIRE_HW_FEATURES_DMA_BIT));
     10000210:	8b85                	andi	a5,a5,1
-    10000212:	36078063          	beqz	a5,10000572 <main+0x384>
+    10000212:	36078163          	beqz	a5,10000574 <main+0x386>
     uint32_t features_bitmap = *reg32(&__base_regs, CHESHIRE_HW_FEATURES_REG_OFFSET);
     10000216:	f3000797          	auipc	a5,0xf3000
     1000021a:	dea78793          	addi	a5,a5,-534 # 3000000 <__base_regs>
@@ -419,7 +419,7 @@ int main(void) {
     10000220:	0027d79b          	srliw	a5,a5,0x2
     CHECK_ASSERT(-3, chs_hw_feature_present(CHESHIRE_HW_FEATURES_UART_BIT));
     10000224:	8b85                	andi	a5,a5,1
-    10000226:	34078463          	beqz	a5,1000056e <main+0x380>
+    10000226:	34078563          	beqz	a5,10000570 <main+0x382>
 
     // This test requires at least two subordinate regions
     CHECK_ASSERT(-4, AXI_RT_PARAM_NUM_SUB >= 2);
@@ -650,210 +650,203 @@ void __axirt_set_budget(uint32_t budget, uint8_t region_id, uint8_t mgr_id) {
     int chs_dma_id = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET) + 1;
     100003ec:	f3000797          	auipc	a5,0xf3000
     100003f0:	c1478793          	addi	a5,a5,-1004 # 3000000 <__base_regs>
-    100003f4:	47e4                	lw	s1,76(a5)
+    100003f4:	47fc                	lw	a5,76(a5)
     __axirt_set_region(0, 0xffffffff, 0, chs_dma_id);
     100003f6:	02095593          	srli	a1,s2,0x20
     100003fa:	4601                	li	a2,0
     int chs_dma_id = *reg32(&__base_regs, CHESHIRE_NUM_INT_HARTS_REG_OFFSET) + 1;
-    100003fc:	2485                	addiw	s1,s1,1
+    100003fc:	0017849b          	addiw	s1,a5,1
     __axirt_set_region(0, 0xffffffff, 0, chs_dma_id);
-    100003fe:	0ff4f693          	zext.b	a3,s1
-    10000402:	4501                	li	a0,0
-    10000404:	e436                	sd	a3,8(sp)
-    10000406:	d95ff0ef          	jal	1000019a <__axirt_set_region>
+    10000400:	0ff4f693          	zext.b	a3,s1
+    10000404:	4501                	li	a0,0
+    10000406:	e436                	sd	a3,8(sp)
+    10000408:	d93ff0ef          	jal	1000019a <__axirt_set_region>
     __axirt_set_region(0x100000000, 0xffffffffffffffff, 1, chs_dma_id);
-    1000040a:	66a2                	ld	a3,8(sp)
-    1000040c:	864e                	mv	a2,s3
-    1000040e:	85ca                	mv	a1,s2
-    10000410:	02099513          	slli	a0,s3,0x20
-    10000414:	d87ff0ef          	jal	1000019a <__axirt_set_region>
+    1000040c:	66a2                	ld	a3,8(sp)
+    1000040e:	864e                	mv	a2,s3
+    10000410:	85ca                	mv	a1,s2
+    10000412:	02099513          	slli	a0,s3,0x20
+    10000416:	d85ff0ef          	jal	1000019a <__axirt_set_region>
+    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
+    1000041a:	0ff4f793          	zext.b	a5,s1
+    return (volatile uint32_t *)((uint8_t *)base + offs);
+    1000041e:	f20c0817          	auipc	a6,0xf20c0
 #include "dif/uart.h"
 #include "util.h"
 #include "params.h"
 
 void uart_init(void *uart_base, uint64_t freq, uint64_t baud) {
     uint64_t divisor = freq / (baud << 4);
-    10000418:	0008a637          	lui	a2,0x8a
-    *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    1000041c:	0ff4f793          	zext.b	a5,s1
-    return (volatile uint32_t *)((uint8_t *)base + offs);
-    10000420:	f20c0517          	auipc	a0,0xf20c0
-    10000424:	abd60613          	addi	a2,a2,-1347 # 89abd <uart.c.03f63768+0x887aa>
-    10000428:	01234737          	lui	a4,0x1234
-    1000042c:	be050513          	addi	a0,a0,-1056 # 20c0000 <__base_axirt>
-    10000430:	00379813          	slli	a6,a5,0x3
-    10000434:	0632                	slli	a2,a2,0xc
+    10000422:	226af637          	lui	a2,0x226af
+    10000426:	01234737          	lui	a4,0x1234
+    1000042a:	be280813          	addi	a6,a6,-1054 # 20c0000 <__base_axirt>
+    1000042e:	00379593          	slli	a1,a5,0x3
+    10000432:	38560613          	addi	a2,a2,901 # 226af385 <__bss_end+0x126aedf5>
     10000436:	56770713          	addi	a4,a4,1383 # 1234567 <__base_dma+0x234567>
                               region_id * 4) = budget;
     1000043a:	100006b7          	lui	a3,0x10000
-    1000043e:	f1360613          	addi	a2,a2,-237
+    1000043e:	060a                	slli	a2,a2,0x2
+    10000440:	95c2                	add	a1,a1,a6
     *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    10000442:	00379593          	slli	a1,a5,0x3
+    10000442:	00379513          	slli	a0,a5,0x3
     10000446:	1702                	slli	a4,a4,0x20
-    10000448:	982a                	add	a6,a6,a0
                               region_id * 4) = budget;
-    1000044a:	0ed82223          	sw	a3,228(a6)
-    1000044e:	9732                	add	a4,a4,a2
-    10000450:	95aa                	add	a1,a1,a0
+    10000448:	0ed5a223          	sw	a3,228(a1)
+    1000044c:	9732                	add	a4,a4,a2
     *reg32(&__base_axirt, AXI_RT_WRITE_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    10000452:	00379613          	slli	a2,a5,0x3
+    1000044e:	00379593          	slli	a1,a5,0x3
+    10000452:	8035                	srli	s0,s0,0xd
+    10000454:	9542                	add	a0,a0,a6
                               region_id * 4) = budget;
-    10000456:	10d5aa23          	sw	a3,276(a1)
-    1000045a:	962a                	add	a2,a2,a0
+    10000456:	10d52a23          	sw	a3,276(a0)
+    1000045a:	02e43633          	mulhu	a2,s0,a4
+    1000045e:	01058733          	add	a4,a1,a6
     *reg32(&__base_axirt, AXI_RT_READ_BUDGET_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    1000045c:	00379593          	slli	a1,a5,0x3
+    10000462:	00379593          	slli	a1,a5,0x3
                               region_id * 4) = budget;
-    10000460:	0ed62423          	sw	a3,232(a2)
-    10000464:	95aa                	add	a1,a1,a0
+    10000466:	0ed72423          	sw	a3,232(a4)
+    1000046a:	95c2                	add	a1,a1,a6
     *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    10000466:	00379613          	slli	a2,a5,0x3
+    1000046c:	00379713          	slli	a4,a5,0x3
                               region_id * 4) = budget;
-    1000046a:	10d5ac23          	sw	a3,280(a1)
-    1000046e:	962a                	add	a2,a2,a0
+    10000470:	10d5ac23          	sw	a3,280(a1)
+    10000474:	9742                	add	a4,a4,a6
     *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    10000470:	00379593          	slli	a1,a5,0x3
+    10000476:	00379593          	slli	a1,a5,0x3
                               region_id * 4) = period;
-    10000474:	14d62223          	sw	a3,324(a2)
-    10000478:	95aa                	add	a1,a1,a0
+    1000047a:	14d72223          	sw	a3,324(a4)
+    1000047e:	95c2                	add	a1,a1,a6
     *reg32(&__base_axirt, AXI_RT_WRITE_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    1000047a:	00379613          	slli	a2,a5,0x3
+    10000480:	00379713          	slli	a4,a5,0x3
                               region_id * 4) = period;
-    1000047e:	16d5aa23          	sw	a3,372(a1)
-    10000482:	962a                	add	a2,a2,a0
+    10000484:	16d5aa23          	sw	a3,372(a1)
+    10000488:	9742                	add	a4,a4,a6
     *reg32(&__base_axirt, AXI_RT_READ_PERIOD_0_REG_OFFSET + AXI_RT_PARAM_NUM_SUB * mgr_id * 4 +
-    10000484:	078e                	slli	a5,a5,0x3
+    1000048a:	078e                	slli	a5,a5,0x3
                               region_id * 4) = period;
-    10000486:	14d62423          	sw	a3,328(a2)
-    1000048a:	97aa                	add	a5,a5,a0
+    1000048c:	14d72423          	sw	a3,328(a4)
+    10000490:	97c2                	add	a5,a5,a6
                               region_id * 4) = period;
-    1000048c:	16d7ac23          	sw	a3,376(a5)
+    10000492:	16d7ac23          	sw	a3,376(a5)
 }
 
 // config functions
 void __axirt_enable(uint32_t enable) {
     *reg32(&__base_axirt, AXI_RT_RT_ENABLE_REG_OFFSET) = enable;
-    10000490:	f20c0797          	auipc	a5,0xf20c0
-    10000494:	4615                	li	a2,5
-    10000496:	b7078793          	addi	a5,a5,-1168 # 20c0000 <__base_axirt>
+    10000496:	f20c0797          	auipc	a5,0xf20c0
+    1000049a:	b6a78793          	addi	a5,a5,-1174 # 20c0000 <__base_axirt>
+    1000049e:	4595                	li	a1,5
     *reg32(&__base_axirt, AXI_RT_IMTU_ENABLE_REG_OFFSET) = enable;
-    1000049a:	f20c0697          	auipc	a3,0xf20c0
+    100004a0:	f20c0697          	auipc	a3,0xf20c0
     *reg32(&__base_axirt, AXI_RT_RT_ENABLE_REG_OFFSET) = enable;
-    1000049e:	c7d0                	sw	a2,12(a5)
+    100004a4:	c7cc                	sw	a1,12(a5)
     *reg32(&__base_axirt, AXI_RT_IMTU_ENABLE_REG_OFFSET) = enable;
-    100004a0:	b6668693          	addi	a3,a3,-1178 # 20c0000 <__base_axirt>
+    100004a6:	b6068693          	addi	a3,a3,-1184 # 20c0000 <__base_axirt>
     uint8_t dlo = (uint8_t)(divisor);
     uint8_t dhi = (uint8_t)(divisor >> 8);
     *reg8(uart_base, UART_INTR_ENABLE_REG_OFFSET) = 0x00;   // Disable all interrupts
-    100004a4:	f3002797          	auipc	a5,0xf3002
-    100004a8:	ced0                	sw	a2,28(a3)
-    100004aa:	b5c78793          	addi	a5,a5,-1188 # 3002000 <__base_uart>
-    uint64_t divisor = freq / (baud << 4);
-    100004ae:	8041                	srli	s0,s0,0x10
-    *reg8(uart_base, UART_INTR_ENABLE_REG_OFFSET) = 0x00;   // Disable all interrupts
-    100004b0:	00078223          	sb	zero,4(a5)
-    uint8_t dlo = (uint8_t)(divisor);
-    100004b4:	02e437b3          	mulhu	a5,s0,a4
+    100004aa:	f3002717          	auipc	a4,0xf3002
+    100004ae:	cecc                	sw	a1,28(a3)
+    100004b0:	b5670713          	addi	a4,a4,-1194 # 3002000 <__base_uart>
+    100004b4:	00070223          	sb	zero,4(a4)
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x80;  // Enable DLAB (set baud rate divisor)
-    100004b8:	f3002697          	auipc	a3,0xf3002
-    100004bc:	b4868693          	addi	a3,a3,-1208 # 3002000 <__base_uart>
-    100004c0:	f8000613          	li	a2,-128
-    100004c4:	00c68623          	sb	a2,12(a3)
+    100004b8:	f3002717          	auipc	a4,0xf3002
+    100004bc:	b4870713          	addi	a4,a4,-1208 # 3002000 <__base_uart>
+    100004c0:	f8000693          	li	a3,-128
+    100004c4:	00d70623          	sb	a3,12(a4)
     *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
     100004c8:	f3002717          	auipc	a4,0xf3002
+    100004cc:	b2c70c23          	sb	a2,-1224(a4) # 3002000 <__base_uart>
     *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
-    *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
-    100004cc:	468d                	li	a3,3
-    100004ce:	01f10613          	addi	a2,sp,31
-    *reg8(uart_base, UART_DLAB_LSB_REG_OFFSET) = dlo;       // divisor (lo byte)
-    100004d2:	b2f70c23          	sb	a5,-1224(a4) # 3002000 <__base_uart>
-    *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
-    100004d6:	f3002717          	auipc	a4,0xf3002
+    100004d0:	f3002717          	auipc	a4,0xf3002
     uint8_t dhi = (uint8_t)(divisor >> 8);
-    100004da:	83a1                	srli	a5,a5,0x8
+    100004d4:	00865793          	srli	a5,a2,0x8
     *reg8(uart_base, UART_DLAB_MSB_REG_OFFSET) = dhi;       // divisor (hi byte)
-    100004dc:	b2a70713          	addi	a4,a4,-1238 # 3002000 <__base_uart>
-    100004e0:	00f70223          	sb	a5,4(a4)
+    100004d8:	b3070713          	addi	a4,a4,-1232 # 3002000 <__base_uart>
+    100004dc:	00f70223          	sb	a5,4(a4)
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
-    100004e4:	f3002797          	auipc	a5,0xf3002
-    100004e8:	b1c78793          	addi	a5,a5,-1252 # 3002000 <__base_uart>
+    100004e0:	f3002797          	auipc	a5,0xf3002
+    100004e4:	b2078793          	addi	a5,a5,-1248 # 3002000 <__base_uart>
+    100004e8:	468d                	li	a3,3
     *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
-    100004ec:	f3002717          	auipc	a4,0xf3002
+    100004ea:	f3002717          	auipc	a4,0xf3002
     *reg8(uart_base, UART_LINE_CONTROL_REG_OFFSET) = 0x03;  // 8 bits, no parity, one stop bit
-    100004f0:	00d78623          	sb	a3,12(a5)
+    100004ee:	00d78623          	sb	a3,12(a5)
     *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
-    100004f4:	b1470713          	addi	a4,a4,-1260 # 3002000 <__base_uart>
-    100004f8:	fc700693          	li	a3,-57
+    100004f2:	b1670713          	addi	a4,a4,-1258 # 3002000 <__base_uart>
+    100004f6:	fc700693          	li	a3,-57
     *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
-    100004fc:	f3002797          	auipc	a5,0xf3002
+    100004fa:	f3002797          	auipc	a5,0xf3002
     *reg8(uart_base, UART_FIFO_CONTROL_REG_OFFSET) = 0xC7;  // Enable & clear FIFO, 14B threshold
-    10000500:	00d70423          	sb	a3,8(a4)
+    100004fe:	00d70423          	sb	a3,8(a4)
     *reg8(uart_base, UART_MODEM_CONTROL_REG_OFFSET) = 0x20; // Autoflow mode
-    10000504:	b0478793          	addi	a5,a5,-1276 # 3002000 <__base_uart>
-    10000508:	02000693          	li	a3,32
-    1000050c:	0818                	addi	a4,sp,16
-    1000050e:	00d78823          	sb	a3,16(a5)
+    10000502:	b0678793          	addi	a5,a5,-1274 # 3002000 <__base_uart>
+    10000506:	02000693          	li	a3,32
+    1000050a:	0818                	addi	a4,sp,16
+    1000050c:	01f10613          	addi	a2,sp,31
+    10000510:	00d78823          	sb	a3,16(a5)
         ;
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
 }
 
 void uart_write_str(void *uart_base, void *src, uint64_t len) {
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    10000512:	00074683          	lbu	a3,0(a4)
+    10000514:	00074683          	lbu	a3,0(a4)
     return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
-    10000516:	f3002797          	auipc	a5,0xf3002
-    1000051a:	aea78793          	addi	a5,a5,-1302 # 3002000 <__base_uart>
-    1000051e:	0147c783          	lbu	a5,20(a5)
+    10000518:	f3002797          	auipc	a5,0xf3002
+    1000051c:	ae878793          	addi	a5,a5,-1304 # 3002000 <__base_uart>
+    10000520:	0147c783          	lbu	a5,20(a5)
     while (!__uart_write_ready(uart_base))
-    10000522:	0207f793          	andi	a5,a5,32
-    10000526:	dbe5                	beqz	a5,10000516 <main+0x328>
+    10000524:	0207f793          	andi	a5,a5,32
+    10000528:	dbe5                	beqz	a5,10000518 <main+0x32a>
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
-    10000528:	f3002797          	auipc	a5,0xf3002
+    1000052a:	f3002797          	auipc	a5,0xf3002
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    1000052c:	0705                	addi	a4,a4,1
+    1000052e:	0705                	addi	a4,a4,1
     *reg8(uart_base, UART_THR_REG_OFFSET) = byte;
-    1000052e:	acd78c23          	sb	a3,-1320(a5) # 3002000 <__base_uart>
+    10000530:	acd78b23          	sb	a3,-1322(a5) # 3002000 <__base_uart>
     for (uint64_t i = 0; i < len; ++i) uart_write(uart_base, ((uint8_t *)src)[i]);
-    10000532:	fec710e3          	bne	a4,a2,10000512 <main+0x324>
+    10000534:	fec710e3          	bne	a4,a2,10000514 <main+0x326>
     asm volatile("fence" ::: "memory");
-    10000536:	0ff0000f          	fence
+    10000538:	0ff0000f          	fence
     return *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_THR_EMPTY_BIT);
-    1000053a:	f3002797          	auipc	a5,0xf3002
-    1000053e:	ac678793          	addi	a5,a5,-1338 # 3002000 <__base_uart>
-    10000542:	0147c783          	lbu	a5,20(a5)
+    1000053c:	f3002797          	auipc	a5,0xf3002
+    10000540:	ac478793          	addi	a5,a5,-1340 # 3002000 <__base_uart>
+    10000544:	0147c783          	lbu	a5,20(a5)
            *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_TMIT_EMPTY_BIT);
-    10000546:	f3002717          	auipc	a4,0xf3002
-    1000054a:	aba70713          	addi	a4,a4,-1350 # 3002000 <__base_uart>
+    10000548:	f3002717          	auipc	a4,0xf3002
+    1000054c:	ab870713          	addi	a4,a4,-1352 # 3002000 <__base_uart>
     return __uart_write_ready(uart_base) &&
-    1000054e:	0207f793          	andi	a5,a5,32
-    10000552:	d7e5                	beqz	a5,1000053a <main+0x34c>
+    10000550:	0207f793          	andi	a5,a5,32
+    10000554:	d7e5                	beqz	a5,1000053c <main+0x34e>
            *reg8(uart_base, UART_LINE_STATUS_REG_OFFSET) & (1 << UART_LINE_STATUS_TMIT_EMPTY_BIT);
-    10000554:	01474783          	lbu	a5,20(a4)
+    10000556:	01474783          	lbu	a5,20(a4)
     return __uart_write_ready(uart_base) &&
-    10000558:	0407f793          	andi	a5,a5,64
-    1000055c:	dff9                	beqz	a5,1000053a <main+0x34c>
+    1000055a:	0407f793          	andi	a5,a5,64
+    1000055e:	dff9                	beqz	a5,1000053c <main+0x34e>
     // Configure UART and write message
     uart_init(&__base_uart, reset_freq, __BOOT_BAUDRATE);
     uart_write_str(&__base_uart, str, sizeof(str) - 1);
     uart_write_flush(&__base_uart);
     return 0;
 }
-    1000055e:	60a6                	ld	ra,72(sp)
-    10000560:	6406                	ld	s0,64(sp)
-    10000562:	74e2                	ld	s1,56(sp)
-    10000564:	7942                	ld	s2,48(sp)
-    10000566:	79a2                	ld	s3,40(sp)
+    10000560:	60a6                	ld	ra,72(sp)
+    10000562:	6406                	ld	s0,64(sp)
+    10000564:	74e2                	ld	s1,56(sp)
+    10000566:	7942                	ld	s2,48(sp)
+    10000568:	79a2                	ld	s3,40(sp)
     return 0;
-    10000568:	4501                	li	a0,0
+    1000056a:	4501                	li	a0,0
 }
-    1000056a:	6161                	addi	sp,sp,80
-    1000056c:	8082                	ret
+    1000056c:	6161                	addi	sp,sp,80
+    1000056e:	8082                	ret
     CHECK_ASSERT(-3, chs_hw_feature_present(CHESHIRE_HW_FEATURES_UART_BIT));
-    1000056e:	5575                	li	a0,-3
+    10000570:	5575                	li	a0,-3
 }
-    10000570:	8082                	ret
+    10000572:	8082                	ret
     CHECK_ASSERT(-2, chs_hw_feature_present(CHESHIRE_HW_FEATURES_DMA_BIT));
-    10000572:	5579                	li	a0,-2
-    10000574:	8082                	ret
+    10000574:	5579                	li	a0,-2
+    10000576:	8082                	ret
     CHECK_ASSERT(-1, chs_hw_feature_present(CHESHIRE_HW_FEATURES_AXIRT_BIT));
-    10000576:	557d                	li	a0,-1
-    10000578:	8082                	ret
+    10000578:	557d                	li	a0,-1
+    1000057a:	8082                	ret
