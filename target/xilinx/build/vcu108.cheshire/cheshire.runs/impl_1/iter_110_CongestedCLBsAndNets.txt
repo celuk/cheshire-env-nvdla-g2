@@ -1,0 +1,7 @@
+List of CLB Tiles
+CLEL_R_X73Y114
+CLE_M_X56Y134
+CLEL_R_X56Y134
+
+List of Congested Nets
+
