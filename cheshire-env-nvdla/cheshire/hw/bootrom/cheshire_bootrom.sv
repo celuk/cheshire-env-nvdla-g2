@@ -1700,8 +1700,8 @@ module cheshire_bootrom #(
             1668: data_o = 32'hec3ee452 /* 0x1a10 */;
             1669: data_o = 32'hf402f002 /* 0x1a14 */;
             1670: data_o = 32'hf14027f3 /* 0x1a18 */;
-            1671: data_o = 32'h02005737 /* 0x1a1c */;
-            1672: data_o = 32'h071a2781 /* 0x1a20 */;
+            1671: data_o = 32'h0801f737 /* 0x1a1c */;
+            1672: data_o = 32'h07122781 /* 0x1a20 */;
             1673: data_o = 32'h85ba853e /* 0x1a24 */;
             1674: data_o = 32'h07b7860a /* 0x1a28 */;
             1675: data_o = 32'ha0238000 /* 0x1a2c */;

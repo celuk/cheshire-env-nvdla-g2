@@ -3760,11 +3760,11 @@ int main() {
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
  2001a18:	f14027f3          	csrr	a5,mhartid
     __asm__ volatile (
- 2001a1c:	02005737          	lui	a4,0x2005
+ 2001a1c:	0801f737          	lui	a4,0x801f
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
  2001a20:	2781                	sext.w	a5,a5
     __asm__ volatile (
- 2001a22:	071a                	slli	a4,a4,0x6
+ 2001a22:	0712                	slli	a4,a4,0x4
  2001a24:	853e                	mv	a0,a5
  2001a26:	85ba                	mv	a1,a4
  2001a28:	860a                	mv	a2,sp
