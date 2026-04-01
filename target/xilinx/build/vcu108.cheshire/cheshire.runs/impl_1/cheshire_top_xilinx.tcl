@@ -115,6 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -122,33 +124,17 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param general.maxThreads 20
   set_param chipscope.maxJobs 5
-OPTRACE "create in-memory project" START { }
-  create_project -in_memory -part xcvu095-ffva2104-2-e
-  set_property board_part xilinx.com:vcu108:part0:1.7 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-OPTRACE "create in-memory project" END { }
-OPTRACE "set parameters" START { }
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1477137-karpuz/incrSyn
+  reset_param project.defaultXPMLibraries 
+  open_checkpoint /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
   set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.cache/wt [current_project]
   set_property parent.project_path /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.xpr [current_project]
   set_property ip_output_repo /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
-OPTRACE "set parameters" END { }
-OPTRACE "add files" START { }
-  add_files -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/synth_1/cheshire_top_xilinx.dcp
-  read_ip -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.srcs/sources_1/ip/ddr4/ddr4.xci
-OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.srcs/constrs_1/imports/constraints/cheshire.xdc
-  read_xdc /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.srcs/constrs_1/imports/constraints/vcu108.xdc
-OPTRACE "read constraints: implementation" END { }
-OPTRACE "add files" END { }
-OPTRACE "link_design" START { }
-  link_design -top cheshire_top_xilinx -part xcvu095-ffva2104-2-e 
-OPTRACE "link_design" END { }
-OPTRACE "gray box cells" START { }
-OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }
@@ -206,7 +192,7 @@ OPTRACE "implement_debug_core" START { }
 OPTRACE "implement_debug_core" END { }
   } 
 OPTRACE "place_design" START { }
-  place_design 
+  place_design -directive ExtraTimingOpt
 OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
@@ -258,7 +244,6 @@ if {$rc} {
 
 OPTRACE "Phase: Physical Opt Design" END { }
 OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
-  set_msg_config -source 4 -id {Route 35-39} -severity "critical warning" -new_severity warning
 start_step route_design
 set ACTIVE_STEP route_design
 set rc [catch {
@@ -266,7 +251,7 @@ set rc [catch {
 OPTRACE "read constraints: route_design" START { }
 OPTRACE "read constraints: route_design" END { }
 OPTRACE "route_design" START { }
-  route_design -tns_cleanup
+  route_design -directive NoTimingRelaxation
 OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
@@ -278,7 +263,7 @@ OPTRACE "route_design reports" START { REPORT }
   create_report "impl_1_route_report_methodology_0" "report_methodology -file cheshire_top_xilinx_methodology_drc_routed.rpt -pb cheshire_top_xilinx_methodology_drc_routed.pb -rpx cheshire_top_xilinx_methodology_drc_routed.rpx"
   create_report "impl_1_route_report_power_0" "report_power -file cheshire_top_xilinx_power_routed.rpt -pb cheshire_top_xilinx_power_summary_routed.pb -rpx cheshire_top_xilinx_power_routed.rpx"
   create_report "impl_1_route_report_route_status_0" "report_route_status -file cheshire_top_xilinx_route_status.rpt -pb cheshire_top_xilinx_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file cheshire_top_xilinx_timing_summary_routed.rpt -pb cheshire_top_xilinx_timing_summary_routed.pb -rpx cheshire_top_xilinx_timing_summary_routed.rpx"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -file cheshire_top_xilinx_timing_summary_routed.rpt -pb cheshire_top_xilinx_timing_summary_routed.pb -rpx cheshire_top_xilinx_timing_summary_routed.rpx -warn_on_violation "
   create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file cheshire_top_xilinx_incremental_reuse_routed.rpt"
   create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file cheshire_top_xilinx_clock_utilization_routed.rpt"
   create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file cheshire_top_xilinx_bus_skew_routed.rpt -pb cheshire_top_xilinx_bus_skew_routed.pb -rpx cheshire_top_xilinx_bus_skew_routed.rpx"
@@ -299,38 +284,6 @@ OPTRACE "route_design write_checkpoint" END { }
 
 OPTRACE "route_design misc" END { }
 OPTRACE "Phase: Route Design" END { }
-OPTRACE "Phase: Phys-Opt Design" START { ROLLUP_AUTO }
-start_step post_route_phys_opt_design
-set ACTIVE_STEP post_route_phys_opt_design
-set rc [catch {
-  set tool_flow [get_property -quiet TOOL_FLOW [current_project -quiet]]
-  if {$tool_flow eq {SDx}} {send_msg_id {101-1} {status} {Starting optional post-route physical design optimization.} }
-  create_msg_db post_route_phys_opt_design.pb
-OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
-OPTRACE "phys_opt_design" END { }
-OPTRACE "Post-Route Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force cheshire_top_xilinx_postroute_physopt.dcp
-OPTRACE "Post-Route Phys Opt Design: write_checkpoint" END { }
-OPTRACE "phys_opt_design reports" START { REPORT }
-  create_report "impl_1_post_route_phys_opt_report_timing_summary_0" "report_timing_summary -max_paths 10 -report_unconstrained -warn_on_violation -file cheshire_top_xilinx_timing_summary_postroute_physopted.rpt -pb cheshire_top_xilinx_timing_summary_postroute_physopted.pb -rpx cheshire_top_xilinx_timing_summary_postroute_physopted.rpx"
-  create_report "impl_1_post_route_phys_opt_report_bus_skew_0" "report_bus_skew -warn_on_violation -file cheshire_top_xilinx_bus_skew_postroute_physopted.rpt -pb cheshire_top_xilinx_bus_skew_postroute_physopted.pb -rpx cheshire_top_xilinx_bus_skew_postroute_physopted.rpx"
-OPTRACE "phys_opt_design reports" END { }
-OPTRACE "phys_opt_design misc" START { }
-  close_msg_db -file post_route_phys_opt_design.pb
-  set tool_flow [get_property TOOL_FLOW [current_project]]
-  if {$tool_flow eq {SDx}} {send_msg_id {101-1} {status} {Finished optional post-route physical design optimization.} }
-} RESULT]
-if {$rc} {
-  step_failed post_route_phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step post_route_phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "phys_opt_design misc" END { }
-OPTRACE "Phase: Phys-Opt Design" END { }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
 OPTRACE "write_bitstream setup" START { }
 start_step write_bitstream

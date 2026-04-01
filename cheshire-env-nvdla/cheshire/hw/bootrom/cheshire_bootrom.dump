@@ -3438,7 +3438,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20017a6:	95de                	add	a1,a1,s7
  20017a8:	417b0633          	sub	a2,s6,s7
  20017ac:	01ab8533          	add	a0,s7,s10
- 20017b0:	3b2000ef          	jal	2001b62 <memcpy>
+ 20017b0:	3b0000ef          	jal	2001b60 <memcpy>
     for (uint64_t b = 0; b < len; ++b) {
  20017b4:	001c8793          	addi	a5,s9,1
  20017b8:	8cbe                	mv	s9,a5
@@ -3565,7 +3565,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20018a8:	865a                	mv	a2,s6
  20018aa:	108c                	addi	a1,sp,96
  20018ac:	856a                	mv	a0,s10
- 20018ae:	2b4000ef          	jal	2001b62 <memcpy>
+ 20018ae:	2b2000ef          	jal	2001b60 <memcpy>
  20018b2:	b709                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
         else if (first_block)
  20018b4:	67c2                	ld	a5,16(sp)
@@ -3576,7 +3576,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20018be:	41760633          	sub	a2,a2,s7
  20018c2:	95de                	add	a1,a1,s7
  20018c4:	856e                	mv	a0,s11
- 20018c6:	29c000ef          	jal	2001b62 <memcpy>
+ 20018c6:	29a000ef          	jal	2001b60 <memcpy>
  20018ca:	b5ed                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
         if (timeout == 0) return 0x19;
  20018cc:	4565                	li	a0,25
@@ -3728,9 +3728,9 @@ int main() {
     uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
  20019d4:	85aa                	mv	a1,a0
     switch (bootmode) {
- 20019d6:	11490463          	beq	s2,s4,2001ade <main+0x134>
- 20019da:	072a6f63          	bltu	s4,s2,2001a58 <main+0xae>
- 20019de:	0a091863          	bnez	s2,2001a8e <main+0xe4>
+ 20019d6:	11490363          	beq	s2,s4,2001adc <main+0x132>
+ 20019da:	072a6e63          	bltu	s4,s2,2001a56 <main+0xac>
+ 20019de:	0a091763          	bnez	s2,2001a8c <main+0xe2>
     clint_spin_until((500 * rtc_freq) / (1000 * 1000) + 1);
  20019e2:	1f400513          	li	a0,500
  20019e6:	02a40533          	mul	a0,s0,a0
@@ -3760,237 +3760,237 @@ int main() {
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
  2001a18:	f14027f3          	csrr	a5,mhartid
     __asm__ volatile (
- 2001a1c:	0801f737          	lui	a4,0x801f
+ 2001a1c:	473d                	li	a4,15
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
- 2001a20:	2781                	sext.w	a5,a5
+ 2001a1e:	2781                	sext.w	a5,a5
     __asm__ volatile (
- 2001a22:	0712                	slli	a4,a4,0x4
- 2001a24:	853e                	mv	a0,a5
- 2001a26:	85ba                	mv	a1,a4
- 2001a28:	860a                	mv	a2,sp
+ 2001a20:	0772                	slli	a4,a4,0x1c
+ 2001a22:	853e                	mv	a0,a5
+ 2001a24:	85ba                	mv	a1,a4
+ 2001a26:	860a                	mv	a2,sp
     scratch[0] = (uint32_t)(next_addr & 0xFFFFFFFF);
- 2001a2a:	800007b7          	lui	a5,0x80000
- 2001a2e:	00f9a023          	sw	a5,0(s3) # 3000000 <__base_regs>
+ 2001a28:	800007b7          	lui	a5,0x80000
+ 2001a2c:	00f9a023          	sw	a5,0(s3) # 3000000 <__base_regs>
     scratch[1] = (uint32_t)(next_addr >> 32);
- 2001a32:	0004a223          	sw	zero,4(s1)
+ 2001a30:	0004a223          	sw	zero,4(s1)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a36:	40c8                	lw	a0,4(s1)
- 2001a38:	0009a783          	lw	a5,0(s3)
- 2001a3c:	1502                	slli	a0,a0,0x20
- 2001a3e:	1782                	slli	a5,a5,0x20
- 2001a40:	9381                	srli	a5,a5,0x20
- 2001a42:	8d5d                	or	a0,a0,a5
- 2001a44:	eacfe0ef          	jal	20000f0 <boot_next_stage>
+ 2001a34:	40c8                	lw	a0,4(s1)
+ 2001a36:	0009a783          	lw	a5,0(s3)
+ 2001a3a:	1502                	slli	a0,a0,0x20
+ 2001a3c:	1782                	slli	a5,a5,0x20
+ 2001a3e:	9381                	srli	a5,a5,0x20
+ 2001a40:	8d5d                	or	a0,a0,a5
+ 2001a42:	eaefe0ef          	jal	20000f0 <boot_next_stage>
     case 3:
         return boot_i2c_24fc1025(core_freq);
     default:
         return boot_passive(core_freq);
     }
 }
- 2001a48:	60e6                	ld	ra,88(sp)
- 2001a4a:	6446                	ld	s0,80(sp)
- 2001a4c:	64a6                	ld	s1,72(sp)
- 2001a4e:	6906                	ld	s2,64(sp)
- 2001a50:	79e2                	ld	s3,56(sp)
- 2001a52:	7a42                	ld	s4,48(sp)
- 2001a54:	6125                	addi	sp,sp,96
- 2001a56:	8082                	ret
+ 2001a46:	60e6                	ld	ra,88(sp)
+ 2001a48:	6446                	ld	s0,80(sp)
+ 2001a4a:	64a6                	ld	s1,72(sp)
+ 2001a4c:	6906                	ld	s2,64(sp)
+ 2001a4e:	79e2                	ld	s3,56(sp)
+ 2001a50:	7a42                	ld	s4,48(sp)
+ 2001a52:	6125                	addi	sp,sp,96
+ 2001a54:	8082                	ret
     switch (bootmode) {
- 2001a58:	478d                	li	a5,3
- 2001a5a:	0cf90a63          	beq	s2,a5,2001b2e <main+0x184>
+ 2001a56:	478d                	li	a5,3
+ 2001a58:	0cf90a63          	beq	s2,a5,2001b2c <main+0x182>
     uart_debug_init(&__base_uart, core_freq);
- 2001a5e:	9affe0ef          	jal	200040c <uart_debug_init.constprop.0.isra.0>
+ 2001a5c:	9b1fe0ef          	jal	200040c <uart_debug_init.constprop.0.isra.0>
     while (!(scratch[2] & 2))
- 2001a62:	449c                	lw	a5,8(s1)
- 2001a64:	8b89                	andi	a5,a5,2
- 2001a66:	0e078163          	beqz	a5,2001b48 <main+0x19e>
+ 2001a60:	449c                	lw	a5,8(s1)
+ 2001a62:	8b89                	andi	a5,a5,2
+ 2001a64:	0e078163          	beqz	a5,2001b46 <main+0x19c>
     scratch[2] = 0;
- 2001a6a:	0004a423          	sw	zero,8(s1)
+ 2001a68:	0004a423          	sw	zero,8(s1)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a6e:	40c8                	lw	a0,4(s1)
- 2001a70:	0009a783          	lw	a5,0(s3)
+ 2001a6c:	40c8                	lw	a0,4(s1)
+ 2001a6e:	0009a783          	lw	a5,0(s3)
 }
- 2001a74:	6446                	ld	s0,80(sp)
- 2001a76:	60e6                	ld	ra,88(sp)
- 2001a78:	64a6                	ld	s1,72(sp)
- 2001a7a:	6906                	ld	s2,64(sp)
- 2001a7c:	79e2                	ld	s3,56(sp)
- 2001a7e:	7a42                	ld	s4,48(sp)
+ 2001a72:	6446                	ld	s0,80(sp)
+ 2001a74:	60e6                	ld	ra,88(sp)
+ 2001a76:	64a6                	ld	s1,72(sp)
+ 2001a78:	6906                	ld	s2,64(sp)
+ 2001a7a:	79e2                	ld	s3,56(sp)
+ 2001a7c:	7a42                	ld	s4,48(sp)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a80:	1782                	slli	a5,a5,0x20
- 2001a82:	1502                	slli	a0,a0,0x20
- 2001a84:	9381                	srli	a5,a5,0x20
- 2001a86:	8d5d                	or	a0,a0,a5
+ 2001a7e:	1782                	slli	a5,a5,0x20
+ 2001a80:	1502                	slli	a0,a0,0x20
+ 2001a82:	9381                	srli	a5,a5,0x20
+ 2001a84:	8d5d                	or	a0,a0,a5
 }
- 2001a88:	6125                	addi	sp,sp,96
+ 2001a86:	6125                	addi	sp,sp,96
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a8a:	e66fe06f          	j	20000f0 <boot_next_stage>
+ 2001a88:	e68fe06f          	j	20000f0 <boot_next_stage>
         .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
- 2001a8e:	02dc7737          	lui	a4,0x2dc7
- 2001a92:	016e37b7          	lui	a5,0x16e3
+ 2001a8c:	02dc7737          	lui	a4,0x2dc7
+ 2001a90:	016e37b7          	lui	a5,0x16e3
     spi_sdcard_t device = {
- 2001a96:	e002                	sd	zero,0(sp)
- 2001a98:	c802                	sw	zero,16(sp)
+ 2001a94:	e002                	sd	zero,0(sp)
+ 2001a96:	c802                	sw	zero,16(sp)
         .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
- 2001a9a:	bff70713          	addi	a4,a4,-1025 # 2dc6bff <__base_axirtgrd+0xd04c03>
- 2001a9e:	60078793          	addi	a5,a5,1536 # 16e3600 <__base_dma+0x6e3600>
- 2001aa2:	00a76463          	bltu	a4,a0,2001aaa <main+0x100>
- 2001aa6:	00155793          	srli	a5,a0,0x1
+ 2001a98:	bff70713          	addi	a4,a4,-1025 # 2dc6bff <__base_axirtgrd+0xd04c03>
+ 2001a9c:	60078793          	addi	a5,a5,1536 # 16e3600 <__base_dma+0x6e3600>
+ 2001aa0:	00a76463          	bltu	a4,a0,2001aa8 <main+0xfe>
+ 2001aa4:	00155793          	srli	a5,a0,0x1
     spi_sdcard_t device = {
- 2001aaa:	e43e                	sd	a5,8(sp)
+ 2001aa8:	e43e                	sd	a5,8(sp)
     CHECK_CALL(spi_sdcard_init(&device, core_freq))
- 2001aac:	850a                	mv	a0,sp
+ 2001aaa:	850a                	mv	a0,sp
     spi_sdcard_t device = {
- 2001aae:	4789                	li	a5,2
- 2001ab0:	ca3e                	sw	a5,20(sp)
+ 2001aac:	4789                	li	a5,2
+ 2001aae:	ca3e                	sw	a5,20(sp)
     CHECK_CALL(spi_sdcard_init(&device, core_freq))
- 2001ab2:	87dff0ef          	jal	200132e <spi_sdcard_init.constprop.0>
- 2001ab6:	f949                	bnez	a0,2001a48 <main+0x9e>
+ 2001ab0:	87fff0ef          	jal	200132e <spi_sdcard_init.constprop.0>
+ 2001ab4:	f949                	bnez	a0,2001a46 <main+0x9c>
     clint_spin_until((1000 * rtc_freq) / (1000 * 1000) + 1);
- 2001ab8:	3e800513          	li	a0,1000
- 2001abc:	02a40533          	mul	a0,s0,a0
- 2001ac0:	000f47b7          	lui	a5,0xf4
- 2001ac4:	24078793          	addi	a5,a5,576 # f4240 <uart.c.c9e0e3af+0xe8649>
- 2001ac8:	02f55533          	divu	a0,a0,a5
- 2001acc:	0505                	addi	a0,a0,1
- 2001ace:	ee8fe0ef          	jal	20001b6 <clint_spin_until>
+ 2001ab6:	3e800513          	li	a0,1000
+ 2001aba:	02a40533          	mul	a0,s0,a0
+ 2001abe:	000f47b7          	lui	a5,0xf4
+ 2001ac2:	24078793          	addi	a5,a5,576 # f4240 <uart.c.c9e0e3af+0xe8649>
+ 2001ac6:	02f55533          	divu	a0,a0,a5
+ 2001aca:	0505                	addi	a0,a0,1
+ 2001acc:	eeafe0ef          	jal	20001b6 <clint_spin_until>
     return gpt_boot_part_else_raw(spi_sdcard_read_checkcrc, &device, &__base_spm,
- 2001ad2:	858a                	mv	a1,sp
- 2001ad4:	bbe18513          	addi	a0,gp,-1090 # 20019a2 <spi_sdcard_read_checkcrc>
+ 2001ad0:	858a                	mv	a1,sp
+ 2001ad2:	bbe18513          	addi	a0,gp,-1090 # 20019a2 <spi_sdcard_read_checkcrc>
     return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
- 2001ad8:	fa1fe0ef          	jal	2000a78 <gpt_boot_part_else_raw.constprop.0>
- 2001adc:	b7b5                	j	2001a48 <main+0x9e>
+ 2001ad6:	fa3fe0ef          	jal	2000a78 <gpt_boot_part_else_raw.constprop.0>
+ 2001ada:	b7b5                	j	2001a46 <main+0x9c>
         .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
- 2001ade:	09896737          	lui	a4,0x9896
- 2001ae2:	026267b7          	lui	a5,0x2626
+ 2001adc:	09896737          	lui	a4,0x9896
+ 2001ae0:	026267b7          	lui	a5,0x2626
     spi_s25fs512s_t device = {
- 2001ae6:	e002                	sd	zero,0(sp)
- 2001ae8:	e802                	sd	zero,16(sp)
+ 2001ae4:	e002                	sd	zero,0(sp)
+ 2001ae6:	e802                	sd	zero,16(sp)
         .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
- 2001aea:	7ff70713          	addi	a4,a4,2047 # 98967ff <__base_clic+0x18967ff>
- 2001aee:	a0078793          	addi	a5,a5,-1536 # 2625a00 <__base_axirtgrd+0x563a04>
- 2001af2:	00a76463          	bltu	a4,a0,2001afa <main+0x150>
- 2001af6:	00255793          	srli	a5,a0,0x2
+ 2001ae8:	7ff70713          	addi	a4,a4,2047 # 98967ff <__base_clic+0x18967ff>
+ 2001aec:	a0078793          	addi	a5,a5,-1536 # 2625a00 <__base_axirtgrd+0x563a04>
+ 2001af0:	00a76463          	bltu	a4,a0,2001af8 <main+0x14e>
+ 2001af4:	00255793          	srli	a5,a0,0x2
     spi_s25fs512s_t device = {
- 2001afa:	e43e                	sd	a5,8(sp)
+ 2001af8:	e43e                	sd	a5,8(sp)
     CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
- 2001afc:	850a                	mv	a0,sp
+ 2001afa:	850a                	mv	a0,sp
     spi_s25fs512s_t device = {
- 2001afe:	4785                	li	a5,1
- 2001b00:	c83e                	sw	a5,16(sp)
+ 2001afc:	4785                	li	a5,1
+ 2001afe:	c83e                	sw	a5,16(sp)
     CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
- 2001b02:	d2ffe0ef          	jal	2000830 <spi_s25fs512s_init.constprop.0>
- 2001b06:	f129                	bnez	a0,2001a48 <main+0x9e>
+ 2001b00:	d31fe0ef          	jal	2000830 <spi_s25fs512s_init.constprop.0>
+ 2001b04:	f129                	bnez	a0,2001a46 <main+0x9c>
     clint_spin_until((350 * rtc_freq) / (1000 * 1000) + 1);
- 2001b08:	15e00793          	li	a5,350
- 2001b0c:	02f40533          	mul	a0,s0,a5
- 2001b10:	000f47b7          	lui	a5,0xf4
- 2001b14:	24078793          	addi	a5,a5,576 # f4240 <uart.c.c9e0e3af+0xe8649>
- 2001b18:	02f55533          	divu	a0,a0,a5
- 2001b1c:	0505                	addi	a0,a0,1
- 2001b1e:	e98fe0ef          	jal	20001b6 <clint_spin_until>
+ 2001b06:	15e00793          	li	a5,350
+ 2001b0a:	02f40533          	mul	a0,s0,a5
+ 2001b0e:	000f47b7          	lui	a5,0xf4
+ 2001b12:	24078793          	addi	a5,a5,576 # f4240 <uart.c.c9e0e3af+0xe8649>
+ 2001b16:	02f55533          	divu	a0,a0,a5
+ 2001b1a:	0505                	addi	a0,a0,1
+ 2001b1c:	e9afe0ef          	jal	20001b6 <clint_spin_until>
     return gpt_boot_part_else_raw(spi_s25fs512s_single_read, &device, &__base_spm,
- 2001b22:	02001537          	lui	a0,0x2001
- 2001b26:	858a                	mv	a1,sp
- 2001b28:	f1850513          	addi	a0,a0,-232 # 2000f18 <spi_s25fs512s_single_read>
- 2001b2c:	b775                	j	2001ad8 <main+0x12e>
+ 2001b20:	02001537          	lui	a0,0x2001
+ 2001b24:	858a                	mv	a1,sp
+ 2001b26:	f1850513          	addi	a0,a0,-232 # 2000f18 <spi_s25fs512s_single_read>
+ 2001b2a:	b775                	j	2001ad6 <main+0x12c>
     CHECK_CALL(i2c_24fc1025_init(&i2c, core_freq))
- 2001b2e:	850a                	mv	a0,sp
- 2001b30:	f6cfe0ef          	jal	200029c <i2c_24fc1025_init>
- 2001b34:	87aa                	mv	a5,a0
- 2001b36:	4549                	li	a0,18
- 2001b38:	f00798e3          	bnez	a5,2001a48 <main+0x9e>
+ 2001b2c:	850a                	mv	a0,sp
+ 2001b2e:	f6efe0ef          	jal	200029c <i2c_24fc1025_init>
+ 2001b32:	87aa                	mv	a5,a0
+ 2001b34:	4549                	li	a0,18
+ 2001b36:	f00798e3          	bnez	a5,2001a46 <main+0x9c>
     return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
- 2001b3c:	02000537          	lui	a0,0x2000
- 2001b40:	858a                	mv	a1,sp
- 2001b42:	72250513          	addi	a0,a0,1826 # 2000722 <i2c_24fc1025_read>
- 2001b46:	bf49                	j	2001ad8 <main+0x12e>
+ 2001b3a:	02000537          	lui	a0,0x2000
+ 2001b3e:	858a                	mv	a1,sp
+ 2001b40:	72250513          	addi	a0,a0,1826 # 2000722 <i2c_24fc1025_read>
+ 2001b44:	bf49                	j	2001ad6 <main+0x12c>
         if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
- 2001b48:	937fe0ef          	jal	200047e <uart_debug_check.constprop.0>
- 2001b4c:	f0050be3          	beqz	a0,2001a62 <main+0xb8>
+ 2001b46:	939fe0ef          	jal	200047e <uart_debug_check.constprop.0>
+ 2001b4a:	f0050be3          	beqz	a0,2001a60 <main+0xb6>
 }
- 2001b50:	6446                	ld	s0,80(sp)
- 2001b52:	60e6                	ld	ra,88(sp)
- 2001b54:	64a6                	ld	s1,72(sp)
- 2001b56:	6906                	ld	s2,64(sp)
- 2001b58:	79e2                	ld	s3,56(sp)
- 2001b5a:	7a42                	ld	s4,48(sp)
- 2001b5c:	6125                	addi	sp,sp,96
+ 2001b4e:	6446                	ld	s0,80(sp)
+ 2001b50:	60e6                	ld	ra,88(sp)
+ 2001b52:	64a6                	ld	s1,72(sp)
+ 2001b54:	6906                	ld	s2,64(sp)
+ 2001b56:	79e2                	ld	s3,56(sp)
+ 2001b58:	7a42                	ld	s4,48(sp)
+ 2001b5a:	6125                	addi	sp,sp,96
         if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
- 2001b5e:	d73fe06f          	j	20008d0 <uart_debug_serve.constprop.0>
+ 2001b5c:	d75fe06f          	j	20008d0 <uart_debug_serve.constprop.0>
 
-0000000002001b62 <memcpy>:
- 2001b62:	00a5c7b3          	xor	a5,a1,a0
- 2001b66:	8b9d                	andi	a5,a5,7
- 2001b68:	00c508b3          	add	a7,a0,a2
- 2001b6c:	e7b1                	bnez	a5,2001bb8 <memcpy+0x56>
- 2001b6e:	00863613          	sltiu	a2,a2,8
- 2001b72:	e239                	bnez	a2,2001bb8 <memcpy+0x56>
- 2001b74:	00757793          	andi	a5,a0,7
- 2001b78:	872a                	mv	a4,a0
- 2001b7a:	e7cd                	bnez	a5,2001c24 <memcpy+0xc2>
- 2001b7c:	ff88f613          	andi	a2,a7,-8
- 2001b80:	40e606b3          	sub	a3,a2,a4
- 2001b84:	04000793          	li	a5,64
- 2001b88:	04d7c463          	blt	a5,a3,2001bd0 <memcpy+0x6e>
- 2001b8c:	86ae                	mv	a3,a1
- 2001b8e:	87ba                	mv	a5,a4
- 2001b90:	02c77163          	bgeu	a4,a2,2001bb2 <memcpy+0x50>
- 2001b94:	0006b803          	ld	a6,0(a3)
- 2001b98:	07a1                	addi	a5,a5,8
- 2001b9a:	06a1                	addi	a3,a3,8
- 2001b9c:	ff07bc23          	sd	a6,-8(a5)
- 2001ba0:	fec7eae3          	bltu	a5,a2,2001b94 <memcpy+0x32>
- 2001ba4:	167d                	addi	a2,a2,-1
- 2001ba6:	8e19                	sub	a2,a2,a4
- 2001ba8:	9a61                	andi	a2,a2,-8
- 2001baa:	05a1                	addi	a1,a1,8
- 2001bac:	0721                	addi	a4,a4,8
- 2001bae:	95b2                	add	a1,a1,a2
- 2001bb0:	9732                	add	a4,a4,a2
- 2001bb2:	01176663          	bltu	a4,a7,2001bbe <memcpy+0x5c>
- 2001bb6:	8082                	ret
- 2001bb8:	872a                	mv	a4,a0
- 2001bba:	ff157ee3          	bgeu	a0,a7,2001bb6 <memcpy+0x54>
- 2001bbe:	0005c783          	lbu	a5,0(a1)
- 2001bc2:	0705                	addi	a4,a4,1
- 2001bc4:	0585                	addi	a1,a1,1
- 2001bc6:	fef70fa3          	sb	a5,-1(a4)
- 2001bca:	fee89ae3          	bne	a7,a4,2001bbe <memcpy+0x5c>
- 2001bce:	8082                	ret
- 2001bd0:	6194                	ld	a3,0(a1)
- 2001bd2:	0085b283          	ld	t0,8(a1)
- 2001bd6:	0105bf83          	ld	t6,16(a1)
- 2001bda:	0185bf03          	ld	t5,24(a1)
- 2001bde:	0205be83          	ld	t4,32(a1)
- 2001be2:	0285be03          	ld	t3,40(a1)
- 2001be6:	0305b303          	ld	t1,48(a1)
- 2001bea:	0385b803          	ld	a6,56(a1)
- 2001bee:	e314                	sd	a3,0(a4)
- 2001bf0:	61b4                	ld	a3,64(a1)
- 2001bf2:	04870713          	addi	a4,a4,72
- 2001bf6:	fc573023          	sd	t0,-64(a4)
- 2001bfa:	fed73c23          	sd	a3,-8(a4)
- 2001bfe:	fdf73423          	sd	t6,-56(a4)
- 2001c02:	40e606b3          	sub	a3,a2,a4
- 2001c06:	fde73823          	sd	t5,-48(a4)
- 2001c0a:	fdd73c23          	sd	t4,-40(a4)
- 2001c0e:	ffc73023          	sd	t3,-32(a4)
- 2001c12:	fe673423          	sd	t1,-24(a4)
- 2001c16:	ff073823          	sd	a6,-16(a4)
- 2001c1a:	04858593          	addi	a1,a1,72
- 2001c1e:	fad7c9e3          	blt	a5,a3,2001bd0 <memcpy+0x6e>
- 2001c22:	b7ad                	j	2001b8c <memcpy+0x2a>
- 2001c24:	0005c683          	lbu	a3,0(a1)
- 2001c28:	0705                	addi	a4,a4,1
- 2001c2a:	00777793          	andi	a5,a4,7
- 2001c2e:	fed70fa3          	sb	a3,-1(a4)
- 2001c32:	0585                	addi	a1,a1,1
- 2001c34:	d7a1                	beqz	a5,2001b7c <memcpy+0x1a>
- 2001c36:	0005c683          	lbu	a3,0(a1)
- 2001c3a:	0705                	addi	a4,a4,1
- 2001c3c:	00777793          	andi	a5,a4,7
- 2001c40:	fed70fa3          	sb	a3,-1(a4)
- 2001c44:	0585                	addi	a1,a1,1
- 2001c46:	fff9                	bnez	a5,2001c24 <memcpy+0xc2>
- 2001c48:	bf15                	j	2001b7c <memcpy+0x1a>
+0000000002001b60 <memcpy>:
+ 2001b60:	00a5c7b3          	xor	a5,a1,a0
+ 2001b64:	8b9d                	andi	a5,a5,7
+ 2001b66:	00c508b3          	add	a7,a0,a2
+ 2001b6a:	e7b1                	bnez	a5,2001bb6 <memcpy+0x56>
+ 2001b6c:	00863613          	sltiu	a2,a2,8
+ 2001b70:	e239                	bnez	a2,2001bb6 <memcpy+0x56>
+ 2001b72:	00757793          	andi	a5,a0,7
+ 2001b76:	872a                	mv	a4,a0
+ 2001b78:	e7cd                	bnez	a5,2001c22 <memcpy+0xc2>
+ 2001b7a:	ff88f613          	andi	a2,a7,-8
+ 2001b7e:	40e606b3          	sub	a3,a2,a4
+ 2001b82:	04000793          	li	a5,64
+ 2001b86:	04d7c463          	blt	a5,a3,2001bce <memcpy+0x6e>
+ 2001b8a:	86ae                	mv	a3,a1
+ 2001b8c:	87ba                	mv	a5,a4
+ 2001b8e:	02c77163          	bgeu	a4,a2,2001bb0 <memcpy+0x50>
+ 2001b92:	0006b803          	ld	a6,0(a3)
+ 2001b96:	07a1                	addi	a5,a5,8
+ 2001b98:	06a1                	addi	a3,a3,8
+ 2001b9a:	ff07bc23          	sd	a6,-8(a5)
+ 2001b9e:	fec7eae3          	bltu	a5,a2,2001b92 <memcpy+0x32>
+ 2001ba2:	167d                	addi	a2,a2,-1
+ 2001ba4:	8e19                	sub	a2,a2,a4
+ 2001ba6:	9a61                	andi	a2,a2,-8
+ 2001ba8:	05a1                	addi	a1,a1,8
+ 2001baa:	0721                	addi	a4,a4,8
+ 2001bac:	95b2                	add	a1,a1,a2
+ 2001bae:	9732                	add	a4,a4,a2
+ 2001bb0:	01176663          	bltu	a4,a7,2001bbc <memcpy+0x5c>
+ 2001bb4:	8082                	ret
+ 2001bb6:	872a                	mv	a4,a0
+ 2001bb8:	ff157ee3          	bgeu	a0,a7,2001bb4 <memcpy+0x54>
+ 2001bbc:	0005c783          	lbu	a5,0(a1)
+ 2001bc0:	0705                	addi	a4,a4,1
+ 2001bc2:	0585                	addi	a1,a1,1
+ 2001bc4:	fef70fa3          	sb	a5,-1(a4)
+ 2001bc8:	fee89ae3          	bne	a7,a4,2001bbc <memcpy+0x5c>
+ 2001bcc:	8082                	ret
+ 2001bce:	6194                	ld	a3,0(a1)
+ 2001bd0:	0085b283          	ld	t0,8(a1)
+ 2001bd4:	0105bf83          	ld	t6,16(a1)
+ 2001bd8:	0185bf03          	ld	t5,24(a1)
+ 2001bdc:	0205be83          	ld	t4,32(a1)
+ 2001be0:	0285be03          	ld	t3,40(a1)
+ 2001be4:	0305b303          	ld	t1,48(a1)
+ 2001be8:	0385b803          	ld	a6,56(a1)
+ 2001bec:	e314                	sd	a3,0(a4)
+ 2001bee:	61b4                	ld	a3,64(a1)
+ 2001bf0:	04870713          	addi	a4,a4,72
+ 2001bf4:	fc573023          	sd	t0,-64(a4)
+ 2001bf8:	fed73c23          	sd	a3,-8(a4)
+ 2001bfc:	fdf73423          	sd	t6,-56(a4)
+ 2001c00:	40e606b3          	sub	a3,a2,a4
+ 2001c04:	fde73823          	sd	t5,-48(a4)
+ 2001c08:	fdd73c23          	sd	t4,-40(a4)
+ 2001c0c:	ffc73023          	sd	t3,-32(a4)
+ 2001c10:	fe673423          	sd	t1,-24(a4)
+ 2001c14:	ff073823          	sd	a6,-16(a4)
+ 2001c18:	04858593          	addi	a1,a1,72
+ 2001c1c:	fad7c9e3          	blt	a5,a3,2001bce <memcpy+0x6e>
+ 2001c20:	b7ad                	j	2001b8a <memcpy+0x2a>
+ 2001c22:	0005c683          	lbu	a3,0(a1)
+ 2001c26:	0705                	addi	a4,a4,1
+ 2001c28:	00777793          	andi	a5,a4,7
+ 2001c2c:	fed70fa3          	sb	a3,-1(a4)
+ 2001c30:	0585                	addi	a1,a1,1
+ 2001c32:	d7a1                	beqz	a5,2001b7a <memcpy+0x1a>
+ 2001c34:	0005c683          	lbu	a3,0(a1)
+ 2001c38:	0705                	addi	a4,a4,1
+ 2001c3a:	00777793          	andi	a5,a4,7
+ 2001c3e:	fed70fa3          	sb	a3,-1(a4)
+ 2001c42:	0585                	addi	a1,a1,1
+ 2001c44:	fff9                	bnez	a5,2001c22 <memcpy+0xc2>
+ 2001c46:	bf15                	j	2001b7a <memcpy+0x1a>
