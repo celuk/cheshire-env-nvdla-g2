@@ -9,6 +9,9 @@
 BENDER ?= bender
 VLOGAN ?= vlogan
 
+# Prefer using already-populated local Bender cache/checkouts.
+CHS_USE_EXISTING_BENDER ?= 1
+
 # Caution: Questasim requires this to point to the *actual* compiler install path
 CXX_PATH := $(shell which $(CXX))
 
@@ -18,19 +21,27 @@ VLOGAN_ARGS ?= -kdb -nc -assert svaext +v2k -timescale=1ns/1ps
 # Common Bender flags for Cheshire RTL
 CHS_BENDER_RTL_FLAGS ?= -t rtl -t cva6 -t cv64a6_imafdcsclic_sv39
 
+# Cache root used by Bender
+BENDER_ROOT ?= $(CHS_ROOT)/.bender
+
+# Resolve dependency directories from existing local checkouts first, fall back to `bender path`.
+define chs_find_checkout
+$(firstword $(wildcard $(BENDER_ROOT)/git/checkouts/$(1)-*))
+endef
+
 # Define used paths (prefixed to avoid name conflicts)
-CHS_ROOT      ?= $(shell $(BENDER) path cheshire)
-CHS_REG_DIR   := $(shell $(BENDER) path register_interface)
-CHS_SLINK_DIR := $(shell $(BENDER) path serial_link)
-CHS_LLC_DIR   := $(shell $(BENDER) path axi_llc)
+CHS_ROOT      ?= $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+CHS_REG_DIR   := $(or $(call chs_find_checkout,register_interface),$(shell $(BENDER) path register_interface))
+CHS_SLINK_DIR := $(or $(call chs_find_checkout,serial_link),$(shell $(BENDER) path serial_link))
+CHS_LLC_DIR   := $(or $(call chs_find_checkout,axi_llc),$(shell $(BENDER) path axi_llc))
 
 # Define paths used in dependencies
-OTPROOT           := $(shell $(BENDER) path opentitan_peripherals)
-CLINTROOT         := $(shell $(BENDER) path clint)
-AXIRTROOT         := $(shell $(BENDER) path axi_rt)
-AXI_VGA_ROOT      := $(shell $(BENDER) path axi_vga)
-IDMA_ROOT         := $(shell $(BENDER) path idma)
-DRAM_RTL_SIM_ROOT := $(shell $(BENDER) path dram_rtl_sim)
+OTPROOT           := $(or $(call chs_find_checkout,opentitan_peripherals),$(shell $(BENDER) path opentitan_peripherals))
+CLINTROOT         := $(or $(call chs_find_checkout,clint),$(shell $(BENDER) path clint))
+AXIRTROOT         := $(or $(call chs_find_checkout,axi_rt),$(shell $(BENDER) path axi_rt))
+AXI_VGA_ROOT      := $(or $(call chs_find_checkout,axi_vga),$(shell $(BENDER) path axi_vga))
+IDMA_ROOT         := $(or $(call chs_find_checkout,iDMA),$(or $(call chs_find_checkout,idma),$(shell $(BENDER) path idma)))
+DRAM_RTL_SIM_ROOT := $(or $(call chs_find_checkout,dram_rtl_sim),$(shell $(BENDER) path dram_rtl_sim))
 
 REGTOOL ?= $(CHS_REG_DIR)/vendor/lowrisc_opentitan/util/regtool.py
 
@@ -38,11 +49,13 @@ REGTOOL ?= $(CHS_REG_DIR)/vendor/lowrisc_opentitan/util/regtool.py
 # Dependencies #
 ################
 
-BENDER_ROOT ?= $(CHS_ROOT)/.bender
-
 # Ensure both Bender dependencies and (essential) submodules are checked out
 $(BENDER_ROOT)/.chs_deps:
-	$(BENDER) checkout
+	@if [ "$(CHS_USE_EXISTING_BENDER)" = "1" ] && [ -n "$(firstword $(wildcard $(BENDER_ROOT)/git/checkouts/*))" ]; then \
+		echo "Using existing .bender checkouts, skipping bender checkout"; \
+	else \
+		$(BENDER) checkout; \
+	fi
 	cd $(CHS_ROOT) && git submodule update --init --recursive sw/deps/printf
 	@touch $@
 
@@ -111,6 +124,7 @@ $(AXI_VGA_ROOT)/.generated:
 
 # Custom serial link
 $(CHS_SLINK_DIR)/.generated: $(CHS_ROOT)/hw/serial_link.hjson
+	@test -n "$(CHS_SLINK_DIR)" || (echo "CHS_SLINK_DIR is empty; resolve serial_link checkout first." && false)
 	cp $< $(dir $@)/src/regs/serial_link_single_channel.hjson
 	flock -x $@ $(MAKE) -C $(CHS_SLINK_DIR) update-regs BENDER="$(BENDER)" && touch $@
 
