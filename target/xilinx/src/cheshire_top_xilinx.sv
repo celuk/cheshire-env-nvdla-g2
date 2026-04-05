@@ -526,8 +526,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .b_chan_t       ( axi_llc_b_chan_t  ),
     .ar_chan_t      ( axi_llc_ar_chan_t ),
     .r_chan_t       ( axi_llc_r_chan_t  ),
-    .req_t          ( axi_llc_req_t     ),
-    .resp_t         ( axi_llc_rsp_t     ),
+    .axi_req_t      ( axi_llc_req_t     ),
+    .axi_resp_t     ( axi_llc_rsp_t     ),
     .NoMstPorts     ( 2 ),
     .MaxTrans       ( 24 ),
     .AxiLookBits    ( 8 )
