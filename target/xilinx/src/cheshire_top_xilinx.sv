@@ -37,6 +37,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   `ifdef TARGET_VCU108
   input  logic  c0_sys_clk_p,
   input  logic  c0_sys_clk_n,
+  input  logic  c1_sys_clk_p,
+  input  logic  c1_sys_clk_n,
   `else
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
@@ -108,6 +110,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
 `ifdef USE_DDR4
   `DDR4_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
+  `ifdef TARGET_VCU108
+  `DDR4_1_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
+  `endif
 `endif
 `ifdef USE_DDR3
   `DDR3_INTF
@@ -129,6 +134,11 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     cheshire_cfg_t ret  = DefaultCfg;
     ret.RtcFreq         = 1000000;
     ret.SerialLink      = 0;
+  `ifdef TARGET_VCU108
+    // Extend DRAM window from 2 GiB to 4 GiB (0x8000_0000 - 0x1_8000_0000)
+    // so addresses above 0xFFFF_FFFF can target the second DDR4 controller.
+    ret.LlcOutRegionEnd = 64'h1_8000_0000;
+  `endif
   `ifdef USE_USB
     ret.Usb = 1;
   `else
@@ -501,6 +511,109 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   axi_llc_rsp_t axi_llc_mst_rsp;
 
 `ifdef USE_DDR
+  `ifdef TARGET_VCU108
+  logic [0:0] dram_aw_select, dram_ar_select;
+  axi_llc_req_t [1:0] axi_llc_mst_demux_req;
+  axi_llc_rsp_t [1:0] axi_llc_mst_demux_rsp;
+
+  assign dram_aw_select = axi_llc_mst_req.aw.addr[31];
+  assign dram_ar_select = axi_llc_mst_req.ar.addr[31];
+
+  axi_demux #(
+    .AxiIdWidth     ( $bits(axi_llc_mst_req.aw.id) ),
+    .aw_chan_t      ( axi_llc_aw_chan_t ),
+    .w_chan_t       ( axi_llc_w_chan_t  ),
+    .b_chan_t       ( axi_llc_b_chan_t  ),
+    .ar_chan_t      ( axi_llc_ar_chan_t ),
+    .r_chan_t       ( axi_llc_r_chan_t  ),
+    .req_t          ( axi_llc_req_t     ),
+    .resp_t         ( axi_llc_rsp_t     ),
+    .NoMstPorts     ( 2 ),
+    .MaxTrans       ( 24 ),
+    .AxiLookBits    ( 8 )
+  ) i_axi_dram_demux (
+    .clk_i          ( soc_clk ),
+    .rst_ni         ( rst_n   ),
+    .test_i         ( 1'b0    ),
+    .slv_req_i      ( axi_llc_mst_req      ),
+    .slv_aw_select_i( dram_aw_select       ),
+    .slv_ar_select_i( dram_ar_select       ),
+    .slv_resp_o     ( axi_llc_mst_rsp      ),
+    .mst_reqs_o     ( axi_llc_mst_demux_req ),
+    .mst_resps_i    ( axi_llc_mst_demux_rsp )
+  );
+
+  // Lower 2 GiB (VCU108 DDR4 bank c1)
+  dram_wrapper_xilinx #(
+    .axi_soc_aw_chan_t ( axi_llc_aw_chan_t ),
+    .axi_soc_w_chan_t  ( axi_llc_w_chan_t  ),
+    .axi_soc_b_chan_t  ( axi_llc_b_chan_t  ),
+    .axi_soc_ar_chan_t ( axi_llc_ar_chan_t ),
+    .axi_soc_r_chan_t  ( axi_llc_r_chan_t  ),
+    .axi_soc_req_t     ( axi_llc_req_t     ),
+    .axi_soc_resp_t    ( axi_llc_rsp_t     ),
+    .Ddr4CsNWidth      ( Ddr4CsNWidth      ),
+    .Ddr4DmDbiNWidth   ( Ddr4DmDbiNWidth   ),
+    .Ddr4DqWidth       ( Ddr4DqWidth       ),
+    .Ddr4DqsWidth      ( Ddr4DqsWidth      )
+  ) i_dram_wrapper_lo (
+    .sys_rst_i    ( sys_rst ),
+    .soc_resetn_i ( rst_n   ),
+
+    .dram_clk_o   ( soc_clk ),
+    
+    .dram_clk_i   ( sys_clk ),
+
+    .c0_sys_clk_p ( c0_sys_clk_p ),
+    .c0_sys_clk_n ( c0_sys_clk_n ),
+
+    .soc_req_i    ( axi_llc_mst_demux_req[0] ),
+    .soc_rsp_o    ( axi_llc_mst_demux_rsp[0] ),
+    .*
+  );
+
+  // Upper 2 GiB (VCU108 DDR4 bank c2)
+  dram_wrapper_xilinx #(
+    .axi_soc_aw_chan_t ( axi_llc_aw_chan_t ),
+    .axi_soc_w_chan_t  ( axi_llc_w_chan_t  ),
+    .axi_soc_b_chan_t  ( axi_llc_b_chan_t  ),
+    .axi_soc_ar_chan_t ( axi_llc_ar_chan_t ),
+    .axi_soc_r_chan_t  ( axi_llc_r_chan_t  ),
+    .axi_soc_req_t     ( axi_llc_req_t     ),
+    .axi_soc_resp_t    ( axi_llc_rsp_t     ),
+    .Ddr4CsNWidth      ( Ddr4CsNWidth      ),
+    .Ddr4DmDbiNWidth   ( Ddr4DmDbiNWidth   ),
+    .Ddr4DqWidth       ( Ddr4DqWidth       ),
+    .Ddr4DqsWidth      ( Ddr4DqsWidth      )
+  ) i_dram_wrapper_hi (
+    .sys_rst_i         ( sys_rst ),
+    .soc_resetn_i      ( rst_n   ),
+
+    .dram_clk_o   ( ),
+
+    .dram_clk_i   ( sys_clk ),
+
+    .c0_sys_clk_p ( c1_sys_clk_p ),
+    .c0_sys_clk_n ( c1_sys_clk_n ),
+    
+    .c0_ddr4_reset_n   ( c1_ddr4_reset_n ),
+    .c0_ddr4_ck_t      ( c1_ddr4_ck_t ),
+    .c0_ddr4_ck_c      ( c1_ddr4_ck_c ),
+    .c0_ddr4_act_n     ( c1_ddr4_act_n ),
+    .c0_ddr4_adr       ( c1_ddr4_adr ),
+    .c0_ddr4_ba        ( c1_ddr4_ba ),
+    .c0_ddr4_bg        ( c1_ddr4_bg ),
+    .c0_ddr4_cke       ( c1_ddr4_cke ),
+    .c0_ddr4_odt       ( c1_ddr4_odt ),
+    .c0_ddr4_cs_n      ( c1_ddr4_cs_n ),
+    .c0_ddr4_dm_dbi_n  ( c1_ddr4_dm_dbi_n ),
+    .c0_ddr4_dq        ( c1_ddr4_dq ),
+    .c0_ddr4_dqs_c     ( c1_ddr4_dqs_c ),
+    .c0_ddr4_dqs_t     ( c1_ddr4_dqs_t ),
+    .soc_req_i         ( axi_llc_mst_demux_req[1] ),
+    .soc_rsp_o         ( axi_llc_mst_demux_rsp[1] )
+  );
+  `else
   dram_wrapper_xilinx #(
     .axi_soc_aw_chan_t ( axi_llc_aw_chan_t ),
     .axi_soc_w_chan_t  ( axi_llc_w_chan_t  ),
@@ -530,6 +643,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .soc_rsp_o    ( axi_llc_mst_rsp ),
     .*
   );
+  `endif
 `endif
 
   //////////////////

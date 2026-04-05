@@ -26,22 +26,22 @@
 set MIG_TCK 3.332
 
 # False-path incoming reset
-set MIG_RST_I [get_pin i_dram_wrapper/i_dram/c0_ddr4_aresetn]
+set MIG_RST_I [get_pins {i_dram_wrapper_lo/i_dram/c0_ddr4_aresetn i_dram_wrapper_hi/i_dram/c0_ddr4_aresetn}]
 set_false_path -hold -setup -through $MIG_RST_I
 
 # Constrain outgoing reset
-set MIG_RST_O [get_pins i_dram_wrapper/i_dram/c0_ddr4_ui_clk_sync_rst]
+set MIG_RST_O [get_pins {i_dram_wrapper_lo/i_dram/c0_ddr4_ui_clk_sync_rst i_dram_wrapper_hi/i_dram/c0_ddr4_ui_clk_sync_rst}]
 set_false_path -hold -through $MIG_RST_O
 set_max_delay -through $MIG_RST_O $MIG_TCK
 
 # Limit delay across DRAM CDC (hold already false-pathed)
 # tclint-disable line-length
 set_max_delay -datapath_only \
-    -from [get_pins i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C] \
-    -to [get_pins i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D] $MIG_TCK
+    -from [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
+    -to [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D}] $MIG_TCK
 set_max_delay -datapath_only \
-    -from [get_pins i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C] \
-    -to [get_pins i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D] $MIG_TCK
+    -from [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
+    -to [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D}] $MIG_TCK
 # tclint-enable line-length
 
 ###############

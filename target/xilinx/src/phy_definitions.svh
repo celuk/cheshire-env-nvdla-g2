@@ -59,21 +59,27 @@
 `define USE_DDR
 `endif
 
+`define DDR4_INTF_N(Prefix, Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth) \
+  output                       Prefix``_ddr4_reset_n, \
+  output [0:0]                 Prefix``_ddr4_ck_t, \
+  output [0:0]                 Prefix``_ddr4_ck_c, \
+  output                       Prefix``_ddr4_act_n, \
+  output [16:0]                Prefix``_ddr4_adr, \
+  output [1:0]                 Prefix``_ddr4_ba, \
+  output [0:0]                 Prefix``_ddr4_bg, \
+  output [0:0]                 Prefix``_ddr4_cke, \
+  output [0:0]                 Prefix``_ddr4_odt, \
+  output [Ddr4CsNWidth-1:0]    Prefix``_ddr4_cs_n, \
+  inout  [Ddr4DmDbiNWidth-1:0] Prefix``_ddr4_dm_dbi_n, \
+  inout  [Ddr4DqWidth-1:0]     Prefix``_ddr4_dq, \
+  inout  [Ddr4DqsWidth-1:0]    Prefix``_ddr4_dqs_c, \
+  inout  [Ddr4DqsWidth-1:0]    Prefix``_ddr4_dqs_t,
+
 `define DDR4_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth) \
-  output                       c0_ddr4_reset_n, \
-  output [0:0]                 c0_ddr4_ck_t, \
-  output [0:0]                 c0_ddr4_ck_c, \
-  output                       c0_ddr4_act_n, \
-  output [16:0]                c0_ddr4_adr, \
-  output [1:0]                 c0_ddr4_ba, \
-  output [0:0]                 c0_ddr4_bg, \
-  output [0:0]                 c0_ddr4_cke, \
-  output [0:0]                 c0_ddr4_odt, \
-  output [Ddr4CsNWidth-1:0]    c0_ddr4_cs_n, \
-  inout  [Ddr4DmDbiNWidth-1:0] c0_ddr4_dm_dbi_n, \
-  inout  [Ddr4DqWidth-1:0]     c0_ddr4_dq, \
-  inout  [Ddr4DqsWidth-1:0]    c0_ddr4_dqs_c, \
-  inout  [Ddr4DqsWidth-1:0]    c0_ddr4_dqs_t,
+  `DDR4_INTF_N(c0, Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
+
+`define DDR4_1_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth) \
+  `DDR4_INTF_N(c1, Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
 
 `define DDR3_INTF \
   output        ddr3_ck_p, \
