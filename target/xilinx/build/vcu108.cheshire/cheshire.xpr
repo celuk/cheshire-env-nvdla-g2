@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="95940dc4fd394cb3ad77421fa7667299"/>
+    <Option Name="Id" Val="0192a2dbe83c42a8a18d0249e7dfadcd"/>
     <Option Name="Part" Val="xcvu095-ffva2104-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -92,13 +92,6 @@
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
       <File Path="$PPRDIR/../vcu108.ddr4/ddr4.srcs/sources_1/ip/ddr4/ddr4.xci">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../../../../cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/CKLNQD12.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -6544,6 +6537,14 @@
           <Attr Name="IsVisible" Val="1"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../../../cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/CKLNQD12.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../../../cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/HLS_fp16_to_fp32.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -7281,6 +7282,15 @@
         <Define Name="TARGET_VCU108"/>
         <Define Name="TARGET_VIVADO"/>
         <Define Name="TARGET_XILINX"/>
+        <Define Name="COMMON_CELLS_ASSERTS_OFF"/>
+        <Define Name="ASSERTS_OFF"/>
+        <Define Name="SV_TESTPOINTS_OFF"/>
+        <Define Name="DESIGNWARE_NOEXIST"/>
+        <Define Name="SYNTHESIS"/>
+        <Define Name="FPGA"/>
+        <Define Name="VLIB_BYPASS_POWER_CG"/>
+        <Define Name="NV_FPGA_FIFOGEN"/>
+        <Define Name="FIFOGEN_MASTER_CLK_GATING_DISABLED"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -7339,6 +7349,15 @@
         <Define Name="TARGET_VCU108"/>
         <Define Name="TARGET_VIVADO"/>
         <Define Name="TARGET_XILINX"/>
+        <Define Name="COMMON_CELLS_ASSERTS_OFF"/>
+        <Define Name="ASSERTS_OFF"/>
+        <Define Name="SV_TESTPOINTS_OFF"/>
+        <Define Name="DESIGNWARE_NOEXIST"/>
+        <Define Name="SYNTHESIS"/>
+        <Define Name="FPGA"/>
+        <Define Name="VLIB_BYPASS_POWER_CG"/>
+        <Define Name="NV_FPGA_FIFOGEN"/>
+        <Define Name="FIFOGEN_MASTER_CLK_GATING_DISABLED"/>
       </Config>
     </FileSet>
     <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">

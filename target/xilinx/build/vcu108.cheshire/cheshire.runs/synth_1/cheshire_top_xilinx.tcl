@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2604571-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3218225-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -106,7 +106,7 @@ set_property include_dirs {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-6e09ea4800bad616/src/axis/include
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/include
 } [current_fileset]
-set_property verilog_define {TARGET_CV64A6_IMAFDCSCLIC_SV39 TARGET_CVA6 TARGET_FPGA TARGET_RTL TARGET_SYNTHESIS TARGET_VCU108 TARGET_VIVADO TARGET_XILINX} [current_fileset]
+set_property verilog_define {TARGET_CV64A6_IMAFDCSCLIC_SV39 TARGET_CVA6 TARGET_FPGA TARGET_RTL TARGET_SYNTHESIS TARGET_VCU108 TARGET_VIVADO TARGET_XILINX COMMON_CELLS_ASSERTS_OFF ASSERTS_OFF SV_TESTPOINTS_OFF DESIGNWARE_NOEXIST SYNTHESIS FPGA VLIB_BYPASS_POWER_CG NV_FPGA_FIFOGEN FIFOGEN_MASTER_CLK_GATING_DISABLED} [current_fileset]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog {
@@ -477,7 +477,6 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/src/cheshire_top_xilinx.sv
 }
 read_verilog -library xil_defaultlib {
-  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/CKLNQD12.v
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/HLS_cdp_icvt.v
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/HLS_cdp_ocvt.v
   /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/nv_small/vmod/vlibs/MUX2D4.v

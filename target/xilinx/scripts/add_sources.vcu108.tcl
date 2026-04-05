@@ -1107,6 +1107,16 @@ set_property verilog_define [list \
     TARGET_VCU108 \
     TARGET_VIVADO \
     TARGET_XILINX \
+    COMMON_CELLS_ASSERTS_OFF \
+    ASSERTS_OFF \
+    TARGET_SYNTHESIS \
+    SV_TESTPOINTS_OFF \
+    DESIGNWARE_NOEXIST \
+    SYNTHESIS \
+    FPGA \
+    VLIB_BYPASS_POWER_CG \
+    NV_FPGA_FIFOGEN \
+    FIFOGEN_MASTER_CLK_GATING_DISABLED \
 ] [current_fileset]
 
 set_property verilog_define [list \
@@ -1118,4 +1128,14 @@ set_property verilog_define [list \
     TARGET_VCU108 \
     TARGET_VIVADO \
     TARGET_XILINX \
+    COMMON_CELLS_ASSERTS_OFF \
+    ASSERTS_OFF \
+    TARGET_SYNTHESIS \
+    SV_TESTPOINTS_OFF \
+    DESIGNWARE_NOEXIST \
+    SYNTHESIS \
+    FPGA \
+    VLIB_BYPASS_POWER_CG \
+    NV_FPGA_FIFOGEN \
+    FIFOGEN_MASTER_CLK_GATING_DISABLED \
 ] [current_fileset -simset]
