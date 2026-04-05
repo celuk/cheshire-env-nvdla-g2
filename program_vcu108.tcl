@@ -1,7 +1,7 @@
 open_hw_manager
 connect_hw_server
 
-set_property PARAM.FREQUENCY 1000000 [get_hw_targets localhost:3121/xilinx_tcf/Digilent/210308A1221C]
+set_property PARAM.FREQUENCY 3000000 [get_hw_targets localhost:3121/xilinx_tcf/Digilent/210308A1221C]
 
 open_hw_target {localhost:3121/xilinx_tcf/Digilent/210308A1221C}
 
