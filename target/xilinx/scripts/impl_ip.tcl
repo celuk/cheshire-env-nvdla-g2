@@ -271,7 +271,7 @@ switch $proj {
             vcu108 {
                 if { $proj eq "ddr4_1" } {
                     set_property -dict [list \
-                        CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {50} \
+                        CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {None} \
                         CONFIG.C0.DDR4_AxiAddressWidth {31} \
                         CONFIG.C0.DDR4_AxiDataWidth {512} \
                         CONFIG.C0.DDR4_AxiIDWidth {8} \
@@ -280,7 +280,7 @@ switch $proj {
                         CONFIG.C0.DDR4_DataWidth {64} \
                         CONFIG.C0.DDR4_InputClockPeriod {3332} \
                         CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
-                        CONFIG.C0_CLOCK_BOARD_INTERFACE {default_sysclk2_300} \
+                        CONFIG.C0_CLOCK_BOARD_INTERFACE {default_sysclk1_300} \
                         CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c2_DR} \
                         CONFIG.RESET_BOARD_INTERFACE {reset} \
                         CONFIG.Simulation_Mode {Unisim} \

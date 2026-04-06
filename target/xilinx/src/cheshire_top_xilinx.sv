@@ -37,8 +37,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   `ifdef TARGET_VCU108
   input  logic  c0_sys_clk_p,
   input  logic  c0_sys_clk_n,
-  input  logic  c1_sys_clk_p,
-  input  logic  c1_sys_clk_n,
   `else
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
@@ -584,7 +582,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .Ddr4CsNWidth      ( Ddr4CsNWidth      ),
     .Ddr4DmDbiNWidth   ( Ddr4DmDbiNWidth   ),
     .Ddr4DqWidth       ( Ddr4DqWidth       ),
-    .Ddr4DqsWidth      ( Ddr4DqsWidth      )
+    .Ddr4DqsWidth      ( Ddr4DqsWidth      ),
+    .UseDdr4_1         ( 1'b1 )
   ) i_dram_wrapper_hi (
     .sys_rst_i         ( sys_rst ),
     .soc_resetn_i      ( rst_n   ),
@@ -593,8 +592,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
     .dram_clk_i   ( sys_clk ),
 
-    .c0_sys_clk_p ( c1_sys_clk_p ),
-    .c0_sys_clk_n ( c1_sys_clk_n ),
+    .c0_sys_clk_p ( c0_sys_clk_p ),
+    .c0_sys_clk_n ( c0_sys_clk_n ),
     
     .c0_ddr4_reset_n   ( c1_ddr4_reset_n ),
     .c0_ddr4_ck_t      ( c1_ddr4_ck_t ),

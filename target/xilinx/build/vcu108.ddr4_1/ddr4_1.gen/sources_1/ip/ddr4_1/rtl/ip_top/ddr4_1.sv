@@ -95,7 +95,6 @@
    output                c0_init_calib_complete,
    output                c0_ddr4_ui_clk,
    output                c0_ddr4_ui_clk_sync_rst,
-   output               addn_ui_clkout1,
    output               dbg_clk,
 
    // Slave Interface Write Address Ports
@@ -171,7 +170,7 @@ ddr4_1_ddr4
    .c0_ddr4_dqs_t          (c0_ddr4_dqs_t),
    .c0_ddr4_ui_clk                (c0_ddr4_ui_clk),
    .c0_ddr4_ui_clk_sync_rst       (c0_ddr4_ui_clk_sync_rst),
-   .addn_ui_clkout1                            (addn_ui_clkout1),
+   .addn_ui_clkout1                            (),
    .addn_ui_clkout2                            (),
    .addn_ui_clkout3                            (),
    .addn_ui_clkout4                            (),
