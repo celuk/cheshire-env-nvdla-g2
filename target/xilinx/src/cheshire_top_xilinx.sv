@@ -573,8 +573,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     
     .dram_clk_i   ( sys_clk ),
 
-    .c0_sys_clk_p ( c1_sys_clk_p ),
-    .c0_sys_clk_n ( c1_sys_clk_n ),
+    .c0_sys_clk_p ( c0_sys_clk_p ),
+    .c0_sys_clk_n ( c0_sys_clk_n ),
 
     .soc_req_i    ( axi_llc_mst_demux_req[0] ),
     .soc_rsp_o    ( axi_llc_mst_demux_rsp[0] ),
@@ -603,8 +603,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
     .dram_clk_i   ( sys_clk_hi ),
 
-    .c0_sys_clk_p ( c0_sys_clk_p ),
-    .c0_sys_clk_n ( c0_sys_clk_n ),
+    .c0_sys_clk_p ( c1_sys_clk_p ),
+    .c0_sys_clk_n ( c1_sys_clk_n ),
     
     .c0_ddr4_reset_n   ( c1_ddr4_reset_n ),
     .c0_ddr4_ck_t      ( c1_ddr4_ck_t ),
