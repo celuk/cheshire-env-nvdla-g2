@@ -103,4 +103,12 @@ set_property IOSTANDARD LVCMOS12 [get_ports sys_reset]
 #set_property IOSTANDARD DIFF_SSTL12 [get_ports sys_clk_p]
 #set_property IOSTANDARD DIFF_SSTL12 [get_ports sys_clk_n]
 
+## Differential system clock (SYSCLK2_300)
+## Used by i_bufds_sys_clk_hi when ddr4_1 is configured with System_Clock=No_Buffer
+set_property BOARD_PIN {sysclk2_300_p} [get_ports c1_sys_clk_p]
+set_property BOARD_PIN {sysclk2_300_n} [get_ports c1_sys_clk_n]
+set_property IOSTANDARD DIFF_SSTL12 [get_ports c1_sys_clk_p]
+set_property IOSTANDARD DIFF_SSTL12 [get_ports c1_sys_clk_n]
+create_clock -name sys_clk_hi -period 3.332 [get_ports c1_sys_clk_p]
+
 # tclint-enable line-length, spacing

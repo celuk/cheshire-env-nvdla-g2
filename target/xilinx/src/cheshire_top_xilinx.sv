@@ -37,6 +37,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   `ifdef TARGET_VCU108
   input  logic  c0_sys_clk_p,
   input  logic  c0_sys_clk_n,
+  input  logic  c1_sys_clk_p,
+  input  logic  c1_sys_clk_n,
   `else
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
@@ -183,8 +185,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   IBUFDS #(
     .IBUF_LOW_PWR ("FALSE")
   ) i_bufds_sys_clk_hi (
-    .I  ( c0_sys_clk_p ),
-    .IB ( c0_sys_clk_n ),
+    .I  ( c1_sys_clk_p ),
+    .IB ( c1_sys_clk_n ),
     .O  ( sys_clk_hi   )
   );
   `endif
@@ -571,8 +573,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     
     .dram_clk_i   ( sys_clk ),
 
-    .c0_sys_clk_p ( c0_sys_clk_p ),
-    .c0_sys_clk_n ( c0_sys_clk_n ),
+    .c0_sys_clk_p ( c1_sys_clk_p ),
+    .c0_sys_clk_n ( c1_sys_clk_n ),
 
     .soc_req_i    ( axi_llc_mst_demux_req[0] ),
     .soc_rsp_o    ( axi_llc_mst_demux_rsp[0] ),
