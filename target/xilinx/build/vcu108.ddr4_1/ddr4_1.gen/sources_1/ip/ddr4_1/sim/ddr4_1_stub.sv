@@ -68,8 +68,7 @@ typedef bit bit_as_bool;
 module ddr4_1 (
   output bit_as_bool c0_init_calib_complete,
   output bit_as_bool dbg_clk,
-  input bit_as_bool c0_sys_clk_p,
-  input bit_as_bool c0_sys_clk_n,
+  input bit_as_bool c0_sys_clk_i,
   output bit [511 : 0] dbg_bus,
   output bit [16 : 0] c0_ddr4_adr,
   output bit [1 : 0] c0_ddr4_ba,
@@ -132,13 +131,12 @@ endmodule
 
 `ifdef XCELIUM
 (* XMSC_MODULE_EXPORT *)
-module ddr4_1 (c0_init_calib_complete,dbg_clk,c0_sys_clk_p,c0_sys_clk_n,dbg_bus,c0_ddr4_adr,c0_ddr4_ba,c0_ddr4_cke,c0_ddr4_cs_n,c0_ddr4_dm_dbi_n,c0_ddr4_dq,c0_ddr4_dqs_c,c0_ddr4_dqs_t,c0_ddr4_odt,c0_ddr4_bg,c0_ddr4_reset_n,c0_ddr4_act_n,c0_ddr4_ck_c,c0_ddr4_ck_t,c0_ddr4_ui_clk,c0_ddr4_ui_clk_sync_rst,c0_ddr4_aresetn,c0_ddr4_s_axi_awid,c0_ddr4_s_axi_awaddr,c0_ddr4_s_axi_awlen,c0_ddr4_s_axi_awsize,c0_ddr4_s_axi_awburst,c0_ddr4_s_axi_awlock,c0_ddr4_s_axi_awcache,c0_ddr4_s_axi_awprot,c0_ddr4_s_axi_awqos,c0_ddr4_s_axi_awvalid,c0_ddr4_s_axi_awready,c0_ddr4_s_axi_wdata,c0_ddr4_s_axi_wstrb,c0_ddr4_s_axi_wlast,c0_ddr4_s_axi_wvalid,c0_ddr4_s_axi_wready,c0_ddr4_s_axi_bready,c0_ddr4_s_axi_bid,c0_ddr4_s_axi_bresp,c0_ddr4_s_axi_bvalid,c0_ddr4_s_axi_arid,c0_ddr4_s_axi_araddr,c0_ddr4_s_axi_arlen,c0_ddr4_s_axi_arsize,c0_ddr4_s_axi_arburst,c0_ddr4_s_axi_arlock,c0_ddr4_s_axi_arcache,c0_ddr4_s_axi_arprot,c0_ddr4_s_axi_arqos,c0_ddr4_s_axi_arvalid,c0_ddr4_s_axi_arready,c0_ddr4_s_axi_rready,c0_ddr4_s_axi_rlast,c0_ddr4_s_axi_rvalid,c0_ddr4_s_axi_rresp,c0_ddr4_s_axi_rid,c0_ddr4_s_axi_rdata,sys_rst)
+module ddr4_1 (c0_init_calib_complete,dbg_clk,c0_sys_clk_i,dbg_bus,c0_ddr4_adr,c0_ddr4_ba,c0_ddr4_cke,c0_ddr4_cs_n,c0_ddr4_dm_dbi_n,c0_ddr4_dq,c0_ddr4_dqs_c,c0_ddr4_dqs_t,c0_ddr4_odt,c0_ddr4_bg,c0_ddr4_reset_n,c0_ddr4_act_n,c0_ddr4_ck_c,c0_ddr4_ck_t,c0_ddr4_ui_clk,c0_ddr4_ui_clk_sync_rst,c0_ddr4_aresetn,c0_ddr4_s_axi_awid,c0_ddr4_s_axi_awaddr,c0_ddr4_s_axi_awlen,c0_ddr4_s_axi_awsize,c0_ddr4_s_axi_awburst,c0_ddr4_s_axi_awlock,c0_ddr4_s_axi_awcache,c0_ddr4_s_axi_awprot,c0_ddr4_s_axi_awqos,c0_ddr4_s_axi_awvalid,c0_ddr4_s_axi_awready,c0_ddr4_s_axi_wdata,c0_ddr4_s_axi_wstrb,c0_ddr4_s_axi_wlast,c0_ddr4_s_axi_wvalid,c0_ddr4_s_axi_wready,c0_ddr4_s_axi_bready,c0_ddr4_s_axi_bid,c0_ddr4_s_axi_bresp,c0_ddr4_s_axi_bvalid,c0_ddr4_s_axi_arid,c0_ddr4_s_axi_araddr,c0_ddr4_s_axi_arlen,c0_ddr4_s_axi_arsize,c0_ddr4_s_axi_arburst,c0_ddr4_s_axi_arlock,c0_ddr4_s_axi_arcache,c0_ddr4_s_axi_arprot,c0_ddr4_s_axi_arqos,c0_ddr4_s_axi_arvalid,c0_ddr4_s_axi_arready,c0_ddr4_s_axi_rready,c0_ddr4_s_axi_rlast,c0_ddr4_s_axi_rvalid,c0_ddr4_s_axi_rresp,c0_ddr4_s_axi_rid,c0_ddr4_s_axi_rdata,sys_rst)
 (* integer foreign = "SystemC";
 *);
   output wire c0_init_calib_complete;
   output wire dbg_clk;
-  input bit c0_sys_clk_p;
-  input bit c0_sys_clk_n;
+  input bit c0_sys_clk_i;
   output wire [511 : 0] dbg_bus;
   output wire [16 : 0] c0_ddr4_adr;
   output wire [1 : 0] c0_ddr4_ba;

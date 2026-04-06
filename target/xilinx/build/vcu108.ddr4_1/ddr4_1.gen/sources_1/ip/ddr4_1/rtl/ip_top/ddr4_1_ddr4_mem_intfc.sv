@@ -262,8 +262,7 @@ module ddr4_1_ddr4_mem_intfc #
    ,parameter         t500us               = 133263
 )
   (
-    input                           sys_clk_p
-   ,input                           sys_clk_n
+    input                           sys_clk_i
    ,input                           mmcm_lock
    ,input                           reset_ub
    ,input                           pllGate
@@ -639,8 +638,7 @@ reg                [RKBITS-1:0] winRank_phy;
 
 ddr4_1_phy u_mig_ddr4_phy
     (
-      .sys_clk_p           (sys_clk_p)
-     ,.sys_clk_n           (sys_clk_n)
+      .sys_clk_i           (sys_clk_i)
      ,.mmcm_lock           (mmcm_lock)
      ,.pllGate             (pllGate)
      ,.div_clk             (div_clk)
