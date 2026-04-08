@@ -548,6 +548,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .Ddr4DqsWidth      ( Ddr4DqsWidth      )
   ) i_dram_wrapper_lo (
     .sys_rst_i    ( sys_rst ),
+    .soc_clk_i    ( soc_clk ),
     .soc_resetn_i ( rst_n   ),
 
     .dram_clk_o   ( ),
@@ -575,6 +576,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .UseDdr4_1         ( 1'b1 )
   ) i_dram_wrapper_hi (
     .sys_rst_i         ( sys_rst ),
+    .soc_clk_i         ( soc_clk ),
     .soc_resetn_i      ( rst_n   ),
 
     .dram_clk_o   ( ),
