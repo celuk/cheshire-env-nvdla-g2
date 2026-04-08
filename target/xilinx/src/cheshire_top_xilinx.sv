@@ -34,15 +34,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   localparam int unsigned Ddr4DqsWidth = 8
 `endif
 )(
-  `ifdef TARGET_VCU108
-  input  logic  c0_sys_clk_p,
-  input  logic  c0_sys_clk_n,
-  input  logic  c1_sys_clk_p,
-  input  logic  c1_sys_clk_n,
-  `else
+  
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
-  `endif
 
 `ifdef USE_RESET
   input  logic  sys_reset,
@@ -157,8 +151,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
   wire sys_clk;
   wire soc_clk;
-  wire sys_clk_hi;
-  `ifndef TARGET_VCU108
   wire usb_clk;
 
   IBUFDS #(
@@ -179,17 +171,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .clk_20   ( ),
     .clk_10   ( )
   );
-  `else
-  wire locked = 1'b1;
-
-  IBUFDS #(
-    .IBUF_LOW_PWR ("FALSE")
-  ) i_bufds_sys_clk_hi (
-    .I  ( c1_sys_clk_p ),
-    .IB ( c1_sys_clk_n ),
-    .O  ( sys_clk_hi   )
-  );
-  `endif
 
   /////////////////////
   //  System Inputs  //
@@ -569,12 +550,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .sys_rst_i    ( sys_rst ),
     .soc_resetn_i ( rst_n   ),
 
-    .dram_clk_o   ( soc_clk ),
+    .dram_clk_o   ( ),
     
     .dram_clk_i   ( sys_clk ),
-
-    .c0_sys_clk_p ( c0_sys_clk_p ),
-    .c0_sys_clk_n ( c0_sys_clk_n ),
 
     .soc_req_i    ( axi_llc_mst_demux_req[0] ),
     .soc_rsp_o    ( axi_llc_mst_demux_rsp[0] ),
@@ -601,10 +579,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
     .dram_clk_o   ( ),
 
-    .dram_clk_i   ( sys_clk_hi ),
-
-    .c0_sys_clk_p ( c1_sys_clk_p ),
-    .c0_sys_clk_n ( c1_sys_clk_n ),
+    .dram_clk_i   ( sys_clk ),
     
     .c0_ddr4_reset_n   ( c1_ddr4_reset_n ),
     .c0_ddr4_ck_t      ( c1_ddr4_ck_t ),
@@ -639,16 +614,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   ) i_dram_wrapper (
     .sys_rst_i    ( sys_rst ),
     .soc_resetn_i ( rst_n   ),
-    `ifdef TARGET_VCU108
-    .dram_clk_o   ( soc_clk ),
-    `else
     .soc_clk_i    ( soc_clk ),
-    `endif
     .dram_clk_i   ( sys_clk ),
-    `ifdef TARGET_VCU108
-    .c0_sys_clk_p ( c0_sys_clk_p ),
-    .c0_sys_clk_n ( c0_sys_clk_n ),
-    `endif
     .soc_req_i    ( axi_llc_mst_req ),
     .soc_rsp_o    ( axi_llc_mst_rsp ),
     .*

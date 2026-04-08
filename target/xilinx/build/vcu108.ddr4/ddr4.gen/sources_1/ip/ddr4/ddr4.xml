@@ -56,7 +56,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.C0_SYS_CLK" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; (spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.C0_SYS_CLK" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; (spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -154,7 +154,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.C0_SYS_CLK_I" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;No_Buffer&quot; )">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.C0_SYS_CLK_I" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;No_Buffer&quot; )">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -1638,7 +1638,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="dependent" spirit:id="BUSIFPARAM_VALUE.ADDN_UI_CLKOUT1.FREQ_HZ" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.M_ADDN_UI_CLKOUT1_FREQ_HZ&apos;))*1000000)">5e+07</spirit:value>
+          <spirit:value spirit:format="float" spirit:resolve="dependent" spirit:id="BUSIFPARAM_VALUE.ADDN_UI_CLKOUT1.FREQ_HZ" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.M_ADDN_UI_CLKOUT1_FREQ_HZ&apos;))*1000000)">0</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
@@ -1706,7 +1706,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.ADDN_UI_CLKOUT1" xilinx:dependency="( spirit:decode(id(&apos;PARAM_VALUE.No_Controller&apos;)) > 0 ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ&apos;)) != &quot;NONE&quot; )">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.ADDN_UI_CLKOUT1" xilinx:dependency="( spirit:decode(id(&apos;PARAM_VALUE.No_Controller&apos;)) > 0 ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ&apos;)) != &quot;NONE&quot; )">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -2139,7 +2139,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:02b856ae</spirit:value>
+            <spirit:value>9:0cd7fc03</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2153,7 +2153,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9673c417</spirit:value>
+            <spirit:value>9:cc5143b1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2168,11 +2168,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:12 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:51 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2187,11 +2187,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:14 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:53 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2202,7 +2202,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2217,11 +2217,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:14 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:53 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2234,7 +2234,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6258b9e2</spirit:value>
+            <spirit:value>9:886b0208</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2250,11 +2250,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:14 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:53 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:0e61b7d2</spirit:value>
+            <spirit:value>9:2c3384e2</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -2278,11 +2278,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:15 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:54 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6258b9e2</spirit:value>
+            <spirit:value>9:886b0208</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2298,11 +2298,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:15 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:54 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:0e61b7d2</spirit:value>
+            <spirit:value>9:2c3384e2</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>sim_type</spirit:name>
@@ -2320,11 +2320,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:15 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:54 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2338,11 +2338,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:01:15 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:24:54 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2356,11 +2356,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Apr 06 17:04:57 UTC 2026</spirit:value>
+            <spirit:value>Mon Apr 06 18:28:09 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b0637fda</spirit:value>
+            <spirit:value>9:26d11666</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2424,7 +2424,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_p" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_p" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2447,7 +2447,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_n" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_n" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;Differential&quot; )">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2470,7 +2470,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_i" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;No_Buffer&quot; )">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.c0_sys_clk_i" xilinx:dependency="( C0.ControllerType == &quot;DDR4_SDRAM&quot; ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.System_Clock&apos;)) = &quot;No_Buffer&quot; )">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -6198,7 +6198,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.addn_ui_clkout1" xilinx:dependency="( spirit:decode(id(&apos;PARAM_VALUE.No_Controller&apos;)) > 0 ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ&apos;)) != &quot;NONE&quot; )">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.addn_ui_clkout1" xilinx:dependency="( spirit:decode(id(&apos;PARAM_VALUE.No_Controller&apos;)) > 0 ) &amp;&amp; ( spirit:decode(id(&apos;PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ&apos;)) != &quot;NONE&quot; )">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -6457,7 +6457,7 @@
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>System_Clock</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.System_Clock" spirit:choiceRef="choice_list_2b96b8de">Differential</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.System_Clock" spirit:choiceRef="choice_list_2b96b8de">No_Buffer</spirit:value>
         <spirit:vendorExtensions>
           <xilinx:parameterInfo>
             <xilinx:parameterUsage>simulation.tlm</xilinx:parameterUsage>
@@ -7046,7 +7046,7 @@
       <spirit:modelParameter>
         <spirit:name>M_ADDN_UI_CLKOUT1_FREQ_HZ</spirit:name>
         <spirit:displayName>CLKOUT1 FREQ HZ</spirit:displayName>
-        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.M_ADDN_UI_CLKOUT1_FREQ_HZ">50</spirit:value>
+        <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.M_ADDN_UI_CLKOUT1_FREQ_HZ">0.0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>M_ADDN_UI_CLKOUT2_FREQ_HZ</spirit:name>
@@ -7091,7 +7091,7 @@
       <spirit:modelParameter>
         <spirit:name>CLKOUT1_DIVIDE</spirit:name>
         <spirit:displayName>CLKOUT1 DIVIDE</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLKOUT1_DIVIDE">24</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLKOUT1_DIVIDE">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter>
         <spirit:name>CLKOUT2_DIVIDE</spirit:name>
@@ -8960,7 +8960,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C0_CLOCK_BOARD_INTERFACE</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C0_CLOCK_BOARD_INTERFACE" spirit:choiceRef="choice_list_e9b15173" spirit:order="7">default_sysclk1_300</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.C0_CLOCK_BOARD_INTERFACE" spirit:choiceRef="choice_list_e9b15173" spirit:order="7">Custom</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -9333,7 +9333,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ADDN_UI_CLKOUT1_FREQ_HZ</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ" spirit:choiceRef="choice_list_6f7a14f1" spirit:order="65">50</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.ADDN_UI_CLKOUT1_FREQ_HZ" spirit:choiceRef="choice_list_6f7a14f1" spirit:order="65">None</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>ADDN_UI_CLKOUT2_FREQ_HZ</spirit:name>
@@ -9368,7 +9368,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>System_Clock</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.System_Clock" spirit:choiceRef="choice_list_2b96b8de" spirit:order="200">Differential</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.System_Clock" spirit:choiceRef="choice_list_2b96b8de" spirit:order="200">No_Buffer</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Reference_Clock</spirit:name>
@@ -9718,7 +9718,6 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_DataWidth" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_InputClockPeriod" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0.DDR4_MemoryPart" xilinx:valueSource="user"/>
-        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0_CLOCK_BOARD_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C0_DDR4_BOARD_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.RESET_BOARD_INTERFACE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.Simulation_Mode" xilinx:valueSource="user"/>

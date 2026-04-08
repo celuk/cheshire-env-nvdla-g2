@@ -222,6 +222,4 @@ set_property BOARD_PIN {c1_ddr4_dqs_t7} [get_ports c0_ddr4_dqs_t[7]]
 
 set_property BOARD_PIN {c1_ddr4_odt} [get_ports c0_ddr4_odt]
 set_property BOARD_PIN {c1_ddr4_reset_n} [get_ports c0_ddr4_reset_n]
-set_property BOARD_PIN {sysclk1_300_n} [get_ports c0_sys_clk_n]
-set_property BOARD_PIN {sysclk1_300_p} [get_ports c0_sys_clk_p]
 set_property BOARD_PIN {CPU_RESET} [get_ports sys_rst]
