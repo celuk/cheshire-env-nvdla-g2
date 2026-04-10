@@ -37,10 +37,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   
   input  logic  sys_clk_p,
   input  logic  sys_clk_n,
-`ifdef TARGET_VCU108
-  input  logic  sys_clk2_p,
-  input  logic  sys_clk2_n,
-`endif
 
 `ifdef USE_RESET
   input  logic  sys_reset,
@@ -154,9 +150,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   ////////////////////////
 
   wire sys_clk;
-`ifdef TARGET_VCU108
-  wire sys_clk2;
-`endif
   wire soc_clk;
   wire usb_clk;
 
@@ -167,16 +160,6 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .IB ( sys_clk_n ),
     .O  ( sys_clk   )
   );
-
-`ifdef TARGET_VCU108
-  IBUFDS #(
-    .IBUF_LOW_PWR ("FALSE")
-  ) i_bufds_sys_clk2 (
-    .I  ( sys_clk2_p ),
-    .IB ( sys_clk2_n ),
-    .O  ( sys_clk2   )
-  );
-`endif
 
   wire locked;
   clkwiz i_clkwiz (
@@ -598,7 +581,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
 
     .dram_clk_o   ( ),
 
-    .dram_clk_i   ( sys_clk2 ),
+    .dram_clk_i   ( sys_clk ),
     
     .c0_ddr4_reset_n   ( c1_ddr4_reset_n ),
     .c0_ddr4_ck_t      ( c1_ddr4_ck_t ),
