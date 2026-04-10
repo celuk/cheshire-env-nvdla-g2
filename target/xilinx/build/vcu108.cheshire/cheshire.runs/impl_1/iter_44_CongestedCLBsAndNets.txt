@@ -1,0 +1,23 @@
+List of CLB Tiles
+CLEL_R_X41Y342
+CLEL_L_X31Y264
+CLEL_R_X31Y264
+CLEL_L_X42Y416
+CLEL_R_X42Y416
+CLEL_L_X39Y310
+CLEL_R_X39Y310
+CLEL_L_X37Y311
+CLEL_R_X37Y311
+CLEL_L_X12Y355
+CLEL_R_X12Y355
+
+List of Congested Nets
+i_cheshire_soc/i_dbg_slv_axi_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][9]_0
+i_cheshire_soc/i_dbg_slv_axi_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_aw/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][31]_0[4]
+i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][7]_1
+i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_aw/spill_register_flushable_i/D[8]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/Q[32]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/Q[31]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/Q[9]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/op_a_q_reg[63]_0[11]
+

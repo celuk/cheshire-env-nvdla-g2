@@ -1,0 +1,21 @@
++====================+===================+=============================================================================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                                         |
++====================+===================+=============================================================================================================================================================+
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[399]/D                            |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[495]/D                            |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/u_ddr_mc_ref/refi_reg[0][11]/D                                                           |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/u_ddr_mc_write/genByte[1].u_ddr_mc_wr_byte/u_ddr_mc_wr_dm/dReg_reg[7]/D |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/rdEn[0].u_ddr_mc_rd_en_upp/rdEn_reg[25]/D                               |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[339]/D                            |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/u_ddr_mc_ref/refi_reg[0][8]/D                                                            |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[387]/D                            |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[81]/D                             |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[47]/D                             |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/addr_q_reg[3]/D                    |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[427]/D                            |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[41]/D                             |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/u_ddr_mc_write/genByte[7].u_ddr_mc_wr_byte/u_ddr_mc_wr_dm/dReg_reg[6]/D |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/u_ddr_mc_write/genByte[7].u_ddr_mc_wr_byte/u_ddr_mc_wr_dm/dReg_reg[8]/D |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[345]/D                            |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[340]/D                            |
++--------------------+-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+

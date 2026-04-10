@@ -17,6 +17,7 @@ set SOC_TCK 20.0
 set soc_clk [get_clocks -of_objects [get_pins i_clkwiz/clk_50]]
 
 set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets sys_clk_BUFGCE]
+set_property CLOCK_DEDICATED_ROUTE ANY_CMT_COLUMN [get_nets i_bufds_sys_clk/O]
 
 #set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets soc_clk]
 #set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets i_bufds_sys_clk/O]
