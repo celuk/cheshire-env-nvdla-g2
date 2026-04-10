@@ -278,7 +278,7 @@ switch $proj {
                         CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                         CONFIG.C0.DDR4_AxiSelection {true} \
                         CONFIG.C0.DDR4_DataWidth {64} \
-                        CONFIG.C0.DDR4_InputClockPeriod {3332} \
+                        CONFIG.C0.DDR4_InputClockPeriod {8000} \
                         CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
                         CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c2_DR} \
                         CONFIG.RESET_BOARD_INTERFACE {reset} \
@@ -294,7 +294,7 @@ switch $proj {
                         CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                         CONFIG.C0.DDR4_AxiSelection {true} \
                         CONFIG.C0.DDR4_DataWidth {64} \
-                        CONFIG.C0.DDR4_InputClockPeriod {3332} \
+                        CONFIG.C0.DDR4_InputClockPeriod {8000} \
                         CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
                         CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c1_DR} \
                         CONFIG.RESET_BOARD_INTERFACE {reset} \
