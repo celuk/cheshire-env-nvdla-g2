@@ -1,8 +1,0 @@
-+====================+===================+==============================================================================================================================================+
-| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                          |
-+====================+===================+==============================================================================================================================================+
-| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/bgr[2].u_ddr_mc_group/txn_fifo_output_reg[32]/D                           |
-| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_ddr_cal_addr_decode/u_ddr_cal_cplx/cplx_DQOut_reg[237]/D |
-| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_cal/u_ddr_cal_addr_decode/u_ddr_cal_cplx/cplx_DQOut_reg[229]/D |
-| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/bgr[2].u_ddr_mc_group/cas_fifo_full_reg/D                                 |
-+--------------------+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
