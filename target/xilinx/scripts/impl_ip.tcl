@@ -126,36 +126,36 @@ switch $proj {
             }
             vcu108 {
                 set_property -dict [list \
-                    CONFIG.CLKIN1_JITTER_PS {80.0} \
-                    CONFIG.CLKOUT1_JITTER {196.543} \
-                    CONFIG.CLKOUT1_PHASE_ERROR {222.305} \
+                    CONFIG.CLKIN1_JITTER_PS {33.32} \
+                    CONFIG.CLKOUT1_JITTER {116.392} \
+                    CONFIG.CLKOUT1_PHASE_ERROR {77.820} \
                     CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
-                    CONFIG.CLKOUT2_JITTER {197.699} \
-                    CONFIG.CLKOUT2_PHASE_ERROR {222.305} \
+                    CONFIG.CLKOUT2_JITTER {117.345} \
+                    CONFIG.CLKOUT2_PHASE_ERROR {77.820} \
                     CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {48.000} \
                     CONFIG.CLKOUT2_USED {true} \
-                    CONFIG.CLKOUT3_JITTER {227.146} \
-                    CONFIG.CLKOUT3_PHASE_ERROR {222.305} \
+                    CONFIG.CLKOUT3_JITTER {139.994} \
+                    CONFIG.CLKOUT3_PHASE_ERROR {77.820} \
                     CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {20.000} \
                     CONFIG.CLKOUT3_USED {true} \
-                    CONFIG.CLKOUT4_JITTER {261.444} \
-                    CONFIG.CLKOUT4_PHASE_ERROR {222.305} \
+                    CONFIG.CLKOUT4_JITTER {160.538} \
+                    CONFIG.CLKOUT4_PHASE_ERROR {77.820} \
                     CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {10.000} \
                     CONFIG.CLKOUT4_USED {true} \
                     CONFIG.CLK_OUT1_PORT {clk_50} \
                     CONFIG.CLK_OUT2_PORT {clk_48} \
                     CONFIG.CLK_OUT3_PORT {clk_20} \
                     CONFIG.CLK_OUT4_PORT {clk_10} \
-                    CONFIG.MMCM_CLKFBOUT_MULT_F {48.000} \
-                    CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
-                    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
+                    CONFIG.MMCM_CLKFBOUT_MULT_F {4.000} \
+                    CONFIG.MMCM_CLKIN1_PERIOD {3.332} \
+                    CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
                     CONFIG.MMCM_CLKOUT0_DIVIDE_F {24.000} \
                     CONFIG.MMCM_CLKOUT1_DIVIDE {25} \
                     CONFIG.MMCM_CLKOUT2_DIVIDE {60} \
                     CONFIG.MMCM_CLKOUT3_DIVIDE {120} \
-                    CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+                    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
                     CONFIG.NUM_OUT_CLKS {4} \
-                    CONFIG.PRIM_IN_FREQ {125.000} \
+                    CONFIG.PRIM_IN_FREQ {300.120} \
                     CONFIG.PRIM_SOURCE {No_buffer} \
                     ] [get_ips $proj]
             }
@@ -278,7 +278,7 @@ switch $proj {
                         CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                         CONFIG.C0.DDR4_AxiSelection {true} \
                         CONFIG.C0.DDR4_DataWidth {64} \
-                        CONFIG.C0.DDR4_InputClockPeriod {8000} \
+                        CONFIG.C0.DDR4_InputClockPeriod {3332} \
                         CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
                         CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c2_DR} \
                         CONFIG.RESET_BOARD_INTERFACE {reset} \
@@ -294,7 +294,7 @@ switch $proj {
                         CONFIG.C0.DDR4_AxiNarrowBurst {true} \
                         CONFIG.C0.DDR4_AxiSelection {true} \
                         CONFIG.C0.DDR4_DataWidth {64} \
-                        CONFIG.C0.DDR4_InputClockPeriod {8000} \
+                        CONFIG.C0.DDR4_InputClockPeriod {3332} \
                         CONFIG.C0.DDR4_MemoryPart {EDY4016AABG-DR-F} \
                         CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c1_DR} \
                         CONFIG.RESET_BOARD_INTERFACE {reset} \

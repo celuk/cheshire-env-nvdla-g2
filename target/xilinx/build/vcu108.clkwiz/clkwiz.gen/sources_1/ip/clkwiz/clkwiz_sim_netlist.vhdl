@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Fri Apr 10 21:14:52 2026
+-- Date        : Fri Apr 10 23:29:09 2026
 -- Host        : karpuz running 64-bit Ubuntu 22.04.5 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.gen/sources_1/ip/clkwiz/clkwiz_sim_netlist.vhdl
@@ -109,10 +109,10 @@ clkout4_buf: unisim.vcomponents.BUFGCE
 mmcme3_adv_inst: unisim.vcomponents.MMCME3_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT_F => 48.000000,
+      CLKFBOUT_MULT_F => 4.000000,
       CLKFBOUT_PHASE => 0.000000,
       CLKFBOUT_USE_FINE_PS => "FALSE",
-      CLKIN1_PERIOD => 8.000000,
+      CLKIN1_PERIOD => 3.332000,
       CLKIN2_PERIOD => 0.000000,
       CLKOUT0_DIVIDE_F => 24.000000,
       CLKOUT0_DUTY_CYCLE => 0.500000,
@@ -144,7 +144,7 @@ mmcme3_adv_inst: unisim.vcomponents.MMCME3_ADV
       CLKOUT6_PHASE => 0.000000,
       CLKOUT6_USE_FINE_PS => "FALSE",
       COMPENSATION => "INTERNAL",
-      DIVCLK_DIVIDE => 5,
+      DIVCLK_DIVIDE => 1,
       IS_CLKFBIN_INVERTED => '0',
       IS_CLKIN1_INVERTED => '0',
       IS_CLKIN2_INVERTED => '0',
