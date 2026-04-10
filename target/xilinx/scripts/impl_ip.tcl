@@ -127,9 +127,9 @@ switch $proj {
             vcu108 {
                 set_property -dict [list \
                     CONFIG.CLKIN1_JITTER_PS {33.32} \
-                    CONFIG.CLKOUT1_JITTER {116.392} \
+                    CONFIG.CLKOUT1_JITTER {133.789} \
                     CONFIG.CLKOUT1_PHASE_ERROR {77.820} \
-                    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50.000} \
+                    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.000} \
                     CONFIG.CLKOUT2_JITTER {117.345} \
                     CONFIG.CLKOUT2_PHASE_ERROR {77.820} \
                     CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {48.000} \
@@ -149,7 +149,7 @@ switch $proj {
                     CONFIG.MMCM_CLKFBOUT_MULT_F {4.000} \
                     CONFIG.MMCM_CLKIN1_PERIOD {3.332} \
                     CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
-                    CONFIG.MMCM_CLKOUT0_DIVIDE_F {24.000} \
+                    CONFIG.MMCM_CLKOUT0_DIVIDE_F {48.000} \
                     CONFIG.MMCM_CLKOUT1_DIVIDE {25} \
                     CONFIG.MMCM_CLKOUT2_DIVIDE {60} \
                     CONFIG.MMCM_CLKOUT3_DIVIDE {120} \

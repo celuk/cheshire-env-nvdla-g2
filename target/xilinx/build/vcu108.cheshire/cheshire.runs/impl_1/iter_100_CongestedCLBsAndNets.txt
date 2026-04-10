@@ -1,0 +1,10 @@
+List of CLB Tiles
+CLEL_L_X12Y327
+CLEL_R_X12Y327
+CLEL_L_X12Y329
+CLEL_R_X12Y329
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/Q[20]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/wbuffer_hit_oh1_carry_i_11_n_0
+

@@ -459,12 +459,12 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   logic rtc_clk_d, rtc_clk_q;
   logic [15:0] counter_d, counter_q;
 
-  // Divide soc_clk (50 MHz) by 50 => 1 MHz RTC Clock
+  // Divide soc_clk (25 MHz) by 25 => 1 MHz RTC Clock
   always_comb begin
     counter_d = counter_q + 1;
     rtc_clk_d = rtc_clk_q;
 
-    if(counter_q == 24) begin
+    if(counter_q == 12) begin
       counter_d = '0;
       rtc_clk_d = ~rtc_clk_q;
     end
