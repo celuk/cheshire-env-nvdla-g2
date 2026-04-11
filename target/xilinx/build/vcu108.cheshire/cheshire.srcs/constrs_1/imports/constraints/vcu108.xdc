@@ -30,11 +30,11 @@ set_property CLOCK_DEDICATED_ROUTE ANY_CMT_COLUMN [get_nets i_bufds_sys_clk/O]
 set MIG_TCK 3.332
 
 # False-path incoming reset
-set MIG_RST_I [get_pins {i_dram_wrapper_lo/i_dram/c0_ddr4_aresetn i_dram_wrapper_hi/i_dram/c0_ddr4_aresetn}]
+set MIG_RST_I [get_pins {i_dram_wrapper_lo/gen_ddr4_0.i_dram/c0_ddr4_aresetn i_dram_wrapper_hi/gen_ddr4_1.i_dram/c0_ddr4_aresetn}]
 set_false_path -hold -setup -through $MIG_RST_I
 
 # Constrain outgoing reset
-set MIG_RST_O [get_pins {i_dram_wrapper_lo/i_dram/c0_ddr4_ui_clk_sync_rst i_dram_wrapper_hi/i_dram/c0_ddr4_ui_clk_sync_rst}]
+set MIG_RST_O [get_pins {i_dram_wrapper_lo/gen_ddr4_0.i_dram/c0_ddr4_ui_clk_sync_rst i_dram_wrapper_hi/gen_ddr4_1.i_dram/c0_ddr4_ui_clk_sync_rst}]
 set_false_path -hold -through $MIG_RST_O
 set_max_delay -through $MIG_RST_O $MIG_TCK
 

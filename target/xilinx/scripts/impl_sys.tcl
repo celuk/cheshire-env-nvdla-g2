@@ -38,12 +38,6 @@ update_compile_order -fileset sources_1
 
 # Set synthesis properties
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-set_property strategy Flow_PerfOptimized_high [get_runs synth_1]
-# Enable retiming and other aggressive synthesis optimizations
-set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]
-set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE PerformanceOptimized [get_runs synth_1]
-set_property STEPS.SYNTH_DESIGN.ARGS.KEEP_EQUIVALENT_REGISTERS false [get_runs synth_1]
-set_property STEPS.SYNTH_DESIGN.ARGS.NO_LC false [get_runs synth_1]
 
 # Elaborate and open design to explore all clocks
 synth_design -rtl -name rtl_1
@@ -62,15 +56,6 @@ gen_reports ${project_root}/reports.synth
 #insert_ilas {soc_clk}
 
 # Set implementation properties
-set_property strategy Performance_ExtraTimingOpt [get_runs impl_1]
-# Aggressive implementation step directives
-set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE ExploreWithRemap [get_runs impl_1]
-set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE ExtraTimingOpt [get_runs impl_1]
-set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
-set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE AggressiveExplore [get_runs impl_1]
-set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE AggressiveExplore [get_runs impl_1]
-set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
-set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE AggressiveExplore [get_runs impl_1]
 
 # Implementation
 launch_runs -jobs $num_jobs impl_1 -to_step write_bitstream
