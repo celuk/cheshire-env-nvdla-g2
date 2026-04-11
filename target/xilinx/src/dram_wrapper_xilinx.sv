@@ -87,8 +87,8 @@ module dram_wrapper_xilinx #(
 
 `ifdef TARGET_VCU108
   localparam dram_cfg_t cfg = '{
-    EnCdc         : 1,    // 333 MHz AXI (cf. CdcLogDepth)
-    CdcLogDepth   : 5,
+    EnCdc         : 0,    // CDC moved before converters to break comb path into MIG
+    CdcLogDepth   : 5,    // Used for early CDC
     IdWidth       : 8,
     AddrWidth     : 31,
     DataWidth     : 512,
@@ -130,6 +130,17 @@ module dram_wrapper_xilinx #(
   logic dram_axi_clk;
   logic dram_rst_o;
 
+  // Converter clock and reset
+  // VCU108: converters run at MIG clock (CDC placed before them)
+  // Others: converters run at SoC clock (CDC placed after them)
+`ifdef TARGET_VCU108
+  wire conv_clk   = dram_axi_clk;
+  wire conv_rst_n = ~dram_rst_o;
+`else
+  wire conv_clk   = soc_clk_i;
+  wire conv_rst_n = soc_resetn_i;
+`endif
+
   // Signals before resizing
   axi_soc_req_t  soc_dresizer_req;
   axi_soc_resp_t soc_dresizer_rsp;
@@ -143,8 +154,38 @@ module dram_wrapper_xilinx #(
   axi_dw_iw_resp_t iresizer_cdc_rsp, cdc_dram_rsp;
 
   // Entry signals
+`ifdef TARGET_VCU108
+  // VCU108: CDC from soc_clk -> dram_axi_clk placed before DW/IW converters
+  // to break combinational path from CDC sync output into MIG AXI upsizer
+  axi_soc_req_t  soc_cdc_dst_req;
+  axi_soc_resp_t soc_cdc_dst_rsp;
+
+  axi_cdc #(
+    .aw_chan_t  ( axi_soc_aw_chan_t ),
+    .w_chan_t   ( axi_soc_w_chan_t  ),
+    .b_chan_t   ( axi_soc_b_chan_t  ),
+    .ar_chan_t  ( axi_soc_ar_chan_t ),
+    .r_chan_t   ( axi_soc_r_chan_t  ),
+    .axi_req_t  ( axi_soc_req_t    ),
+    .axi_resp_t ( axi_soc_resp_t   ),
+    .LogDepth   ( cfg.CdcLogDepth  )
+  ) i_axi_cdc_soc (
+    .src_clk_i  ( soc_clk_i        ),
+    .src_rst_ni ( soc_resetn_i     ),
+    .src_req_i  ( soc_req_i        ),
+    .src_resp_o ( soc_rsp_o        ),
+    .dst_clk_i  ( dram_axi_clk     ),
+    .dst_rst_ni ( ~dram_rst_o      ),
+    .dst_req_o  ( soc_cdc_dst_req  ),
+    .dst_resp_i ( soc_cdc_dst_rsp  )
+  );
+
+  assign soc_dresizer_req = soc_cdc_dst_req;
+  assign soc_cdc_dst_rsp  = soc_dresizer_rsp;
+`else
   assign soc_dresizer_req = soc_req_i;
   assign soc_rsp_o = soc_dresizer_rsp;
+`endif
 
   ////////////////////
   //  DW converter  //
@@ -171,8 +212,8 @@ module dram_wrapper_xilinx #(
     .axi_slv_req_t        ( axi_soc_req_t  ),
     .axi_slv_resp_t       ( axi_soc_resp_t )
   ) i_axi_dw_converter (
-    .clk_i      ( soc_clk_i    ),
-    .rst_ni     ( soc_resetn_i ),
+    .clk_i      ( conv_clk    ),
+    .rst_ni     ( conv_rst_n  ),
     .slv_req_i  ( soc_dresizer_req ),
     .slv_resp_o ( soc_dresizer_rsp ),
     .mst_req_o  ( dresizer_iresizer_req ),
@@ -200,8 +241,8 @@ module dram_wrapper_xilinx #(
     .mst_req_t              ( axi_dw_iw_req_t  ),
     .mst_resp_t             ( axi_dw_iw_resp_t )
   ) i_axi_iw_converter (
-    .clk_i      ( soc_clk_i    ),
-    .rst_ni     ( soc_resetn_i ),
+    .clk_i      ( conv_clk    ),
+    .rst_ni     ( conv_rst_n  ),
     .slv_req_i  ( dresizer_iresizer_req ),
     .slv_resp_o ( dresizer_iresizer_rsp ),
     .mst_req_o  ( iresizer_cdc_req ),

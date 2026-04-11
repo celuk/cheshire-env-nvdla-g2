@@ -41,11 +41,11 @@ set_max_delay -through $MIG_RST_O $MIG_TCK
 # Limit delay across DRAM CDC (hold already false-pathed)
 # tclint-disable line-length
 set_max_delay -datapath_only \
-    -from [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
-    -to [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D}] $MIG_TCK
+    -from [get_pins {i_dram_wrapper_lo/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
+    -to [get_pins {i_dram_wrapper_lo/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D i_dram_wrapper_hi/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*i_sync/reg*/D}] $MIG_TCK
 set_max_delay -datapath_only \
-    -from [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
-    -to [get_pins {i_dram_wrapper_lo/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D i_dram_wrapper_hi/gen_cdc.i_axi_cdc_mig/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D}] $MIG_TCK
+    -from [get_pins {i_dram_wrapper_lo/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C i_dram_wrapper_hi/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/*reg*/C}] \
+    -to [get_pins {i_dram_wrapper_lo/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D i_dram_wrapper_hi/i_axi_cdc_soc/i_axi_cdc_*/i_cdc_fifo_gray_*/i_spill_register/spill_register_flushable_i/*reg*/D}] $MIG_TCK
 # tclint-enable line-length
 
 ###############

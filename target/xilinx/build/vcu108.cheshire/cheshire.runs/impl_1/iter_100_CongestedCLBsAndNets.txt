@@ -1,10 +1,22 @@
 List of CLB Tiles
-CLE_M_X61Y290
-CLEL_R_X61Y290
-CLEL_L_X47Y235
-CLEL_R_X47Y235
+CLE_M_X61Y426
+CLEL_R_X61Y426
+CLEL_L_X71Y392
+CLEL_R_X71Y392
+CLE_M_X61Y424
+CLEL_R_X61Y424
+CLEL_L_X60Y385
+CLEL_R_X60Y385
+CLEL_L_X60Y424
+CLEL_R_X60Y424
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/wbuffer_q_reg[0][wtag][52]_0[20]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/wbuffer_q_reg[0][wtag][52]_0[21]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/mshr_q_reg[paddr][55]_0[6]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[11]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[9]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/mshr_q_reg[paddr][55]_0[39]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/mshr_q_reg[paddr][55]_0[38]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[0].i_wt_dcache_ctrl/address_tag_q_reg[49]_0[6]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/op_a_q_reg[6]_0
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/op_b_q_reg[63]_0[7]
 
