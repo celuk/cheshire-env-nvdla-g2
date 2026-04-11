@@ -66,7 +66,7 @@ endif
 # a loop.
 define chs_xilinx_bit_rule
 $$(CHS_XILINX_DIR)/out/%.$(1).bit: \
-		$$(CHS_XILINX_DIR)/scripts/impl_sys.tcl \
+		$$(CHS_XILINX_DIR)/scripts/impl_sys2.tcl \
 		$$(CHS_XILINX_DIR)/scripts/add_sources.$(1).tcl \
 		$$(CHS_XILINX_IPS_$(1):%=$(CHS_XILINX_DIR)/build/$(1).%/out.xci) \
 		$$(CHS_HW_ALL) \

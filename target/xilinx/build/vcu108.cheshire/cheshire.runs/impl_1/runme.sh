@@ -37,7 +37,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
+/bin/touch .post_route_phys_opt_design.begin.rst
 EAStep vivado -log cheshire_top_xilinx.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source cheshire_top_xilinx.tcl -notrace
 
 
