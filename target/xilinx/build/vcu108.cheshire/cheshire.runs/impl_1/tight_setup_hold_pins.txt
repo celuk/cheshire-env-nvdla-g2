@@ -1,0 +1,11 @@
++====================+===================+========================================================================================================================================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                                                                                                                                    |
++====================+===================+========================================================================================================================================================================+
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/rdEn[7].u_ddr_mc_rd_en_upp/rdEn_reg[12]/D                                          |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr_axi/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/storage_data1_reg[88]/D                                        |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/rdEn[4].u_ddr_mc_rd_en_low/rdEn_reg[16]/D                                          |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr4_mem_intfc/u_ddr_cal_top/u_ddr_mc_pi/u_ddr_mc_write/genByte[5].u_ddr_mc_wr_byte/genBit[4].u_ddr_mc_wr_bit/dReg_reg[6]/D |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/bgr[2].u_ddr_mc_group/txn_fifo_output_reg[11]/D                                                     |
+| mmcm_clkout0_1     | mmcm_clkout0_1    | i_dram_wrapper_lo/gen_ddr4_0.i_dram/inst/u_ddr4_mem_intfc/u_ddr_mc/bgr[2].u_ddr_mc_group/txn_fifo_output_reg[35]/D                                                     |
+| mmcm_clkout0       | mmcm_clkout0      | i_dram_wrapper_hi/gen_ddr4_1.i_dram/inst/u_ddr_axi/axi_ar_channel_0/axi_mc_cmd_translator_0/axi_mc_incr_cmd_0/axlen_cnt_reg[0]/D                                       |
++--------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+

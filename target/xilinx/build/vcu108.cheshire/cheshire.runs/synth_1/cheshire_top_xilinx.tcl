@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2638784-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2748694-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -807,7 +807,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top cheshire_top_xilinx -part xcvu095-ffva2104-2-e -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+synth_design -top cheshire_top_xilinx -part xcvu095-ffva2104-2-e -directive PerformanceOptimized -retiming -fsm_extraction one_hot -resource_sharing off -shreg_min_size 5
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

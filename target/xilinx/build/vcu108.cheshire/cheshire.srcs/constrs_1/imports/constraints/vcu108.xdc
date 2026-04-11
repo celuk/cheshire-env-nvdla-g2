@@ -8,7 +8,7 @@
 # Sys Clock #
 #############
 
-# 300 MHz input clock (SYSCLK2_300)
+# 300 MHz input clock (SYSCLK1_300)
 set SYS_TCK 3.332
 create_clock -period $SYS_TCK -name sys_clk [get_ports sys_clk_p]
 
@@ -101,9 +101,9 @@ set_property IOSTANDARD  LVCMOS18 [get_ports jtag_tdi_i]
 set_property PACKAGE_PIN E36 [get_ports sys_reset]
 set_property IOSTANDARD LVCMOS12 [get_ports sys_reset]
 
-# Differential system clock (SYSCLK2_300)
-set_property PACKAGE_PIN G22 [get_ports sys_clk_p]
-set_property PACKAGE_PIN G21 [get_ports sys_clk_n]
+# Differential system clock (SYSCLK1_300)
+set_property PACKAGE_PIN G31 [get_ports sys_clk_p]
+set_property PACKAGE_PIN F31 [get_ports sys_clk_n]
 set_property IOSTANDARD DIFF_SSTL12 [get_ports sys_clk_p]
 set_property IOSTANDARD DIFF_SSTL12 [get_ports sys_clk_n]
 

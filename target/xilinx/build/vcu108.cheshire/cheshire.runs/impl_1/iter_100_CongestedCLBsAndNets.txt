@@ -1,0 +1,21 @@
+List of CLB Tiles
+CLEL_L_X60Y264
+CLEL_R_X60Y264
+CLE_M_X20Y343
+CLEL_R_X20Y343
+CLEL_R_X18Y345
+CLEL_R_X18Y346
+CLEL_R_X18Y348
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[29]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[27]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[5]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[4]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[23]
+i_cheshire_soc/i_reg_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][12]_0
+i_cheshire_soc/i_reg_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_lrsc/clr_addr_q[9]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/rd_tag_q_reg[23]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_missunit/mshr_q_reg[paddr][55]_0[45]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_dirty_rr/miss_paddr[3]_694[45]
+
