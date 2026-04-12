@@ -44,6 +44,22 @@ module dram_wrapper_xilinx #(
   output axi_soc_resp_t soc_rsp_o
 );
 
+  logic soc_clk;
+
+  generate
+  `ifdef TARGET_VCU108
+    
+    if (UseDdr4_1 == 1'b1) begin : gen_vcu108_ddr4
+      assign soc_clk = soc_clk_i;
+    end else begin : gen_vcu108_no_ddr4
+      assign soc_clk = dram_clk_o;
+    end
+
+  `else
+    assign soc_clk = soc_clk_i;
+  `endif
+  endgenerate
+
   //////////////////////////////////////
   //  Configurations and definitions  //
   //////////////////////////////////////
@@ -139,12 +155,8 @@ module dram_wrapper_xilinx #(
   axi_dw_resp_t dresizer_iresizer_rsp;
 
   // Signals after id width resizing
-  axi_dw_iw_req_t  iresizer_cdc_req, cdc_out_req;
-  axi_dw_iw_resp_t iresizer_cdc_rsp, cdc_out_rsp;
-
-  // Signals after optional register stage (feeds MIG)
-  axi_dw_iw_req_t  cdc_dram_req;
-  axi_dw_iw_resp_t cdc_dram_rsp;
+  axi_dw_iw_req_t  iresizer_cdc_req, cdc_dram_req;
+  axi_dw_iw_resp_t iresizer_cdc_rsp, cdc_dram_rsp;
 
   // Entry signals
   assign soc_dresizer_req = soc_req_i;
@@ -175,7 +187,7 @@ module dram_wrapper_xilinx #(
     .axi_slv_req_t        ( axi_soc_req_t  ),
     .axi_slv_resp_t       ( axi_soc_resp_t )
   ) i_axi_dw_converter (
-    .clk_i      ( soc_clk_i    ),
+    .clk_i      ( soc_clk    ),
     .rst_ni     ( soc_resetn_i ),
     .slv_req_i  ( soc_dresizer_req ),
     .slv_resp_o ( soc_dresizer_rsp ),
@@ -204,7 +216,7 @@ module dram_wrapper_xilinx #(
     .mst_req_t              ( axi_dw_iw_req_t  ),
     .mst_resp_t             ( axi_dw_iw_resp_t )
   ) i_axi_iw_converter (
-    .clk_i      ( soc_clk_i    ),
+    .clk_i      ( soc_clk    ),
     .rst_ni     ( soc_resetn_i ),
     .slv_req_i  ( dresizer_iresizer_req ),
     .slv_resp_o ( dresizer_iresizer_rsp ),
@@ -227,48 +239,19 @@ module dram_wrapper_xilinx #(
       .axi_resp_t ( axi_dw_iw_resp_t),
       .LogDepth   ( cfg.CdcLogDepth )
     ) i_axi_cdc_mig (
-      .src_clk_i  ( soc_clk_i    ),
+      .src_clk_i  ( soc_clk    ),
       .src_rst_ni ( soc_resetn_i ),
       .src_req_i  ( iresizer_cdc_req ),
       .src_resp_o ( iresizer_cdc_rsp ),
       .dst_clk_i  ( dram_axi_clk ),
       .dst_rst_ni ( ~dram_rst_o  ),
-      .dst_req_o  ( cdc_out_req ),
-      .dst_resp_i ( cdc_out_rsp )
+      .dst_req_o  ( cdc_dram_req ),
+      .dst_resp_i ( cdc_dram_rsp )
     );
   end else begin : gen_no_cdc
-    assign cdc_out_req      = iresizer_cdc_req;
-    assign iresizer_cdc_rsp = cdc_out_rsp;
+    assign cdc_dram_req     = iresizer_cdc_req;
+    assign iresizer_cdc_rsp = cdc_dram_rsp;
   end
-
-  ///////////////////////////////////////////
-  //  Optional register stage before MIG  //
-  ///////////////////////////////////////////
-
-  // VCU108: Add pipeline register between CDC output and MIG AXI
-  // to break 6-LUT combinational path from CDC sync into MIG upsizer
-`ifdef TARGET_VCU108
-  axi_multicut #(
-    .NoCuts     ( 1 ),
-    .aw_chan_t  ( axi_dw_iw_aw_chan_t ),
-    .w_chan_t   ( axi_dw_iw_w_chan_t  ),
-    .b_chan_t   ( axi_dw_iw_b_chan_t  ),
-    .ar_chan_t  ( axi_dw_iw_ar_chan_t ),
-    .r_chan_t   ( axi_dw_iw_r_chan_t  ),
-    .axi_req_t  ( axi_dw_iw_req_t    ),
-    .axi_resp_t ( axi_dw_iw_resp_t   )
-  ) i_axi_reg_mig (
-    .clk_i       ( dram_axi_clk  ),
-    .rst_ni      ( ~dram_rst_o   ),
-    .slv_req_i   ( cdc_out_req   ),
-    .slv_resp_o  ( cdc_out_rsp   ),
-    .mst_req_o   ( cdc_dram_req  ),
-    .mst_resp_i  ( cdc_dram_rsp  )
-  );
-`else
-  assign cdc_dram_req = cdc_out_req;
-  assign cdc_out_rsp  = cdc_dram_rsp;
-`endif
 
   ////////////////////////////////
   //  Map User, Resize Address  //
@@ -393,7 +376,7 @@ module dram_wrapper_xilinx #(
       .c0_ddr4_s_axi_rvalid       ( cdc_dram_rsp.r_valid  ),
       // Others
       .c0_init_calib_complete     ( ),
-      //.addn_ui_clkout1            ( dram_clk_o ),
+      .addn_ui_clkout1            ( dram_clk_o ),
       .dbg_clk                    ( ),
       .dbg_bus                    ( ),
       // PHY

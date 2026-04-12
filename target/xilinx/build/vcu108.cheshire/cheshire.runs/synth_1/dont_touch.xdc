@@ -10,6 +10,3 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ddr4 || ORI
 
 # IP: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.srcs/sources_1/ip/ddr4_1/ddr4_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ddr4_1 || ORIG_REF_NAME==ddr4_1} -quiet] -quiet
-
-# IP: /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==clkwiz || ORIG_REF_NAME==clkwiz} -quiet] -quiet

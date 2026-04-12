@@ -57,9 +57,7 @@ gen_reports ${project_root}/reports.synth
 #insert_ilas {soc_clk}
 
 # Set implementation properties
-set_property strategy Flow_RunPostRoutePhysOpt [get_runs impl_1]
-set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE ExtraTimingOpt [get_runs impl_1]
-set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE ExploreWithRemap [get_runs impl_1]
+#set_property strategy Flow_RunPostRoutePhysOpt [get_runs impl_1]
 
 # Implementation
 launch_runs -jobs $num_jobs impl_1 -to_step write_bitstream

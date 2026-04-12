@@ -287,7 +287,7 @@ switch $proj {
                         ] [get_ips $proj]
                 } else {
                     set_property -dict [list \
-                        CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {None} \
+                        CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {50} \
                         CONFIG.C0.DDR4_AxiAddressWidth {31} \
                         CONFIG.C0.DDR4_AxiDataWidth {512} \
                         CONFIG.C0.DDR4_AxiIDWidth {8} \
