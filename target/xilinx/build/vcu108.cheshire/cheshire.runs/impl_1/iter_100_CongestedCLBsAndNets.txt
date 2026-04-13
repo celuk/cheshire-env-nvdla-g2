@@ -1,10 +1,7 @@
 List of CLB Tiles
-CLEL_L_X46Y24
-CLEL_R_X46Y24
-CLEL_L_X44Y11
-CLEL_R_X44Y11
+CLEL_L_X76Y70
+CLEL_L_X60Y67
+CLEL_R_X60Y67
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[14]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[13]
 
