@@ -113,7 +113,7 @@ module ddr4_phy_ddr4 #
    ,parameter         RANKS                = 1
    ,parameter         nCK_PER_CLK          = 4
 
-   ,parameter         SYSCLK_TYPE          = "NO_BUFFER"
+   ,parameter         SYSCLK_TYPE          = "DIFFERENTIAL"
                                 // input clock type
    
    ,parameter         BACKBONE_ROUTE       = "TRUE"
@@ -157,7 +157,8 @@ module ddr4_phy_ddr4 #
   `endif
   )
   (
-    input                                           sys_clk_i
+    input                                           sys_clk_p
+   ,input                                           sys_clk_n
    ,input                                           mmcm_lock
    ,input                                           pllGate
    ,input                                           div_clk
@@ -311,8 +312,7 @@ localparam SYNC_MTBF = 2; // Synchronizer Depth based on MTBF
 
 localparam         DQS_BIAS                        = "FALSE";
 
-  wire sys_clk_p;
-  wire sys_clk_n;
+  wire sys_clk_i;
 
 // mcCal<>phy signals
 
@@ -585,8 +585,7 @@ genvar bisc_map;
   end
 endgenerate
 
-  assign sys_clk_p = 1'b0;
-  assign sys_clk_n = 1'b0;
+  assign sys_clk_i = 1'b0;
 
   ddr4_phy_v2_2_0_pll #
     (

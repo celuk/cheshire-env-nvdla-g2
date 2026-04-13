@@ -119,7 +119,7 @@ ddr4_sc::ddr4_sc(const sc_core::sc_module_name& nm) : sc_core::sc_module(nm), mp
     model_param_props.addFloat("M_ADDN_UI_CLKOUT3_PHASE", "0");
     model_param_props.addFloat("M_ADDN_UI_CLKOUT4_PHASE", "0");
     model_param_props.addString("C0.DDR4_Mem_Add_Map", "ROW_COLUMN_BANK");
-    model_param_props.addString("System_Clock", "No_Buffer");
+    model_param_props.addString("System_Clock", "Differential");
     model_param_props.addString("C0.ControllerType", "DDR4_SDRAM");
     model_param_props.addString("C0.MEM_TYPE", "DDR4");
     model_param_props.addString("C0.BUFG_LOC_1", "X0Y46");

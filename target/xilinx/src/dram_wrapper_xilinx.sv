@@ -22,16 +22,19 @@ module dram_wrapper_xilinx #(
   parameter int unsigned Ddr4CsNWidth = 1,
   parameter int unsigned Ddr4DmDbiNWidth = 8,
   parameter int unsigned Ddr4DqWidth = 64,
-  parameter int unsigned Ddr4DqsWidth = 8,
-  parameter bit UseDdr4_1 = 1'b0
+  parameter int unsigned Ddr4DqsWidth = 8
 ) (
   // System reset
   input  logic  sys_rst_i,
   input  logic  dram_clk_i,
+  input  logic  c0_sys_clk_p,
+  input  logic  c0_sys_clk_n,
   output logic  dram_clk_o,
   // Controller reset
   input  logic  soc_resetn_i,
+  `ifndef TARGET_VCU108
   input  logic  soc_clk_i,
+  `endif
   // PHY interfaces
 `ifdef USE_DDR4
   `DDR4_INTF(Ddr4CsNWidth, Ddr4DmDbiNWidth, Ddr4DqWidth, Ddr4DqsWidth)
@@ -44,21 +47,9 @@ module dram_wrapper_xilinx #(
   output axi_soc_resp_t soc_rsp_o
 );
 
-  logic soc_clk;
-
-  generate
-  `ifdef TARGET_VCU108
-    
-    if (UseDdr4_1 == 1'b1) begin : gen_vcu108_ddr4
-      assign soc_clk = soc_clk_i;
-    end else begin : gen_vcu108_no_ddr4
-      assign soc_clk = dram_clk_o;
-    end
-
-  `else
-    assign soc_clk = soc_clk_i;
-  `endif
-  endgenerate
+`ifdef TARGET_VCU108
+  logic soc_clk_i = dram_clk_o;
+`endif
 
   //////////////////////////////////////
   //  Configurations and definitions  //
@@ -103,7 +94,7 @@ module dram_wrapper_xilinx #(
 
 `ifdef TARGET_VCU108
   localparam dram_cfg_t cfg = '{
-    EnCdc         : 1,    // 300.12 MHz AXI (cf. CdcLogDepth)
+    EnCdc         : 1,    // 333 MHz AXI (cf. CdcLogDepth)
     CdcLogDepth   : 5,
     IdWidth       : 8,
     AddrWidth     : 31,
@@ -187,7 +178,7 @@ module dram_wrapper_xilinx #(
     .axi_slv_req_t        ( axi_soc_req_t  ),
     .axi_slv_resp_t       ( axi_soc_resp_t )
   ) i_axi_dw_converter (
-    .clk_i      ( soc_clk    ),
+    .clk_i      ( soc_clk_i    ),
     .rst_ni     ( soc_resetn_i ),
     .slv_req_i  ( soc_dresizer_req ),
     .slv_resp_o ( soc_dresizer_rsp ),
@@ -216,7 +207,7 @@ module dram_wrapper_xilinx #(
     .mst_req_t              ( axi_dw_iw_req_t  ),
     .mst_resp_t             ( axi_dw_iw_resp_t )
   ) i_axi_iw_converter (
-    .clk_i      ( soc_clk    ),
+    .clk_i      ( soc_clk_i    ),
     .rst_ni     ( soc_resetn_i ),
     .slv_req_i  ( dresizer_iresizer_req ),
     .slv_resp_o ( dresizer_iresizer_rsp ),
@@ -239,7 +230,7 @@ module dram_wrapper_xilinx #(
       .axi_resp_t ( axi_dw_iw_resp_t),
       .LogDepth   ( cfg.CdcLogDepth )
     ) i_axi_cdc_mig (
-      .src_clk_i  ( soc_clk    ),
+      .src_clk_i  ( soc_clk_i    ),
       .src_rst_ni ( soc_resetn_i ),
       .src_req_i  ( iresizer_cdc_req ),
       .src_resp_o ( iresizer_cdc_rsp ),
@@ -271,125 +262,15 @@ module dram_wrapper_xilinx #(
   /////////////////////////
 
 `ifdef USE_DDR4
-  `ifdef TARGET_VCU108
-  if (UseDdr4_1) begin : gen_ddr4_1
-    ddr4_1 i_dram (
-      // Reset
-      .sys_rst                    ( sys_rst_i    ),  // Active high
-      .c0_sys_clk_i               ( dram_clk_i   ),
-      .c0_ddr4_aresetn            ( soc_resetn_i ),
-      // Clock and reset out
-      .c0_ddr4_ui_clk             ( dram_axi_clk ),
-      .c0_ddr4_ui_clk_sync_rst    ( dram_rst_o   ),
-      // AXI
-      .c0_ddr4_s_axi_awid         ( cdc_dram_req.aw.id    ),
-      .c0_ddr4_s_axi_awaddr       ( cdc_dram_req_aw_addr  ),
-      .c0_ddr4_s_axi_awlen        ( cdc_dram_req.aw.len   ),
-      .c0_ddr4_s_axi_awsize       ( cdc_dram_req.aw.size  ),
-      .c0_ddr4_s_axi_awburst      ( cdc_dram_req.aw.burst ),
-      .c0_ddr4_s_axi_awlock       ( cdc_dram_req.aw.lock  ),
-      .c0_ddr4_s_axi_awcache      ( cdc_dram_req.aw.cache ),
-      .c0_ddr4_s_axi_awprot       ( cdc_dram_req.aw.prot  ),
-      .c0_ddr4_s_axi_awqos        ( cdc_dram_req.aw.qos   ),
-      .c0_ddr4_s_axi_awvalid      ( cdc_dram_req.aw_valid ),
-      .c0_ddr4_s_axi_awready      ( cdc_dram_rsp.aw_ready ),
-      .c0_ddr4_s_axi_wdata        ( cdc_dram_req.w.data   ),
-      .c0_ddr4_s_axi_wstrb        ( cdc_dram_req.w.strb   ),
-      .c0_ddr4_s_axi_wlast        ( cdc_dram_req.w.last   ),
-      .c0_ddr4_s_axi_wvalid       ( cdc_dram_req.w_valid  ),
-      .c0_ddr4_s_axi_wready       ( cdc_dram_rsp.w_ready  ),
-      .c0_ddr4_s_axi_bready       ( cdc_dram_req.b_ready  ),
-      .c0_ddr4_s_axi_bid          ( cdc_dram_rsp.b.id     ),
-      .c0_ddr4_s_axi_bresp        ( cdc_dram_rsp.b.resp   ),
-      .c0_ddr4_s_axi_bvalid       ( cdc_dram_rsp.b_valid  ),
-      .c0_ddr4_s_axi_arid         ( cdc_dram_req.ar.id    ),
-      .c0_ddr4_s_axi_araddr       ( cdc_dram_req_ar_addr  ),
-      .c0_ddr4_s_axi_arlen        ( cdc_dram_req.ar.len   ),
-      .c0_ddr4_s_axi_arsize       ( cdc_dram_req.ar.size  ),
-      .c0_ddr4_s_axi_arburst      ( cdc_dram_req.ar.burst ),
-      .c0_ddr4_s_axi_arlock       ( cdc_dram_req.ar.lock  ),
-      .c0_ddr4_s_axi_arcache      ( cdc_dram_req.ar.cache ),
-      .c0_ddr4_s_axi_arprot       ( cdc_dram_req.ar.prot  ),
-      .c0_ddr4_s_axi_arqos        ( cdc_dram_req.ar.qos   ),
-      .c0_ddr4_s_axi_arvalid      ( cdc_dram_req.ar_valid ),
-      .c0_ddr4_s_axi_arready      ( cdc_dram_rsp.ar_ready ),
-      .c0_ddr4_s_axi_rready       ( cdc_dram_req.r_ready  ),
-      .c0_ddr4_s_axi_rid          ( cdc_dram_rsp.r.id     ),
-      .c0_ddr4_s_axi_rdata        ( cdc_dram_rsp.r.data   ),
-      .c0_ddr4_s_axi_rresp        ( cdc_dram_rsp.r.resp   ),
-      .c0_ddr4_s_axi_rlast        ( cdc_dram_rsp.r.last   ),
-      .c0_ddr4_s_axi_rvalid       ( cdc_dram_rsp.r_valid  ),
-      // Others
-      .c0_init_calib_complete     ( ),
-      //.addn_ui_clkout1            ( ),
-      .dbg_clk                    ( ),
-      .dbg_bus                    ( ),
-      // PHY
-      .*
-    );
-  end else begin : gen_ddr4_0
-    ddr4 i_dram (
-      // Reset
-      .sys_rst                    ( sys_rst_i    ),  // Active high
-      .c0_sys_clk_i                ( dram_clk_i   ),
-      .c0_ddr4_aresetn            ( soc_resetn_i ),
-      // Clock and reset out
-      .c0_ddr4_ui_clk             ( dram_axi_clk ),
-      .c0_ddr4_ui_clk_sync_rst    ( dram_rst_o   ),
-      // AXI
-      .c0_ddr4_s_axi_awid         ( cdc_dram_req.aw.id    ),
-      .c0_ddr4_s_axi_awaddr       ( cdc_dram_req_aw_addr  ),
-      .c0_ddr4_s_axi_awlen        ( cdc_dram_req.aw.len   ),
-      .c0_ddr4_s_axi_awsize       ( cdc_dram_req.aw.size  ),
-      .c0_ddr4_s_axi_awburst      ( cdc_dram_req.aw.burst ),
-      .c0_ddr4_s_axi_awlock       ( cdc_dram_req.aw.lock  ),
-      .c0_ddr4_s_axi_awcache      ( cdc_dram_req.aw.cache ),
-      .c0_ddr4_s_axi_awprot       ( cdc_dram_req.aw.prot  ),
-      .c0_ddr4_s_axi_awqos        ( cdc_dram_req.aw.qos   ),
-      .c0_ddr4_s_axi_awvalid      ( cdc_dram_req.aw_valid ),
-      .c0_ddr4_s_axi_awready      ( cdc_dram_rsp.aw_ready ),
-      .c0_ddr4_s_axi_wdata        ( cdc_dram_req.w.data   ),
-      .c0_ddr4_s_axi_wstrb        ( cdc_dram_req.w.strb   ),
-      .c0_ddr4_s_axi_wlast        ( cdc_dram_req.w.last   ),
-      .c0_ddr4_s_axi_wvalid       ( cdc_dram_req.w_valid  ),
-      .c0_ddr4_s_axi_wready       ( cdc_dram_rsp.w_ready  ),
-      .c0_ddr4_s_axi_bready       ( cdc_dram_req.b_ready  ),
-      .c0_ddr4_s_axi_bid          ( cdc_dram_rsp.b.id     ),
-      .c0_ddr4_s_axi_bresp        ( cdc_dram_rsp.b.resp   ),
-      .c0_ddr4_s_axi_bvalid       ( cdc_dram_rsp.b_valid  ),
-      .c0_ddr4_s_axi_arid         ( cdc_dram_req.ar.id    ),
-      .c0_ddr4_s_axi_araddr       ( cdc_dram_req_ar_addr  ),
-      .c0_ddr4_s_axi_arlen        ( cdc_dram_req.ar.len   ),
-      .c0_ddr4_s_axi_arsize       ( cdc_dram_req.ar.size  ),
-      .c0_ddr4_s_axi_arburst      ( cdc_dram_req.ar.burst ),
-      .c0_ddr4_s_axi_arlock       ( cdc_dram_req.ar.lock  ),
-      .c0_ddr4_s_axi_arcache      ( cdc_dram_req.ar.cache ),
-      .c0_ddr4_s_axi_arprot       ( cdc_dram_req.ar.prot  ),
-      .c0_ddr4_s_axi_arqos        ( cdc_dram_req.ar.qos   ),
-      .c0_ddr4_s_axi_arvalid      ( cdc_dram_req.ar_valid ),
-      .c0_ddr4_s_axi_arready      ( cdc_dram_rsp.ar_ready ),
-      .c0_ddr4_s_axi_rready       ( cdc_dram_req.r_ready  ),
-      .c0_ddr4_s_axi_rid          ( cdc_dram_rsp.r.id     ),
-      .c0_ddr4_s_axi_rdata        ( cdc_dram_rsp.r.data   ),
-      .c0_ddr4_s_axi_rresp        ( cdc_dram_rsp.r.resp   ),
-      .c0_ddr4_s_axi_rlast        ( cdc_dram_rsp.r.last   ),
-      .c0_ddr4_s_axi_rvalid       ( cdc_dram_rsp.r_valid  ),
-      // Others
-      .c0_init_calib_complete     ( ),
-      .addn_ui_clkout1            ( dram_clk_o ),
-      .dbg_clk                    ( ),
-      .dbg_bus                    ( ),
-      // PHY
-      .*
-    );
-  end
-  `else
   ddr4 i_dram (
     // Reset
     .sys_rst                    ( sys_rst_i    ),  // Active high
-    
+    `ifdef TARGET_VCU108
+    .c0_sys_clk_p                ( c0_sys_clk_p ),
+    .c0_sys_clk_n                ( c0_sys_clk_n ),
+    `else
     .c0_sys_clk_i                ( dram_clk_i   ),
-
+    `endif
     .c0_ddr4_aresetn            ( soc_resetn_i ),
     // Clock and reset out
     .c0_ddr4_ui_clk             ( dram_axi_clk ),
@@ -461,7 +342,6 @@ module dram_wrapper_xilinx #(
     // PHY
     .*
   );
-  `endif
 `endif
 
   /////////////////////////

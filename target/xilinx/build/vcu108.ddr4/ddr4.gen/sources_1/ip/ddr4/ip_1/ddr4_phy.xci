@@ -19,7 +19,7 @@
         "CLKOUT2_DIVIDE": [ { "value": "0", "value_src": "propagated", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "CLKOUT3_DIVIDE": [ { "value": "0", "value_src": "propagated", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "CLKOUT4_DIVIDE": [ { "value": "0", "value_src": "propagated", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "System_Clock": [ { "value": "No_Buffer", "value_src": "propagated", "resolve_type": "user", "usage": "all" } ],
+        "System_Clock": [ { "value": "Differential", "value_src": "propagated", "resolve_type": "user", "usage": "all" } ],
         "RECONFIG_XSDB_SAVE_RESTORE": [ { "value": "false", "value_src": "propagated", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "DIFF_TERM_SYSCLK": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "C0.DDR4_TimePeriod": [ { "value": "833", "value_src": "propagated", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -614,7 +614,8 @@
     },
     "boundary": {
       "ports": {
-        "sys_clk_i": [ { "direction": "in", "driver_value": "0" } ],
+        "sys_clk_p": [ { "direction": "in", "driver_value": "0" } ],
+        "sys_clk_n": [ { "direction": "in", "driver_value": "0" } ],
         "mmcm_lock": [ { "direction": "in", "driver_value": "0" } ],
         "pllGate": [ { "direction": "in", "driver_value": "0" } ],
         "div_clk": [ { "direction": "in", "driver_value": "0" } ],

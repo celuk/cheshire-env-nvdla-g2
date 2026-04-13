@@ -1,0 +1,8 @@
+List of CLB Tiles
+CLEL_L_X67Y25
+CLEL_R_X67Y25
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/fpu_gen.fpu_i/fpu_gen.i_fpnew_bulk/gen_operation_groups[2].i_opgroup_block/gen_parallel_slices[1].active_format.i_fmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_noncomp/gen_input_pipeline[0].inp_pipe_operands_q_reg_n_0_[1][0][46]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/fpu_gen.fpu_i/fpu_gen.i_fpnew_bulk/gen_operation_groups[2].i_opgroup_block/gen_parallel_slices[1].active_format.i_fmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_noncomp/gen_input_pipeline[0].inp_pipe_operands_q_reg_n_0_[1][0][47]
+

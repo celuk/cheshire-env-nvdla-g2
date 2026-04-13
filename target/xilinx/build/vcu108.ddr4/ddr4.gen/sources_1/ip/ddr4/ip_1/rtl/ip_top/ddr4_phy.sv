@@ -78,7 +78,8 @@
 (* PROBE_PROHIBIT="TRUE" *)
 
 (* dont_touch = "true" *) module ddr4_phy (
-  input                                           sys_clk_i,
+  input                                           sys_clk_p,
+  input                                           sys_clk_n,
   input                                           mmcm_lock,
   input                                           pllGate,
   input                                           div_clk,
@@ -191,7 +192,8 @@
 
 ddr4_phy_ddr4
    inst (
-    .sys_clk_i                  (sys_clk_i),
+    .sys_clk_p                  (sys_clk_p),
+    .sys_clk_n                  (sys_clk_n),
     .mmcm_lock                  (mmcm_lock),
     .pllGate                    (pllGate),
     .div_clk                    (div_clk),

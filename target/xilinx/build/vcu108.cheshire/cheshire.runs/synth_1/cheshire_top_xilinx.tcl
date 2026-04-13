@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-279731-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-702672-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -760,26 +760,6 @@ set_property used_in_implementation false [get_files -all /home/shc/projects/che
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.gen/sources_1/ip/ddr4/ip_0/mb_bootloop_le.elf]
 set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4/ddr4.gen/sources_1/ip/ddr4/sw/calibration_0/Debug/calibration_ddr.elf]
 
-read_ip -quiet /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.srcs/sources_1/ip/ddr4_1/ddr4_1.xci
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/ip_1/par/ddr4_1_phy_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_0/bd_9c58_microblaze_I_0.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_0/bd_9c58_microblaze_I_0_ooc_debug.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_1/bd_9c58_rst_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_1/bd_9c58_rst_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_2/bd_9c58_ilmb_0.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_3/bd_9c58_dlmb_0.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_6/bd_9c58_lmb_bram_I_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_9/bd_9c58_second_lmb_bram_I_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_10/bd_9c58_iomodule_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/bd_9c58_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/ip_0/ddr4_1_microblaze_mcs_board.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/ip_0/ddr4_1_microblaze_mcs_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/ddr4_1_board.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/par/ddr4_1.xdc]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/bd_0/ip/ip_0/data/mb_bootloop_le.elf]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/ip_0/mb_bootloop_le.elf]
-set_property used_in_implementation false [get_files -all /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.ddr4_1/ddr4_1.gen/sources_1/ip/ddr4_1/sw/calibration_0/Debug/calibration_ddr.elf]
-
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -801,7 +781,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top cheshire_top_xilinx -part xcvu095-ffva2104-2-e
+synth_design -top cheshire_top_xilinx -part xcvu095-ffva2104-2-e -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
