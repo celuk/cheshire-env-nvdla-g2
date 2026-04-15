@@ -1,18 +1,15 @@
 List of CLB Tiles
-CLEL_L_X67Y193
-CLEL_R_X67Y193
-CLEL_L_X65Y266
-CLEL_R_X65Y266
-CLEL_L_X49Y105
-CLEL_R_X49Y105
-CLE_M_X48Y38
-CLEL_R_X48Y38
+CLEL_L_X78Y71
+CLEL_R_X78Y71
+CLEL_R_X59Y71
+CLEL_L_X44Y66
+CLEL_R_X44Y66
+CLE_M_X43Y29
+CLEL_R_X43Y29
+CLE_M_X43Y37
+CLEL_R_X43Y37
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[25]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[24]
-i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][9]_1
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/async_data_r_data[17][data][31]
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/async_data_r_data[16][data][31]
-i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[addr][10]_1
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[29]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[27]
 
