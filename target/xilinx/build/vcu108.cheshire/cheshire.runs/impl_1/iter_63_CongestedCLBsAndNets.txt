@@ -1,0 +1,8 @@
+List of CLB Tiles
+CLEL_L_X22Y255
+CLEL_R_X22Y255
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/cl_tag_q_reg[42]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/cl_tag_q_reg[43]
+
