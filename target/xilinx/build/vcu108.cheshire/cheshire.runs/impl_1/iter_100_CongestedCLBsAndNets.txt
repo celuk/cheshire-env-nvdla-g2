@@ -1,8 +1,17 @@
 List of CLB Tiles
-CLEL_L_X55Y79
-CLEL_R_X55Y79
+CLE_M_X38Y263
+CLEL_R_X38Y263
+CLEL_R_X36Y261
+CLEL_R_X34Y267
+CLEL_R_X34Y268
+CLE_M_X20Y242
+CLEL_R_X20Y242
+CLEL_L_X12Y317
+CLEL_R_X12Y317
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/mshr_q_reg[addr][55]_0[29]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/master_ports[1].i_cache_ctrl/mshr_addr[1]_376[34]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[18]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/id_q_reg[4]_41
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/icache_mem_data[paddr][16]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/icache_mem_data[paddr][15]
 
