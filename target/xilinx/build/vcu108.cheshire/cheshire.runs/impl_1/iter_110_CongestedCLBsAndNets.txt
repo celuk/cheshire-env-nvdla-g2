@@ -1,0 +1,23 @@
+List of CLB Tiles
+CLEL_L_X53Y293
+CLEL_R_X53Y293
+CLE_M_X56Y101
+CLEL_R_X56Y101
+CLEL_L_X55Y53
+CLEL_R_X55Y53
+CLEL_R_X52Y304
+CLEL_L_X49Y63
+CLEL_R_X49Y63
+CLEL_L_X49Y64
+CLEL_R_X49Y64
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[46]
+i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/async_data_r_data[12][data][346]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/p_0_in[15]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/p_0_in[17]
+i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/async_data_r_data[14][data][346]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/Q[26]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/i_mult/i_div/Q[24]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/csr_regfile_i/cl_tag_q_reg[46]
+
