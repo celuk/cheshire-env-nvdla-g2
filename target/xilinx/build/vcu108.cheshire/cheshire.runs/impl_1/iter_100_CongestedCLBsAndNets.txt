@@ -1,21 +1,8 @@
 List of CLB Tiles
-CLEL_R_X45Y106
-CLEL_L_X67Y112
-CLEL_R_X67Y112
-CLEL_R_X63Y121
-CLEL_R_X45Y99
-CLEL_R_X45Y101
-CLEL_R_X45Y110
+CLEL_L_X62Y84
+CLEL_R_X62Y84
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[29]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[2].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[27]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[16]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[3].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[2]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/mshr_q_reg[addr][55]_0[27]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/mshr_q_reg[addr][55]_0[31]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/mshr_q_reg[addr][55]_0[30]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/mshr_q_reg[addr][55]_0[29]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/id_q_reg[4]_40
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/id_q_reg[4]_27
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/p_0_in[20]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/p_0_in[19]
 
