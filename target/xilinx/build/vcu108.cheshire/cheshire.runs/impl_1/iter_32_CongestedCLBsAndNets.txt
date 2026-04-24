@@ -1,0 +1,17 @@
+List of CLB Tiles
+CLEL_R_X23Y121
+CLE_M_X20Y118
+CLEL_R_X20Y118
+CLE_M_X20Y119
+CLEL_R_X20Y119
+CLEL_L_X13Y82
+CLEL_R_X13Y82
+CLEL_R_X11Y198
+CLEL_R_X11Y199
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/p_0_in[30]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[28]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/i___23_i_1_n_0
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu_sv39x4.i_cva6_mmu/i_itlb/cl_tag_q[21]_i_80_n_0
+

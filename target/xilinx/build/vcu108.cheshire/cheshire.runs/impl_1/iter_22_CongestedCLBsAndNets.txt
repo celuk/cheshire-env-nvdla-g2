@@ -1,0 +1,29 @@
+List of CLB Tiles
+CLEL_R_X18Y135
+CLEL_L_X19Y137
+CLEL_R_X19Y137
+CLEL_L_X19Y140
+CLEL_R_X19Y140
+CLEL_R_X11Y197
+CLEL_L_X71Y251
+CLEL_R_X71Y251
+CLE_M_X70Y288
+CLEL_R_X70Y288
+CLEL_L_X67Y273
+CLEL_R_X67Y273
+CLEL_L_X60Y289
+CLEL_R_X60Y289
+CLEL_R_X59Y286
+CLEL_L_X58Y312
+CLEL_R_X58Y312
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[12]
+i_cheshire_soc/i_dbg_slv_axi_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_axi_wide_in_cut/gen_axi_cut.gen_axi_cuts[0].i_cut/i_reg_ar/spill_register_flushable_i/wifq_exists_inp[data][addr][0]
+i_cheshire_soc/i_arb/gen_rr_arb.i_arbiter/gen_arbiter.data_nodes[0][mask_n_0_]
+i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_lrsc/i_b_status_queue/gen_ht_ffs[3].head_tail_q_reg[3][head][2]_0
+i_cheshire_soc/gen_llc_atomics.i_llc_atomics/i_axi_riscv_atomics_wrap/i_atomics/i_lrsc/i_aw_trans_reg/i_fifo/gen_data_ffs[2].linked_data_q[2][next][3]_i_5__0_n_0
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[1]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[0]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/id_q_reg[4]_39
+
