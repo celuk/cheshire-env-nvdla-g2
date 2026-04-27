@@ -622,10 +622,10 @@ package cheshire_pkg;
     SerialLink        : 0,
     Vga               : 0,
     Usb               : 0,
-    Nvdla             : 0,
+    Nvdla             : 1,
     AxiRt             : 0,
     Clic              : 0,
-    IrqRouter         : 1,
+    IrqRouter         : 0,
     BusErr            : 1,
     // Debug
     DbgIdCode         : CheshireIdCode,
