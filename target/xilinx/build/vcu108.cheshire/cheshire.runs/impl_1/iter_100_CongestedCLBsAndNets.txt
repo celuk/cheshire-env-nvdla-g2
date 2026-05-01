@@ -1,14 +1,8 @@
 List of CLB Tiles
-CLEL_L_X65Y119
-CLEL_R_X65Y119
-CLEL_L_X65Y120
-CLEL_R_X65Y120
-CLEL_L_X65Y298
-CLEL_R_X65Y298
+CLEL_L_X17Y270
+CLEL_R_X17Y270
 
 List of Congested Nets
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[41]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[40]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[1].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[10]
-i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/id_q_reg[4]_10
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/fpu_gen.fpu_i/fpu_gen.i_fpnew_bulk/gen_operation_groups[2].i_opgroup_block/gen_parallel_slices[1].active_format.i_fmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_noncomp/gen_input_pipeline[0].inp_pipe_operands_q_reg_n_0_[1][0][24]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/fpu_gen.fpu_i/fpu_gen.i_fpnew_bulk/gen_operation_groups[2].i_opgroup_block/gen_parallel_slices[1].active_format.i_fmt_slice/gen_num_lanes[0].active_lane.lane_instance.i_noncomp/gen_input_pipeline[0].inp_pipe_operands_q_reg_n_0_[1][0][26]
 
