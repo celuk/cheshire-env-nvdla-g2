@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-519650-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1934155-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -427,6 +427,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-6e09ea4800bad616/src/regs/serial_link_single_channel_reg_top.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/shift_reg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/shift_reg_gated.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/simpleuart.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-7b624fb57f78de9a/src/spi_host/rtl/spi_host_cmd_pkg.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-7b624fb57f78de9a/src/spi_host/rtl/spi_host.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-7b624fb57f78de9a/src/spi_host/rtl/spi_host_byte_merge.sv
@@ -466,6 +467,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/tech_cells_generic-223c43ccbeb688f9/src/fpga/tc_clk_xilinx.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/tech_cells_generic-223c43ccbeb688f9/src/fpga/tc_sram_xilinx.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39/tlb.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/uart_programmer.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/unread.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_axi_adapter.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_cache_subsystem.sv

@@ -43,3 +43,16 @@ pico:
 .PHONY: program
 program:
 	$(XILINX_VIVADO)/bin/vivado -mode batch -nolog -nojournal -source program_vcu108.tcl -tclargs $(ARGS)
+
+.PHONY: program_linux
+program_linux:
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit"
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit"
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200
+	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit"
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200
+
+.PHONY: reset
+reset:
+	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS));

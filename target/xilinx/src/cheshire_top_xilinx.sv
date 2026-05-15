@@ -235,6 +235,48 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .init_no      ( )
   );
 
+  ///////////////////////////
+  //  UART DRAM Programmer //
+  ///////////////////////////
+
+  // Captures a "DRAMWRITE" magic sequence + size + addr + data over the same
+  // UART RX line as the SoC, then injects 32-bit writes into the DRAM AXI
+  // path (handled inside dram_wrapper_xilinx). When done it pulses
+  // uart_prog_sys_resetn low to reset the SoC so it boots from DRAM.
+
+  logic        uart_prog_dram_we;
+  logic [31:0] uart_prog_dram_addr;
+  logic [31:0] uart_prog_dram_data;
+  logic        uart_prog_dram_rst;
+  logic        uart_prog_dram_mode;
+  logic        uart_prog_sys_resetn;
+  logic        uart_prog_led;
+  logic        uart_dram_busy;
+
+  uart_programmer i_uart_programmer (
+    .clk_i              ( soc_clk              ),
+    .rst_ni             ( rst_n                ),
+    .program_rx_i       ( uart_rx_i            ),
+    .system_reset_o     ( uart_prog_sys_resetn ),
+    .prog_mode_led_o    ( uart_prog_led        ),
+    .dram_write_we_o    ( uart_prog_dram_we    ),
+    .dram_write_addr_o  ( uart_prog_dram_addr  ),
+    .dram_write_data_o  ( uart_prog_dram_data  ),
+    .dram_write_rst_o   ( uart_prog_dram_rst   ),
+    .dram_mode_o        ( uart_prog_dram_mode  )
+  );
+
+  // SoC reset is rst_n AND-gated with the programmer's reset pulse, the
+  // programming-mode signal, and the wrapper's AXI-master busy. The busy
+  // term is load-bearing: dram_mode_o drops the cycle after the last 4th
+  // byte arrives, but the AXI master needs several more cycles to issue
+  // AW/W/B for that final word. Without ~uart_dram_busy the SoC would be
+  // released for one cycle between Program-exit and the (registered) reset
+  // pulse, AND the last AXI transaction would be disconnected mid-handshake.
+  logic cheshire_rst_n;
+  assign cheshire_rst_n = rst_n & uart_prog_sys_resetn &
+                          ~uart_prog_dram_mode & ~uart_dram_busy;
+
   ////////////
   //  JTAG  //
   ////////////
@@ -528,6 +570,11 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     `endif
     .soc_req_i    ( axi_llc_mst_req ),
     .soc_rsp_o    ( axi_llc_mst_rsp ),
+    .uart_dram_we_i   ( uart_prog_dram_we   ),
+    .uart_dram_addr_i ( uart_prog_dram_addr ),
+    .uart_dram_data_i ( uart_prog_dram_data ),
+    .uart_dram_mode_i ( uart_prog_dram_mode ),
+    .uart_dram_busy_o ( uart_dram_busy      ),
     .*
   );
 `endif
@@ -549,7 +596,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .reg_ext_rsp_t      ( reg_rsp_t )
   ) i_cheshire_soc (
     .clk_i              ( soc_clk ),
-    .rst_ni             ( rst_n   ),
+    .rst_ni             ( cheshire_rst_n ),
     .test_mode_i        ( test_mode_i ),
     .boot_mode_i        ( boot_mode   ),
     .rtc_i              ( rtc_clk_q       ),
