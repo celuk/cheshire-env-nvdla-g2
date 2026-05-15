@@ -56,3 +56,26 @@ program_linux:
 .PHONY: reset
 reset:
 	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS));
+
+.PHONY: program_linux_problematic_cable plpc
+program_linux_problematic_cable:
+	@sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 3000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 5000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200;
+	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 3000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 5000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200;
+	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 3000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 5000000/g' program_vcu108.tcl;
+	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200;
+
+plpc: program_linux_problematic_cable
+
+%:
+	@:
