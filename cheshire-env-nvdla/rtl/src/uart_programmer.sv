@@ -27,7 +27,7 @@ module uart_programmer (
    // Programming state machine signals
    localparam DRAMWRITE_SEQUENCE  = "DRAMWRITE";
    localparam PROG_SEQ_LENGTH     = 9;
-   localparam SEQ_BREAK_THRESHOLD = 32'hffffffff; //32'd1000000;
+   localparam SEQ_BREAK_THRESHOLD = 32'd1_000_000;
    
    reg [PROG_SEQ_LENGTH*8-1:0] received_sequence;
    reg soft_rst;
@@ -181,6 +181,7 @@ module uart_programmer (
           end
           SequenceReceive: begin
             if (prog_uart_do != ~0) begin
+              sequence_break_ctr <= 32'h0;
               received_sequence <= {received_sequence[PROG_SEQ_LENGTH*8-9:0],prog_uart_do[7:0]};
               if (rcv_seq_ctr == PROG_SEQ_LENGTH-1) begin
                 rcv_seq_ctr <= 4'h0;

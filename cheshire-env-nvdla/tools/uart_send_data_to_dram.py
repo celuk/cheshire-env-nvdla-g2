@@ -47,7 +47,6 @@ if file_format == 1:
                 read_data = int(line, 16).to_bytes(4,'big')
                 ser.write(read_data)
     
-    ser.write('done'.encode('utf-8'))
 
 elif file_format == 2:
     file_size = os.path.getsize(file)
@@ -84,6 +83,5 @@ elif file_format == 2:
                 ser.write(padded[1:2])
                 ser.write(padded[0:1])
         
-    ser.write('done'.encode('utf-8'))
 
 print("Done Programming")
