@@ -15,7 +15,14 @@ module uart_programmer (
    output logic [31:0] dram_write_addr_o,
    output logic [31:0] dram_write_data_o,
    output logic dram_write_rst_o,
-   output logic dram_mode_o
+   output logic dram_mode_o,
+   // Broader SoC reset (active-low) for the new MIG-based setup. Goes low
+   // during the entire DRAMWRITE sequence (LengthCalc..Finish), during the
+   // legacy end-of-DRAMWRITE pulse, AND after the RESETTTTT magic until the
+   // next DRAMWRITE Finish. Legacy `system_reset_o` keeps its narrow
+   // behavior so the legacy `dram_wrapper.sv` doesn't re-trigger MIG
+   // calibration on these new conditions. Leave unconnected if not needed.
+   output logic soc_resetn_o
 );
 
    localparam CPU_CLK   = `CPU_CLK;
@@ -244,10 +251,54 @@ module uart_programmer (
       end
    end
 
+   // -------------------------------------------------------------------
+   //  SoC reset gating
+   // -------------------------------------------------------------------
+   //
+   // `system_reset_o` is the active-low reset that drives the SoC. It must
+   // be asserted (low) in three situations:
+   //   1. During the entire DRAMWRITE sequence (LengthCalc, AddrCalc,
+   //      Program, Finish), so the SoC cannot fetch/store while UART is
+   //      injecting writes onto the DRAM AXI.
+   //   2. For one cycle at SequenceDramWriteFinish, which is the legacy
+   //      post-DRAMWRITE pulse and is what `dram_prog_sys_rst_n` already
+   //      does.
+   //   3. After the RESETTTTT magic sequence, until the next DRAMWRITE
+   //      Finish releases it. Without this, RESETTTTT only kicks the
+   //      programmer's own FSM and does nothing to the SoC.
+   //
+   // `hold_reset` is set by the `soft_rst` pulse (which goes high when
+   // received_sequence == RESETTTTT) and cleared by the next DRAMWRITE
+   // Finish. So the user's flow becomes:
+   //     RESETTTTT -> SoC reset asserted and held
+   //     DRAMWRITE -> SoC stays in reset across the whole sequence,
+   //                  then released after Finish so the firmware boots.
+   reg hold_reset;
+   always @(posedge clk_i or negedge rst_ni) begin
+      if (!rst_ni) begin
+         hold_reset <= 1'b0;
+      end else if (soft_rst) begin
+         hold_reset <= 1'b1;
+      end else if (state_prog == SequenceDramWriteFinish) begin
+         hold_reset <= 1'b0;
+      end
+   end
+
+   wire programming_phase = (state_prog == SequenceDramWriteLengthCalc) ||
+                            (state_prog == SequenceDramWriteAddrCalc)   ||
+                            (state_prog == SequenceDramWriteProgram)    ||
+                            (state_prog == SequenceDramWriteFinish);
+
    // Output assignments
    assign prog_mode_led_o = (state_prog == SequenceDramWriteProgram);
-   assign system_reset_o = dram_prog_sys_rst_n;
-   assign ram_prog_rd_en = (state_prog != SequenceDramWriteFinish);
+   // Legacy, narrow reset: only pulses at SequenceDramWriteFinish. Kept
+   // unchanged so cheshire_soc_wrap.sv + legacy dram_wrapper.sv don't see
+   // wider reset assertions that would re-trigger MIG calibration.
+   assign system_reset_o  = dram_prog_sys_rst_n;
+   // Broader reset for the new cheshire_top_xilinx.sv path: covers all
+   // DRAMWRITE phases AND the RESETTTTT hold-reset.
+   assign soc_resetn_o    = dram_prog_sys_rst_n & ~hold_reset & ~programming_phase;
+   assign ram_prog_rd_en  = (state_prog != SequenceDramWriteFinish);
 
    // New DRAM output assignments
    assign dram_write_we_o   = dram_prog_inst_valid;

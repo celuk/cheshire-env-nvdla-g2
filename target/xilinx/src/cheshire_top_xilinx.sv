@@ -257,13 +257,19 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .clk_i              ( soc_clk              ),
     .rst_ni             ( rst_n                ),
     .program_rx_i       ( uart_rx_i            ),
-    .system_reset_o     ( uart_prog_sys_resetn ),
+    // Legacy narrow pulse, unused here. The broader soc_resetn_o below is
+    // what drives the SoC reset path.
+    .system_reset_o     (                      ),
     .prog_mode_led_o    ( uart_prog_led        ),
     .dram_write_we_o    ( uart_prog_dram_we    ),
     .dram_write_addr_o  ( uart_prog_dram_addr  ),
     .dram_write_data_o  ( uart_prog_dram_data  ),
     .dram_write_rst_o   ( uart_prog_dram_rst   ),
-    .dram_mode_o        ( uart_prog_dram_mode  )
+    .dram_mode_o        ( uart_prog_dram_mode  ),
+    // Broader reset: covers all DRAMWRITE phases + RESETTTTT hold. The
+    // wire name kept as `sys_resetn` for continuity with the existing
+    // cheshire_rst_n chain.
+    .soc_resetn_o       ( uart_prog_sys_resetn )
   );
 
   // SoC reset is rst_n AND-gated with the programmer's reset pulse, the
