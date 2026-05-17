@@ -1,8 +1,7 @@
 List of CLB Tiles
-CLEL_L_X40Y322
-CLEL_R_X40Y322
+CLEL_R_X32Y258
 
 List of Congested Nets
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/data_q_reg[15][data][511]_0[18]
-i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/data_q_reg[12][data][511]_0[18]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[9]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[10]
 

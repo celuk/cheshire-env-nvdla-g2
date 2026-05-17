@@ -50,9 +50,6 @@ module dram_wrapper_xilinx #(
   input  logic [31:0] uart_dram_addr_i,
   input  logic [31:0] uart_dram_data_i,
   input  logic        uart_dram_mode_i,
-  // High while the UART AXI master has a captured or in-flight write.
-  // cheshire_top uses this to hold the SoC in reset past the moment
-  // uart_programmer drops dram_mode_o, so the last transaction commits.
   output logic        uart_dram_busy_o
 );
 
@@ -162,11 +159,6 @@ module dram_wrapper_xilinx #(
   //  UART Programming AXI Master //
   /////////////////////////////////
 
-  // Converts 32-bit UART writes into single-beat AXI writes on the SoC AXI.
-  // Uses AXI write strobes to do partial writes (no RMW needed).
-  // Mimics the role dram_controller_wb played for UART writes in the legacy
-  // Wishbone-based controller.
-
   typedef enum logic [1:0] {
     UART_IDLE,
     UART_AW,
@@ -185,7 +177,6 @@ module dram_wrapper_xilinx #(
   localparam int unsigned SocDataBytes = SocDataWidth / 8;
   localparam int unsigned OffsetBits   = (SocDataBytes <= 1) ? 1 : $clog2(SocDataBytes);
 
-  // Latch incoming UART write and advance the AXI handshake FSM
   always_comb begin
     uart_axi_state_d  = uart_axi_state_q;
     uart_axi_addr_d   = uart_axi_addr_q;
@@ -224,40 +215,27 @@ module dram_wrapper_xilinx #(
     end
   end
 
-  // Byte offset of the 32-bit slot within the SoC AXI data word
   logic [OffsetBits-1:0] uart_byte_offset;
   assign uart_byte_offset = uart_axi_addr_q[OffsetBits-1:0];
 
-  // Build UART AXI master request (single beat, 4-byte aligned)
   always_comb begin
     uart_axi_req = '0;
-    // AW
     uart_axi_req.aw.addr  = SocAddrWidth'(uart_axi_addr_q & 32'hFFFFFFFC);
-    uart_axi_req.aw.size  = 3'b010; // 4 bytes
-    uart_axi_req.aw.burst = 2'b01;  // INCR
-    uart_axi_req.aw.len   = 8'd0;   // 1 beat
+    uart_axi_req.aw.size  = 3'b010;
+    uart_axi_req.aw.burst = 2'b01;
+    uart_axi_req.aw.len   = 8'd0;
     uart_axi_req.aw_valid = (uart_axi_state_q == UART_AW);
-    // W
     uart_axi_req.w.data = '0;
     uart_axi_req.w.data[uart_byte_offset*8 +: 32] = uart_axi_data_q;
     uart_axi_req.w.strb = '0;
     uart_axi_req.w.strb[uart_byte_offset +: 4] = 4'hF;
     uart_axi_req.w.last  = 1'b1;
     uart_axi_req.w_valid = (uart_axi_state_q == UART_W);
-    // B
     uart_axi_req.b_ready = (uart_axi_state_q == UART_B);
   end
 
-  // Busy: a write has been captured OR the AXI handshake is in flight. We
-  // keep the UART mux engaged for the full duration of busy, otherwise the
-  // last word's AW would be issued one cycle AFTER uart_programmer exits
-  // Program state and the mux would have already flipped back to the SoC.
   assign uart_dram_busy_o = (uart_axi_state_q != UART_IDLE) || uart_we_pending_q;
 
-  // Mux SoC AXI vs UART AXI. Stays on UART until the AXI master is idle,
-  // so transactions in flight when dram_mode_o drops still complete cleanly.
-  // During programming the SoC is held in reset, so dropping its requests
-  // here is fine.
   logic uart_take_bus;
   assign uart_take_bus = uart_dram_mode_i | uart_dram_busy_o;
 

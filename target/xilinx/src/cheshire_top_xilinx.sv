@@ -239,17 +239,14 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
   //  UART DRAM Programmer //
   ///////////////////////////
 
-  // Captures a "DRAMWRITE" magic sequence + size + addr + data over the same
-  // UART RX line as the SoC, then injects 32-bit writes into the DRAM AXI
-  // path (handled inside dram_wrapper_xilinx). When done it pulses
-  // uart_prog_sys_resetn low to reset the SoC so it boots from DRAM.
-
   logic        uart_prog_dram_we;
   logic [31:0] uart_prog_dram_addr;
   logic [31:0] uart_prog_dram_data;
   logic        uart_prog_dram_rst;
   logic        uart_prog_dram_mode;
+  logic        uart_prog_dram_active;
   logic        uart_prog_sys_resetn;
+  logic        uart_prog_soft_rst;
   logic        uart_prog_led;
   logic        uart_dram_busy;
 
@@ -257,31 +254,30 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .clk_i              ( soc_clk              ),
     .rst_ni             ( rst_n                ),
     .program_rx_i       ( uart_rx_i            ),
-    // Legacy narrow pulse, unused here. The broader soc_resetn_o below is
-    // what drives the SoC reset path.
-    .system_reset_o     (                      ),
+    .system_reset_o     ( uart_prog_sys_resetn ),
     .prog_mode_led_o    ( uart_prog_led        ),
     .dram_write_we_o    ( uart_prog_dram_we    ),
     .dram_write_addr_o  ( uart_prog_dram_addr  ),
     .dram_write_data_o  ( uart_prog_dram_data  ),
     .dram_write_rst_o   ( uart_prog_dram_rst   ),
     .dram_mode_o        ( uart_prog_dram_mode  ),
-    // Broader reset: covers all DRAMWRITE phases + RESETTTTT hold. The
-    // wire name kept as `sys_resetn` for continuity with the existing
-    // cheshire_rst_n chain.
-    .soc_resetn_o       ( uart_prog_sys_resetn )
+    .dram_active_o      ( uart_prog_dram_active),
+    .soft_rst_o         ( uart_prog_soft_rst   )
   );
 
-  // SoC reset is rst_n AND-gated with the programmer's reset pulse, the
-  // programming-mode signal, and the wrapper's AXI-master busy. The busy
-  // term is load-bearing: dram_mode_o drops the cycle after the last 4th
-  // byte arrives, but the AXI master needs several more cycles to issue
-  // AW/W/B for that final word. Without ~uart_dram_busy the SoC would be
-  // released for one cycle between Program-exit and the (registered) reset
-  // pulse, AND the last AXI transaction would be disconnected mid-handshake.
+  // Extend RESETTTTT pulse to ~20us so cheshire's reset sync sees it cleanly.
+  logic [9:0] soft_rst_cnt;
+  always_ff @(posedge soc_clk or negedge rst_n) begin
+    if (!rst_n)                       soft_rst_cnt <= 10'h3FF;
+    else if (uart_prog_soft_rst)      soft_rst_cnt <= 10'h0;
+    else if (soft_rst_cnt != 10'h3FF) soft_rst_cnt <= soft_rst_cnt + 1;
+  end
+  wire soft_rst_active = (soft_rst_cnt != 10'h3FF);
+
   logic cheshire_rst_n;
   assign cheshire_rst_n = rst_n & uart_prog_sys_resetn &
-                          ~uart_prog_dram_mode & ~uart_dram_busy;
+                          ~uart_prog_dram_active & ~uart_dram_busy &
+                          ~soft_rst_active;
 
   ////////////
   //  JTAG  //
