@@ -7,11 +7,12 @@
 //`define GENESYS2
 //`define ZC706
 
-// for cheshire_pkg.sv, same for vcu108
-`define VCU118
+// for cheshire_pkg.sv, same for vcu118
+`define VCU108
 
 `define CPU_CLK 50_000_000
 `define BAUD_RATE 115200
+`define PROG_BAUD_RATE 921600
 `define DDR_MHZ 50
 
 `define SV_TESTPOINTS_OFF 1

@@ -53,7 +53,7 @@ program_linux:
 
 .PHONY: reset
 reset:
-	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS)) -b 115200;
+	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS)) -b 921600;
 
 .PHONY: program_linux_problematic_cable plpc
 program_linux_problematic_cable:
