@@ -279,6 +279,9 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
                           ~uart_prog_dram_active & ~uart_dram_busy &
                           ~soft_rst_active;
 
+  logic soc_uart_tx;
+  assign uart_tx_o = cheshire_rst_n ? soc_uart_tx : 1'b1;
+
   ////////////
   //  JTAG  //
   ////////////
@@ -651,8 +654,8 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .vga_green_o,
     .vga_blue_o,
 `endif
-    .uart_tx_o          ( uart_tx_o ),
-    .uart_rx_i          ( uart_rx_i ),
+    .uart_tx_o          ( soc_uart_tx ),
+    .uart_rx_i          ( uart_rx_i  ),
     .uart_cts_ni        ( 1'b0 ),
     .uart_dsr_ni        ( 1'b0 ),
     .uart_dcd_ni        ( 1'b0 ),

@@ -21,6 +21,7 @@ module uart_programmer (
 
    localparam CPU_CLK   = `CPU_CLK;
    localparam BAUD_RATE = `BAUD_RATE;
+   localparam BAUD_RATE_FAST = 921600;
 
    localparam RESET_SEQUENCE    = "RESETTTTT";
 
@@ -264,7 +265,11 @@ module uart_programmer (
    // =========================================================================
    // UART FOR PROGRAMMING
    // =========================================================================
-   
+
+   wire prog_fast_baud = (state_prog == SequenceDramWriteLengthCalc) ||
+                         (state_prog == SequenceDramWriteAddrCalc)   ||
+                         (state_prog == SequenceDramWriteProgram);
+
    simpleuart #(
      .DEFAULT_DIV(CPU_CLK/BAUD_RATE)
    )
@@ -273,14 +278,20 @@ module uart_programmer (
       .resetn      (rst_ni),
       .ser_tx      (),
       .ser_rx      (program_rx_i),
-      .reg_div_we  (4'h0),
-      .reg_div_di  (32'h0),
+      .reg_div_we  ({4{prog_fast_baud != prog_fast_baud_prev}}),
+      .reg_div_di  (prog_fast_baud ? (CPU_CLK/BAUD_RATE_FAST) : (CPU_CLK/BAUD_RATE)),
       .reg_div_do  (),
       .reg_dat_we  (1'b0),
       .reg_dat_re  (ram_prog_rd_en),
       .reg_dat_di  (32'h0),
       .reg_dat_do  (prog_uart_do)
    );
+
+   reg prog_fast_baud_prev;
+   always @(posedge clk_i or negedge rst_ni) begin
+      if (!rst_ni) prog_fast_baud_prev <= 1'b0;
+      else         prog_fast_baud_prev <= prog_fast_baud;
+   end
 
    initial begin
       state_prog = SequenceWait;

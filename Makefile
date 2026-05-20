@@ -32,7 +32,7 @@ ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 jtag:
 	/media/shc/0EDEBC4906059163/tools/riscv-openocd/src/openocd -f verification/jtag/debug_soc.cfg
 
-PHONY: gdb
+.PHONY: gdb
 gdb:
 	gdb-multiarch -ex "target remote :3333"
 
@@ -47,13 +47,13 @@ program:
 .PHONY: program_linux
 program_linux:
 	$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit"
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600
 
 .PHONY: reset
 reset:
-	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS));
+	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS)) -b 115200;
 
 .PHONY: program_linux_problematic_cable plpc
 program_linux_problematic_cable:
@@ -61,9 +61,9 @@ program_linux_problematic_cable:
 	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
 	sed -i 's/set_property PARAM\.FREQUENCY [0-9]\+/set_property PARAM.FREQUENCY 5000000/g' program_vcu108.tcl;
 	-$(MAKE) program ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit";
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200;
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200;
-	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200;
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200 -pb 921600;
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600;
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600;
 
 plpc: program_linux_problematic_cable
 
