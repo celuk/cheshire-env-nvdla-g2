@@ -93,4 +93,7 @@ elif file_format == 2:
                 ser.write(padded[0:1])
         
 
+ser.flush()
+ser.baudrate = baud_rate
+ser.close()
 print("Done Programming")
