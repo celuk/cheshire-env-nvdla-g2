@@ -42,7 +42,7 @@ Disassembly of section .text:
  200004a:	0e010117          	auipc	sp,0xe010
  200004e:	fae10113          	addi	sp,sp,-82 # 1000fff8 <__stack_pointer$>
  2000052:	00002197          	auipc	gp,0x2
- 2000056:	d9218193          	addi	gp,gp,-622 # 2001de4 <__global_pointer$>
+ 2000056:	db218193          	addi	gp,gp,-590 # 2001e04 <__global_pointer$>
  200005a:	01000297          	auipc	t0,0x1000
  200005e:	fa628293          	addi	t0,t0,-90 # 3000000 <__base_regs>
  2000062:	0502a283          	lw	t0,80(t0)
@@ -148,7 +148,7 @@ Disassembly of section .text:
  2000194:	0185579b          	srliw	a5,a0,0x18
  2000198:	66c1                	lui	a3,0x10
  200019a:	8fd9                	or	a5,a5,a4
- 200019c:	f0068693          	addi	a3,a3,-256 # ff00 <uart.c.dfd1372b+0x4309>
+ 200019c:	f0068693          	addi	a3,a3,-256 # ff00 <uart.c.dfd1372b+0x42f3>
  20001a0:	0085571b          	srliw	a4,a0,0x8
  20001a4:	8f75                	and	a4,a4,a3
  20001a6:	8fd9                	or	a5,a5,a4
@@ -415,7 +415,7 @@ static uint16_t round_up_divide(uint32_t a, uint32_t b) {
  200033a:	51300893          	li	a7,1299
  200033e:	cca50513          	addi	a0,a0,-822 # 3003000 <__base_i2c>
  2000342:	10086813          	ori	a6,a6,256
- 2000346:	9c37879b          	addiw	a5,a5,-1597 # 9c3 <gpt.c.b428183b-0x5ec7>
+ 2000346:	9c37879b          	addiw	a5,a5,-1597 # 9c3 <gpt.c.b428183b-0x5edd>
  200034a:	06300613          	li	a2,99
  200034e:	03052023          	sw	a6,32(a0)
  2000352:	12b00713          	li	a4,299
@@ -435,7 +435,7 @@ static uint16_t round_up_divide(uint32_t a, uint32_t b) {
  200036e:	410787bb          	subw	a5,a5,a6
   return ((a - 1) / b) + 1;
  2000372:	02b7573b          	divuw	a4,a4,a1
- 2000376:	0605                	addi	a2,a2,1 # c001 <uart.c.dfd1372b+0x40a>
+ 2000376:	0605                	addi	a2,a2,1 # c001 <uart.c.dfd1372b+0x3f4>
                                     config->scl_time_low_cycles -
  2000378:	9f91                	subw	a5,a5,a2
   return ((a - 1) / b) + 1;
@@ -460,7 +460,7 @@ static uint16_t round_up_divide(uint32_t a, uint32_t b) {
   uint32_t timing2 = 0;
   timing2 = bitfield_field32_write(timing2, I2C_TIMING2_TSU_STA_FIELD,
  2000396:	2681                	sext.w	a3,a3
- 2000398:	2585                	addiw	a1,a1,1 # 10001 <uart.c.dfd1372b+0x440a>
+ 2000398:	2585                	addiw	a1,a1,1 # 10001 <uart.c.dfd1372b+0x43f4>
  200039a:	02b685bb          	mulw	a1,a3,a1
  200039e:	17c2                	slli	a5,a5,0x30
  20003a0:	93c1                	srli	a5,a5,0x30
@@ -704,7 +704,7 @@ static inline int __i2c_24fc1025_access_chunk(dif_i2c_t *i2c, void *buf, uint64_
  2000514:	e4a6                	sd	s1,72(sp)
  2000516:	000f3803          	ld	a6,0(t5)
   return ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)];
- 200051a:	02482783          	lw	a5,36(a6) # 10024 <uart.c.dfd1372b+0x442d>
+ 200051a:	02482783          	lw	a5,36(a6) # 10024 <uart.c.dfd1372b+0x4417>
     while (lfmt || lrx || ltx || lacq);
  200051e:	07f7f513          	andi	a0,a5,127
  2000522:	fd65                	bnez	a0,200051a <__i2c_24fc1025_access_chunk+0x1a>
@@ -1899,7 +1899,7 @@ static dif_result_t issue_data_phase(const dif_spi_host_t *spi_host,
       spi_host_fifo_write_alias(spi_host, segment->bidir.txbuf,
  2000cfe:	6a8c                	ld	a1,16(a3)
  2000d00:	ec32                	sd	a2,24(sp)
- 2000d02:	0206d603          	lhu	a2,32(a3) # 2020 <gpt.c.b428183b-0x486a>
+ 2000d02:	0206d603          	lhu	a2,32(a3) # 2020 <gpt.c.b428183b-0x4880>
       width = segment->bidir.width;
  2000d06:	e43a                	sd	a4,8(sp)
       spi_host_fifo_write_alias(spi_host, segment->bidir.txbuf,
@@ -1916,7 +1916,7 @@ static dif_result_t issue_data_phase(const dif_spi_host_t *spi_host,
       width = segment->rx.width;
  2000d1c:	4698                	lw	a4,8(a3)
   write_command_reg(spi_host, length, width, direction, last_segment);
- 2000d1e:	0186d603          	lhu	a2,24(a3) # 3018 <gpt.c.b428183b-0x3872>
+ 2000d1e:	0186d603          	lhu	a2,24(a3) # 3018 <gpt.c.b428183b-0x3888>
       break;
  2000d22:	6685                	lui	a3,0x1
  2000d24:	bf4d                	j	2000cd6 <issue_data_phase+0x3c>
@@ -1938,7 +1938,7 @@ dif_result_t dif_spi_host_fifo_read(const dif_spi_host_t *spi_host, void *dst,
  2000d34:	0035f793          	andi	a5,a1,3
  2000d38:	cb85                	beqz	a5,2000d68 <dif_spi_host_fifo_read.part.0.isra.0+0x3a>
  2000d3a:	6841                	lui	a6,0x10
- 2000d3c:	f0080813          	addi	a6,a6,-256 # ff00 <uart.c.dfd1372b+0x4309>
+ 2000d3c:	f0080813          	addi	a6,a6,-256 # ff00 <uart.c.dfd1372b+0x42f3>
  2000d40:	c679                	beqz	a2,2000e0e <dif_spi_host_fifo_read.part.0.isra.0+0xe0>
     if (queue.length < 1) {
  2000d42:	4702                	lw	a4,0(sp)
@@ -1987,7 +1987,7 @@ inline void write_64(uint64_t value, void *ptr) {
   } while (rxqd == 0);
  2000d80:	68c1                	lui	a7,0x10
  2000d82:	00e786b3          	add	a3,a5,a4
- 2000d86:	f0088893          	addi	a7,a7,-256 # ff00 <uart.c.dfd1372b+0x4309>
+ 2000d86:	f0088893          	addi	a7,a7,-256 # ff00 <uart.c.dfd1372b+0x42f3>
  2000d8a:	00410e93          	addi	t4,sp,4
  2000d8e:	a819                	j	2000da4 <dif_spi_host_fifo_read.part.0.isra.0+0x76>
   queue->length -= 4;
@@ -2044,7 +2044,7 @@ inline void write_64(uint64_t value, void *ptr) {
  2000dea:	4682                	lw	a3,0(sp)
  2000dec:	06d05c63          	blez	a3,2000e64 <dif_spi_host_fifo_read.part.0.isra.0+0x136>
   queue->length -= 1;
- 2000df0:	36fd                	addiw	a3,a3,-1 # fff <gpt.c.b428183b-0x588b>
+ 2000df0:	36fd                	addiw	a3,a3,-1 # fff <gpt.c.b428183b-0x58a1>
   write_64(qword >> 8, queue->data);
  2000df2:	6722                	ld	a4,8(sp)
   queue->length -= 1;
@@ -2110,7 +2110,7 @@ inline void write_64(uint64_t value, void *ptr) {
  2000e64:	00053803          	ld	a6,0(a0)
   } while (rxqd == 0);
  2000e68:	65c1                	lui	a1,0x10
- 2000e6a:	f0058593          	addi	a1,a1,-256 # ff00 <uart.c.dfd1372b+0x4309>
+ 2000e6a:	f0058593          	addi	a1,a1,-256 # ff00 <uart.c.dfd1372b+0x42f3>
  2000e6e:	01482703          	lw	a4,20(a6)
  2000e72:	8f6d                	and	a4,a4,a1
  2000e74:	df6d                	beqz	a4,2000e6e <dif_spi_host_fifo_read.part.0.isra.0+0x140>
@@ -2512,7 +2512,7 @@ dif_result_t dif_spi_host_transaction_csaat(const dif_spi_host_t *spi_host,
  20010f6:	4695                	li	a3,5
  20010f8:	00d79a63          	bne	a5,a3,200110c <dif_spi_host_transaction_csaat.constprop.0+0x50>
         spi_host_fifo_read_alias(spi_host, segment->bidir.rxbuf,
- 20010fc:	02075603          	lhu	a2,32(a4) # 2020 <gpt.c.b428183b-0x486a>
+ 20010fc:	02075603          	lhu	a2,32(a4) # 2020 <gpt.c.b428183b-0x4880>
  2001100:	6f0c                	ld	a1,24(a4)
   if (spi_host == NULL || (dst == NULL && len > 0)) {
  2001102:	c211                	beqz	a2,2001106 <dif_spi_host_transaction_csaat.constprop.0+0x4a>
@@ -2579,7 +2579,7 @@ dif_result_t dif_spi_host_transaction_csaat(const dif_spi_host_t *spi_host,
  200116c:	00874683          	lbu	a3,8(a4)
   ((volatile uint32_t *)base.base)[offset / sizeof(uint32_t)] = value;
  2001170:	6789                	lui	a5,0x2
- 2001172:	20078793          	addi	a5,a5,512 # 2200 <gpt.c.b428183b-0x468a>
+ 2001172:	20078793          	addi	a5,a5,512 # 2200 <gpt.c.b428183b-0x46a0>
   ((volatile uint8_t *)base.base)[offset / sizeof(uint8_t)] = value;
  2001176:	02d50823          	sb	a3,48(a0)
  200117a:	00083683          	ld	a3,0(a6)
@@ -2705,7 +2705,7 @@ static inline int __spi_sdcard_cmd(spi_sdcard_t *handle, uint64_t cmd, spi_sdcar
     uint64_t rem_bytes = __spi_sdcard_resp_len[resp] - 1;
  200122c:	020a9713          	slli	a4,s5,0x20
  2001230:	01d75793          	srli	a5,a4,0x1d
- 2001234:	16c18613          	addi	a2,gp,364 # 2001f50 <__spi_sdcard_resp_len>
+ 2001234:	16c18613          	addi	a2,gp,364 # 2001f70 <__spi_sdcard_resp_len>
  2001238:	963e                	add	a2,a2,a5
  200123a:	621c                	ld	a5,0(a2)
  200123c:	17fd                	addi	a5,a5,-1
@@ -2729,7 +2729,7 @@ static inline int __spi_sdcard_cmd(spi_sdcard_t *handle, uint64_t cmd, spi_sdcar
  2001258:	8082                	ret
         timeout = __spi_sdcard_r1b_timeout;
  200125a:	64e1                	lui	s1,0x18
- 200125c:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.dfd1372b+0xcaa9>
+ 200125c:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.dfd1372b+0xca93>
         seg = (dif_spi_host_segment_t){
  2001260:	4a11                	li	s4,4
  2001262:	01710993          	addi	s3,sp,23
@@ -2826,7 +2826,7 @@ static inline int __spi_sdcard_cmd_check(spi_sdcard_t *handle, uint64_t cmd, spi
     uint64_t resp_mask = (1 << (8UL * __spi_sdcard_resp_len[resp])) - 1;
  20012ea:	02049713          	slli	a4,s1,0x20
  20012ee:	01d75793          	srli	a5,a4,0x1d
- 20012f2:	16c18613          	addi	a2,gp,364 # 2001f50 <__spi_sdcard_resp_len>
+ 20012f2:	16c18613          	addi	a2,gp,364 # 2001f70 <__spi_sdcard_resp_len>
  20012f6:	963e                	add	a2,a2,a5
  20012f8:	621c                	ld	a5,0(a2)
     if (check_exp && ((buf & resp_mask) != (exp & resp_mask))) return buf & resp_mask;
@@ -2916,7 +2916,7 @@ int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
  2001374:	863e                	mv	a2,a5
  2001376:	e002                	sd	zero,0(sp)
  2001378:	8522                	mv	a0,s0
- 200137a:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.dfd1372b+0x25149>
+ 200137a:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.dfd1372b+0x25133>
  200137e:	4881                	li	a7,0
  2001380:	4801                	li	a6,0
  2001382:	4781                	li	a5,0
@@ -2947,7 +2947,7 @@ int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
  20013a4:	000315b7          	lui	a1,0x31
  20013a8:	e002                	sd	zero,0(sp)
  20013aa:	e43e                	sd	a5,8(sp)
- 20013ac:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.dfd1372b+0x25149>
+ 20013ac:	d4058593          	addi	a1,a1,-704 # 30d40 <uart.c.dfd1372b+0x25133>
  20013b0:	4881                	li	a7,0
  20013b2:	4801                	li	a6,0
  20013b4:	4781                	li	a5,0
@@ -3001,7 +3001,7 @@ int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
  200141c:	f935                	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
     /*CMD8*/ CHECK_CALL(
  200141e:	0087b5b7          	lui	a1,0x87b
- 2001422:	a0158593          	addi	a1,a1,-1535 # 87aa01 <uart.c.dfd1372b+0x86ee0a>
+ 2001422:	a0158593          	addi	a1,a1,-1535 # 87aa01 <uart.c.dfd1372b+0x86edf4>
  2001426:	0aa01737          	lui	a4,0xaa01
  200142a:	05e2                	slli	a1,a1,0x18
  200142c:	0732                	slli	a4,a4,0xc
@@ -3060,7 +3060,7 @@ int spi_sdcard_init(spi_sdcard_t *handle, uint64_t core_freq) {
  20014a2:	ee0517e3          	bnez	a0,2001390 <spi_sdcard_init.constprop.0+0x62>
     /*CMD16*/ CHECK_CALL(
  20014a6:	000a85b7          	lui	a1,0xa8
- 20014aa:	0585                	addi	a1,a1,1 # a8001 <uart.c.dfd1372b+0x9c40a>
+ 20014aa:	0585                	addi	a1,a1,1 # a8001 <uart.c.dfd1372b+0x9c3f4>
  20014ac:	05e6                	slli	a1,a1,0x19
  20014ae:	05058593          	addi	a1,a1,80
  20014b2:	4701                	li	a4,0
@@ -3207,7 +3207,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20015c0:	0017979b          	slliw	a5,a5,0x1
  20015c4:	8fb1                	xor	a5,a5,a2
  20015c6:	0ff7f793          	zext.b	a5,a5
- 20015ca:	06c18713          	addi	a4,gp,108 # 2001e50 <__spi_sdcard_crc7_lookup>
+ 20015ca:	06c18713          	addi	a4,gp,108 # 2001e70 <__spi_sdcard_crc7_lookup>
  20015ce:	97ba                	add	a5,a5,a4
     for (uint64_t i = 0; i < len; ++i)
  20015d0:	0685                	addi	a3,a3,1
@@ -3301,7 +3301,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  200168e:	0ff00a93          	li	s5,255
     CHECK_CALL(__spi_sdcard_cmd(handle, cmd, kSpiSdcardRespR1, &rx, 1))
  2001692:	6c61                	lui	s8,0x18
- 2001694:	6a0c0c13          	addi	s8,s8,1696 # 186a0 <uart.c.dfd1372b+0xcaa9>
+ 2001694:	6a0c0c13          	addi	s8,s8,1696 # 186a0 <uart.c.dfd1372b+0xca93>
     return dif_spi_host_transaction_csaat(&handle->spi_host, handle->csid, &seg, 1);
  2001698:	481c                	lw	a5,16(s0)
  200169a:	6018                	ld	a4,0(s0)
@@ -3407,7 +3407,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  200175e:	8eb1                	xor	a3,a3,a2
  2001760:	02069613          	slli	a2,a3,0x20
  2001764:	01f65693          	srli	a3,a2,0x1f
- 2001768:	e6c18793          	addi	a5,gp,-404 # 2001c50 <__spi_sdcard_crc16_lookup>
+ 2001768:	e6c18793          	addi	a5,gp,-404 # 2001c70 <__spi_sdcard_crc16_lookup>
  200176c:	97b6                	add	a5,a5,a3
  200176e:	0007d683          	lhu	a3,0(a5)
         state =
@@ -3438,7 +3438,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20017a6:	95de                	add	a1,a1,s7
  20017a8:	417b0633          	sub	a2,s6,s7
  20017ac:	01ab8533          	add	a0,s7,s10
- 20017b0:	3b2000ef          	jal	2001b62 <memcpy>
+ 20017b0:	3d6000ef          	jal	2001b86 <memcpy>
     for (uint64_t b = 0; b < len; ++b) {
  20017b4:	001c8793          	addi	a5,s9,1
  20017b8:	8cbe                	mv	s9,a5
@@ -3534,7 +3534,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  2001876:	b551                	j	20016fa <__spi_sdcard_read.part.0.constprop.0+0x1c0>
         seg = (dif_spi_host_segment_t){
  2001878:	6705                	lui	a4,0x1
- 200187a:	80070713          	addi	a4,a4,-2048 # 800 <gpt.c.b428183b-0x608a>
+ 200187a:	80070713          	addi	a4,a4,-2048 # 800 <gpt.c.b428183b-0x60a0>
  200187e:	e4ba                	sd	a4,72(sp)
  2001880:	c082                	sw	zero,64(sp)
  2001882:	4709                	li	a4,2
@@ -3565,7 +3565,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20018a8:	865a                	mv	a2,s6
  20018aa:	108c                	addi	a1,sp,96
  20018ac:	856a                	mv	a0,s10
- 20018ae:	2b4000ef          	jal	2001b62 <memcpy>
+ 20018ae:	2d8000ef          	jal	2001b86 <memcpy>
  20018b2:	b709                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
         else if (first_block)
  20018b4:	67c2                	ld	a5,16(sp)
@@ -3576,7 +3576,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  20018be:	41760633          	sub	a2,a2,s7
  20018c2:	95de                	add	a1,a1,s7
  20018c4:	856e                	mv	a0,s11
- 20018c6:	29c000ef          	jal	2001b62 <memcpy>
+ 20018c6:	2c0000ef          	jal	2001b86 <memcpy>
  20018ca:	b5ed                	j	20017b4 <__spi_sdcard_read.part.0.constprop.0+0x27a>
         if (timeout == 0) return 0x19;
  20018cc:	4565                	li	a0,25
@@ -3598,7 +3598,7 @@ static int __spi_sdcard_read(void *priv, void *buf, uint64_t addr, uint64_t len,
  2001906:	8082                	ret
         timeout = __spi_sdcard_r1b_timeout;
  2001908:	64e1                	lui	s1,0x18
- 200190a:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.dfd1372b+0xcaa9>
+ 200190a:	6a048493          	addi	s1,s1,1696 # 186a0 <uart.c.dfd1372b+0xca93>
         seg = (dif_spi_host_segment_t){
  200190e:	4a11                	li	s4,4
  2001910:	02710993          	addi	s3,sp,39
@@ -3712,285 +3712,320 @@ int main() {
     uint32_t rtc_freq = *reg32(&__base_regs, CHESHIRE_RTC_FREQ_REG_OFFSET);
  20019c0:	40e0                	lw	s0,68(s1)
 int main() {
- 20019c2:	f852                	sd	s4,48(sp)
- 20019c4:	ec86                	sd	ra,88(sp)
+ 20019c2:	ec86                	sd	ra,88(sp)
+ 20019c4:	f852                	sd	s4,48(sp)
     // Compute the boot core frequency using the reference clock
     uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
  20019c6:	1402                	slli	s0,s0,0x20
  20019c8:	9001                	srli	s0,s0,0x20
  20019ca:	8522                	mv	a0,s0
  20019cc:	81bfe0ef          	jal	20001e6 <clint_get_core_freq.constprop.0>
+#include "regs/axi_llc.h"
+
+// Block until the tag-RAM BIST has completed. Config writes issued before this
+// are overwritten by the BIST result, so we must gate on it.
+static inline void __l2_wait_bist(void) {
+    while (!(*reg32(&__base_l2, AXI_LLC_BIST_STATUS_REG_OFFSET) &
+ 20019d0:	0300a6b7          	lui	a3,0x300a
     uint32_t bootmode = *reg32(&__base_regs, CHESHIRE_BOOT_MODE_REG_OFFSET);
- 20019d0:	2901                	sext.w	s2,s2
+ 20019d4:	2901                	sext.w	s2,s2
+    uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
+ 20019d6:	85aa                	mv	a1,a0
+ 20019d8:	00068793          	mv	a5,a3
+ 20019dc:	47b8                	lw	a4,72(a5)
+ 20019de:	8b05                	andi	a4,a4,1
+ 20019e0:	df75                	beqz	a4,20019dc <main+0x32>
+
+// Configure all ways as cache and commit, so the L2 caches the DRAM region.
+static inline void l2_cache_enable(void) {
+    __l2_wait_bist();
+    // SPM mask: 1 = way is scratchpad, 0 = way is cache. Clear it for all ways.
+    *reg32(&__base_l2, AXI_LLC_CFG_SPM_LOW_REG_OFFSET)  = 0;
+ 20019e2:	0006a023          	sw	zero,0(a3) # 300a000 <__base_l2>
+    *reg32(&__base_l2, AXI_LLC_CFG_SPM_HIGH_REG_OFFSET) = 0;
+ 20019e6:	0007a223          	sw	zero,4(a5)
+    *reg32(&__base_l2, AXI_LLC_COMMIT_CFG_REG_OFFSET)   = 1;
+ 20019ea:	4705                	li	a4,1
+ 20019ec:	cb98                	sw	a4,16(a5)
+    // The commit (de)flushes the affected ways; for an SPM->cache switch nothing
+    // needs eviction, so the FLUSHED flags simply clear once it is applied.
+    while (*reg32(&__base_l2, AXI_LLC_FLUSHED_LOW_REG_OFFSET) |
+ 20019ee:	4f98                	lw	a4,24(a5)
+           *reg32(&__base_l2, AXI_LLC_FLUSHED_HIGH_REG_OFFSET))
+ 20019f0:	4fd4                	lw	a3,28(a5)
+    while (*reg32(&__base_l2, AXI_LLC_FLUSHED_LOW_REG_OFFSET) |
+ 20019f2:	8f55                	or	a4,a4,a3
+ 20019f4:	ff6d                	bnez	a4,20019ee <main+0x44>
+    // Switch the L2 from its reset (all-scratchpad/bypass) state into cache
+    // mode, so the DRAM payload we are about to launch is actually cached.
+    l2_cache_enable();
     // In case of reentry, store return in scratch0 as is convention
     switch (bootmode) {
- 20019d2:	4a09                	li	s4,2
-    uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
- 20019d4:	85aa                	mv	a1,a0
-    switch (bootmode) {
- 20019d6:	11490463          	beq	s2,s4,2001ade <main+0x134>
- 20019da:	072a6f63          	bltu	s4,s2,2001a58 <main+0xae>
- 20019de:	0a091863          	bnez	s2,2001a8e <main+0xe4>
+ 20019f6:	4a09                	li	s4,2
+ 20019f8:	11490563          	beq	s2,s4,2001b02 <main+0x158>
+ 20019fc:	072a6f63          	bltu	s4,s2,2001a7a <main+0xd0>
+ 2001a00:	0a091963          	bnez	s2,2001ab2 <main+0x108>
     clint_spin_until((500 * rtc_freq) / (1000 * 1000) + 1);
- 20019e2:	1f400513          	li	a0,500
- 20019e6:	02a40533          	mul	a0,s0,a0
- 20019ea:	000f47b7          	lui	a5,0xf4
- 20019ee:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8649>
- 20019f2:	02f55533          	divu	a0,a0,a5
- 20019f6:	0505                	addi	a0,a0,1
- 20019f8:	fbefe0ef          	jal	20001b6 <clint_spin_until>
+ 2001a04:	1f400513          	li	a0,500
+ 2001a08:	02a40533          	mul	a0,s0,a0
+ 2001a0c:	000f47b7          	lui	a5,0xf4
+ 2001a10:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8633>
+ 2001a14:	02f55533          	divu	a0,a0,a5
+ 2001a18:	0505                	addi	a0,a0,1
+ 2001a1a:	f9cfe0ef          	jal	20001b6 <clint_spin_until>
     dynamic_info.magic = FW_DYNAMIC_INFO_MAGIC_VALUE;
- 20019fc:	494257b7          	lui	a5,0x49425
- 2001a00:	34f78793          	addi	a5,a5,847 # 4942534f <__stack_pointer$+0x39415357>
- 2001a04:	e03e                	sd	a5,0(sp)
+ 2001a1e:	494257b7          	lui	a5,0x49425
+ 2001a22:	34f78793          	addi	a5,a5,847 # 4942534f <__stack_pointer$+0x39415357>
+ 2001a26:	e03e                	sd	a5,0(sp)
     dynamic_info.next_addr = FW_DYNAMIC_NEXT_ADDRESS;
- 2001a06:	40100793          	li	a5,1025
- 2001a0a:	07d6                	slli	a5,a5,0x15
- 2001a0c:	e83e                	sd	a5,16(sp)
+ 2001a28:	40100793          	li	a5,1025
+ 2001a2c:	07d6                	slli	a5,a5,0x15
+ 2001a2e:	e83e                	sd	a5,16(sp)
     dynamic_info.next_mode = FW_DYNAMIC_INFO_NEXT_MODE_S;
- 2001a0e:	4785                	li	a5,1
+ 2001a30:	4785                	li	a5,1
     dynamic_info.version = FW_DYNAMIC_INFO_VERSION_MAX;
- 2001a10:	e452                	sd	s4,8(sp)
+ 2001a32:	e452                	sd	s4,8(sp)
     dynamic_info.next_mode = FW_DYNAMIC_INFO_NEXT_MODE_S;
- 2001a12:	ec3e                	sd	a5,24(sp)
+ 2001a34:	ec3e                	sd	a5,24(sp)
     dynamic_info.options = 0x00000000;
- 2001a14:	f002                	sd	zero,32(sp)
+ 2001a36:	f002                	sd	zero,32(sp)
     dynamic_info.boot_hart = BOOT_HART_ID;
- 2001a16:	f402                	sd	zero,40(sp)
+ 2001a38:	f402                	sd	zero,40(sp)
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
- 2001a18:	f14027f3          	csrr	a5,mhartid
+ 2001a3a:	f14027f3          	csrr	a5,mhartid
     __asm__ volatile (
- 2001a1c:	02005737          	lui	a4,0x2005
+ 2001a3e:	02005737          	lui	a4,0x2005
 	__asm__ volatile("csrr %0, mhartid" : "=r"(hart_id));
- 2001a20:	2781                	sext.w	a5,a5
+ 2001a42:	2781                	sext.w	a5,a5
     __asm__ volatile (
- 2001a22:	071a                	slli	a4,a4,0x6
- 2001a24:	853e                	mv	a0,a5
- 2001a26:	85ba                	mv	a1,a4
- 2001a28:	860a                	mv	a2,sp
+ 2001a44:	071a                	slli	a4,a4,0x6
+ 2001a46:	853e                	mv	a0,a5
+ 2001a48:	85ba                	mv	a1,a4
+ 2001a4a:	860a                	mv	a2,sp
     scratch[0] = (uint32_t)(next_addr & 0xFFFFFFFF);
- 2001a2a:	800007b7          	lui	a5,0x80000
- 2001a2e:	00f9a023          	sw	a5,0(s3) # 3000000 <__base_regs>
+ 2001a4c:	800007b7          	lui	a5,0x80000
+ 2001a50:	00f9a023          	sw	a5,0(s3) # 3000000 <__base_regs>
     scratch[1] = (uint32_t)(next_addr >> 32);
- 2001a32:	0004a223          	sw	zero,4(s1)
+ 2001a54:	0004a223          	sw	zero,4(s1)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a36:	40c8                	lw	a0,4(s1)
- 2001a38:	0009a783          	lw	a5,0(s3)
- 2001a3c:	1502                	slli	a0,a0,0x20
- 2001a3e:	1782                	slli	a5,a5,0x20
- 2001a40:	9381                	srli	a5,a5,0x20
- 2001a42:	8d5d                	or	a0,a0,a5
- 2001a44:	eacfe0ef          	jal	20000f0 <boot_next_stage>
+ 2001a58:	40c8                	lw	a0,4(s1)
+ 2001a5a:	0009a783          	lw	a5,0(s3)
+ 2001a5e:	1502                	slli	a0,a0,0x20
+ 2001a60:	1782                	slli	a5,a5,0x20
+ 2001a62:	9381                	srli	a5,a5,0x20
+ 2001a64:	8d5d                	or	a0,a0,a5
+ 2001a66:	e8afe0ef          	jal	20000f0 <boot_next_stage>
     case 3:
         return boot_i2c_24fc1025(core_freq);
     default:
         return boot_passive(core_freq);
     }
 }
- 2001a48:	60e6                	ld	ra,88(sp)
- 2001a4a:	6446                	ld	s0,80(sp)
- 2001a4c:	64a6                	ld	s1,72(sp)
- 2001a4e:	6906                	ld	s2,64(sp)
- 2001a50:	79e2                	ld	s3,56(sp)
- 2001a52:	7a42                	ld	s4,48(sp)
- 2001a54:	6125                	addi	sp,sp,96
- 2001a56:	8082                	ret
+ 2001a6a:	60e6                	ld	ra,88(sp)
+ 2001a6c:	6446                	ld	s0,80(sp)
+ 2001a6e:	64a6                	ld	s1,72(sp)
+ 2001a70:	6906                	ld	s2,64(sp)
+ 2001a72:	79e2                	ld	s3,56(sp)
+ 2001a74:	7a42                	ld	s4,48(sp)
+ 2001a76:	6125                	addi	sp,sp,96
+ 2001a78:	8082                	ret
     switch (bootmode) {
- 2001a58:	478d                	li	a5,3
- 2001a5a:	0cf90a63          	beq	s2,a5,2001b2e <main+0x184>
+ 2001a7a:	478d                	li	a5,3
+ 2001a7c:	0cf90b63          	beq	s2,a5,2001b52 <main+0x1a8>
     uart_debug_init(&__base_uart, core_freq);
- 2001a5e:	9affe0ef          	jal	200040c <uart_debug_init.constprop.0.isra.0>
+ 2001a80:	852e                	mv	a0,a1
+ 2001a82:	98bfe0ef          	jal	200040c <uart_debug_init.constprop.0.isra.0>
     while (!(scratch[2] & 2))
- 2001a62:	449c                	lw	a5,8(s1)
- 2001a64:	8b89                	andi	a5,a5,2
- 2001a66:	0e078163          	beqz	a5,2001b48 <main+0x19e>
+ 2001a86:	449c                	lw	a5,8(s1)
+ 2001a88:	8b89                	andi	a5,a5,2
+ 2001a8a:	0e078163          	beqz	a5,2001b6c <main+0x1c2>
     scratch[2] = 0;
- 2001a6a:	0004a423          	sw	zero,8(s1)
+ 2001a8e:	0004a423          	sw	zero,8(s1)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a6e:	40c8                	lw	a0,4(s1)
- 2001a70:	0009a783          	lw	a5,0(s3)
+ 2001a92:	40c8                	lw	a0,4(s1)
+ 2001a94:	0009a783          	lw	a5,0(s3)
 }
- 2001a74:	6446                	ld	s0,80(sp)
- 2001a76:	60e6                	ld	ra,88(sp)
- 2001a78:	64a6                	ld	s1,72(sp)
- 2001a7a:	6906                	ld	s2,64(sp)
- 2001a7c:	79e2                	ld	s3,56(sp)
- 2001a7e:	7a42                	ld	s4,48(sp)
+ 2001a98:	6446                	ld	s0,80(sp)
+ 2001a9a:	60e6                	ld	ra,88(sp)
+ 2001a9c:	64a6                	ld	s1,72(sp)
+ 2001a9e:	6906                	ld	s2,64(sp)
+ 2001aa0:	79e2                	ld	s3,56(sp)
+ 2001aa2:	7a42                	ld	s4,48(sp)
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a80:	1782                	slli	a5,a5,0x20
- 2001a82:	1502                	slli	a0,a0,0x20
- 2001a84:	9381                	srli	a5,a5,0x20
- 2001a86:	8d5d                	or	a0,a0,a5
+ 2001aa4:	1782                	slli	a5,a5,0x20
+ 2001aa6:	1502                	slli	a0,a0,0x20
+ 2001aa8:	9381                	srli	a5,a5,0x20
+ 2001aaa:	8d5d                	or	a0,a0,a5
 }
- 2001a88:	6125                	addi	sp,sp,96
+ 2001aac:	6125                	addi	sp,sp,96
     return boot_next_stage((void *)(uintptr_t)(((uint64_t)scratch[1] << 32) | scratch[0]));
- 2001a8a:	e66fe06f          	j	20000f0 <boot_next_stage>
+ 2001aae:	e42fe06f          	j	20000f0 <boot_next_stage>
         .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
- 2001a8e:	02dc7737          	lui	a4,0x2dc7
- 2001a92:	016e37b7          	lui	a5,0x16e3
+ 2001ab2:	02dc7737          	lui	a4,0x2dc7
+ 2001ab6:	016e37b7          	lui	a5,0x16e3
     spi_sdcard_t device = {
- 2001a96:	e002                	sd	zero,0(sp)
- 2001a98:	c802                	sw	zero,16(sp)
+ 2001aba:	e002                	sd	zero,0(sp)
+ 2001abc:	c802                	sw	zero,16(sp)
         .spi_freq = MIN(24 * 1000 * 1000, core_freq / 2), // Up to half core freq or 24MHz (<25MHz)
- 2001a9a:	bff70713          	addi	a4,a4,-1025 # 2dc6bff <__base_axirtgrd+0xd04c03>
- 2001a9e:	60078793          	addi	a5,a5,1536 # 16e3600 <__base_dma+0x6e3600>
- 2001aa2:	00a76463          	bltu	a4,a0,2001aaa <main+0x100>
- 2001aa6:	00155793          	srli	a5,a0,0x1
+ 2001abe:	bff70713          	addi	a4,a4,-1025 # 2dc6bff <__base_axirtgrd+0xd04c03>
+ 2001ac2:	60078793          	addi	a5,a5,1536 # 16e3600 <__base_dma+0x6e3600>
+ 2001ac6:	00b76463          	bltu	a4,a1,2001ace <main+0x124>
+ 2001aca:	0015d793          	srli	a5,a1,0x1
     spi_sdcard_t device = {
- 2001aaa:	e43e                	sd	a5,8(sp)
+ 2001ace:	e43e                	sd	a5,8(sp)
     CHECK_CALL(spi_sdcard_init(&device, core_freq))
- 2001aac:	850a                	mv	a0,sp
+ 2001ad0:	850a                	mv	a0,sp
     spi_sdcard_t device = {
- 2001aae:	4789                	li	a5,2
- 2001ab0:	ca3e                	sw	a5,20(sp)
+ 2001ad2:	4789                	li	a5,2
+ 2001ad4:	ca3e                	sw	a5,20(sp)
     CHECK_CALL(spi_sdcard_init(&device, core_freq))
- 2001ab2:	87dff0ef          	jal	200132e <spi_sdcard_init.constprop.0>
- 2001ab6:	f949                	bnez	a0,2001a48 <main+0x9e>
+ 2001ad6:	859ff0ef          	jal	200132e <spi_sdcard_init.constprop.0>
+ 2001ada:	f941                	bnez	a0,2001a6a <main+0xc0>
     clint_spin_until((1000 * rtc_freq) / (1000 * 1000) + 1);
- 2001ab8:	3e800513          	li	a0,1000
- 2001abc:	02a40533          	mul	a0,s0,a0
- 2001ac0:	000f47b7          	lui	a5,0xf4
- 2001ac4:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8649>
- 2001ac8:	02f55533          	divu	a0,a0,a5
- 2001acc:	0505                	addi	a0,a0,1
- 2001ace:	ee8fe0ef          	jal	20001b6 <clint_spin_until>
+ 2001adc:	3e800513          	li	a0,1000
+ 2001ae0:	02a40533          	mul	a0,s0,a0
+ 2001ae4:	000f47b7          	lui	a5,0xf4
+ 2001ae8:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8633>
+ 2001aec:	02f55533          	divu	a0,a0,a5
+ 2001af0:	0505                	addi	a0,a0,1
+ 2001af2:	ec4fe0ef          	jal	20001b6 <clint_spin_until>
     return gpt_boot_part_else_raw(spi_sdcard_read_checkcrc, &device, &__base_spm,
- 2001ad2:	858a                	mv	a1,sp
- 2001ad4:	bbe18513          	addi	a0,gp,-1090 # 20019a2 <spi_sdcard_read_checkcrc>
+ 2001af6:	858a                	mv	a1,sp
+ 2001af8:	b9e18513          	addi	a0,gp,-1122 # 20019a2 <spi_sdcard_read_checkcrc>
     return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
- 2001ad8:	fa1fe0ef          	jal	2000a78 <gpt_boot_part_else_raw.constprop.0>
- 2001adc:	b7b5                	j	2001a48 <main+0x9e>
+ 2001afc:	f7dfe0ef          	jal	2000a78 <gpt_boot_part_else_raw.constprop.0>
+ 2001b00:	b7ad                	j	2001a6a <main+0xc0>
         .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
- 2001ade:	09896737          	lui	a4,0x9896
- 2001ae2:	026267b7          	lui	a5,0x2626
+ 2001b02:	09896737          	lui	a4,0x9896
+ 2001b06:	026267b7          	lui	a5,0x2626
     spi_s25fs512s_t device = {
- 2001ae6:	e002                	sd	zero,0(sp)
- 2001ae8:	e802                	sd	zero,16(sp)
+ 2001b0a:	e002                	sd	zero,0(sp)
+ 2001b0c:	e802                	sd	zero,16(sp)
         .spi_freq = MIN(40 * 1000 * 1000, core_freq / 4), // Up to quarter core freq or 40MHz
- 2001aea:	7ff70713          	addi	a4,a4,2047 # 98967ff <__base_clic+0x18967ff>
- 2001aee:	a0078793          	addi	a5,a5,-1536 # 2625a00 <__base_axirtgrd+0x563a04>
- 2001af2:	00a76463          	bltu	a4,a0,2001afa <main+0x150>
- 2001af6:	00255793          	srli	a5,a0,0x2
+ 2001b0e:	7ff70713          	addi	a4,a4,2047 # 98967ff <__base_clic+0x18967ff>
+ 2001b12:	a0078793          	addi	a5,a5,-1536 # 2625a00 <__base_axirtgrd+0x563a04>
+ 2001b16:	00b76463          	bltu	a4,a1,2001b1e <main+0x174>
+ 2001b1a:	0025d793          	srli	a5,a1,0x2
     spi_s25fs512s_t device = {
- 2001afa:	e43e                	sd	a5,8(sp)
+ 2001b1e:	e43e                	sd	a5,8(sp)
     CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
- 2001afc:	850a                	mv	a0,sp
+ 2001b20:	850a                	mv	a0,sp
     spi_s25fs512s_t device = {
- 2001afe:	4785                	li	a5,1
- 2001b00:	c83e                	sw	a5,16(sp)
+ 2001b22:	4785                	li	a5,1
+ 2001b24:	c83e                	sw	a5,16(sp)
     CHECK_CALL(spi_s25fs512s_init(&device, core_freq))
- 2001b02:	d2ffe0ef          	jal	2000830 <spi_s25fs512s_init.constprop.0>
- 2001b06:	f129                	bnez	a0,2001a48 <main+0x9e>
+ 2001b26:	d0bfe0ef          	jal	2000830 <spi_s25fs512s_init.constprop.0>
+ 2001b2a:	f121                	bnez	a0,2001a6a <main+0xc0>
     clint_spin_until((350 * rtc_freq) / (1000 * 1000) + 1);
- 2001b08:	15e00793          	li	a5,350
- 2001b0c:	02f40533          	mul	a0,s0,a5
- 2001b10:	000f47b7          	lui	a5,0xf4
- 2001b14:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8649>
- 2001b18:	02f55533          	divu	a0,a0,a5
- 2001b1c:	0505                	addi	a0,a0,1
- 2001b1e:	e98fe0ef          	jal	20001b6 <clint_spin_until>
+ 2001b2c:	15e00793          	li	a5,350
+ 2001b30:	02f40533          	mul	a0,s0,a5
+ 2001b34:	000f47b7          	lui	a5,0xf4
+ 2001b38:	24078793          	addi	a5,a5,576 # f4240 <uart.c.dfd1372b+0xe8633>
+ 2001b3c:	02f55533          	divu	a0,a0,a5
+ 2001b40:	0505                	addi	a0,a0,1
+ 2001b42:	e74fe0ef          	jal	20001b6 <clint_spin_until>
     return gpt_boot_part_else_raw(spi_s25fs512s_single_read, &device, &__base_spm,
- 2001b22:	02001537          	lui	a0,0x2001
- 2001b26:	858a                	mv	a1,sp
- 2001b28:	f1850513          	addi	a0,a0,-232 # 2000f18 <spi_s25fs512s_single_read>
- 2001b2c:	b775                	j	2001ad8 <main+0x12e>
+ 2001b46:	02001537          	lui	a0,0x2001
+ 2001b4a:	858a                	mv	a1,sp
+ 2001b4c:	f1850513          	addi	a0,a0,-232 # 2000f18 <spi_s25fs512s_single_read>
+ 2001b50:	b775                	j	2001afc <main+0x152>
     CHECK_CALL(i2c_24fc1025_init(&i2c, core_freq))
- 2001b2e:	850a                	mv	a0,sp
- 2001b30:	f6cfe0ef          	jal	200029c <i2c_24fc1025_init>
- 2001b34:	87aa                	mv	a5,a0
- 2001b36:	4549                	li	a0,18
- 2001b38:	f00798e3          	bnez	a5,2001a48 <main+0x9e>
+ 2001b52:	850a                	mv	a0,sp
+ 2001b54:	f48fe0ef          	jal	200029c <i2c_24fc1025_init>
+ 2001b58:	87aa                	mv	a5,a0
+ 2001b5a:	4549                	li	a0,18
+ 2001b5c:	f00797e3          	bnez	a5,2001a6a <main+0xc0>
     return gpt_boot_part_else_raw(i2c_24fc1025_read, &i2c, &__base_spm, __BOOT_SPM_MAX_LBAS,
- 2001b3c:	02000537          	lui	a0,0x2000
- 2001b40:	858a                	mv	a1,sp
- 2001b42:	72250513          	addi	a0,a0,1826 # 2000722 <i2c_24fc1025_read>
- 2001b46:	bf49                	j	2001ad8 <main+0x12e>
+ 2001b60:	02000537          	lui	a0,0x2000
+ 2001b64:	858a                	mv	a1,sp
+ 2001b66:	72250513          	addi	a0,a0,1826 # 2000722 <i2c_24fc1025_read>
+ 2001b6a:	bf49                	j	2001afc <main+0x152>
         if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
- 2001b48:	937fe0ef          	jal	200047e <uart_debug_check.constprop.0>
- 2001b4c:	f0050be3          	beqz	a0,2001a62 <main+0xb8>
+ 2001b6c:	913fe0ef          	jal	200047e <uart_debug_check.constprop.0>
+ 2001b70:	f0050be3          	beqz	a0,2001a86 <main+0xdc>
 }
- 2001b50:	6446                	ld	s0,80(sp)
- 2001b52:	60e6                	ld	ra,88(sp)
- 2001b54:	64a6                	ld	s1,72(sp)
- 2001b56:	6906                	ld	s2,64(sp)
- 2001b58:	79e2                	ld	s3,56(sp)
- 2001b5a:	7a42                	ld	s4,48(sp)
- 2001b5c:	6125                	addi	sp,sp,96
+ 2001b74:	6446                	ld	s0,80(sp)
+ 2001b76:	60e6                	ld	ra,88(sp)
+ 2001b78:	64a6                	ld	s1,72(sp)
+ 2001b7a:	6906                	ld	s2,64(sp)
+ 2001b7c:	79e2                	ld	s3,56(sp)
+ 2001b7e:	7a42                	ld	s4,48(sp)
+ 2001b80:	6125                	addi	sp,sp,96
         if (uart_debug_check(&__base_uart)) return uart_debug_serve(&__base_uart);
- 2001b5e:	d73fe06f          	j	20008d0 <uart_debug_serve.constprop.0>
+ 2001b82:	d4ffe06f          	j	20008d0 <uart_debug_serve.constprop.0>
 
-0000000002001b62 <memcpy>:
- 2001b62:	00a5c7b3          	xor	a5,a1,a0
- 2001b66:	8b9d                	andi	a5,a5,7
- 2001b68:	00c508b3          	add	a7,a0,a2
- 2001b6c:	e7b1                	bnez	a5,2001bb8 <memcpy+0x56>
- 2001b6e:	00863613          	sltiu	a2,a2,8
- 2001b72:	e239                	bnez	a2,2001bb8 <memcpy+0x56>
- 2001b74:	00757793          	andi	a5,a0,7
- 2001b78:	872a                	mv	a4,a0
- 2001b7a:	e7cd                	bnez	a5,2001c24 <memcpy+0xc2>
- 2001b7c:	ff88f613          	andi	a2,a7,-8
- 2001b80:	40e606b3          	sub	a3,a2,a4
- 2001b84:	04000793          	li	a5,64
- 2001b88:	04d7c463          	blt	a5,a3,2001bd0 <memcpy+0x6e>
- 2001b8c:	86ae                	mv	a3,a1
- 2001b8e:	87ba                	mv	a5,a4
- 2001b90:	02c77163          	bgeu	a4,a2,2001bb2 <memcpy+0x50>
- 2001b94:	0006b803          	ld	a6,0(a3)
- 2001b98:	07a1                	addi	a5,a5,8
- 2001b9a:	06a1                	addi	a3,a3,8
- 2001b9c:	ff07bc23          	sd	a6,-8(a5)
- 2001ba0:	fec7eae3          	bltu	a5,a2,2001b94 <memcpy+0x32>
- 2001ba4:	167d                	addi	a2,a2,-1
- 2001ba6:	8e19                	sub	a2,a2,a4
- 2001ba8:	9a61                	andi	a2,a2,-8
- 2001baa:	05a1                	addi	a1,a1,8
- 2001bac:	0721                	addi	a4,a4,8
- 2001bae:	95b2                	add	a1,a1,a2
- 2001bb0:	9732                	add	a4,a4,a2
- 2001bb2:	01176663          	bltu	a4,a7,2001bbe <memcpy+0x5c>
- 2001bb6:	8082                	ret
- 2001bb8:	872a                	mv	a4,a0
- 2001bba:	ff157ee3          	bgeu	a0,a7,2001bb6 <memcpy+0x54>
- 2001bbe:	0005c783          	lbu	a5,0(a1)
- 2001bc2:	0705                	addi	a4,a4,1
- 2001bc4:	0585                	addi	a1,a1,1
- 2001bc6:	fef70fa3          	sb	a5,-1(a4)
- 2001bca:	fee89ae3          	bne	a7,a4,2001bbe <memcpy+0x5c>
- 2001bce:	8082                	ret
- 2001bd0:	6194                	ld	a3,0(a1)
- 2001bd2:	0085b283          	ld	t0,8(a1)
- 2001bd6:	0105bf83          	ld	t6,16(a1)
- 2001bda:	0185bf03          	ld	t5,24(a1)
- 2001bde:	0205be83          	ld	t4,32(a1)
- 2001be2:	0285be03          	ld	t3,40(a1)
- 2001be6:	0305b303          	ld	t1,48(a1)
- 2001bea:	0385b803          	ld	a6,56(a1)
- 2001bee:	e314                	sd	a3,0(a4)
- 2001bf0:	61b4                	ld	a3,64(a1)
- 2001bf2:	04870713          	addi	a4,a4,72
- 2001bf6:	fc573023          	sd	t0,-64(a4)
- 2001bfa:	fed73c23          	sd	a3,-8(a4)
- 2001bfe:	fdf73423          	sd	t6,-56(a4)
- 2001c02:	40e606b3          	sub	a3,a2,a4
- 2001c06:	fde73823          	sd	t5,-48(a4)
- 2001c0a:	fdd73c23          	sd	t4,-40(a4)
- 2001c0e:	ffc73023          	sd	t3,-32(a4)
- 2001c12:	fe673423          	sd	t1,-24(a4)
- 2001c16:	ff073823          	sd	a6,-16(a4)
- 2001c1a:	04858593          	addi	a1,a1,72
- 2001c1e:	fad7c9e3          	blt	a5,a3,2001bd0 <memcpy+0x6e>
- 2001c22:	b7ad                	j	2001b8c <memcpy+0x2a>
- 2001c24:	0005c683          	lbu	a3,0(a1)
- 2001c28:	0705                	addi	a4,a4,1
- 2001c2a:	00777793          	andi	a5,a4,7
- 2001c2e:	fed70fa3          	sb	a3,-1(a4)
- 2001c32:	0585                	addi	a1,a1,1
- 2001c34:	d7a1                	beqz	a5,2001b7c <memcpy+0x1a>
- 2001c36:	0005c683          	lbu	a3,0(a1)
- 2001c3a:	0705                	addi	a4,a4,1
- 2001c3c:	00777793          	andi	a5,a4,7
- 2001c40:	fed70fa3          	sb	a3,-1(a4)
- 2001c44:	0585                	addi	a1,a1,1
- 2001c46:	fff9                	bnez	a5,2001c24 <memcpy+0xc2>
- 2001c48:	bf15                	j	2001b7c <memcpy+0x1a>
+0000000002001b86 <memcpy>:
+ 2001b86:	00a5c7b3          	xor	a5,a1,a0
+ 2001b8a:	8b9d                	andi	a5,a5,7
+ 2001b8c:	00c508b3          	add	a7,a0,a2
+ 2001b90:	e7b1                	bnez	a5,2001bdc <memcpy+0x56>
+ 2001b92:	00863613          	sltiu	a2,a2,8
+ 2001b96:	e239                	bnez	a2,2001bdc <memcpy+0x56>
+ 2001b98:	00757793          	andi	a5,a0,7
+ 2001b9c:	872a                	mv	a4,a0
+ 2001b9e:	e7cd                	bnez	a5,2001c48 <memcpy+0xc2>
+ 2001ba0:	ff88f613          	andi	a2,a7,-8
+ 2001ba4:	40e606b3          	sub	a3,a2,a4
+ 2001ba8:	04000793          	li	a5,64
+ 2001bac:	04d7c463          	blt	a5,a3,2001bf4 <memcpy+0x6e>
+ 2001bb0:	86ae                	mv	a3,a1
+ 2001bb2:	87ba                	mv	a5,a4
+ 2001bb4:	02c77163          	bgeu	a4,a2,2001bd6 <memcpy+0x50>
+ 2001bb8:	0006b803          	ld	a6,0(a3)
+ 2001bbc:	07a1                	addi	a5,a5,8
+ 2001bbe:	06a1                	addi	a3,a3,8
+ 2001bc0:	ff07bc23          	sd	a6,-8(a5)
+ 2001bc4:	fec7eae3          	bltu	a5,a2,2001bb8 <memcpy+0x32>
+ 2001bc8:	167d                	addi	a2,a2,-1
+ 2001bca:	8e19                	sub	a2,a2,a4
+ 2001bcc:	9a61                	andi	a2,a2,-8
+ 2001bce:	05a1                	addi	a1,a1,8
+ 2001bd0:	0721                	addi	a4,a4,8
+ 2001bd2:	95b2                	add	a1,a1,a2
+ 2001bd4:	9732                	add	a4,a4,a2
+ 2001bd6:	01176663          	bltu	a4,a7,2001be2 <memcpy+0x5c>
+ 2001bda:	8082                	ret
+ 2001bdc:	872a                	mv	a4,a0
+ 2001bde:	ff157ee3          	bgeu	a0,a7,2001bda <memcpy+0x54>
+ 2001be2:	0005c783          	lbu	a5,0(a1)
+ 2001be6:	0705                	addi	a4,a4,1
+ 2001be8:	0585                	addi	a1,a1,1
+ 2001bea:	fef70fa3          	sb	a5,-1(a4)
+ 2001bee:	fee89ae3          	bne	a7,a4,2001be2 <memcpy+0x5c>
+ 2001bf2:	8082                	ret
+ 2001bf4:	6194                	ld	a3,0(a1)
+ 2001bf6:	0085b283          	ld	t0,8(a1)
+ 2001bfa:	0105bf83          	ld	t6,16(a1)
+ 2001bfe:	0185bf03          	ld	t5,24(a1)
+ 2001c02:	0205be83          	ld	t4,32(a1)
+ 2001c06:	0285be03          	ld	t3,40(a1)
+ 2001c0a:	0305b303          	ld	t1,48(a1)
+ 2001c0e:	0385b803          	ld	a6,56(a1)
+ 2001c12:	e314                	sd	a3,0(a4)
+ 2001c14:	61b4                	ld	a3,64(a1)
+ 2001c16:	04870713          	addi	a4,a4,72
+ 2001c1a:	fc573023          	sd	t0,-64(a4)
+ 2001c1e:	fed73c23          	sd	a3,-8(a4)
+ 2001c22:	fdf73423          	sd	t6,-56(a4)
+ 2001c26:	40e606b3          	sub	a3,a2,a4
+ 2001c2a:	fde73823          	sd	t5,-48(a4)
+ 2001c2e:	fdd73c23          	sd	t4,-40(a4)
+ 2001c32:	ffc73023          	sd	t3,-32(a4)
+ 2001c36:	fe673423          	sd	t1,-24(a4)
+ 2001c3a:	ff073823          	sd	a6,-16(a4)
+ 2001c3e:	04858593          	addi	a1,a1,72
+ 2001c42:	fad7c9e3          	blt	a5,a3,2001bf4 <memcpy+0x6e>
+ 2001c46:	b7ad                	j	2001bb0 <memcpy+0x2a>
+ 2001c48:	0005c683          	lbu	a3,0(a1)
+ 2001c4c:	0705                	addi	a4,a4,1
+ 2001c4e:	00777793          	andi	a5,a4,7
+ 2001c52:	fed70fa3          	sb	a3,-1(a4)
+ 2001c56:	0585                	addi	a1,a1,1
+ 2001c58:	d7a1                	beqz	a5,2001ba0 <memcpy+0x1a>
+ 2001c5a:	0005c683          	lbu	a3,0(a1)
+ 2001c5e:	0705                	addi	a4,a4,1
+ 2001c60:	00777793          	andi	a5,a4,7
+ 2001c64:	fed70fa3          	sb	a3,-1(a4)
+ 2001c68:	0585                	addi	a1,a1,1
+ 2001c6a:	fff9                	bnez	a5,2001c48 <memcpy+0xc2>
+ 2001c6c:	bf15                	j	2001ba0 <memcpy+0x1a>

@@ -17,6 +17,7 @@
 #include "hal/spi_sdcard.h"
 #include "hal/uart_debug.h"
 #include "gpt.h"
+#include "l2.h"
 
 extern int boot_next_stage(void *);
 
@@ -143,6 +144,9 @@ int main() {
     uint32_t rtc_freq = *reg32(&__base_regs, CHESHIRE_RTC_FREQ_REG_OFFSET);
     // Compute the boot core frequency using the reference clock
     uint64_t core_freq = clint_get_core_freq(rtc_freq, 2500);
+    // Switch the L2 from its reset (all-scratchpad/bypass) state into cache
+    // mode, so the DRAM payload we are about to launch is actually cached.
+    l2_cache_enable();
     // In case of reentry, store return in scratch0 as is convention
     switch (bootmode) {
     case 0:

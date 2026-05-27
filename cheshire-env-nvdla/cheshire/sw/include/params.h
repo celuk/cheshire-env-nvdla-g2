@@ -16,6 +16,7 @@
 extern void *__base_bootrom;
 extern void *__base_regs;
 extern void *__base_llc;
+extern void *__base_l2;
 extern void *__base_uart;
 extern void *__base_i2c;
 extern void *__base_spih;
