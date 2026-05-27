@@ -1,0 +1,12 @@
+List of CLB Tiles
+CLE_M_X56Y52
+CLEL_R_X56Y52
+CLEL_L_X49Y118
+CLEL_R_X49Y118
+CLEL_L_X26Y466
+CLEL_R_X26Y466
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[17]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_1_ports.i_xpm_memory_spram/xpm_memory_base_inst/douta[15]
+

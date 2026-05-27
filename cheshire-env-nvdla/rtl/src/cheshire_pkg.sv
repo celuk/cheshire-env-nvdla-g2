@@ -160,6 +160,15 @@ package cheshire_pkg;
     bit     LlcOutConnect;
     doub_bt LlcOutRegionStart;
     doub_bt LlcOutRegionEnd;
+    // Parameters for L2 Cache
+    bit     L2Enable;
+    shrt_bt L2SetAssoc;
+    shrt_bt L2NumLines;
+    shrt_bt L2NumBlocks;
+    dw_bt   L2MaxReadTxns;
+    dw_bt   L2MaxWriteTxns;
+    aw_bt   L2AmoNumCuts;
+    bit     L2AmoPostCut;
     // Parameters for VGA
     byte_bt VgaRedWidth;
     byte_bt VgaGreenWidth;
@@ -277,6 +286,11 @@ package cheshire_pkg;
     return cfg.LlcSetAssoc * cfg.LlcNumLines * cfg.LlcNumBlocks * cfg.AxiDataWidth / 8;
   endfunction
 
+  // Return total size of L2 cache in bytes.
+  function automatic int unsigned get_l2_size(cheshire_cfg_t cfg);
+    return cfg.L2SetAssoc * cfg.L2NumLines * cfg.L2NumBlocks * cfg.AxiDataWidth / 8;
+  endfunction
+
   // Static addresses (defined here only if multiply used)
   localparam doub_bt AmDbg    = 'h0000_0000;  // Base of AXI peripherals
   localparam doub_bt AmBrom   = 'h0200_0000;  // Base of reg peripherals
@@ -285,6 +299,11 @@ package cheshire_pkg;
   localparam doub_bt AmNvdla  = 'h4000_0000;
   localparam doub_bt AmSlink  = 'h0300_6000;
   localparam doub_bt AmBusErr = 'h0300_9000;
+  localparam doub_bt AmL2     = 'h0300_A000;
+  // The L2 is a pure cache; its (unused) SPM region is parked in this address
+  // hole so that scratchpad accesses miss both L2 rules and bypass through to
+  // the LLC, which remains the owner of the scratchpad memory.
+  localparam doub_bt AmL2Spm  = 'h6000_0000;
   localparam doub_bt AmSpm    = 'h1000_0000;  // Cached region at bottom, uncached on top
   localparam doub_bt AmSpmUnc = 'h1400_0000;
   localparam doub_bt AmClic   = 'h0800_0000;
@@ -401,6 +420,7 @@ package cheshire_pkg;
     aw_bt regs;
     aw_bt bootrom;
     aw_bt llc;
+    aw_bt l2;
     aw_bt uart;
     aw_bt i2c;
     aw_bt spi_host;
@@ -426,6 +446,7 @@ package cheshire_pkg;
     ret.map[2] = '{3, AmRegs,  AmRegs + 'h1000};
     if (cfg.Bootrom)      begin i++; ret.bootrom    = i; r++; ret.map[r] = '{i, AmBrom, AmBrom + 'h40000}; end
     if (cfg.LlcNotBypass) begin i++; ret.llc        = i; r++; ret.map[r] = '{i, AmLlc,    AmLlc + 'h1000}; end
+    if (cfg.L2Enable)     begin i++; ret.l2         = i; r++; ret.map[r] = '{i, AmL2,     AmL2 + 'h1000}; end
     if (cfg.Uart)         begin i++; ret.uart       = i; r++; ret.map[r] = '{i, 'h0300_2000, 'h0300_3000}; end
     if (cfg.I2c)          begin i++; ret.i2c        = i; r++; ret.map[r] = '{i, 'h0300_3000, 'h0300_4000}; end
     if (cfg.SpiHost)      begin i++; ret.spi_host   = i; r++; ret.map[r] = '{i, 'h0300_4000, 'h0300_5000}; end
@@ -646,6 +667,15 @@ package cheshire_pkg;
     LlcOutConnect     : 1,
     LlcOutRegionStart : 'h8000_0000,
     LlcOutRegionEnd   : 64'h1_0000_0000,
+    // L2 Cache: disabled by default
+    L2Enable          : 1,
+    L2SetAssoc        : 8,
+    L2NumLines        : 256,
+    L2NumBlocks       : 8,
+    L2MaxReadTxns     : `ifdef GENESYS2 16 `elsif VCU108 16 `else 1 `endif,
+    L2MaxWriteTxns    : `ifdef GENESYS2 16 `elsif VCU108 16 `else 1 `endif,
+    L2AmoNumCuts      : 1,
+    L2AmoPostCut      : 1,
     // VGA: RGB565
     VgaRedWidth       : 5,
     VgaGreenWidth     : 6,
