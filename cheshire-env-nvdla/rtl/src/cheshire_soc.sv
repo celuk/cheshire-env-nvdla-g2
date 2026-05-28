@@ -442,6 +442,12 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
 
   if (Cfg.L2Enable && Cfg.LlcOutConnect) begin : gen_l2
 
+    // Compute cache.sv parameters from SoC configuration
+    localparam int unsigned L2CpuByteW  = Cfg.AxiDataWidth / 8;
+    localparam int unsigned L2MemByteW  = Cfg.AxiDataWidth / 8;
+    localparam int unsigned L2LineByteW = Cfg.L2NumBlocks * L2MemByteW;
+    localparam int unsigned L2WayLen    = Cfg.L2NumLines;
+
     axi_slv_req_t axi_l2_amo_req;
     axi_slv_rsp_t axi_l2_amo_rsp;
     axi_slv_req_t axi_l2_cut_req;
@@ -488,73 +494,97 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .mst_resp_i ( axi_l2_cut_rsp )
     );
 
-    // axi_llc forces its master-port AXI ID to be exactly one bit wider than its
-    // slave port (an internal bypass mux prepends a select bit). Give the L2 a
-    // matching wider master type, then shrink the ID back to the SoC slave-port
-    // width with an axi_iw_converter so the downstream LLC chain and the external
-    // DRAM port keep their existing widths.
-    typedef logic [AxiSlvIdWidth:0] axi_l2_mst_id_t;
-    `AXI_TYPEDEF_ALL(axi_l2_mst, addr_t, axi_l2_mst_id_t, axi_data_t, axi_strb_t, axi_user_t)
-    axi_l2_mst_req_t  axi_l2_mst_req;
-    axi_l2_mst_resp_t axi_l2_mst_rsp;
+    // --- AXI → mem protocol (upstream / CPU side of cache) ---
+    logic                          l2_cpu_req;
+    logic [Cfg.AddrWidth-1:0]      l2_cpu_addr;
+    logic [Cfg.AxiDataWidth-1:0]   l2_cpu_wdata;
+    logic [L2CpuByteW-1:0]        l2_cpu_strb;
+    logic                          l2_cpu_we;
+    logic                          l2_cpu_gnt;
+    logic                          l2_cpu_rvalid;
+    logic [Cfg.AxiDataWidth-1:0]   l2_cpu_rdata;
 
-    // The L2 caches only the LLC output (DRAM) region. Its SPM region is parked
-    // at the unused AmL2Spm hole so that scratchpad accesses match neither rule
-    // and bypass the L2 straight through to the LLC, which owns the scratchpad.
-    // No SPM address remap is needed here; the LLC remaps the uncached alias.
-    axi_llc_reg_wrap #(
-      .SetAssociativity ( Cfg.L2SetAssoc   ),
-      .NumLines         ( Cfg.L2NumLines   ),
-      .NumBlocks        ( Cfg.L2NumBlocks  ),
-      .AxiIdWidth       ( AxiSlvIdWidth    ),
-      .AxiAddrWidth     ( Cfg.AddrWidth    ),
-      .AxiDataWidth     ( Cfg.AxiDataWidth ),
-      .AxiUserWidth     ( Cfg.AxiUserWidth ),
-      .slv_req_t        ( axi_slv_req_t ),
-      .slv_resp_t       ( axi_slv_rsp_t ),
-      .mst_req_t        ( axi_l2_mst_req_t ),
-      .mst_resp_t       ( axi_l2_mst_resp_t ),
-      .reg_req_t        ( reg_req_t ),
-      .reg_resp_t       ( reg_rsp_t ),
-      .rule_full_t      ( addr_rule_t )
+    axi_to_mem #(
+      .axi_req_t  ( axi_slv_req_t ),
+      .axi_resp_t ( axi_slv_rsp_t ),
+      .AddrWidth  ( Cfg.AddrWidth    ),
+      .DataWidth  ( Cfg.AxiDataWidth ),
+      .IdWidth    ( AxiSlvIdWidth    ),
+      .NumBanks   ( 1 ),
+      .BufDepth   ( 2 )
+    ) i_l2_axi_to_mem (
+      .clk_i,
+      .rst_ni,
+      .busy_o      (  ),
+      .axi_req_i   ( axi_l2_cut_req ),
+      .axi_resp_o  ( axi_l2_cut_rsp ),
+      .mem_req_o   ( l2_cpu_req    ),
+      .mem_gnt_i   ( l2_cpu_gnt    ),
+      .mem_addr_o  ( l2_cpu_addr   ),
+      .mem_wdata_o ( l2_cpu_wdata  ),
+      .mem_strb_o  ( l2_cpu_strb   ),
+      .mem_atop_o  (  ),
+      .mem_we_o    ( l2_cpu_we     ),
+      .mem_rvalid_i( l2_cpu_rvalid ),
+      .mem_rdata_i ( l2_cpu_rdata  )
+    );
+
+    // --- cache.sv: 2-way set-associative write-back cache ---
+    logic                          l2_mem_req;
+    logic [Cfg.AddrWidth-1:0]      l2_mem_addr;
+    logic                          l2_mem_we;
+    logic [Cfg.AxiDataWidth-1:0]   l2_mem_wdata;
+    logic                          l2_mem_gnt;
+    logic                          l2_mem_rvalid;
+    logic [Cfg.AxiDataWidth-1:0]   l2_mem_rdata;
+
+    cache #(
+      .ADDR_BIT_W  ( Cfg.AddrWidth    ),
+      .CPU_BYTE_W  ( L2CpuByteW      ),
+      .MEM_BYTE_W  ( L2MemByteW      ),
+      .LINE_BYTE_W ( L2LineByteW     ),
+      .WAY_LEN     ( L2WayLen        )
     ) i_l2 (
       .clk_i,
       .rst_ni,
-      .test_i              ( test_mode_i ),
-      .slv_req_i           ( axi_l2_cut_req ),
-      .slv_resp_o          ( axi_l2_cut_rsp ),
-      .mst_req_o           ( axi_l2_mst_req ),
-      .mst_resp_i          ( axi_l2_mst_rsp ),
-      .conf_req_i          ( reg_out_req[RegOut.l2] ),
-      .conf_resp_o         ( reg_out_rsp[RegOut.l2] ),
-      .cached_start_addr_i ( addr_t'(Cfg.LlcOutRegionStart) ),
-      .cached_end_addr_i   ( addr_t'(Cfg.LlcOutRegionEnd)   ),
-      .spm_start_addr_i    ( addr_t'(AmL2Spm) ),
-      .axi_llc_events_o    ( )
+      .hold_mem_i   ( 1'b0           ),
+      .cpu_req_i    ( l2_cpu_req     ),
+      .cpu_addr_i   ( l2_cpu_addr    ),
+      .cpu_we_i     ( l2_cpu_we      ),
+      .cpu_be_i     ( l2_cpu_strb    ),
+      .cpu_wdata_i  ( l2_cpu_wdata   ),
+      .cpu_gnt_o    ( l2_cpu_gnt     ),
+      .cpu_rvalid_o ( l2_cpu_rvalid  ),
+      .cpu_rdata_o  ( l2_cpu_rdata   ),
+      .mem_req_o    ( l2_mem_req     ),
+      .mem_addr_o   ( l2_mem_addr    ),
+      .mem_we_o     ( l2_mem_we      ),
+      .mem_wdata_o  ( l2_mem_wdata   ),
+      .mem_gnt_i    ( l2_mem_gnt     ),
+      .mem_rvalid_i ( l2_mem_rvalid  ),
+      .mem_rdata_i  ( l2_mem_rdata   )
     );
 
-    axi_iw_converter #(
-      .AxiSlvPortIdWidth      ( AxiSlvIdWidth + 1 ),
-      .AxiMstPortIdWidth      ( AxiSlvIdWidth     ),
-      .AxiSlvPortMaxUniqIds   ( 32 ),
-      .AxiSlvPortMaxTxnsPerId ( 16 ),
-      .AxiSlvPortMaxTxns      ( 32 ),
-      .AxiMstPortMaxUniqIds   ( 32 ),
-      .AxiMstPortMaxTxnsPerId ( 16 ),
-      .AxiAddrWidth           ( Cfg.AddrWidth    ),
-      .AxiDataWidth           ( Cfg.AxiDataWidth ),
-      .AxiUserWidth           ( Cfg.AxiUserWidth ),
-      .slv_req_t              ( axi_l2_mst_req_t  ),
-      .slv_resp_t             ( axi_l2_mst_resp_t ),
-      .mst_req_t              ( axi_slv_req_t ),
-      .mst_resp_t             ( axi_slv_rsp_t )
-    ) i_l2_iw_conv (
+    // --- mem protocol → AXI (downstream / memory side of cache) ---
+    // Write responses are silently consumed; cache.sv does not expect rvalid
+    // for writes, only for reads.
+    cache_mem_to_axi #(
+      .AddrWidth  ( Cfg.AddrWidth    ),
+      .DataWidth  ( Cfg.AxiDataWidth ),
+      .axi_req_t  ( axi_slv_req_t   ),
+      .axi_rsp_t  ( axi_slv_rsp_t   )
+    ) i_l2_mem_to_axi (
       .clk_i,
       .rst_ni,
-      .slv_req_i  ( axi_l2_mst_req ),
-      .slv_resp_o ( axi_l2_mst_rsp ),
-      .mst_req_o  ( axi_llc_in_req ),
-      .mst_resp_i ( axi_llc_in_rsp )
+      .mem_req_i    ( l2_mem_req     ),
+      .mem_addr_i   ( l2_mem_addr    ),
+      .mem_we_i     ( l2_mem_we      ),
+      .mem_wdata_i  ( l2_mem_wdata   ),
+      .mem_gnt_o    ( l2_mem_gnt     ),
+      .mem_rvalid_o ( l2_mem_rvalid  ),
+      .mem_rdata_o  ( l2_mem_rdata   ),
+      .axi_req_o    ( axi_llc_in_req ),
+      .axi_rsp_i    ( axi_llc_in_rsp )
     );
 
   end else if (Cfg.LlcOutConnect) begin : gen_no_l2

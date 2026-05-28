@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcvu095-ffva2104-2-e" LaunchTime="1779873172">
+<GenRun Id="synth_1" LaunchPart="xcvu095-ffva2104-2-e" LaunchTime="1779914723">
   <File Type="VDS-TIMINGSUMMARY" Name="cheshire_top_xilinx_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="cheshire_top_xilinx.dcp"/>
   <File Type="RDS-UTIL-PB" Name="cheshire_top_xilinx_utilization_synth.pb"/>
@@ -2685,6 +2685,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/cache.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/std_cache_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -2693,6 +2700,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/cache_ctrl.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/cache_mem_to_axi.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -7213,12 +7227,12 @@
       <Desc>Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold</Desc>
     </StratHandle>
     <Step Id="synth_design">
-      <Option Id="ResourceSharing">2</Option>
       <Option Id="FsmExtraction">1</Option>
+      <Option Id="ShregMinSize">5</Option>
       <Option Id="KeepEquivalentRegisters">1</Option>
       <Option Id="NoCombineLuts">1</Option>
       <Option Id="Directive">7</Option>
-      <Option Id="ShregMinSize">5</Option>
+      <Option Id="ResourceSharing">2</Option>
     </Step>
   </Strategy>
 </GenRun>
