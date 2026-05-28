@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 20
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1419051-karpuz/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1664514-karpuz/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -162,6 +162,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_intf.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_isolate.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_iw_converter.sv
+  /home/shc/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/axi_l2_merge.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_lite_from_mem.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_lite_to_axi.sv
   /home/shc/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-902ad5bfde7bb98c/src/axi_lite_to_reg.sv

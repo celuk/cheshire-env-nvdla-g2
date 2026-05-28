@@ -593,6 +593,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/../rtl/src/cheshire_soc.sv \
     $ROOT/../rtl/src/cache.sv \
     $ROOT/../rtl/src/cache_mem_to_axi.sv \
+    $ROOT/../rtl/src/axi_l2_merge.sv \
     $ROOT/../rtl/src/regwriter.sv \
     $ROOT/../rtl/src/simpleuart.sv \
     $ROOT/../rtl/src/nvdla_wrapper_axi.sv \

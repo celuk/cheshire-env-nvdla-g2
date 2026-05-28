@@ -494,6 +494,42 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .mst_resp_i ( axi_l2_cut_rsp )
     );
 
+    // --- Demux: route CPU traffic to L2 cache, bypass non-CPU ---
+    axi_slv_req_t [1:0] axi_l2_demux_req;
+    axi_slv_rsp_t [1:0] axi_l2_demux_rsp;
+
+    localparam int unsigned L2IdxWidth = $clog2(AxiIn.num_in);
+    logic l2_aw_bypass, l2_ar_bypass;
+    assign l2_aw_bypass =
+        (axi_l2_cut_req.aw.id[AxiSlvIdWidth-1 -: L2IdxWidth] >= Cfg.NumCores);
+    assign l2_ar_bypass =
+        (axi_l2_cut_req.ar.id[AxiSlvIdWidth-1 -: L2IdxWidth] >= Cfg.NumCores);
+
+    axi_demux #(
+      .AxiIdWidth  ( AxiSlvIdWidth    ),
+      .AtopSupport ( 1'b1             ),
+      .aw_chan_t   ( axi_slv_aw_chan_t ),
+      .w_chan_t    ( axi_slv_w_chan_t  ),
+      .b_chan_t    ( axi_slv_b_chan_t  ),
+      .ar_chan_t   ( axi_slv_ar_chan_t ),
+      .r_chan_t    ( axi_slv_r_chan_t  ),
+      .axi_req_t   ( axi_slv_req_t ),
+      .axi_resp_t  ( axi_slv_rsp_t ),
+      .NoMstPorts  ( 2 ),
+      .MaxTrans    ( 4 ),
+      .AxiLookBits ( AxiSlvIdWidth )
+    ) i_l2_demux (
+      .clk_i,
+      .rst_ni,
+      .test_i          ( test_mode_i ),
+      .slv_req_i       ( axi_l2_cut_req ),
+      .slv_aw_select_i ( l2_aw_bypass ),
+      .slv_ar_select_i ( l2_ar_bypass ),
+      .slv_resp_o      ( axi_l2_cut_rsp ),
+      .mst_reqs_o      ( axi_l2_demux_req ),
+      .mst_resps_i     ( axi_l2_demux_rsp )
+    );
+
     // --- AXI → mem protocol (upstream / CPU side of cache) ---
     logic                          l2_cpu_req;
     logic [Cfg.AddrWidth-1:0]      l2_cpu_addr;
@@ -516,8 +552,8 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .clk_i,
       .rst_ni,
       .busy_o      (  ),
-      .axi_req_i   ( axi_l2_cut_req ),
-      .axi_resp_o  ( axi_l2_cut_rsp ),
+      .axi_req_i   ( axi_l2_demux_req[0] ),
+      .axi_resp_o  ( axi_l2_demux_rsp[0] ),
       .mem_req_o   ( l2_cpu_req    ),
       .mem_gnt_i   ( l2_cpu_gnt    ),
       .mem_addr_o  ( l2_cpu_addr   ),
@@ -568,6 +604,9 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     // --- mem protocol → AXI (downstream / memory side of cache) ---
     // Write responses are silently consumed; cache.sv does not expect rvalid
     // for writes, only for reads.
+    axi_slv_req_t axi_l2_out_req;
+    axi_slv_rsp_t axi_l2_out_rsp;
+
     cache_mem_to_axi #(
       .AddrWidth  ( Cfg.AddrWidth    ),
       .DataWidth  ( Cfg.AxiDataWidth ),
@@ -583,8 +622,24 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .mem_gnt_o    ( l2_mem_gnt     ),
       .mem_rvalid_o ( l2_mem_rvalid  ),
       .mem_rdata_o  ( l2_mem_rdata   ),
-      .axi_req_o    ( axi_llc_in_req ),
-      .axi_rsp_i    ( axi_llc_in_rsp )
+      .axi_req_o    ( axi_l2_out_req ),
+      .axi_rsp_i    ( axi_l2_out_rsp )
+    );
+
+    // --- Merge: combine L2 cache output and bypass traffic ---
+    axi_l2_merge #(
+      .axi_req_t  ( axi_slv_req_t ),
+      .axi_rsp_t  ( axi_slv_rsp_t ),
+      .WFifoDepth ( 4 )
+    ) i_l2_merge (
+      .clk_i,
+      .rst_ni,
+      .l2_req_i  ( axi_l2_out_req ),
+      .l2_rsp_o  ( axi_l2_out_rsp ),
+      .byp_req_i ( axi_l2_demux_req[1] ),
+      .byp_rsp_o ( axi_l2_demux_rsp[1] ),
+      .mst_req_o ( axi_llc_in_req ),
+      .mst_rsp_i ( axi_llc_in_rsp )
     );
 
   end else if (Cfg.LlcOutConnect) begin : gen_no_l2

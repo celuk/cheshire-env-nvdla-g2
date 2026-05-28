@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="fd01c804325e424ea94dc47b42d424c6"/>
+    <Option Name="Id" Val="d441b39d04a449abaa7246b585bdbadd"/>
     <Option Name="Part" Val="xcvu095-ffva2104-2-e"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -2269,6 +2269,13 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../../../../.bender/git/checkouts/axi-ecdc900686449c15/src/axi_iw_converter.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../cheshire-env-nvdla/rtl/src/axi_l2_merge.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
