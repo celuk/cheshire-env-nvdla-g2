@@ -446,7 +446,7 @@ package cheshire_pkg;
     ret.map[2] = '{3, AmRegs,  AmRegs + 'h1000};
     if (cfg.Bootrom)      begin i++; ret.bootrom    = i; r++; ret.map[r] = '{i, AmBrom, AmBrom + 'h40000}; end
     if (cfg.LlcNotBypass) begin i++; ret.llc        = i; r++; ret.map[r] = '{i, AmLlc,    AmLlc + 'h1000}; end
-    // cache.sv L2 has no register interface; no reg mapping needed
+    if (cfg.L2Enable)     begin i++; ret.l2         = i; r++; ret.map[r] = '{i, AmL2,     AmL2 + 'h1000}; end
     if (cfg.Uart)         begin i++; ret.uart       = i; r++; ret.map[r] = '{i, 'h0300_2000, 'h0300_3000}; end
     if (cfg.I2c)          begin i++; ret.i2c        = i; r++; ret.map[r] = '{i, 'h0300_3000, 'h0300_4000}; end
     if (cfg.SpiHost)      begin i++; ret.spi_host   = i; r++; ret.map[r] = '{i, 'h0300_4000, 'h0300_5000}; end
@@ -667,10 +667,15 @@ package cheshire_pkg;
     LlcOutConnect     : 1,
     LlcOutRegionStart : 'h8000_0000,
     LlcOutRegionEnd   : 64'h1_0000_0000,
-    // L2 Cache: 2-way set-associative, 128 KiB (cache.sv)
+    // L2 Cache: shared non-blocking axi_llc that caches BOTH CPU and NVDLA DRAM
+    // traffic (single coherency point above the LLC). 8-way, 64 B lines. Size is
+    // per-board to respect BRAM budget: VCU108/VCU118 (ample BRAM) get 512 KiB
+    // (1024 lines); Genesys2 (xc7k325t, ~445 BRAM shared with NVDLA CBUF) gets a
+    // conservative 256 KiB (512 lines). Bump L2NumLines if it fits and you want
+    // more NVDLA working-set capacity; drop to 256 (128 KiB) if it does not fit.
     L2Enable          : 1,
-    L2SetAssoc        : 2,
-    L2NumLines        : 1024,
+    L2SetAssoc        : 8,
+    L2NumLines        : `ifdef GENESYS2 512 `elsif VCU108 1024 `elsif VCU118 1024 `else 256 `endif,
     L2NumBlocks       : 8,
     L2MaxReadTxns     : `ifdef GENESYS2 16 `elsif VCU108 16 `else 1 `endif,
     L2MaxWriteTxns    : `ifdef GENESYS2 16 `elsif VCU108 16 `else 1 `endif,
