@@ -439,7 +439,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/cva6/core/cva6_mmu/cva6_shared_tlb.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/cva6/common/local/util/tc_sram_wrapper.sv \
+    $ROOTBENDER/cva6/common/local/util/tc_sram_fpga_wrapper.sv \
     $ROOTBENDER/cva6/common/local/util/tc_sram_wrapper_cache_techno.sv \
     $ROOTBENDER/cva6/common/local/util/sram.sv \
     $ROOTBENDER/cva6/common/local/util/sram_cache.sv \
