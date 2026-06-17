@@ -181,16 +181,6 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_xp.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/defs_div_sqrt_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/iteration_div_sqrt_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/control_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/norm_div_sqrt_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/preprocess_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/nrbd_nrsc_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/div_sqrt_top_mvp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/div_sqrt_mvp_wrapper.sv \
-]
-add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/obi-5f55415724a7398c/src/obi_pkg.sv \
     $ROOTBENDER/.bender/git/checkouts/obi-5f55415724a7398c/src/obi_intf.sv \
     $ROOTBENDER/.bender/git/checkouts/obi-5f55415724a7398c/src/obi_rready_converter.sv \
@@ -211,34 +201,25 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/axi_stream-5acdacb5ad0096e6/src/axi_stream_multicut.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_cast_multi.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_classifier.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_prepare.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_round_single.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_special.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_srt_single.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_top.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_divsqrt_th_32.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_divsqrt_multi.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_fma.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_fma_multi.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_sdotp_multi.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_sdotp_multi_wrapper.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_noncomp.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_block.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_fmt_slice.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_multifmt_slice.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_rounding.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/lfsr_sr.sv \
-    $ROOTBENDER/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_top.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_pkg.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_cast_multi.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_classifier.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_divsqrt_multi.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_fma_multi.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_fma.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_noncomp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_opgroup_block.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_opgroup_fmt_slice.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_opgroup_multifmt_slice.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_rounding.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpnew_top.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/defs_div_sqrt_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/control_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/div_sqrt_top_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/iteration_div_sqrt_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/norm_div_sqrt_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/nrbd_nrsc_mvp.sv \
+    $ROOTBENDER/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/preprocess_mvp.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_pkg.sv \

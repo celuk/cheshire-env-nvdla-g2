@@ -499,13 +499,7 @@ package cheshire_pkg;
     doub_bt SizeLlcOut = cfg.LlcOutRegionEnd - cfg.LlcOutRegionStart;
     doub_bt CieBase   = cfg.Cva6ExtCieOnTop ? 64'h8000_0000 - cfg.Cva6ExtCieLength : 64'h2000_0000;
     doub_bt NoCieBase = cfg.Cva6ExtCieOnTop ? 64'h2000_0000 : 64'h2000_0000 + cfg.Cva6ExtCieLength;
-    // Ported to openhwgroup/cva6 v5.3.0: build the `cva6_user_cfg_t` and run it
-    // through `build_config_pkg::build_config()` to obtain the derived `cva6_cfg_t`.
-    // CLIC fields (RVSCLIC, CLICNumInterruptSrc) and pulp-only derived fields
-    // (FpuEn/FpPresent/FLen/NSX/RVFVec/NrRgprPorts/NrWbPorts/EnableAccelerator/
-    // NonIdemPotenceEn) are gone upstream; `build_config` recomputes the derived
-    // ones from the extension enables. SuperscalarEn is kept 0 (v5.3.0 forbids
-    // SuperscalarEn && RVF, and the FPU is enabled here).
+    // CVA6 v5.3.0: build user cfg, then build_config(). SuperscalarEn=0 (v5.3.0 forbids SuperscalarEn && RVF).
     return build_config_pkg::build_config(config_pkg::cva6_user_cfg_t'{
       XLEN                  : 64,
       VLEN                  : 64,

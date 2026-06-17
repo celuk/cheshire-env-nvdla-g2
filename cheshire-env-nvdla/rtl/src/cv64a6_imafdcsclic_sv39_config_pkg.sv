@@ -7,13 +7,8 @@
 //
 // Original Author: Jean-Roch COULON - Thales
 //
-// Ported to openhwgroup/cva6 v5.3.0 `cva6_user_cfg_t` format.
-// NOTE: For the Cheshire SoC, the *effective* core configuration is built in
-// `cheshire_pkg::gen_cva6_cfg()` and passed via `.CVA6Cfg`. This package is the
-// module *default* and, crucially, still exposes the `CVA6Config*` localparams
-// that legacy CVA6 code (e.g. `ariane_pkg`) references at elaboration time.
-// CLIC has been removed (no CLIC in upstream v5.3.0). Superscalar is kept OFF
-// because v5.3.0 forbids `SuperscalarEn && RVF` and this config keeps the FPU.
+// CVA6 v5.3.0 cva6_user_cfg_t. Cheshire overrides this via cheshire_pkg::gen_cva6_cfg();
+// kept for the module default and the CVA6Config* localparams legacy code reads.
 
 package cva6_config_pkg;
 
