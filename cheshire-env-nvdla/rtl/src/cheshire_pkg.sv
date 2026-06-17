@@ -499,42 +499,52 @@ package cheshire_pkg;
     doub_bt SizeLlcOut = cfg.LlcOutRegionEnd - cfg.LlcOutRegionStart;
     doub_bt CieBase   = cfg.Cva6ExtCieOnTop ? 64'h8000_0000 - cfg.Cva6ExtCieLength : 64'h2000_0000;
     doub_bt NoCieBase = cfg.Cva6ExtCieOnTop ? 64'h2000_0000 : 64'h2000_0000 + cfg.Cva6ExtCieLength;
-    return config_pkg::cva6_cfg_t'{
+    // Ported to openhwgroup/cva6 v5.3.0: build the `cva6_user_cfg_t` and run it
+    // through `build_config_pkg::build_config()` to obtain the derived `cva6_cfg_t`.
+    // CLIC fields (RVSCLIC, CLICNumInterruptSrc) and pulp-only derived fields
+    // (FpuEn/FpPresent/FLen/NSX/RVFVec/NrRgprPorts/NrWbPorts/EnableAccelerator/
+    // NonIdemPotenceEn) are gone upstream; `build_config` recomputes the derived
+    // ones from the extension enables. SuperscalarEn is kept 0 (v5.3.0 forbids
+    // SuperscalarEn && RVF, and the FPU is enabled here).
+    return build_config_pkg::build_config(config_pkg::cva6_user_cfg_t'{
+      XLEN                  : 64,
+      VLEN                  : 64,
+      FpgaEn                : 0,
+      FpgaAlteraEn          : 0,
+      TechnoCut             : 0,
+      SuperscalarEn         : 0,
       NrCommitPorts         : 2,
       AxiAddrWidth          : cfg.AddrWidth,
       AxiDataWidth          : cfg.AxiDataWidth,
       AxiIdWidth            : Cva6IdWidth,
       AxiUserWidth          : cfg.AxiUserWidth,
+      MemTidWidth           : 4,
       NrLoadBufEntries      : 2,
-      FpuEn                 : 1,
+      RVF                   : 1,
+      RVD                   : 1,
       XF16                  : 0,
       XF16ALT               : 0,
       XF8                   : 0,
-      XF8ALT                : 0,
       RVA                   : 1,
       RVB                   : 0,
+      ZKN                   : 0,
       RVV                   : 0,
       RVC                   : 1,
       RVH                   : 1,
       RVZCB                 : 1,
+      RVZCMT                : 0,
+      RVZCMP                : 0,
       XFVec                 : 0,
       CvxifEn               : 1,
-      ZiCondExtEn           : 1,
-      RVSCLIC               : cfg.Clic,
-      RVF                   : 1,
-      RVD                   : 1,
-      FpPresent             : 1,
-      NSX                   : 0,
-      FLen                  : 64,
-      RVFVec                : 0,
-      XF16Vec               : 0,
-      XF16ALTVec            : 0,
-      XF8Vec                : 0,
-      NrRgprPorts           : 0,
-      NrWbPorts             : 0,
-      EnableAccelerator     : 0,
+      RVZiCond              : 1,
+      RVZicntr              : 1,
+      RVZihpm               : 1,
+      NrScoreboardEntries   : 8,
+      PerfCounterEn         : 1,
+      MmuPresent            : 1,
       RVS                   : 1,
       RVU                   : 1,
+      SoftwareInterruptEn   : 1,
       HaltAddress           : 'h800, // Relative to AmDbg
       ExceptionAddress      : 'h810, // Relative to AmDbg
       RASDepth              : cfg.Cva6RASDepth,
@@ -542,12 +552,13 @@ package cheshire_pkg;
       BHTEntries            : cfg.Cva6BHTEntries,
       DmBaseAddress         : AmDbg,
       TvalEn                : 1,
+      DirectVecOnly         : 0,
       NrPMPEntries          : cfg.Cva6NrPMPEntries,
-      PMPCfgRstVal          : {16{64'h0}},
-      PMPAddrRstVal         : {16{64'h0}},
-      PMPEntryReadOnly      : 16'd0,
+      PMPCfgRstVal          : {64{64'h0}},
+      PMPAddrRstVal         : {64{64'h0}},
+      PMPEntryReadOnly      : 64'd0,
+      PMPNapotEn            : 1,
       NOCType               : config_pkg::NOC_TYPE_AXI4_ATOP,
-      CLICNumInterruptSrc   : NumCoreIrqs + NumIntIntrs + cfg.NumExtClicIntrs,
       NrNonIdempotentRules  : 2,   // Periphs, ExtNonCIE
       NonIdempotentAddrBase : {64'h0000_0000, NoCieBase},
       NonIdempotentLength   : {64'h1000_0000, 64'h6000_0000 - cfg.Cva6ExtCieLength},
@@ -557,11 +568,30 @@ package cheshire_pkg;
       NrCachedRegionRules   : 3,   // CachedSPM, LLCOut, ExtCIE
       CachedRegionAddrBase  : {AmSpm,   cfg.LlcOutRegionStart,  CieBase},
       CachedRegionLength    : {SizeSpm, SizeLlcOut,             cfg.Cva6ExtCieLength},
-      MaxOutstandingStores  : 0,
+      MaxOutstandingStores  : 7,
       DebugEn               : 1,
-      NonIdemPotenceEn      : 0,
-      AxiBurstWriteEn       : 0
-    };
+      AxiBurstWriteEn       : 0,
+      IcacheByteSize        : 32768,
+      IcacheSetAssoc        : 8,
+      IcacheLineWidth       : 128,
+      DCacheType            : config_pkg::WB,
+      DcacheByteSize        : 32768,
+      DcacheSetAssoc        : 8,
+      DcacheLineWidth       : 128,
+      DcacheFlushOnFence    : 0,
+      DcacheInvalidateOnFlush : 0,
+      DataUserEn            : 0,
+      WtDcacheWbufDepth     : 2,
+      FetchUserWidth        : 64,
+      FetchUserEn           : 0,
+      InstrTlbEntries       : 16,
+      DataTlbEntries        : 16,
+      UseSharedTlb          : 0,
+      SharedTlbDepth        : 64,
+      NrLoadPipeRegs        : 1,
+      NrStorePipeRegs       : 1,
+      DcacheIdWidth         : 1
+    });
   endfunction
 
   ////////////////

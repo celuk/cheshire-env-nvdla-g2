@@ -6,3 +6,7 @@
 	path = sw/deps/cva6-sdk
 	url = https://github.com/pulp-platform/cva6-sdk.git
 	ignore = dirty
+[submodule "cva6"]
+	path = cva6
+	url = https://github.com/openhwgroup/cva6.git
+	branch = v5.3.0

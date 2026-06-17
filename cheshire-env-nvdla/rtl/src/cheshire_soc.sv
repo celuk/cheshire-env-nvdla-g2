@@ -672,20 +672,21 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .ipi_i            ( msip[i] ),
       .time_irq_i       ( mtip[i] ),
       .debug_req_i      ( dbg_int_req[i] ),
-      .clic_irq_valid_i ( clic_irq_valid ),
-      .clic_irq_id_i    ( clic_irq_id    ),
-      .clic_irq_level_i ( clic_irq_level ),
-      .clic_irq_priv_i  ( clic_irq_priv  ),
-      .clic_irq_shv_i   ( clic_irq_shv   ),
-      .clic_irq_ready_o ( clic_irq_ready ),
-      .clic_kill_req_i  ( clic_irq_kill_req ),
-      .clic_kill_ack_o  ( clic_irq_kill_ack ),
+      // NOTE: openhwgroup CVA6 v5.3.0 has no CLIC interface. External interrupts
+      // reach the core via the classic `irq_i` ({seip,meip}) path only. The CLIC
+      // block below is left in place but its core-facing handshake is tied off;
+      // routing device interrupts (incl. NVDLA) to `xeip` is a follow-up step.
       .rvfi_probes_o    ( ),
       .cvxif_req_o      ( cvxif_req      ),
       .cvxif_resp_i     ( cvxif_resp     ),
       .noc_req_o        ( core_out_req ),
       .noc_resp_i       ( core_out_rsp )
     );
+
+    // CVA6 v5.3.0 no longer drives these CLIC handshake signals; tie off so the
+    // (retained) `clic` instance does not see floating inputs.
+    assign clic_irq_ready    = 1'b0;
+    assign clic_irq_kill_ack = 1'b0;
 
     if (Cfg.BusErr) begin : gen_cva6_bus_err
       axi_err_unit_wrap #(

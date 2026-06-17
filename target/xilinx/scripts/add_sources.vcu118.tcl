@@ -366,100 +366,106 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/clint-de4a234303f657d0/src/clint.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/config_pkg.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/SyncThreePortRam.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/SyncDpRam_ind_r_w.sv \
+]
+add_files -norecurse -fileset [current_fileset] [list \
+    $ROOTBENDER/cva6/core/include/config_pkg.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/../rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/riscv_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/ariane_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39/tlb.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39/mmu.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39/ptw.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cva6_accel_first_pass_decoder_stub.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39x4/cva6_tlb_sv39x4.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39x4/cva6_mmu_sv39x4.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mmu_sv39x4/cva6_ptw_sv39x4.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cva6_clic_controller.sv \
+    $ROOTBENDER/cva6/core/include/riscv_pkg.sv \
+    $ROOTBENDER/cva6/core/include/ariane_pkg.sv \
+    $ROOTBENDER/cva6/core/include/wt_cache_pkg.sv \
+    $ROOTBENDER/cva6/core/include/std_cache_pkg.sv \
+    $ROOTBENDER/cva6/core/include/instr_tracer_pkg.sv \
+    $ROOTBENDER/cva6/core/include/build_config_pkg.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/wt_cache_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/std_cache_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/acc_pkg.sv \
+    $ROOTBENDER/cva6/core/cvxif_compressed_if_driver.sv \
+    $ROOTBENDER/cva6/core/cvxif_issue_register_commit_if_driver.sv \
+    $ROOTBENDER/cva6/core/cvxif_example/include/cvxif_instr_pkg.sv \
+    $ROOTBENDER/cva6/core/cvxif_fu.sv \
+    $ROOTBENDER/cva6/core/cvxif_example/cvxif_example_coprocessor.sv \
+    $ROOTBENDER/cva6/core/cvxif_example/instr_decoder.sv \
+    $ROOTBENDER/cva6/core/cvxif_example/compressed_instr_decoder.sv \
+    $ROOTBENDER/cva6/core/cvxif_example/copro_alu.sv \
+    $ROOTBENDER/cva6/core/cva6.sv \
+    $ROOTBENDER/cva6/core/cva6_rvfi_probes.sv \
+    $ROOTBENDER/cva6/core/alu.sv \
+    $ROOTBENDER/cva6/core/fpu_wrap.sv \
+    $ROOTBENDER/cva6/core/branch_unit.sv \
+    $ROOTBENDER/cva6/core/compressed_decoder.sv \
+    $ROOTBENDER/cva6/core/macro_decoder.sv \
+    $ROOTBENDER/cva6/core/controller.sv \
+    $ROOTBENDER/cva6/core/zcmt_decoder.sv \
+    $ROOTBENDER/cva6/core/csr_buffer.sv \
+    $ROOTBENDER/cva6/core/csr_regfile.sv \
+    $ROOTBENDER/cva6/core/decoder.sv \
+    $ROOTBENDER/cva6/core/ex_stage.sv \
+    $ROOTBENDER/cva6/core/instr_realign.sv \
+    $ROOTBENDER/cva6/core/id_stage.sv \
+    $ROOTBENDER/cva6/core/issue_read_operands.sv \
+    $ROOTBENDER/cva6/core/issue_stage.sv \
+    $ROOTBENDER/cva6/core/load_unit.sv \
+    $ROOTBENDER/cva6/core/load_store_unit.sv \
+    $ROOTBENDER/cva6/core/lsu_bypass.sv \
+    $ROOTBENDER/cva6/core/mult.sv \
+    $ROOTBENDER/cva6/core/multiplier.sv \
+    $ROOTBENDER/cva6/core/serdiv.sv \
+    $ROOTBENDER/cva6/core/perf_counters.sv \
+    $ROOTBENDER/cva6/core/ariane_regfile_ff.sv \
+    $ROOTBENDER/cva6/core/ariane_regfile_fpga.sv \
+    $ROOTBENDER/cva6/core/scoreboard.sv \
+    $ROOTBENDER/cva6/core/store_buffer.sv \
+    $ROOTBENDER/cva6/core/amo_buffer.sv \
+    $ROOTBENDER/cva6/core/store_unit.sv \
+    $ROOTBENDER/cva6/core/commit_stage.sv \
+    $ROOTBENDER/cva6/core/axi_shim.sv \
+    $ROOTBENDER/cva6/core/cva6_accel_first_pass_decoder_stub.sv \
+    $ROOTBENDER/cva6/core/acc_dispatcher.sv \
+    $ROOTBENDER/cva6/core/cva6_fifo_v3.sv \
+    $ROOTBENDER/cva6/core/frontend/btb.sv \
+    $ROOTBENDER/cva6/core/frontend/bht.sv \
+    $ROOTBENDER/cva6/core/frontend/ras.sv \
+    $ROOTBENDER/cva6/core/frontend/instr_scan.sv \
+    $ROOTBENDER/cva6/core/frontend/instr_queue.sv \
+    $ROOTBENDER/cva6/core/frontend/frontend.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_dcache_ctrl.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_dcache_mem.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_dcache_missunit.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_dcache_wbuffer.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_dcache.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/cva6_icache.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_cache_subsystem.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/wt_axi_adapter.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/tag_cmp.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/axi_adapter.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/miss_handler.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/cache_ctrl.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/cva6_icache_axi_wrapper.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/std_cache_subsystem.sv \
+    $ROOTBENDER/cva6/core/cache_subsystem/std_nbdcache.sv \
+    $ROOTBENDER/cva6/core/pmp/src/pmp.sv \
+    $ROOTBENDER/cva6/core/pmp/src/pmp_entry.sv \
+    $ROOTBENDER/cva6/core/pmp/src/pmp_data_if.sv \
+    $ROOTBENDER/cva6/core/cva6_mmu/cva6_mmu.sv \
+    $ROOTBENDER/cva6/core/cva6_mmu/cva6_ptw.sv \
+    $ROOTBENDER/cva6/core/cva6_mmu/cva6_tlb.sv \
+    $ROOTBENDER/cva6/core/cva6_mmu/cva6_shared_tlb.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv \
-]
-add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/instr_tracer_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/include/cvxif_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cvxif_example/include/cvxif_instr_pkg.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cvxif_fu.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cvxif_example/cvxif_example_coprocessor.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cvxif_example/instr_decoder.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cva6.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/alu.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/fpu_wrap.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/branch_unit.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/compressed_decoder.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/controller.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/csr_buffer.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/csr_regfile.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/decoder.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/ex_stage.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/instr_realign.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/id_stage.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/issue_read_operands.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/issue_stage.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/load_unit.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/load_store_unit.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/lsu_bypass.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/mult.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/multiplier.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/serdiv.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/perf_counters.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/ariane_regfile_ff.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/ariane_regfile_fpga.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/scoreboard.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/store_buffer.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/amo_buffer.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/store_unit.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/commit_stage.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/axi_shim.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/acc_dispatcher.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cva6_rvfi_probes.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/btb.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/bht.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/ras.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/instr_scan.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/instr_queue.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/frontend/frontend.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_dcache_ctrl.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_dcache_mem.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_dcache_missunit.sv \
-    $ROOT/../rtl/src/wt_dcache_wbuffer.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_dcache.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/cva6_icache.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_cache_subsystem.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/wt_axi_adapter.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/tag_cmp.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/cache_ctrl.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/amo_alu.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/axi_adapter.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/miss_handler.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/std_nbdcache.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/cva6_icache_axi_wrapper.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/cache_subsystem/std_cache_subsystem.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/pmp/src/pmp.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/core/pmp/src/pmp_entry.sv \
-]
-add_files -norecurse -fileset [current_fileset] [list \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/common/local/util/sram_pulp.sv \
+    $ROOTBENDER/cva6/common/local/util/tc_sram_wrapper.sv \
+    $ROOTBENDER/cva6/common/local/util/tc_sram_wrapper_cache_techno.sv \
+    $ROOTBENDER/cva6/common/local/util/sram.sv \
+    $ROOTBENDER/cva6/common/local/util/sram_cache.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/../rtl/src/tc_sram.sv \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv \
+    $ROOTBENDER/cva6/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/src/idma_pkg.sv \
@@ -1156,7 +1162,9 @@ set_property include_dirs [list \
     $ROOTBENDER/.bender/git/checkouts/axi_rt-7cef46f372eaf0fb/include \
     $ROOTBENDER/.bender/git/checkouts/axi_stream-4bb2af42e3aea076/include \
     $ROOTBENDER/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/include \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/common/local/util \
+    $ROOTBENDER/cva6/core/include \
+    $ROOTBENDER/cva6/core/cvxif_example/include \
+    $ROOTBENDER/cva6/common/local/util \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/src/include \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/target/rtl/include \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/test \
@@ -1173,7 +1181,9 @@ set_property include_dirs [list \
     $ROOTBENDER/.bender/git/checkouts/axi_rt-7cef46f372eaf0fb/include \
     $ROOTBENDER/.bender/git/checkouts/axi_stream-4bb2af42e3aea076/include \
     $ROOTBENDER/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/include \
-    $ROOTBENDER/.bender/git/checkouts/cva6-20c9d7cbe0dd6995/common/local/util \
+    $ROOTBENDER/cva6/core/include \
+    $ROOTBENDER/cva6/core/cvxif_example/include \
+    $ROOTBENDER/cva6/common/local/util \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/src/include \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/target/rtl/include \
     $ROOTBENDER/.bender/git/checkouts/idma-77bf7fa56d324e6a/test \
