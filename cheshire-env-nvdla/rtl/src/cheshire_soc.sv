@@ -1844,7 +1844,7 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     assign nvdla_raw_req.aw.size  = nvdla_awsize;
     assign nvdla_raw_req.aw.burst = nvdla_awburst;
     assign nvdla_raw_req.aw.lock  = '0;
-    assign nvdla_raw_req.aw.cache = axi_pkg::CACHE_MODIFIABLE;
+    assign nvdla_raw_req.aw.cache = '0;
     assign nvdla_raw_req.aw.prot  = '0;
     assign nvdla_raw_req.aw.qos   = '0;
     assign nvdla_raw_req.aw.region= '0;
@@ -1864,7 +1864,7 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     assign nvdla_raw_req.ar.size  = nvdla_arsize;
     assign nvdla_raw_req.ar.burst = nvdla_arburst;
     assign nvdla_raw_req.ar.lock  = '0;
-    assign nvdla_raw_req.ar.cache = axi_pkg::CACHE_MODIFIABLE;
+    assign nvdla_raw_req.ar.cache = '0;
     assign nvdla_raw_req.ar.prot  = '0;
     assign nvdla_raw_req.ar.qos   = '0;
     assign nvdla_raw_req.ar.region= '0;
