@@ -8,7 +8,9 @@
 // Thomas Benz <tbenz@iis.ee.ethz.ch>
 // Alessandro Ottaviano <aottaviano@iis.ee.ethz.ch>
 
-module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
+`include "cvxif_types.svh"
+
+module cheshire_soc import cheshire_pkg::*; #(
   // Cheshire config
   parameter cheshire_cfg_t Cfg = '0,
   // Debug info for external harts
@@ -558,6 +560,21 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
 
   localparam config_pkg::cva6_cfg_t Cva6Cfg = gen_cva6_cfg(Cfg);
 
+  // CVXIF types (v5.3.0 replaced cvxif_pkg with cvxif_types.svh macros)
+  typedef `READREGFLAGS_T(Cva6Cfg) readregflags_t;
+  typedef `WRITEREGFLAGS_T(Cva6Cfg) writeregflags_t;
+  typedef `ID_T(Cva6Cfg) id_t;
+  typedef `HARTID_T(Cva6Cfg) hartid_t;
+  typedef `X_COMPRESSED_REQ_T(Cva6Cfg, hartid_t) x_compressed_req_t;
+  typedef `X_COMPRESSED_RESP_T(Cva6Cfg) x_compressed_resp_t;
+  typedef `X_ISSUE_REQ_T(Cva6Cfg, hartid_t, id_t) x_issue_req_t;
+  typedef `X_ISSUE_RESP_T(Cva6Cfg, writeregflags_t, readregflags_t) x_issue_resp_t;
+  typedef `X_REGISTER_T(Cva6Cfg, hartid_t, id_t, readregflags_t) x_register_t;
+  typedef `X_COMMIT_T(Cva6Cfg, hartid_t, id_t) x_commit_t;
+  typedef `X_RESULT_T(Cva6Cfg, hartid_t, id_t, writeregflags_t) x_result_t;
+  typedef `CVXIF_REQ_T(Cva6Cfg, x_compressed_req_t, x_issue_req_t, x_register_t, x_commit_t) cvxif_req_t;
+  typedef `CVXIF_RESP_T(Cva6Cfg, x_compressed_resp_t, x_issue_resp_t, x_result_t) cvxif_resp_t;
+
   // Boot from boot ROM only if available, otherwise from platform ROM
   localparam logic [63:0] BootAddr = 64'(Cfg.Bootrom ? AmBrom : Cfg.PlatformRom);
 
@@ -598,8 +615,8 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
     riscv::priv_lvl_t  clic_irq_priv;
 
     // CVXIF connection
-    cvxif_pkg::cvxif_req_t  cvxif_req;
-    cvxif_pkg::cvxif_resp_t cvxif_resp;
+    cvxif_req_t  cvxif_req;
+    cvxif_resp_t cvxif_resp;
 
     // Regwriter AXI connection
     axi_mst_req_t regwriter_req;
@@ -612,7 +629,9 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
         .AXI_ADDR_WIDTH ( Cfg.AddrWidth ),
         .AXI_DATA_WIDTH ( Cfg.AxiDataWidth ),
         .AXI_ID_WIDTH   ( Cfg.AxiMstIdWidth ),
-        .X_ID_WIDTH     ( 8 )
+        .X_ID_WIDTH     ( Cva6Cfg.X_ID_WIDTH ),
+        .cvxif_req_t    ( cvxif_req_t ),
+        .cvxif_resp_t   ( cvxif_resp_t )
     ) i_regwriter (
         .clk_i,
         .rst_ni,
@@ -662,7 +681,20 @@ module cheshire_soc import cheshire_pkg::*; import cvxif_pkg::*; #(
       .b_chan_t       ( axi_cva6_b_chan_t  ),
       .r_chan_t       ( axi_cva6_r_chan_t  ),
       .noc_req_t      ( axi_cva6_req_t ),
-      .noc_resp_t     ( axi_cva6_rsp_t )
+      .noc_resp_t     ( axi_cva6_rsp_t ),
+      .readregflags_t      ( readregflags_t      ),
+      .writeregflags_t     ( writeregflags_t     ),
+      .id_t                ( id_t                ),
+      .hartid_t            ( hartid_t            ),
+      .x_compressed_req_t  ( x_compressed_req_t  ),
+      .x_compressed_resp_t ( x_compressed_resp_t ),
+      .x_issue_req_t       ( x_issue_req_t       ),
+      .x_issue_resp_t      ( x_issue_resp_t      ),
+      .x_register_t        ( x_register_t        ),
+      .x_commit_t          ( x_commit_t          ),
+      .x_result_t          ( x_result_t          ),
+      .cvxif_req_t         ( cvxif_req_t         ),
+      .cvxif_resp_t        ( cvxif_resp_t        )
     ) i_core_cva6 (
       .clk_i,
       .rst_ni,
