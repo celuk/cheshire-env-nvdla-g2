@@ -525,7 +525,7 @@ package cheshire_pkg;
       ZKN                   : 0,
       RVV                   : 0,
       RVC                   : 1,
-      RVH                   : 1,
+      RVH                   : 0,  // H off: SW is non-hypervisor; v5.3.0 Sv39x4 path truncates kernel VAs
       RVZCB                 : 1,
       RVZCMT                : 0,
       RVZCMP                : 0,
