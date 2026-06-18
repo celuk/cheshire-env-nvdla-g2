@@ -507,7 +507,7 @@ package cheshire_pkg;
       FpgaEn                : 0,
       FpgaAlteraEn          : 0,
       TechnoCut             : 0,
-      SuperscalarEn         : 1,
+      SuperscalarEn         : 0,
       NrCommitPorts         : 2,
       AxiAddrWidth          : cfg.AddrWidth,
       AxiDataWidth          : cfg.AxiDataWidth,
