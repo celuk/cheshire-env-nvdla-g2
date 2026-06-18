@@ -499,14 +499,15 @@ package cheshire_pkg;
     doub_bt SizeLlcOut = cfg.LlcOutRegionEnd - cfg.LlcOutRegionStart;
     doub_bt CieBase   = cfg.Cva6ExtCieOnTop ? 64'h8000_0000 - cfg.Cva6ExtCieLength : 64'h2000_0000;
     doub_bt NoCieBase = cfg.Cva6ExtCieOnTop ? 64'h2000_0000 : 64'h2000_0000 + cfg.Cva6ExtCieLength;
-    // CVA6 v5.3.0: build user cfg, then build_config(). SuperscalarEn=0 (v5.3.0 forbids SuperscalarEn && RVF).
+    // CVA6 v5.3.0: build user cfg, then build_config(). Superscalar (dual-issue)
+    // enabled; v5.3.0 forbids SuperscalarEn && RVF, so the FPU is off (ISA = rv64imac).
     return build_config_pkg::build_config(config_pkg::cva6_user_cfg_t'{
       XLEN                  : 64,
       VLEN                  : 64,
       FpgaEn                : 0,
       FpgaAlteraEn          : 0,
       TechnoCut             : 0,
-      SuperscalarEn         : 0,
+      SuperscalarEn         : 1,
       NrCommitPorts         : 2,
       AxiAddrWidth          : cfg.AddrWidth,
       AxiDataWidth          : cfg.AxiDataWidth,
@@ -514,8 +515,8 @@ package cheshire_pkg;
       AxiUserWidth          : cfg.AxiUserWidth,
       MemTidWidth           : 4,
       NrLoadBufEntries      : 2,
-      RVF                   : 1,
-      RVD                   : 1,
+      RVF                   : 0,  // superscalar excludes FPU in v5.3.0
+      RVD                   : 0,
       XF16                  : 0,
       XF16ALT               : 0,
       XF8                   : 0,
