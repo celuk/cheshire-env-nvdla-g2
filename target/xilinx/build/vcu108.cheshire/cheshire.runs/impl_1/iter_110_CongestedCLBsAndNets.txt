@@ -1,0 +1,8 @@
+List of CLB Tiles
+CLEL_L_X49Y266
+CLEL_R_X49Y266
+
+List of Congested Nets
+i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/data_q_reg[7][data][511]_0[345]
+i_dram_wrapper/gen_cdc.i_axi_cdc_mig/i_axi_cdc_dst/i_cdc_fifo_gray_src_r/data_q_reg[4][data][511]_0[345]
+

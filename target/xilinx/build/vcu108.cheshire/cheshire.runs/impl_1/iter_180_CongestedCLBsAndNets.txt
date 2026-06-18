@@ -1,0 +1,8 @@
+List of CLB Tiles
+CLEL_L_X71Y59
+CLEL_R_X71Y59
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/target_address[11]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_o_reg[predict_address][62]_0[6]
+
