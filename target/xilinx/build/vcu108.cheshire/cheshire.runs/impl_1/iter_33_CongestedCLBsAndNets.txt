@@ -1,0 +1,22 @@
+List of CLB Tiles
+CLEL_L_X67Y143
+CLEL_R_X67Y143
+CLE_M_X61Y135
+CLEL_R_X61Y135
+CLE_M_X56Y131
+CLEL_R_X56Y131
+CLEL_L_X49Y320
+CLEL_R_X49Y320
+CLEL_L_X42Y136
+CLEL_R_X42Y136
+CLEL_L_X42Y179
+CLEL_R_X42Y179
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/cl_tag_valid_rdata[0]_770[14]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/cl_tag_valid_rdata[0]_770[12]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/master_ports[0].i_cache_ctrl/mem_req_q[tag][49]_i_3_n_0
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/master_ports[0].i_cache_ctrl/p_2_in__0[30]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_miss_handler/i_bypass_arbiter/D[18]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_stream_arbiter_aw/i_arb/gen_rr_arb.i_arbiter/gen_arbiter.gen_int_rr.rr_q_reg[0]_2
+
