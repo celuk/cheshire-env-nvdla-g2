@@ -1,0 +1,20 @@
+List of CLB Tiles
+CLEL_L_X55Y114
+CLEL_R_X55Y114
+CLEL_L_X67Y86
+CLEL_R_X67Y86
+CLEL_R_X54Y45
+CLEL_R_X54Y115
+CLE_M_X43Y47
+CLEL_R_X43Y47
+
+List of Congested Nets
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_0[2]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[1].tag_sram/data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/cl_tag_valid_rdata[1]_667[15]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/branch_unit_i/fu_data_q_reg[0][imm][62][1]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/issue_stage_i/i_issue_read_operands/branch_predict_id_ex[predict_address][1]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu.i_cva6_mmu/i_dtlb/content_q_reg[15][gpte][ppn][41]_0[5]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/lsu_bypass_i/hgatp_q_reg[mode][0]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/ex_stage_i/lsu_i/gen_mmu.i_cva6_mmu/i_itlb/cl_tag_q_reg[17]
+i_cheshire_soc/gen_cva6_cores[0].i_core_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/i_tag_cmp/hit_way_q[1]_i_93_n_0
+
