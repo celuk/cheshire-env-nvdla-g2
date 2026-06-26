@@ -4,11 +4,11 @@
 
 //`define DRAM_SIM
 //`define SIM
-//`define GENESYS2
+`define GENESYS2
 //`define ZC706
 
 // for cheshire_pkg.sv, same for vcu118
-`define VCU108
+//`define VCU108
 
 `define CPU_CLK 50_000_000
 `define BAUD_RATE 115200
@@ -27,4 +27,5 @@
 
 `define JTAG
 
-`define TARGET_VCU108
+//`define TARGET_VCU108
+`define TARGET_GENESYS2

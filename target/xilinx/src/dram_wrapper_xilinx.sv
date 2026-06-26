@@ -27,9 +27,13 @@ module dram_wrapper_xilinx #(
   // System reset
   input  logic  sys_rst_i,
   input  logic  dram_clk_i,
+  `ifdef TARGET_VCU108
   input  logic  c0_sys_clk_p,
   input  logic  c0_sys_clk_n,
+  `endif
+  `ifdef USE_DDR4
   output logic  dram_clk_o,
+  `endif
   // Controller reset
   input  logic  soc_resetn_i,
   `ifndef TARGET_VCU108

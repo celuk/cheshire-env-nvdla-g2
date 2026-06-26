@@ -71,8 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param general.maxThreads 8
-set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-38864-ECIT01684/incrSyn
+set_param general.maxThreads 20
+set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-22484-ECIT01684/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -98,7 +98,9 @@ set_property include_dirs {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_rt-f3ef7a479684bc8b/include
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_stream-5acdacb5ad0096e6/include
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/include
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvxif_example/include
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/common/local/util
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/include
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/target/rtl/include
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/test
@@ -116,28 +118,31 @@ read_verilog {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/header.vh
 }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/config_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cv64a6_imafdcsclic_sv39_config_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/riscv_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/ariane_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/acc_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/AsyncThreePortRam.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/SyncDpRam.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/SyncDpRam_ind_r_w.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/vendor/pulp-platform/fpga-support/rtl/SyncThreePortRam.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/config_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/riscv_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/ariane_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/cf_math_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/acc_dispatcher.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/acc_dispatcher.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/addr_decode.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/addr_decode_dync.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/alu.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/amo_buffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/alu.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/amo_buffer.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/apb-eedfdf8ae90747af/src/apb_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi-5f55415724a7398c/src/obi_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi-5f55415724a7398c/src/apb_to_obi.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/apb_uart-4d4f3bfa4a1ee910/src/apb_uart_wrap.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/ariane_regfile_ff.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/ariane_regfile_fpga.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/ariane_regfile_ff.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/ariane_regfile_fpga.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/axi_adapter.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/axi_adapter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_atop_filter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_burst_splitter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_cdc.sv
@@ -208,7 +213,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_rt-f3ef7a479684bc8b/src/axi_rt_unit_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_rw_join.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_serializer.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/axi_shim.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/axi_shim.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_to_axi_lite.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_to_detailed_mem.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_to_mem.sv
@@ -223,16 +228,17 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi_rt-f3ef7a479684bc8b/src/axi_write_buffer.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_xbar.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/axi-a62f58d01c15417f/src/axi_xbar_unmuxed.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/bht.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/bht.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/binary_to_gray.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/branch_unit.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/btb.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/branch_unit.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/btb.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/build_config_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/unbent-cf54ac50d68a2fae/src/bus_err_unit_reg_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/unbent-cf54ac50d68a2fae/src/bus_err_unit.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/unbent-cf54ac50d68a2fae/src/bus_err_unit_bare.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/unbent-cf54ac50d68a2fae/src/bus_err_unit_reg_top.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/std_cache_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/cache_ctrl.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/std_cache_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/cache_ctrl.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/cb_filter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/cdc_2phase.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/cdc_2phase_clearable.sv
@@ -253,7 +259,6 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cheshire_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/regs/cheshire_reg_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/regs/cheshire_reg_top.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/cvxif_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dm_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/cheshire_soc.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clic-e7533acc1e7273c3/src/mclic_reg_pkg.sv
@@ -266,30 +271,33 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clint-7c9dd35834098ca9/src/clint.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clint-7c9dd35834098ca9/src/clint_reg_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/deprecated/clk_div.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/commit_stage.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/compressed_decoder.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/defs_div_sqrt_mvp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/control_mvp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/controller.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/commit_stage.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/compressed_decoder.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/defs_div_sqrt_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/control_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/controller.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/counter.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/csr_buffer.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/csr_regfile.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6_accel_first_pass_decoder_stub.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6_clic_controller.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/include/wt_cache_pkg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/cva6_icache.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/cva6_icache_axi_wrapper.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39x4/cva6_mmu_sv39x4.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39x4/cva6_ptw_sv39x4.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cva6_rvfi_probes.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39x4/cva6_tlb_sv39x4.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cvxif_fu.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/csr_buffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/csr_regfile.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/include/wt_cache_pkg.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_accel_first_pass_decoder_stub.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_fifo_v3.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/cva6_icache.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/cva6_icache_axi_wrapper.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_mmu/cva6_mmu.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_mmu/cva6_ptw.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_rvfi_probes.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_mmu/cva6_shared_tlb.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cva6_mmu/cva6_tlb.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvxif_compressed_if_driver.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvxif_fu.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvxif_issue_register_commit_if_driver.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/debug_rom/debug_rom.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/debug_rom/debug_rom_one_scratch.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/decoder.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/decoder.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/delta_counter.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/div_sqrt_top_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/div_sqrt_top_mvp.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dm_csrs.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dm_mem.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dm_sba.sv
@@ -298,27 +306,24 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dmi_jtag.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/riscv-dbg-be69239e2275d0e5/src/dmi_jtag_tap.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/dram_wrapper_xilinx.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/ex_stage.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/ex_stage.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/exp_backoff.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/fall_through_register.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/deprecated/fifo_v2.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/fifo_v3.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_cast_multi.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_classifier.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_divsqrt_multi.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_divsqrt_th_32.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_fma.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_fma_multi.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_noncomp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_block.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_fmt_slice.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_opgroup_multifmt_slice.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_rounding.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_sdotp_multi.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_sdotp_multi_wrapper.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/fpnew_top.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/fpu_wrap.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/frontend.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_cast_multi.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_classifier.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_divsqrt_multi.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_fma.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_fma_multi.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_noncomp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_opgroup_block.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_opgroup_fmt_slice.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_opgroup_multifmt_slice.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_rounding.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpnew_top.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/fpu_wrap.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/frontend.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/gpio/rtl/gpio_reg_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/gpio/rtl/gpio.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/gpio/rtl/gpio_reg_top.sv
@@ -330,7 +335,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/i2c/rtl/i2c_fsm.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/i2c/rtl/i2c_reg_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/id_queue.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/id_stage.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/id_stage.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/backend/idma_axi_read.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/backend/idma_axi_write.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/backend/idma_channel_coupler.sv
@@ -340,30 +345,29 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/backend/idma_legalizer_page_splitter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/midend/idma_nd_midend.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/idma-4c148ddd7769e582/src/frontend/idma_transfer_id_gen.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/instr_queue.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/instr_realign.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/instr_scan.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/instr_queue.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/instr_realign.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/instr_scan.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/irq_router-1440a50c892ff0a4/rtl/irq_router_reg_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/irq_router-1440a50c892ff0a4/rtl/irq_router.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/irq_router-1440a50c892ff0a4/rtl/irq_router_reg_top.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/issue_read_operands.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/issue_stage.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/iteration_div_sqrt_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/issue_read_operands.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/issue_stage.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/iteration_div_sqrt_mvp.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/lfsr.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/lfsr_8bit.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/src/lfsr_sr.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/load_store_unit.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/load_unit.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/lsu_bypass.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/load_store_unit.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/load_unit.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/lsu_bypass.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/lzc.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/macro_decoder.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/clic-e7533acc1e7273c3/src/mclic_reg_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/mem_to_banks_detailed.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/miss_handler.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/mmu.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mult.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/multiplier.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/norm_div_sqrt_mvp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/nrbd_nrsc_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/miss_handler.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/mult.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/multiplier.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/norm_div_sqrt_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/nrbd_nrsc_mvp.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/nvdla_wrapper_axi.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart.sv
@@ -375,12 +379,13 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/obi_peripherals-a4ce0ee16c19ba63/hw/obi_uart/obi_uart_tx.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/onehot_to_bin.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/passthrough_stream_fifo.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/perf_counters.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/perf_counters.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/src/periph_to_reg.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/pmp/src/pmp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/pmp/src/pmp_entry.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/pmp/src/pmp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/pmp/src/pmp_data_if.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/pmp/src/pmp_entry.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/popcount.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpu_div_sqrt_mvp-579af01d0334d88a/hdl/preprocess_mvp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cvfpu/src/fpu_div_sqrt_mvp/hdl/preprocess_mvp.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/prim/rtl/prim_util_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/prim/rtl/prim_fifo_sync.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/prim/rtl/prim_fifo_sync_cnt.sv
@@ -393,8 +398,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/vendor/lowrisc_opentitan/src/prim_subreg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/vendor/lowrisc_opentitan/src/prim_subreg_arb.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/vendor/lowrisc_opentitan/src/prim_subreg_ext.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/ptw.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/frontend/ras.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/frontend/ras.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/read.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/src/reg_cdc.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/register_interface-a5e28af0b05c99b8/src/reg_demux.sv
@@ -413,8 +417,8 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_gateway.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_reg_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/rv_plic/rtl/rv_plic_target.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/scoreboard.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/serdiv.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/scoreboard.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/serdiv.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-f294893581e52e0f/src/serial_link_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-f294893581e52e0f/src/serial_link.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-f294893581e52e0f/src/channel_allocator/serial_link_channel_allocator.sv
@@ -426,6 +430,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-f294893581e52e0f/src/regs/serial_link_single_channel_reg_top.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/shift_reg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/shift_reg_gated.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/simpleuart.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_cmd_pkg.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_byte_merge.sv
@@ -439,11 +444,12 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/opentitan_peripherals-dee9253d07079548/src/spi_host/rtl/spi_host_window.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/spill_register_flushable.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/common/local/util/sram_pulp.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/std_cache_subsystem.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/std_nbdcache.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/store_buffer.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/store_unit.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/common/local/util/sram.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/common/local/util/sram_cache.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/std_cache_subsystem.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/std_nbdcache.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/store_buffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/store_unit.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/stream_arbiter.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/stream_arbiter_flushable.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/serial_link-f294893581e52e0f/src/channel_allocator/stream_chopper.sv
@@ -462,18 +468,21 @@ read_verilog -library xil_defaultlib -sv {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/stream_xbar.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/sub_per_hash.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/sync.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/tag_cmp.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/tag_cmp.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_clk_xilinx.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/common/local/util/tc_sram_fpga_wrapper.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/common/local/util/tc_sram_wrapper_cache_techno.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/tech_cells_generic-a77259b7ce254187/src/fpga/tc_sram_xilinx.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/mmu_sv39/tlb.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/uart_programmer.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/common_cells-a2d5b58e90259484/src/unread.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_axi_adapter.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_cache_subsystem.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_ctrl.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_mem.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/cva6-96e60f2ba2613f43/core/cache_subsystem/wt_dcache_missunit.sv
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/rtl/src/wt_dcache_wbuffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_axi_adapter.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_cache_subsystem.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_dcache.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_dcache_ctrl.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_dcache_mem.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_dcache_missunit.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/cache_subsystem/wt_dcache_wbuffer.sv
+  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cva6/core/zcmt_decoder.sv
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/src/cheshire_top_xilinx.sv
 }
 read_verilog -library xil_defaultlib {
@@ -718,7 +727,6 @@ read_verilog -library xil_defaultlib {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/SDFSNQD1.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/ScanShareSel_JTAG_reg_ext_cg.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/cheshire/hw/future/UsbOhciAxi4.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/clk/rtl/gated_clk_cell.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/nvdla/cdp/int_sum_block_tp1.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_128x18.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/rams/synth/nv_ram_rws_128x18_logic.v
@@ -768,17 +776,6 @@ read_verilog -library xil_defaultlib {
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC3DO_C_PPP.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_SSYNC3DO_S_PPP.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/p_STRICTSYNC3DOTM_C_PPP.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ctrl.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_ff1.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_pack_single.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_prepare.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_round_single.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_special.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_srt_single.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fdsu/rtl/pa_fdsu_top.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_dp.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_frbus.v
-  C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/.bender/git/checkouts/fpnew-38a3bc5c5ae67c1c/vendor/opene906/E906_RTL_FACTORY/gen_rtl/fpu/rtl/pa_fpu_src_type.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync2d_c_pp.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync3d.v
   C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/cheshire-env-nvdla/nvdla/block-nvdla-sifive/vsrc/small/vmod/vlibs/sync3d_c_ppp.v
@@ -816,7 +813,7 @@ set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top cheshire_top_xilinx -part xc7k325tffg900-2
+synth_design -top cheshire_top_xilinx -part xc7k325tffg900-2 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
