@@ -1,6 +1,8 @@
 import serial
 import argparse
 import os
+import time
+import signal
 
 parser = argparse.ArgumentParser(description="Send data to the UART")
 parser.add_argument("--port", '-p', type=str, default="/dev/ttyUSB2", required=False, help="Serial port to use")
@@ -85,7 +87,23 @@ elif file_format == 2:
                 ser.write(padded[1:2])
                 ser.write(padded[0:1])
 
-ser.flush()
+# tcdrain() (ser.flush) never returns for FTDI ports forwarded into WSL2 via
+# usbipd, so poll the kernel output queue instead of flushing
+deadline = time.time() + 5
+while ser.out_waiting > 0 and time.time() < deadline:
+    time.sleep(0.01)
+time.sleep(0.2)
+
 ser.baudrate = baud_rate
-ser.close()
+
+# over the same usbipd transport close() blocks for the driver's 30 s
+# closing_wait; a pending signal makes the kernel abort that wait early
+if hasattr(signal, "SIGALRM"):
+    old_handler = signal.signal(signal.SIGALRM, lambda *a: None)
+    signal.alarm(1)
+    ser.close()
+    signal.alarm(0)
+    signal.signal(signal.SIGALRM, old_handler)
+else:
+    ser.close()
 print("Done Programming")

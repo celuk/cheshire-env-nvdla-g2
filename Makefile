@@ -51,6 +51,17 @@ program_linux:
 	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600
 	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600
 
+.PHONY: program_genesys2
+program_genesys2:
+	$(XILINX_VIVADO)/bin/vivado -mode batch -nolog -nojournal -source program_genesys2.tcl -tclargs $(ARGS)
+
+.PHONY: program_linux_genesys2
+program_linux_genesys2:
+	$(MAKE) program_genesys2 ARGS="/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.bit"
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600
+
 .PHONY: reset
 reset:
 	python3 cheshire-env-nvdla/tools/uart_send_reset.py --port /dev/ttyUSB$(word 2, $(MAKECMDGOALS)) -b 921600;
@@ -66,6 +77,12 @@ program_linux_problematic_cable:
 	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/projects/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600;
 
 plpc: program_linux_problematic_cable
+
+.PHONY: program_dram_wsl
+program_dram_wsl:
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200 -pb 921600;
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600;
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600;
 
 %:
 	@:
