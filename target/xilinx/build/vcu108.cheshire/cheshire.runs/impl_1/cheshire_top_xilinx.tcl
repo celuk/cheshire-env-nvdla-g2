@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
+  variable script "C:/chs/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
   variable category "vivado_impl"
 }
 
@@ -124,17 +124,17 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param checkpoint.writeSynthRtdsInDcp 1
   set_param general.maxThreads 20
   set_param chipscope.maxJobs 5
-  set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2048811-karpuz/incrSyn
+  set_param synth.incrementalSynthesisCache C:/chs/target/xilinx/build/vcu108.cheshire/.Xil/Vivado-12188-ECIT01684/incrSyn
   reset_param project.defaultXPMLibraries 
-  open_checkpoint /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
-  set_property webtalk.parent_dir /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.cache/wt [current_project]
-  set_property parent.project_path /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.xpr [current_project]
-  set_property ip_output_repo /home/shc/projects/cheshire-env-nvdla-g2/target/xilinx/build/vcu108.cheshire/cheshire.cache/ip [current_project]
+  open_checkpoint C:/chs/target/xilinx/build/vcu108.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
+  set_property webtalk.parent_dir C:/chs/target/xilinx/build/vcu108.cheshire/cheshire.cache/wt [current_project]
+  set_property parent.project_path C:/chs/target/xilinx/build/vcu108.cheshire/cheshire.xpr [current_project]
+  set_property ip_output_repo C:/chs/target/xilinx/build/vcu108.cheshire/cheshire.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
+  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }
@@ -292,7 +292,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
+  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   catch { write_mem_info -force -no_partial_mmi cheshire_top_xilinx.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }

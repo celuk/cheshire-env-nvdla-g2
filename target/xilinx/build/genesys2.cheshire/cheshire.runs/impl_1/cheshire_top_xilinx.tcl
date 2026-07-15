@@ -125,9 +125,9 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param general.maxThreads 20
+  set_param general.maxThreads 8
   set_param chipscope.maxJobs 5
-  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-4312-ECIT01684/incrSyn
+  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-38864-ECIT01684/incrSyn
   reset_param project.defaultXPMLibraries 
   open_checkpoint C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
   set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
@@ -192,7 +192,7 @@ OPTRACE "implement_debug_core" START { }
 OPTRACE "implement_debug_core" END { }
   } 
 OPTRACE "place_design" START { }
-  place_design -directive ExtraTimingOpt
+  place_design 
 OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
@@ -223,7 +223,7 @@ set rc [catch {
 OPTRACE "read constraints: phys_opt_design" START { }
 OPTRACE "read constraints: phys_opt_design" END { }
 OPTRACE "phys_opt_design" START { }
-  phys_opt_design -directive Explore
+  phys_opt_design 
 OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
@@ -251,7 +251,7 @@ set rc [catch {
 OPTRACE "read constraints: route_design" START { }
 OPTRACE "read constraints: route_design" END { }
 OPTRACE "route_design" START { }
-  route_design -directive NoTimingRelaxation
+  route_design 
 OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
