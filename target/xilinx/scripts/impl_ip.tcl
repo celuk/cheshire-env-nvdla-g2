@@ -248,6 +248,7 @@ switch $proj {
             }
             vcu118 {
                 set_property -dict [list \
+                    CONFIG.ADDN_UI_CLKOUT1_FREQ_HZ {50} \
                     CONFIG.System_Clock {No_Buffer} \
                     CONFIG.Reference_Clock {No_Buffer} \
                     CONFIG.C0_DDR4_BOARD_INTERFACE {ddr4_sdram_c1_062} \

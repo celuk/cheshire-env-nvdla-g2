@@ -42,8 +42,9 @@ set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property strategy Flow_PerfOptimized_high [get_runs synth_1]
 
 # Elaborate and open design to explore all clocks
-synth_design -rtl -name rtl_1
-report_clocks -file ${project_root}/clocks.rpt
+if {![catch {synth_design -rtl -name rtl_1}]} {
+    report_clocks -file ${project_root}/clocks.rpt
+}
 
 # Synthesis
 launch_runs -jobs $num_jobs synth_1

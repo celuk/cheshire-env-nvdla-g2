@@ -27,4 +27,4 @@
 
 `define JTAG
 
-`define TARGET_VCU108
+`define TARGET_VCU118
