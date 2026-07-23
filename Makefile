@@ -67,5 +67,11 @@ program_linux_problematic_cable:
 
 plpc: program_linux_problematic_cable
 
+.PHONY: program_dram_wsl
+program_dram_wsl:
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-opensbi-port/platform/template/custom.dtb.hex -p /dev/ttyUSB$(ARGS) -sa 0x00140000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-linux-port/arch/riscv/boot/Image.hex -p /dev/ttyUSB$(ARGS) -sa 0x00200000 -b 115200 -pb 921600
+	python3 cheshire-env-nvdla/tools/uart_send_data_to_dram.py -f /home/shc/cheshire-linux-nvdla/riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex -p /dev/ttyUSB$(ARGS) -sa 0x0 -b 115200 -pb 921600
+
 %:
 	@:

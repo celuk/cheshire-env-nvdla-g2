@@ -569,6 +569,7 @@ module cheshire_top_xilinx import cheshire_pkg::*; #(
     .dram_clk_o   ( soc_clk ),
     `else
     .soc_clk_i    ( soc_clk ),
+    .dram_clk_o   ( ),
     `endif
     .dram_clk_i   ( sys_clk ),
     `ifdef TARGET_VCU108

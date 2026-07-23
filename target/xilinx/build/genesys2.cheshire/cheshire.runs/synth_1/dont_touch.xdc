@@ -5,8 +5,8 @@
 
 # XDC: imports/constraints/genesys2.xdc
 
-# IP: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
+# IP: C:/chs/target/xilinx/build/genesys2.mig7s/mig7s.srcs/sources_1/ip/mig7s/mig7s.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mig7s || ORIG_REF_NAME==mig7s} -quiet] -quiet
 
-# IP: C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
+# IP: C:/chs/target/xilinx/build/genesys2.clkwiz/clkwiz.srcs/sources_1/ip/clkwiz/clkwiz.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==clkwiz || ORIG_REF_NAME==clkwiz} -quiet] -quiet

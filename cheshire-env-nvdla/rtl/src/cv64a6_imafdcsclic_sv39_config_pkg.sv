@@ -14,7 +14,7 @@ package cva6_config_pkg;
 
   localparam CVA6ConfigXlen = 64;
 
-  localparam CVA6ConfigRVF = 1;
+  localparam CVA6ConfigRVF = 0;
   localparam CVA6ConfigF16En = 0;
   localparam CVA6ConfigF16AltEn = 0;
   localparam CVA6ConfigF8En = 0;
@@ -38,12 +38,12 @@ package cva6_config_pkg;
   localparam CVA6ConfigDataUserEn = 0;
   localparam CVA6ConfigDataUserWidth = 2;
 
-  localparam CVA6ConfigIcacheByteSize = 128;
+  localparam CVA6ConfigIcacheByteSize = 256;
   localparam CVA6ConfigIcacheSetAssoc = 2;
-  localparam CVA6ConfigIcacheLineWidth = 64;
-  localparam CVA6ConfigDcacheByteSize = 128;
+  localparam CVA6ConfigIcacheLineWidth = 128;
+  localparam CVA6ConfigDcacheByteSize = 256;
   localparam CVA6ConfigDcacheSetAssoc = 2;
-  localparam CVA6ConfigDcacheLineWidth = 64;
+  localparam CVA6ConfigDcacheLineWidth = 128;
 
   localparam CVA6ConfigDcacheFlushOnFence = 1'b0;
   localparam CVA6ConfigDcacheInvalidateOnFlush = 1'b0;
@@ -69,7 +69,7 @@ package cva6_config_pkg;
 
   localparam CVA6ConfigPerfCounterEn = 1;
 
-  localparam config_pkg::cache_type_t CVA6ConfigDcacheType = config_pkg::WB;
+  localparam config_pkg::cache_type_t CVA6ConfigDcacheType = config_pkg::WT;
 
   localparam CVA6ConfigMmuPresent = 1;
 

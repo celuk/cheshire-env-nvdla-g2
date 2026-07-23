@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
+  variable script "C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.tcl"
   variable category "vivado_impl"
 }
 
@@ -125,14 +125,14 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param general.maxThreads 8
+  set_param general.maxThreads 20
   set_param chipscope.maxJobs 5
-  set_param synth.incrementalSynthesisCache C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-38864-ECIT01684/incrSyn
+  set_param synth.incrementalSynthesisCache C:/chs/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-27140-ECIT01684/incrSyn
   reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
-  set_property webtalk.parent_dir C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
-  set_property parent.project_path C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.xpr [current_project]
-  set_property ip_output_repo C:/Users/2640084/Desktop/ubuntu/shared/projects/cheshire-env-nvdla-g2/target/xilinx/build/genesys2.cheshire/cheshire.cache/ip [current_project]
+  open_checkpoint C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.runs/impl_1/cheshire_top_xilinx.dcp
+  set_property webtalk.parent_dir C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.cache/wt [current_project]
+  set_property parent.project_path C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.xpr [current_project]
+  set_property ip_output_repo C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 OPTRACE "init_design_reports" START { REPORT }
@@ -192,7 +192,7 @@ OPTRACE "implement_debug_core" START { }
 OPTRACE "implement_debug_core" END { }
   } 
 OPTRACE "place_design" START { }
-  place_design 
+  place_design -directive ExtraTimingOpt
 OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
@@ -223,7 +223,7 @@ set rc [catch {
 OPTRACE "read constraints: phys_opt_design" START { }
 OPTRACE "read constraints: phys_opt_design" END { }
 OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
+  phys_opt_design -directive Explore
 OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
@@ -251,7 +251,7 @@ set rc [catch {
 OPTRACE "read constraints: route_design" START { }
 OPTRACE "read constraints: route_design" END { }
 OPTRACE "route_design" START { }
-  route_design 
+  route_design -directive NoTimingRelaxation
 OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
