@@ -6,7 +6,7 @@
 <Project Version="7" Minor="61" Path="C:/chs/target/xilinx/build/genesys2.cheshire/cheshire.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="bce8e07da4ee41eab23e8f081d87891d"/>
+    <Option Name="Id" Val="41d4911159694203ae00431923540aa8"/>
     <Option Name="Part" Val="xc7k325tffg900-2"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -7883,8 +7883,8 @@
           <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
           <Option Id="NoCombineLuts">1</Option>
-          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="ShregMinSize">5</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="Directive">7</Option>
         </Step>
       </Strategy>

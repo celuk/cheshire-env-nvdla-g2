@@ -569,7 +569,7 @@ package cheshire_pkg;
       IcacheByteSize        : 256,
       IcacheSetAssoc        : 2,
       IcacheLineWidth       : 128,
-      DCacheType            : config_pkg::WT,
+      DCacheType            : config_pkg::WB,
       DcacheByteSize        : 256,
       DcacheSetAssoc        : 2,
       DcacheLineWidth       : 128,
