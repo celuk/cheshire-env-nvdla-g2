@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1785168427">
+<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1785190533">
   <File Type="PA-TCL" Name="cheshire_top_xilinx.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="cheshire_top_xilinx_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="cheshire_top_xilinx_reports.tcl"/>
@@ -7130,12 +7130,12 @@
       <Desc>Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold</Desc>
     </StratHandle>
     <Step Id="synth_design">
-      <Option Id="FsmExtraction">1</Option>
-      <Option Id="ResourceSharing">2</Option>
-      <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="NoCombineLuts">1</Option>
-      <Option Id="Directive">7</Option>
       <Option Id="ShregMinSize">5</Option>
+      <Option Id="KeepEquivalentRegisters">1</Option>
+      <Option Id="ResourceSharing">2</Option>
+      <Option Id="FsmExtraction">1</Option>
+      <Option Id="Directive">7</Option>
+      <Option Id="NoCombineLuts">1</Option>
     </Step>
   </Strategy>
 </GenRun>
