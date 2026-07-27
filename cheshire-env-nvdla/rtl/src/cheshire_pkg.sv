@@ -569,7 +569,7 @@ package cheshire_pkg;
       IcacheByteSize        : 256,
       IcacheSetAssoc        : 2,
       IcacheLineWidth       : 128,
-      DCacheType            : config_pkg::WB,
+      DCacheType            : config_pkg::WT,
       DcacheByteSize        : 256,
       DcacheSetAssoc        : 2,
       DcacheLineWidth       : 128,
@@ -670,7 +670,7 @@ package cheshire_pkg;
     LlcAmoPostCut     : 1,
     LlcOutConnect     : 1,
     LlcOutRegionStart : 'h8000_0000,
-    LlcOutRegionEnd   : 64'h1_0000_0000,
+    LlcOutRegionEnd   : `ifdef GENESYS2 64'hC000_0000 `else 64'h1_0000_0000 `endif,
     // VGA: RGB565
     VgaRedWidth       : 5,
     VgaGreenWidth     : 6,
