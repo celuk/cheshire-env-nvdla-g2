@@ -360,6 +360,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/cva6/core/include/std_cache_pkg.sv \
     $ROOTBENDER/cva6/core/include/instr_tracer_pkg.sv \
     $ROOTBENDER/cva6/core/include/build_config_pkg.sv \
+    $ROOTBENDER/cva6/core/include/aes_pkg.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/cva6/core/cvxif_compressed_if_driver.sv \
@@ -386,6 +387,8 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/cva6/core/instr_realign.sv \
     $ROOTBENDER/cva6/core/id_stage.sv \
     $ROOTBENDER/cva6/core/issue_read_operands.sv \
+    $ROOTBENDER/cva6/core/raw_checker.sv \
+    $ROOTBENDER/cva6/core/aes.sv \
     $ROOTBENDER/cva6/core/issue_stage.sv \
     $ROOTBENDER/cva6/core/load_unit.sv \
     $ROOTBENDER/cva6/core/load_store_unit.sv \
@@ -407,6 +410,7 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOTBENDER/cva6/core/cva6_fifo_v3.sv \
     $ROOTBENDER/cva6/core/frontend/btb.sv \
     $ROOTBENDER/cva6/core/frontend/bht.sv \
+    $ROOTBENDER/cva6/core/frontend/bht2lvl.sv \
     $ROOTBENDER/cva6/core/frontend/ras.sv \
     $ROOTBENDER/cva6/core/frontend/instr_scan.sv \
     $ROOTBENDER/cva6/core/frontend/instr_queue.sv \
