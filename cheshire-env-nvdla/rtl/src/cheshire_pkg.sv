@@ -531,6 +531,7 @@ package cheshire_pkg;
       RVZCMP                : 0,
       XFVec                 : 0,
       CvxifEn               : 1,
+      CoproType             : config_pkg::COPRO_NONE,
       RVZiCond              : 1,
       RVZicntr              : 1,
       RVZihpm               : 0,
@@ -544,7 +545,9 @@ package cheshire_pkg;
       ExceptionAddress      : 'h810, // Relative to AmDbg
       RASDepth              : cfg.Cva6RASDepth,
       BTBEntries            : cfg.Cva6BTBEntries,
+      BPType                : config_pkg::BHT,
       BHTEntries            : cfg.Cva6BHTEntries,
+      BHTHist               : 3,
       DmBaseAddress         : AmDbg,
       TvalEn                : 1,
       DirectVecOnly         : 0,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1785249455">
+<GenRun Id="synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1785341838">
   <File Type="PA-TCL" Name="cheshire_top_xilinx.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="cheshire_top_xilinx_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="cheshire_top_xilinx_reports.tcl"/>
@@ -1866,14 +1866,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../cva6/core/cvfpu/src/fpnew_pkg.sv">
+    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/cf_math_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/cf_math_pkg.sv">
+    <File Path="$PPRDIR/../../../../cva6/core/cvfpu/src/fpnew_pkg.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -1895,6 +1895,20 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/addr_decode_dync.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../cva6/core/include/aes_pkg.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../cva6/core/aes.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -2560,6 +2574,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../cva6/core/frontend/bht.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../cva6/core/frontend/bht2lvl.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -3757,6 +3778,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../../../cva6/core/frontend/ras.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../cva6/core/raw_checker.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -7130,12 +7158,12 @@
       <Desc>Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold</Desc>
     </StratHandle>
     <Step Id="synth_design">
-      <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="FsmExtraction">1</Option>
       <Option Id="ResourceSharing">2</Option>
       <Option Id="Directive">7</Option>
-      <Option Id="NoCombineLuts">1</Option>
       <Option Id="ShregMinSize">5</Option>
+      <Option Id="FsmExtraction">1</Option>
+      <Option Id="KeepEquivalentRegisters">1</Option>
+      <Option Id="NoCombineLuts">1</Option>
     </Step>
   </Strategy>
 </GenRun>

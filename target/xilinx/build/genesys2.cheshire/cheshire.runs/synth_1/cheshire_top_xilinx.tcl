@@ -72,7 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param general.maxThreads 20
-set_param synth.incrementalSynthesisCache C:/chs/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-10544-ECIT01684/incrSyn
+set_param synth.incrementalSynthesisCache C:/chs/target/xilinx/build/genesys2.cheshire/.Xil/Vivado-27440-ECIT01684/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -129,11 +129,13 @@ read_verilog -library xil_defaultlib -sv {
   C:/chs/cheshire-env-nvdla/rtl/src/cv64a6_imafdcsclic_sv39_config_pkg.sv
   C:/chs/cva6/core/include/riscv_pkg.sv
   C:/chs/cva6/core/include/ariane_pkg.sv
-  C:/chs/cva6/core/cvfpu/src/fpnew_pkg.sv
   C:/chs/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/cf_math_pkg.sv
+  C:/chs/cva6/core/cvfpu/src/fpnew_pkg.sv
   C:/chs/cva6/core/acc_dispatcher.sv
   C:/chs/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/addr_decode.sv
   C:/chs/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/addr_decode_dync.sv
+  C:/chs/cva6/core/include/aes_pkg.sv
+  C:/chs/cva6/core/aes.sv
   C:/chs/cva6/core/alu.sv
   C:/chs/cva6/core/amo_buffer.sv
   C:/chs/.bender/git/checkouts/apb-d506f9cfdae5c46b/src/apb_pkg.sv
@@ -229,6 +231,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/chs/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_xbar.sv
   C:/chs/.bender/git/checkouts/axi-ecdc900686449c15/src/axi_xbar_unmuxed.sv
   C:/chs/cva6/core/frontend/bht.sv
+  C:/chs/cva6/core/frontend/bht2lvl.sv
   C:/chs/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/binary_to_gray.sv
   C:/chs/cva6/core/branch_unit.sv
   C:/chs/cva6/core/frontend/btb.sv
@@ -399,6 +402,7 @@ read_verilog -library xil_defaultlib -sv {
   C:/chs/.bender/git/checkouts/register_interface-902ad5bfde7bb98c/vendor/lowrisc_opentitan/src/prim_subreg_arb.sv
   C:/chs/.bender/git/checkouts/register_interface-902ad5bfde7bb98c/vendor/lowrisc_opentitan/src/prim_subreg_ext.sv
   C:/chs/cva6/core/frontend/ras.sv
+  C:/chs/cva6/core/raw_checker.sv
   C:/chs/.bender/git/checkouts/common_cells-7f7ae0f5e6bf7fb5/src/read.sv
   C:/chs/.bender/git/checkouts/register_interface-902ad5bfde7bb98c/src/reg_cdc.sv
   C:/chs/.bender/git/checkouts/register_interface-902ad5bfde7bb98c/src/reg_demux.sv
